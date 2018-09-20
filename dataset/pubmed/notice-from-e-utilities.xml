@@ -1,0 +1,937 @@
+<?xml version="1.0"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st June 2018//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_180601.dtd">
+<PubmedArticleSet>
+
+<PubmedBookArticle>
+    <BookDocument>
+        <PMID Version="1">30222285</PMID>
+        <ArticleIdList>
+            <ArticleId IdType="bookaccession">NBK525339</ArticleId>
+            <ArticleId IdType="doi">10.3310/pgfar06060</ArticleId>
+        </ArticleIdList>
+        <Book>
+            <Publisher>
+                <PublisherName>NIHR Journals Library</PublisherName>
+                <PublisherLocation>Southampton (UK)</PublisherLocation>
+            </Publisher>
+            <BookTitle book="ukpgfar0606">Reducing relapse and suicide in bipolar disorder: practical clinical approaches to identifying risk, reducing harm and engaging service users in planning and delivery of care – the PARADES (Psychoeducation, Anxiety, Relapse, Advance Directive Evaluation and Suicidality) programme</BookTitle>
+            <PubDate>
+                <Year>2018</Year>
+                <Month>9</Month>
+            </PubDate>
+            <AuthorList Type="authors">
+                <Author>
+                    <LastName>Jones</LastName>
+                    <ForeName>Steven</ForeName>
+                    <Initials>S</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Spectrum Centre for Mental Health Research, Faculty of Health and Medicine, Lancaster University, Lancaster, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Riste</LastName>
+                    <ForeName>Lisa</ForeName>
+                    <Initials>L</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>School of Psychological Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Barrowclough</LastName>
+                    <ForeName>Christine</ForeName>
+                    <Initials>C</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>School of Psychological Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Bartlett</LastName>
+                    <ForeName>Peter</ForeName>
+                    <Initials>P</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>School of Law and Institute of Mental Health, University of Nottingham, Nottingham, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Clements</LastName>
+                    <ForeName>Caroline</ForeName>
+                    <Initials>C</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Brain, Behaviour and Mental Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Davies</LastName>
+                    <ForeName>Linda</ForeName>
+                    <Initials>L</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Population Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Holland</LastName>
+                    <ForeName>Fiona</ForeName>
+                    <Initials>F</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Population Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Kapur</LastName>
+                    <ForeName>Nav</ForeName>
+                    <Initials>N</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Brain, Behaviour and Mental Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                    <AffiliationInfo>
+                        <Affiliation>Manchester Mental Health &amp; Social Care NHS Trust, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Lobban</LastName>
+                    <ForeName>Fiona</ForeName>
+                    <Initials>F</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Spectrum Centre for Mental Health Research, Faculty of Health and Medicine, Lancaster University, Lancaster, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Long</LastName>
+                    <ForeName>Rita</ForeName>
+                    <Initials>R</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Spectrum Centre for Mental Health Research, Faculty of Health and Medicine, Lancaster University, Lancaster, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Morriss</LastName>
+                    <ForeName>Richard</ForeName>
+                    <Initials>R</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Mental Health, University of Nottingham, Nottingham, UK</Affiliation>
+                    </AffiliationInfo>
+                    <AffiliationInfo>
+                        <Affiliation>Nottinghamshire Healthcare NHS Foundation Trust, Nottingham, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Peters</LastName>
+                    <ForeName>Sarah</ForeName>
+                    <Initials>S</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>School of Psychological Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Roberts</LastName>
+                    <ForeName>Chris</ForeName>
+                    <Initials>C</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Population Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Camacho</LastName>
+                    <ForeName>Elizabeth</ForeName>
+                    <Initials>E</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Population Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Gregg</LastName>
+                    <ForeName>Lynsey</ForeName>
+                    <Initials>L</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>School of Psychological Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Ntais</LastName>
+                    <ForeName>Dionysios</ForeName>
+                    <Initials>D</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Institute of Population Health, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+            </AuthorList>
+            <CollectionTitle book="ukpgfarcollect">Programme Grants for Applied Research</CollectionTitle>
+            <ELocationID EIdType="doi">10.3310/pgfar06060</ELocationID>
+        </Book>
+        <Language>eng</Language>
+        <PublicationType UI="D016454">Review</PublicationType>
+        <Abstract>
+            <AbstractText Label="BACKGROUND">Bipolar disorder (BD) costs £5.2B annually, largely as a result of incomplete recovery after inadequate treatment.</AbstractText>
+            <AbstractText Label="OBJECTIVES">A programme of linked studies to reduce relapse and suicide in BD.</AbstractText>
+            <AbstractText Label="DESIGN">There were five workstreams (WSs): a pragmatic randomised controlled trial (RCT) of group psychoeducation (PEd) versus group peer support (PS) in the maintenance of BD (WS1); development and feasibility RCTs of integrated psychological therapy for anxiety in bipolar disorder (AIBD) and integrated for problematic alcohol use in BD (WS2 and WS3); survey and qualitative investigations of suicide and self-harm in BD (WS4); and survey and qualitative investigation of service users’ (SUs) and psychiatrists’ experience of the Mental Capacity Act 2005 (MCA), with reference to advance planning (WS5).</AbstractText>
+            <AbstractText Label="SETTING">Participants were from England; recruitment into RCTs was limited to certain sites [East Midlands and North West (WS1); North West (WS2 and WS3)].</AbstractText>
+            <AbstractText Label="PARTICIPANTS">Aged ≥ 18 years. In WS1–3, participants had their diagnosis of BD confirmed by the Structural Clinical Interview for the <i>Diagnostic and Statistical Manual of Mental Disorders</i>.</AbstractText>
+            <AbstractText Label="INTERVENTIONS">In WS1, group PEd/PS; in WS3 and WS4, individual psychological therapy for comorbid anxiety and alcohol use, respectively.</AbstractText>
+            <AbstractText Label="MAIN OUTCOME MEASURES">In WS1, time to relapse of bipolar episode; in WS2 and WS3, feasibility and acceptability of interventions; in WS4, prevalence and determinants of suicide and self-harm; and in WS5, professional training and support of advance planning in MCA, and SU awareness and implementation.</AbstractText>
+            <AbstractText Label="RESULTS">Group PEd and PS could be routinely delivered in the NHS. The estimated median time to first bipolar relapse was 67.1 [95% confidence interval (CI) 37.3 to 90.9] weeks in PEd, compared with 48.0 (95% CI 30.6 to 65.9) weeks in PS. The adjusted hazard ratio was 0.83 (95% CI 0.62 to 1.11; likelihood ratio test <i>p</i> = 0.217). The interaction between the number of previous bipolar episodes (1–7 and 8–19, relative to 20+) and treatment arm was significant (χ<sup>2</sup> = 6.80, degrees of freedom = 2; <i>p</i> = 0.034): PEd with one to seven episodes showed the greatest delay in time to episode. A primary economic analysis indicates that PEd is not cost-effective compared with PS. A sensitivity analysis suggests potential cost-effectiveness if decision-makers accept a cost of £37,500 per quality-adjusted life-year. AIBD and motivational interviewing (MI) cognitive–behavioural therapy (CBT) trials were feasible and acceptable in achieving recruitment and retention targets (AIBD: <i>n</i> = 72, 72% retention to follow-up; MI-CBT: <i>n</i> = 44, 75% retention) and in-depth qualitative interviews. There were no significant differences in clinical outcomes for either trial overall. The factors associated with risk of suicide and self-harm (longer duration of illness, large number of periods of inpatient care, and problems establishing diagnosis) could inform improved clinical care and specific interventions. Qualitative interviews suggested that suicide risk had been underestimated, that care needs to be more collaborative and that people need fast access to good-quality care. Despite SUs supporting advance planning and psychiatrists being trained in MCA, the use of MCA planning provisions was low, with confusion over informal and legally binding plans.</AbstractText>
+            <AbstractText Label="LIMITATIONS">Inferences for routine clinical practice from WS1 were limited by the absence of a ‘treatment as usual’ group.</AbstractText>
+            <AbstractText Label="CONCLUSION">The programme has contributed significantly to understanding how to improve outcomes in BD. Group PEd is being implemented in the NHS influenced by SU support.</AbstractText>
+            <AbstractText Label="FUTURE WORK">Future work is needed to evaluate optimal approaches to psychological treatment of comorbidity in BD. In addition, work in improved risk detection in relation to suicide and self-harm in clinical services and improved training in MCA are indicated.</AbstractText>
+            <AbstractText Label="TRIAL REGISTRATION">Current Controlled Trials ISRCTN62761948, ISRCTN84288072 and ISRCTN14774583.</AbstractText>
+            <AbstractText Label="FUNDING">This project was funded by the National Institute for Health Research (NIHR) Programme Grants for Applied Research programme and will be published in full in <i>Programme Grants for Applied Research</i>; Vol. 6, No. 6. See the NIHR Journals Library website for further project information.</AbstractText>
+            <CopyrightInformation>Copyright © Queen’s Printer and Controller of HMSO 2018. This work was produced by Jones et al. under the terms of a commissioning contract issued by the Secretary of State for Health and Social Care. This issue may be freely reproduced for the purposes of private research and study and extracts (or indeed, the full report) may be included in professional journals provided that suitable acknowledgement is made and the reproduction is not associated with any form of advertising. Applications for commercial reproduction should be addressed to: NIHR Journals Library, National Institute for Health Research, Evaluation, Trials and Studies Coordinating Centre, Alpha House, University of Southampton Science Park, Southampton SO16 7NS, UK.</CopyrightInformation>
+        </Abstract>
+        <Sections>
+            <Section>
+                <SectionTitle book="ukpgfar0606" part="abs2">Plain English summary</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukpgfar0606" part="abs3">Scientific summary</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 1</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s1">Introduction</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 2a</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s2a">Pragmatic randomised controlled trial of group psychoeducation versus group peer support in the maintenance of bipolar disorder: main clinical outcomes</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 2b</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s2b">Pragmatic randomised controlled trial of psychoeducation versus peer support in the maintenance of bipolar disorder: economic evaluation</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 3</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s3">Psychological treatment of anxiety in bipolar disorder</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 4</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s4">Psychological treatment of comorbid alcohol use in bipolar disorder</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 5</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s5">Suicidal behaviour in bipolar disorder</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 6</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s6">Is the Mental Capacity Act changing clinical practice for patients with bipolar disorder?</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 7</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s7">Service user involvement in the PARADES programme</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 8</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="s8">Discussion</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukpgfar0606" part="ack1">Acknowledgements</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukpgfar0606" part="ref1">References</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 1</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app1">Additional participant details</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 2</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app2">Utility and quality-adjusted life-years data</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 3</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app3">Service use and costs</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 4</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app4">Mental Capacity Act 2005 study: psychiatrists’ survey</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 5</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app5">Advance planning for people with bipolar disorder</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 6</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app6">Mental Capacity Act 2005 study: service user survey</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 7</LocationLabel>
+                <SectionTitle book="ukpgfar0606" part="app7">Integrated anxiety intervention-specific fidelity measure</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukpgfar0606" part="g1">List of abbreviations</SectionTitle>
+            </Section>
+        </Sections>
+    </BookDocument>
+    <PubmedBookData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pubmed">30222285</ArticleId>
+        </ArticleIdList>
+    </PubmedBookData>
+</PubmedBookArticle>
+
+
+<PubmedBookArticle>
+    <BookDocument>
+        <PMID Version="1">30222284</PMID>
+        <ArticleIdList>
+            <ArticleId IdType="bookaccession">NBK525363</ArticleId>
+            <ArticleId IdType="doi">10.3310/hsdr06320</ArticleId>
+        </ArticleIdList>
+        <Book>
+            <Publisher>
+                <PublisherName>NIHR Journals Library</PublisherName>
+                <PublisherLocation>Southampton (UK)</PublisherLocation>
+            </Publisher>
+            <BookTitle book="ukhsdr0632">Culturally adapted Family Intervention (CaFI) for African-Caribbean people diagnosed with schizophrenia and their families: a mixed-methods feasibility study of development, implementation and acceptability</BookTitle>
+            <PubDate>
+                <Year>2018</Year>
+                <Month>9</Month>
+            </PubDate>
+            <AuthorList Type="authors">
+                <Author>
+                    <LastName>Edge</LastName>
+                    <ForeName>Dawn</ForeName>
+                    <Initials>D</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Division of Psychology &amp; Mental Health, School of Health Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Degnan</LastName>
+                    <ForeName>Amy</ForeName>
+                    <Initials>A</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Division of Psychology &amp; Mental Health, School of Health Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                    <AffiliationInfo>
+                        <Affiliation>Greater Manchester Mental Health NHS Foundation Trust, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Cotterill</LastName>
+                    <ForeName>Sarah</ForeName>
+                    <Initials>S</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Division of Psychology &amp; Mental Health, School of Health Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Berry</LastName>
+                    <ForeName>Katherine</ForeName>
+                    <Initials>K</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Division of Psychology &amp; Mental Health, School of Health Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Baker</LastName>
+                    <ForeName>John</ForeName>
+                    <Initials>J</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>School of Healthcare, Faculty of Medicine and Health, University of Leeds, Leeds, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Drake</LastName>
+                    <ForeName>Richard</ForeName>
+                    <Initials>R</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Division of Psychology &amp; Mental Health, School of Health Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                    <AffiliationInfo>
+                        <Affiliation>Greater Manchester Mental Health NHS Foundation Trust, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author>
+                    <LastName>Abel</LastName>
+                    <ForeName>Kathryn</ForeName>
+                    <Initials>K</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Division of Psychology &amp; Mental Health, School of Health Sciences, University of Manchester, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                    <AffiliationInfo>
+                        <Affiliation>Greater Manchester Mental Health NHS Foundation Trust, Manchester, UK</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+            </AuthorList>
+            <CollectionTitle book="ukhsdrcollect">Health Services and Delivery Research</CollectionTitle>
+            <ELocationID EIdType="doi">10.3310/hsdr06320</ELocationID>
+        </Book>
+        <Language>eng</Language>
+        <PublicationType UI="D016454">Review</PublicationType>
+        <Abstract>
+            <AbstractText Label="BACKGROUND">African-Caribbean people in the UK experience the highest incidence of schizophrenia and the greatest inequity in mental health care. There is an urgent need to improve their access to evidence-based care and outcomes. Family intervention (FI) is a National Institute for Health and Care Excellence-approved psychosocial intervention. Although clinically effective and cost-effective for schizophrenia, it is rarely offered. Evidence for any research into FI is lacking for ethnic minority people generally and for African-Caribbean people specifically.</AbstractText>
+            <AbstractText Label="AIMS">(1) To assess the feasibility of delivering a novel, culturally appropriate psychosocial intervention within a ‘high-risk’ population to improve engagement and access to evidence-based care. (2) To test the feasibility and acceptability of delivering FI via ‘proxy families’.</AbstractText>
+            <AbstractText Label="DESIGN">A mixed-methods, feasibility cohort study, incorporating focus groups and an expert consensus conference.</AbstractText>
+            <AbstractText Label="SETTING">Two mental health trusts in north-west England.</AbstractText>
+            <AbstractText Label="PARTICIPANTS">We recruited a convenience sample of 31 African-Caribbean service users. Twenty-six family units [service users, relatives/family support members (FSMs) or both] commenced therapy. Half of the service users (<i>n</i> = 13, 50%), who did not have access to their biological families, participated by working with FSMs.</AbstractText>
+            <AbstractText Label="INTERVENTIONS">An extant FI model was culturally adapted with key stakeholders using a literature-derived framework [Culturally adapted Family Intervention (CaFI)]. Ten CaFI sessions were offered to each service user and associated family.</AbstractText>
+            <AbstractText Label="MAIN OUTCOME MEASURES">Recruitment (number approached vs. number consented), attendance (number of sessions attended), attrition (number of dropouts at each time point), retention (proportion of participants who completed therapy sessions), and completeness of outcome measurement.</AbstractText>
+            <AbstractText Label="RESULTS">Of 74 eligible service users, 31 (42%) consented to take part in the feasibility trial. The majority (<i>n</i> = 21, 67.7%) were recruited from community settings, seven (22.6%) were recruited from rehabilitation settings and three (9.7%) were recruited from acute wards. Twenty-four family units (92%) completed all 10 therapy sessions. The proportion who completed treatment was 77.42% (24/31). The mean number of sessions attended was 7.90 (standard deviation 3.96 sessions) out of 10. It proved feasible to collect a range of outcome data at baseline, post intervention and at the 3-month follow-up. The rating of sessions and the qualitative findings indicated that CaFI was acceptable to service users, families, FSMs and health-care professionals.</AbstractText>
+            <AbstractText Label="LIMITATIONS">The lack of a control group and the limited sample size mean that there is insufficient power to assess efficacy. The findings are not generalisable beyond this population.</AbstractText>
+            <AbstractText Label="CONCLUSIONS">It proved feasible to culturally adapt and test FI with a sample of African-Caribbean service users and their families. Our study yielded high rates of recruitment, attendance, retention and data completion. We delivered CaFI via FSMs in the absence of biological families. This novel aspect of the study has implications for other groups who do not have access to their biological families. We also demonstrated the feasibility of collecting a range of outcomes to inform future trials and confirmed CaFI’s acceptability to key stakeholders. These are important findings. If CaFI can be delivered to the group of service users with the most serious and persistent disparities in schizophrenia care, it has the potential to be modified for and delivered to other underserved groups.</AbstractText>
+            <AbstractText Label="FUTURE WORK">A fully powered, multicentre trial, comparing CaFI with usual care, is planned.</AbstractText>
+            <AbstractText Label="TRIAL REGISTRATION">Current Controlled Trials ISRCTN94393315.</AbstractText>
+            <AbstractText Label="FUNDING">This project was funded by the National Institute for Health Research (NIHR) Health Services and Delivery Research programme and will be published in full in <i>Health Services and Delivery Research</i>; Vol. 6, No. 32. See the NIHR Journals Library website for further project information.</AbstractText>
+            <CopyrightInformation>Copyright © Queen’s Printer and Controller of HMSO 2018. This work was produced by Edge et al. under the terms of a commissioning contract issued by the Secretary of State for Health and Social Care. This issue may be freely reproduced for the purposes of private research and study and extracts (or indeed, the full report) may be included in professional journals provided that suitable acknowledgement is made and the reproduction is not associated with any form of advertising. Applications for commercial reproduction should be addressed to: NIHR Journals Library, National Institute for Health Research, Evaluation, Trials and Studies Coordinating Centre, Alpha House, University of Southampton Science Park, Southampton SO16 7NS, UK.</CopyrightInformation>
+        </Abstract>
+        <Sections>
+            <Section>
+                <SectionTitle book="ukhsdr0632" part="abs2">Plain English summary</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukhsdr0632" part="abs3">Scientific summary</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 1</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s1">Introduction</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 2</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s2">Review of the literature</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 3</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s3">What does cultural adaptation look like and how is it applied?</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 4</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s4">Developing CaFI: a consensus conference</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 5</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s5">Therapist and family support member training</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 6</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s6">Feasibility trial</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 7</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s7">Acceptability</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">Chapter 8</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="s8">Discussion</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukhsdr0632" part="ack1">Acknowledgements</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukhsdr0632" part="ref1">References</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 1</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app1">Search strategy for the systematic review of culturally adapted psychosocial interventions for schizophrenia</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 2</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app2">Characteristics of studies included in the systematic review of culturally adapted interventions (<i>n</i> = 46)</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 3</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app3">Characteristics of interventions included in the systematic review of culturally adapted psychosocial interventions for psychosis</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 4</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app4">Description and examples of themes of cultural adaptation</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 5</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app5">Cultural adaptations emerging from thematic analysis of psychosocial interventions for psychosis</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 6</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app6">Phase 1 service user recruitment poster</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 7</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app7">Phase 1 service user participant information sheet</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 8</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app8">Phase 1 service user consent form</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 9</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app9">Service user focus group topic guide</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 10</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app10">Help in a crisis information sheet</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 11</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app11">Service user focus group PowerPoint presentation slides</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 12</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app12">Mixed focus group topic guide</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 13</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app13">Mixed focus group presentation slides</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 14</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app14">Consensus conference participant information sheet</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 15</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app15">Consensus conference PowerPoint presentation slides</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 16</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app16">Components of the CaFI therapy manual</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 17</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app17">Therapist training slides for the delivery of the CaFI manual</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 18</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app18">Family support member recruitment poster</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 19</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app19">Phase 3 participant information sheet</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 20</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app20">Meriden Family Programme training evaluation form</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 21</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app21">Just Psychology cultural competency training family support workers’ feedback questionnaire</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 22</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app22">Just Psychology cultural competency training therapist feedback questionnaire</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 23</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app23">Just Psychology evaluation report</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 24</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app24">Phase 3 service user recruitment poster</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 25</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app25">Statistical analysis plan</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 26</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app26">CaFI fidelity measure</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 27</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app27">Feedback sheets</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 28</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app28">Qualitative follow-up interview schedule: service users</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="appendix">Appendix 29</LocationLabel>
+                <SectionTitle book="ukhsdr0632" part="app29">Histograms of the outcome measures</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="ukhsdr0632" part="g1">List of abbreviations</SectionTitle>
+            </Section>
+        </Sections>
+    </BookDocument>
+    <PubmedBookData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pubmed">30222284</ArticleId>
+        </ArticleIdList>
+    </PubmedBookData>
+</PubmedBookArticle>
+
+
+<PubmedBookArticle>
+    <BookDocument>
+        <PMID Version="1">30222283</PMID>
+        <ArticleIdList>
+            <ArticleId IdType="bookaccession">NBK525669</ArticleId>
+            <ArticleId IdType="doi">10.17226/25148</ArticleId>
+        </ArticleIdList>
+        <Book>
+            <Publisher>
+                <PublisherName>National Academies Press (US)</PublisherName>
+                <PublisherLocation>Washington (DC)</PublisherLocation>
+            </Publisher>
+            <BookTitle book="nap25148">Harmonization of Approaches to Nutrient Reference Values: Applications to Young Children and Women of Reproductive Age</BookTitle>
+            <PubDate>
+                <Year>2018</Year>
+                <Month>06</Month>
+                <Day>11</Day>
+            </PubDate>
+            <AuthorList Type="authors">
+                <Author>
+                    <CollectiveName>National Academies of Sciences, Engineering, and Medicine</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Health and Medicine Division</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Food and Nutrition Board</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Committee on the Application of Global Harmonization of Methodological Approaches to Nutrient Intake Recommendations for Young Children and Women of Reproductive Age</CollectiveName>
+                </Author>
+            </AuthorList>
+            <Isbn>9780309477697</Isbn>
+            <Isbn>0309477697</Isbn>
+            <ELocationID EIdType="doi">10.17226/25148</ELocationID>
+        </Book>
+        <Language>eng</Language>
+        <PublicationType UI="D016454">Review</PublicationType>
+        <Abstract>
+            <AbstractText>Recommended intake levels for nutrients and other dietary components were designed initially to prevent nutrient deficiency diseases in a given population, and the original methodological approach used to derive intake values did not include consideration for other applications. However, with the increasing globalization of information and the identification of a variety of factors specific to different population subgroups (e.g., young children and women of reproductive age) that influence their nutritional needs, there has been increasing recognition of the need to consider methodological approaches to deriving nutrient reference values (NRVs) that are applicable across countries and that take into account the varying needs of different population subgroups. There is a need for guidance and recommendations about methodological approaches, as well as their potential for application to an international process for the development of NRVs, and particularly for young children and women of reproductive age. <i>Harmonization of Approaches to Nutrient Reference Values: Applications to Young Children and Women of Reproductive Age</i> examines these issues and makes recommendations for a unified approach to developing NRVs that would be acceptable globally.</AbstractText>
+            <CopyrightInformation>Copyright 2018 by the National Academy of Sciences. All rights reserved.</CopyrightInformation>
+        </Abstract>
+        <Sections>
+            <Section>
+                <SectionTitle book="nap25148" part="sec_000002">The National Academies of SCIENCES • ENGINEERING • MEDICINE</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25148" part="sec_000004">COMMITTEE ON THE APPLICATION OF GLOBAL HARMONIZATION OF METHODOLOGICAL APPROACHES TO NUTRIENT INTAKE RECOMMENDATIONS FOR YOUNG CHILDREN AND WOMEN OF REPRODUCTIVE AGE</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25148" part="sec_000007">Reviewers</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25148" part="sec_000008">Preface</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25148" part="sec_000010">Acronyms and Abbreviations</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25148" part="Sum1">Summary</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">1</LocationLabel>
+                <SectionTitle book="nap25148" part="ch1">Introduction and Problem Statement</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">2</LocationLabel>
+                <SectionTitle book="nap25148" part="ch2">Conceptual Foundations of Nutrient Reference Value Development</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">3</LocationLabel>
+                <SectionTitle book="nap25148" part="ch3">A Harmonized Process for Nutrient Reference Value Development</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">4</LocationLabel>
+                <SectionTitle book="nap25148" part="ch4">Applying Methodological Approaches to Nutrient Reference Values for Young Children and Women of Reproductive Age: An Assessment of Exemplar Nutrients</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">5</LocationLabel>
+                <SectionTitle book="nap25148" part="ch5">Future Directions and Data Gaps</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25148" part="app-group_appA">APPENDIXES</SectionTitle>
+            </Section>
+        </Sections>
+    </BookDocument>
+    <PubmedBookData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pubmed">30222283</ArticleId>
+        </ArticleIdList>
+    </PubmedBookData>
+</PubmedBookArticle>
+
+
+<PubmedBookArticle>
+    <BookDocument>
+        <PMID Version="1">30222282</PMID>
+        <ArticleIdList>
+            <ArticleId IdType="bookaccession">NBK525635</ArticleId>
+            <ArticleId IdType="doi">10.17226/25153</ArticleId>
+        </ArticleIdList>
+        <Book>
+            <Publisher>
+                <PublisherName>National Academies Press (US)</PublisherName>
+                <PublisherLocation>Washington (DC)</PublisherLocation>
+            </Publisher>
+            <BookTitle book="nap25153">Integrating Responses at the Intersection of Opioid Use Disorder and Infectious Disease Epidemics: Proceedings of a Workshop</BookTitle>
+            <PubDate>
+                <Year>2018</Year>
+                <Month>07</Month>
+                <Day>13</Day>
+            </PubDate>
+            <AuthorList Type="authors">
+                <Author>
+                    <CollectiveName>National Academies of Sciences, Engineering, and Medicine</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Health and Medicine Division</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Board on Population Health and Public Health Practice</CollectiveName>
+                </Author>
+            </AuthorList>
+            <Isbn>9780309477949</Isbn>
+            <Isbn>0309477948</Isbn>
+            <ELocationID EIdType="doi">10.17226/25153</ELocationID>
+        </Book>
+        <Language>eng</Language>
+        <PublicationType UI="D016454">Review</PublicationType>
+        <Abstract>
+            <AbstractText>According to the Centers for Disease Control and Prevention (CDC), 115 Americans die each day from an opioid overdose, which averages one death every 12.5 minutes. Between 1999 and 2016, the number of drug overdoses catapulted by 300 percent, with injection drug use increasing by 93 percent between 2004 and 2014 and opioid-related hospital admissions increasing by 58 percent over the past decade. And an inexorable sequela of the opioid epidemic is the spread of infectious diseases. To address these infectious disease consequences of the opioid crisis, a public workshop titled Integrating Infectious Disease Considerations with Response to the Opioid Epidemic was convened on March 12 and 13, 2018, by the National Academies of Sciences, Engineering, and Medicine. Participants discussed strategies to prevent and treat infections in people who inject drugs, especially ways to work efficiently though the existing public health and medical systems. This publication summarizes the presentations and discussions from the workshop.</AbstractText>
+            <CopyrightInformation>Copyright 2018 by the National Academy of Sciences. All rights reserved.</CopyrightInformation>
+        </Abstract>
+        <Sections>
+            <Section>
+                <SectionTitle book="nap25153" part="sec_002">The National Academies of SCIENCES • ENGINEERING • MEDICINE</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25153" part="sec_004">WORKSHOP PLANNING COMMITTEE ON INTEGRATING INFECTIOUS DISEASE CONSIDERATIONS WITH RESPONSE TO THE OPIOID EPIDEMIC</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25153" part="sec_006">Reviewers</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25153" part="sec_011">Acronyms and Abbreviations</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25153" part="sec_012">Medications</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">1</LocationLabel>
+                <SectionTitle book="nap25153" part="ch1">Introduction</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">2</LocationLabel>
+                <SectionTitle book="nap25153" part="ch2">The Scope of the Problem</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">3</LocationLabel>
+                <SectionTitle book="nap25153" part="ch3">Exploring Opportunities for, and Barriers to, Treatment and Prevention in Public Health, Hospitals, and Rural America</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">4</LocationLabel>
+                <SectionTitle book="nap25153" part="ch4">Exploring Opportunities in Correctional Health, Law, and Law Enforcement</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">5</LocationLabel>
+                <SectionTitle book="nap25153" part="ch5">Research Directions, Policy Initiatives, and Potential Ways Forward</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25153" part="app-group_appA">APPENDIXES</SectionTitle>
+            </Section>
+        </Sections>
+    </BookDocument>
+    <PubmedBookData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pubmed">30222282</ArticleId>
+        </ArticleIdList>
+    </PubmedBookData>
+</PubmedBookArticle>
+
+
+<PubmedBookArticle>
+    <BookDocument>
+        <PMID Version="1">30222281</PMID>
+        <ArticleIdList>
+            <ArticleId IdType="bookaccession">NBK525648</ArticleId>
+            <ArticleId IdType="doi">10.17226/25149</ArticleId>
+        </ArticleIdList>
+        <Book>
+            <Publisher>
+                <PublisherName>National Academies Press (US)</PublisherName>
+                <PublisherLocation>Washington (DC)</PublisherLocation>
+            </Publisher>
+            <BookTitle book="nap25149">Impact of the Global Medical Supply Chain on SNS Operations and Communications: Proceedings of a Workshop</BookTitle>
+            <PubDate>
+                <Year>2018</Year>
+                <Month>07</Month>
+                <Day>18</Day>
+            </PubDate>
+            <AuthorList Type="authors">
+                <Author>
+                    <CollectiveName>National Academies of Sciences, Engineering, and Medicine</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Health and Medicine Division</CollectiveName>
+                </Author>
+                <Author>
+                    <CollectiveName>Board on Health Sciences Policy</CollectiveName>
+                </Author>
+            </AuthorList>
+            <Isbn>9780309477741</Isbn>
+            <Isbn>0309477743</Isbn>
+            <ELocationID EIdType="doi">10.17226/25149</ELocationID>
+        </Book>
+        <Language>eng</Language>
+        <PublicationType UI="D016454">Review</PublicationType>
+        <Abstract>
+            <AbstractText>The Centers for Disease Control and Prevention (CDC) established the Strategic National Stockpile (SNS) with a focus on procuring and managing medical countermeasures (MCM) designed to address chemical, biological, radiological, and nuclear events and attacks by weapons of mass destruction. The stockpile is a repository of antibiotics, chemical antidotes, antitoxins, vaccines, antiviral drugs, and other medical materiel organized to respond to a spectrum of public health threats. Over time, the mission of the SNS has informally evolved to address other large-scale catastrophes, such as hurricanes or outbreaks of pandemic disease, and rare acute events, such as earthquakes or terror attacks. When disaster strikes, states can request deployment of SNS assets to augment resources available to state, local, tribal, or territorial public health agencies. CDC works with federal, state, and local health officials to identify and address their specific needs and, according to the stated mission of the SNS, ensure that the right resources reach the right place at the right time. On August 28, 2017, the National Academies of Sciences, Engineering, and Medicine convened a workshop to explore the current state of the global medical supply chain as it relates to SNS assets, and the role of communications in mitigating supply chain risks and in enhancing the resilience of MCM distribution efforts. This publication summarizes the presentations and discussions from the workshop.</AbstractText>
+            <CopyrightInformation>Copyright 2018 by the National Academy of Sciences. All rights reserved.</CopyrightInformation>
+        </Abstract>
+        <Sections>
+            <Section>
+                <SectionTitle book="nap25149" part="sec_000002">The National Academies of SCIENCES • ENGINEERING • MEDICINE</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25149" part="sec_000004">PLANNING COMMITTEE ON THE IMPACT OF THE GLOBAL MEDICAL SUPPLY CHAIN ON SNS OPERATIONS AND COMMUNICATIONS</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25149" part="sec_000007">Reviewers</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25149" part="sec_000009">Acronyms and Abbreviations</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">1</LocationLabel>
+                <SectionTitle book="nap25149" part="ch1">Introduction, Background, and Context</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">2</LocationLabel>
+                <SectionTitle book="nap25149" part="ch2">Gaps in the Global Medical Supply Chain</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">3</LocationLabel>
+                <SectionTitle book="nap25149" part="ch3">Delivering the Assets: Supply Chain Issues Between the SNS and State and Local Public Health</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">4</LocationLabel>
+                <SectionTitle book="nap25149" part="ch4">Strategic Communication and the SNS: Perspectives on Needs and Resources</SectionTitle>
+            </Section>
+            <Section>
+                <LocationLabel Type="chapter">5</LocationLabel>
+                <SectionTitle book="nap25149" part="ch5">Reviewing Challenges and Potential Opportunities</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25149" part="reflist1">References</SectionTitle>
+            </Section>
+            <Section>
+                <SectionTitle book="nap25149" part="app-group_appA">APPENDIXES</SectionTitle>
+            </Section>
+        </Sections>
+    </BookDocument>
+    <PubmedBookData>
+        <History>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2018</Year>
+                <Month>9</Month>
+                <Day>18</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pubmed">30222281</ArticleId>
+        </ArticleIdList>
+    </PubmedBookData>
+</PubmedBookArticle>
+
+</PubmedArticleSet>

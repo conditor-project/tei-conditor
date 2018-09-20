@@ -1,0 +1,945 @@
+<article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+    <?properties open_access?>
+    <front>
+        <journal-meta>
+            <journal-id journal-id-type="nlm-ta">Breast Cancer Res</journal-id>
+            <journal-title>Breast Cancer Research</journal-title>
+            <issn pub-type="ppub">1465-5411</issn>
+            <issn pub-type="epub">1465-542X</issn>
+            <publisher>
+                <publisher-name>BioMed Central</publisher-name>
+                <publisher-loc>London</publisher-loc>
+            </publisher>
+        </journal-meta>
+        <article-meta>
+            <article-id pub-id-type="pmid">11250747</article-id>
+            <article-id pub-id-type="pmc">13901</article-id>
+            <article-id pub-id-type="publisher-id">BCR-3-1-061</article-id>
+            <article-categories>
+                <subj-group subj-group-type="heading">
+                    <subject>Primary Research</subject>
+                </subj-group>
+            </article-categories>
+            <title-group>
+                <article-title>BRCA1 and BRCA2 protein expressions in an ovotestis of a 46, XX true hermaphrodite</article-title>
+            </title-group>
+            <contrib-group>
+                <contrib id="A1" contrib-type="author">
+                    <name>
+                        <surname>Bernard-Gallon</surname>
+                        <given-names>Dominique J</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I1">1</xref>
+                </contrib>
+                <contrib id="A2" contrib-type="author">
+                    <name>
+                        <surname>Déchelotte</surname>
+                        <given-names>Pierre</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I2">2</xref>
+                </contrib>
+                <contrib id="A3" contrib-type="author">
+                    <name>
+                        <surname>Vissac</surname>
+                        <given-names>Cécile</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I1">1</xref>
+                </contrib>
+                <contrib id="A4" contrib-type="author">
+                    <name>
+                        <surname>Aunoble</surname>
+                        <given-names>Bénédicte</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I1">1</xref>
+                </contrib>
+                <contrib id="A5" contrib-type="author">
+                    <name>
+                        <surname>Cravello</surname>
+                        <given-names>Laetitia</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I1">1</xref>
+                </contrib>
+                <contrib id="A6" contrib-type="author">
+                    <name>
+                        <surname>Malpuech</surname>
+                        <given-names>Georges</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I3">3</xref>
+                </contrib>
+                <contrib id="A7" contrib-type="author">
+                    <name>
+                        <surname>Bignon</surname>
+                        <given-names>Yves-Jean</given-names>
+                    </name>
+                    <xref ref-type="aff" rid="I1">1</xref>
+                    <email>Yves-Jean.Bignon@cjp.u-clermont1.fr</email>
+                </contrib>
+            </contrib-group>
+            <aff id="I1">
+                <label>1</label>Laboratoire d'Oncologie Moléculaire, Centre Jean Perrin, Clermont-Ferrand, France.</aff>
+            <aff id="I2">
+                <label>2</label>Service d'Anatomie Pathologique, CHU/Hôtel Dieu, Clermont-Ferrand, France.</aff>
+            <aff id="I3">
+                <label>3</label>Service de Pédiatrie, CHU/Hôtel Dieu, Clermont-Ferrand, France.</aff>
+            <pub-date pub-type="ppub">
+                <year>2001</year>
+            </pub-date>
+            <pub-date pub-type="epub">
+                <day>9</day>
+                <month>11</month>
+                <year>2000</year>
+            </pub-date>
+            <volume>3</volume>
+            <issue>1</issue>
+            <fpage>61</fpage>
+            <lpage>65</lpage>
+            <history>
+                <date date-type="received">
+                    <day>2</day>
+                    <month>5</month>
+                    <year>2000</year>
+                </date>
+                <date date-type="rev-request">
+                    <day>2</day>
+                    <month>6</month>
+                    <year>2000</year>
+                </date>
+                <date date-type="rev-recd">
+                    <day>30</day>
+                    <month>8</month>
+                    <year>2000</year>
+                </date>
+                <date date-type="accepted">
+                    <day>11</day>
+                    <month>9</month>
+                    <year>2000</year>
+                </date>
+            </history>
+            <copyright-statement>Copyright © 2000 BioMed Central Ltd on behalf of the copyright holders</copyright-statement>
+            <abstract>
+                <p>
+                    <italic>BRCA1</italic> and <italic>BRCA2</italic> breast cancer susceptibility genes encode proteins, the normal cellular functions of which are complex and multiple, and germ-line mutations in individuals predispose both to breast and to ovarian cancer. There is nevertheless substantial evidence linking BRCA1 and BRCA2 to homologous recombination and DNA repair, to transcriptional control and to tissue proliferation. There is controversy regarding the localization of BRCA1 and BRCA2 proteins to either nucleus or cytoplasm and whether the expression is present in premeiotic germ cells or can still be expressed in mitotic spermatogonia. We report herein an immunohistochemical study of BRCA1 and BRCA2 distribution in a rather unsual tissue (an ovotestis), which addresses this issue.</p>
+            </abstract>
+            <kwd-group>
+                <kwd>BRCA1</kwd>
+                <kwd>BRCA2</kwd>
+                <kwd>immunohistochemistry</kwd>
+                <kwd>ovotestis</kwd>
+            </kwd-group>
+        </article-meta>
+    </front>
+    <body>
+        <sec>
+            <title>Introduction</title>
+            <p>Hereditary predisposition to breast cancer can be attributed to germline mutations in the <italic>BRCA1</italic> or <italic>BRCA2</italic> breast cancer susceptibility genes [<xref ref-type="bibr" rid="B1">1</xref>]. Germline mutations in the <italic>BRCA1</italic> and <italic>BRCA2</italic> genes are associated with the development of breast and ovarian cancers [<xref ref-type="bibr" rid="B2">2</xref>]. <italic>BRCA2</italic> is associated the development of breast cancer in both women and men [<xref ref-type="bibr" rid="B3">3</xref>], and a moderate increased risk for the development of ovarian cancer.</p>
+            <p>Zabludoff <italic>et al</italic> [<xref ref-type="bibr" rid="B4">4</xref>] investigated the tissue distribution of <italic>Brca1</italic> mRNA in adult mouse tissues and reported that <italic>Brca1</italic> mRNA levels were most abundant in the testis and the ovary. They also found that high level <italic>Brca1</italic> mRNA expression in the testis of mice was detected in meiotic cells and postmeiotic round spermatids and, in contrast, little or no <italic>Brca1</italic> mRNA was expressed in premeiotic germ cells. A low level of <italic>Brca1</italic> mRNA was also detected in Sertoli cells. Blackshear <italic>et al</italic> [<xref ref-type="bibr" rid="B5">5</xref>], on the contrary, demonstrated in the mouse that <italic>Brca1</italic> and <italic>Brca2</italic> mRNA are expressed in mitotic spermatogonia in addition to early meiotic prophase spermatocytes; Sertoli cells and Leydig interstitial cells were found consistently negative for <italic>Brca1</italic> and <italic>Brca2</italic> transcripts. In the normal mouse adult ovary, <italic>Brca1</italic> and <italic>Brca2</italic> transcripts were localized specifically to granulosa cells, thecal cells and oocytes of developing follicles as well as luteal cells of recently formed corpora lutea and surface epithelium.</p>
+            <p>Considering these results, we further investigated the presence of human BRCA1 and BRCA2 proteins in an ovotestis by immunochemical analysis with a different panel of antibodies against BRCA1 and BRCA2.</p>
+        </sec>
+        <sec sec-type="materials|methods">
+            <title>Materials and methods</title>
+            <p>True hermaphroditism is a rare cause of atypical genitalia that presents significant diagnostic and management challenges. The patient (male, 6 months old, karyotype of 46, XX; analysis of a sex-determining region of the Y chromosome [SRY] was negative) had a testis on the left side and an ovotestis on the right side. Hematoxylin eosin saffron (HES) demonstrated male and female compartments of the ovotestis (Fig. <xref ref-type="fig" rid="F1">1a</xref>). This paper presents our laboratory findings concerning the BRCA1 and BRCA2 protein expression in this particular gonad.</p>
+            <p>All antibodies are described in Table <xref ref-type="table" rid="T1">1</xref>.</p>
+        </sec>
+        <sec>
+            <title>Results and discussion</title>
+            <p>The specificity of the polyclonal antibody against BRCA1 (K-18) has been demonstrated elsewhere for BRCA1 [<xref ref-type="bibr" rid="B6">6</xref>,<xref ref-type="bibr" rid="B7">7</xref>], ascertained by Western blotting, and the 220 kDa band corresponding to BRCA1 was detected in both HBL-100 and MCF-7 breast cell lines. Moreover, other major bands appeared around 100 kDa in the two cell lines, which may correspond to different variants to BRCA1 [<xref ref-type="bibr" rid="B7">7</xref>,<xref ref-type="bibr" rid="B8">8</xref>].</p>
+            <p>Chen <italic>et al</italic> [<xref ref-type="bibr" rid="B9">9</xref>] previously reported that the monoclonal antibodies anti-BRCA1 8F7 and 17F8 always exhibited a nuclear staining pattern in breast epithelial cells. Lee <italic>et al</italic> [<xref ref-type="bibr" rid="B10">10</xref>] had already reported that nuclear staining of the BRCA1 protein with 17F8 monoclonal antibody was also seen in tumor cells that were not of breast or ovarian origin. Wilson <italic>et al</italic> [<xref ref-type="bibr" rid="B11">11</xref>] also reported recently that 17F8 antibody detected BRCA1 nuclear and cytoplasmic stainings in breast specimens according to antibody concentration. We have also reported a nuclear staining pattern with different tissues, notably in child mammary gland [<xref ref-type="bibr" rid="B12">12</xref>] and in lung from a fetus at 19 weeks' gestation [<xref ref-type="bibr" rid="B13">13</xref>], with the 8F7 and 17F8 anti-BRCA1 monoclonal antibodies raised against a glutathione-<italic>S</italic>-transferase (GST)-BRCA1 fusion protein containing amino acids encoded by a 3´ portion of BRCA1 exon 11 and by a 5´ portion of BRCA1 exon 11, respectively. These antibodies seemed to remain more specific, and they exhibited nuclear staining.</p>
+            <p>We used anti-BRCA1 antibodies raised against amino acids 768-793 (66046N) and amino acids 1847-1863 (66056N). Characterization of these antibodies in MCF-7 human breast tumor cell lysates by Western blotting (data not shown) resulted in the detection of a 220 kDa band corresponding to BRCA1, and one other band around 100 kDa that may correspond to the BRCA1 protein missing exon 11. The 66036N antibodies elicited against amino acids 2-20 of human BRCA1 recognized a 220 kDa BRCA1 protein in HBL-100 breast cell lysates [<xref ref-type="bibr" rid="B14">14</xref>].</p>
+            <p>The antibody for BRCA2 (66066E) recognizes epitopes between amino acids 1323-1346 of human BRCA2. The antibody 66076E recognizes epitopes between amino acids 2586-2600. Antibodies were purchased from PharMingen (San Diego, CA, USA) and tested by Western blotting in HBL-100 human breast cells to ensure they recognized the 390 kDa BRCA2 protein. Both BRCA2 antibodies also cross-reacted with smaller proteins, which could be degradation products.</p>
+            <p>The 3E6 and 5F6 anti-BRCA2 monoclonal antibodies were generated using two bacterially expressed and purified GST-BRCA2 fusion proteins, containing amino acids 188-563 and 2336-2478 as antigens, respectively [<xref ref-type="bibr" rid="B15">15</xref>]. Using the 3E6 antibodies, we detected a protein of 390 kDa, in MCF-7 human tumor breast cell lysates, which corresponds to the predicted size of the 3418 amino acid BRCA2 sequence. We also detected, in CCL 221 colorectal adenocarcinoma cell lysates, a single band at 390 kDa using the 5F6 antibodies (data not shown).</p>
+            <p>As shown in Fig. <xref ref-type="fig" rid="F1">1</xref> and Table <xref ref-type="table" rid="T1">1</xref> for the BRCA1 protein expression study with K-18 antibodies, only cytoplasmic stainings in male germ cells and in oocytes were obtained (Fig. <xref ref-type="fig" rid="F1">1b</xref>). Predominant nuclear stainings of Sertoli cells and oocytes were obtained with 8F7 antibodies (Fig. <xref ref-type="fig" rid="F1">1c</xref>), and cytoplasmic staining of oocytes was also exhibited. Staining patterns with 17F8 antibodies varied from exclusively nuclear staining in Sertoli cells (Fig. <xref ref-type="fig" rid="F1">1d</xref>) to exclusively cytoplasmic staining in oocytes (Fig. <xref ref-type="fig" rid="F1">1e</xref>). Exclusively cytoplasmic staining was seen in male and female germ cells with 66046N (Fig. <xref ref-type="fig" rid="F1">1f</xref>) and 66056N antibodies (data not shown). In contrast, cytoplasmic staining with 66036N antibodies (Fig. <xref ref-type="fig" rid="F1">1g</xref>) was exhibited in male and female germ cells, and low nuclear staining was found in Sertoli cells.</p>
+            <p>For BRCA2 protein expression in Sertoli cells and oocytes, exclusively cytoplasmic staining was seen with 66066E antibodies (Fig. <xref ref-type="fig" rid="F1">1h</xref>). Cytoplasmic staining (data not shown) was exhibited with 66076E antibodies in oocytes and in male germ cells. Cytoplasmic staining was obtained in male and female compartments with 3E6 antibodies (Fig. <xref ref-type="fig" rid="F1">1i</xref>). With 5F6 antibodies (data not shown), exclusively cytoplasmic staining was obtained for BRCA2 protein in the male compartment, and low intensive nuclear and cytoplasmic stainings were obtained in oocytes and follicles.</p>
+            <p>The differences of staining patterns for the same protein in the same tissue may be explained by the choice of the antibodies. The monoclonal antibodies raised against GST-BRCA1 or GST-BRCA2 fusion proteins seem more specific than antibodies raised against a 20 amino acid peptide.</p>
+        </sec>
+        <sec>
+            <title>Conclusion</title>
+            <p>In conclusion, we show using different antibodies that BRCA1 proteins, like BRCA2, are widely expressed in two varieties of non-embryogenic human tissues associated with the cell cycle. BRCA1 and BRCA2 proteins are expressed during growth and differentiation in the ovary. Moreover, they are expressed beyond the spermatogenesis. This is consistent with proposed functions for <italic>BRCA1</italic> and <italic>BRCA2</italic> genes.</p>
+        </sec>
+    </body>
+    <back>
+        <ack>
+            <sec>
+                <title>Acknowledgement</title>
+                <p>The authors are grateful to Christelle Picard and Jacqueline Avinain for technical assistance, and Guy Ragonnaud for prints.</p>
+                <p>Sponsorship</p>
+                <p>This research was supported by La Ligue Nationale Française de Lutte Contre le Cancer and Le Comité du Puy-de-Dôme. CV is a recipient of MENRT (Ministère de l'Education Nationale, de la Recherche et de la Technologie) funding.</p>
+            </sec>
+        </ack>
+        <ref-list>
+            <ref id="B1">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Stratton</surname>
+                            <given-names>MR</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Recent advances in understanding of genetic susceptibility to breast cancer.</article-title>
+                    <source>Hum Mol Genet</source>
+                    <year>1996</year>
+                    <volume>5</volume>
+                    <fpage>1515</fpage>
+                    <lpage>1519</lpage>
+                    <pub-id pub-id-type="pmid">8875258</pub-id>
+                </citation>
+            </ref>
+            <ref id="B2">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Miki</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Swensen</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Shattuck-Eidens</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Futreal</surname>
+                            <given-names>PA</given-names>
+                        </name>
+                        <name>
+                            <surname>Harshman</surname>
+                            <given-names>K</given-names>
+                        </name>
+                        <name>
+                            <surname>Tavtigian</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Liu</surname>
+                            <given-names>Q</given-names>
+                        </name>
+                        <name>
+                            <surname>Cochran</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Bennett</surname>
+                            <given-names>LM</given-names>
+                        </name>
+                        <name>
+                            <surname>Ding</surname>
+                            <given-names>W</given-names>
+                        </name>
+                        <etal></etal>
+                    </person-group>
+                    <article-title>A strong candidate for the breast and ovarian cancer susceptibility gene <italic>BRCA-1</italic>.</article-title>
+                    <source>Science</source>
+                    <year>1994</year>
+                    <volume>266</volume>
+                    <fpage>66</fpage>
+                    <lpage>71</lpage>
+                    <pub-id pub-id-type="pmid">7545954</pub-id>
+                </citation>
+            </ref>
+            <ref id="B3">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Wooster</surname>
+                            <given-names>R</given-names>
+                        </name>
+                        <name>
+                            <surname>Bignell</surname>
+                            <given-names>G</given-names>
+                        </name>
+                        <name>
+                            <surname>Lancaster</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Swift</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Seal</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Mangion</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Collins</surname>
+                            <given-names>N</given-names>
+                        </name>
+                        <name>
+                            <surname>Gregory</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Gumbs</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Micklem</surname>
+                            <given-names>G</given-names>
+                        </name>
+                        <etal></etal>
+                    </person-group>
+                    <article-title>Identification of the breast cancer susceptibility gene <italic>BRCA2</italic>.</article-title>
+                    <source>Nature</source>
+                    <year>1995</year>
+                    <volume>378</volume>
+                    <fpage>789</fpage>
+                    <lpage>792</lpage>
+                    <pub-id pub-id-type="pmid">8524414</pub-id>
+                </citation>
+            </ref>
+            <ref id="B4">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Zabludoff</surname>
+                            <given-names>SD</given-names>
+                        </name>
+                        <name>
+                            <surname>Wright</surname>
+                            <given-names>WW</given-names>
+                        </name>
+                        <name>
+                            <surname>Harshman</surname>
+                            <given-names>K</given-names>
+                        </name>
+                        <name>
+                            <surname>Wold</surname>
+                            <given-names>BJ</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>BRCA1 mRNA is expressed highly during meiosis and spermiogenesis but not during mitosis of male germ cells.</article-title>
+                    <source>Oncogene</source>
+                    <year>1996</year>
+                    <volume>13</volume>
+                    <fpage>649</fpage>
+                    <lpage>653</lpage>
+                    <pub-id pub-id-type="pmid">8760307</pub-id>
+                </citation>
+            </ref>
+            <ref id="B5">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Blackshear</surname>
+                            <given-names>PE</given-names>
+                        </name>
+                        <name>
+                            <surname>Golsworthy</surname>
+                            <given-names>SM</given-names>
+                        </name>
+                        <name>
+                            <surname>Foley</surname>
+                            <given-names>JF</given-names>
+                        </name>
+                        <name>
+                            <surname>McAllister</surname>
+                            <given-names>KA</given-names>
+                        </name>
+                        <name>
+                            <surname>Bennet</surname>
+                            <given-names>LM</given-names>
+                        </name>
+                        <name>
+                            <surname>Collins</surname>
+                            <given-names>NK</given-names>
+                        </name>
+                        <name>
+                            <surname>Bunch</surname>
+                            <given-names>DO</given-names>
+                        </name>
+                        <name>
+                            <surname>Brown</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Wiseman</surname>
+                            <given-names>RW</given-names>
+                        </name>
+                        <name>
+                            <surname>Davis</surname>
+                            <given-names>BJ</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>BRCA1 and BRCA2 expression patterns in mitotic and meiotic cells of mice.</article-title>
+                    <source>Oncogene</source>
+                    <year>1998</year>
+                    <volume>16</volume>
+                    <fpage>61</fpage>
+                    <lpage>68</lpage>
+                    <pub-id pub-id-type="pmid">9467943</pub-id>
+                </citation>
+            </ref>
+            <ref id="B6">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Bernard-Gallon</surname>
+                            <given-names>DJ</given-names>
+                        </name>
+                        <name>
+                            <surname>De Oliveira</surname>
+                            <given-names>F</given-names>
+                        </name>
+                        <name>
+                            <surname>Favy</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Hizel</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Maurizis</surname>
+                            <given-names>J-C</given-names>
+                        </name>
+                        <name>
+                            <surname>Rio</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Bignon</surname>
+                            <given-names>Y-J</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Electrophoresis of <italic>BRCA1</italic> oncosuppressor.</article-title>
+                    <source>Oncol Rep</source>
+                    <year>1998</year>
+                    <volume>5</volume>
+                    <fpage>995</fpage>
+                    <lpage>997</lpage>
+                    <pub-id pub-id-type="pmid">9625861</pub-id>
+                </citation>
+            </ref>
+            <ref id="B7">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Bernard-Gallon</surname>
+                            <given-names>DJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Peffault De Latour</surname>
+                            <given-names>M</given-names>
+                        </name>
+                        <name>
+                            <surname>De Oliveira</surname>
+                            <given-names>F</given-names>
+                        </name>
+                        <name>
+                            <surname>Rio</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Hizel</surname>
+                            <given-names>C</given-names>
+                        </name>
+                        <name>
+                            <surname>Favy</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Bignon</surname>
+                            <given-names>Y-J</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>BRCA1 is localized in ductal secretions of normal breast tissues: detection by antibodies raised against the amino terminus of BRCA1 (K-18).</article-title>
+                    <source>Int J Cancer</source>
+                    <year>1998</year>
+                    <volume>77</volume>
+                    <fpage>803</fpage>
+                    <lpage>806</lpage>
+                    <pub-id pub-id-type="pmid">9688316</pub-id>
+                </citation>
+            </ref>
+            <ref id="B8">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Thakur</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Zhang</surname>
+                            <given-names>HB</given-names>
+                        </name>
+                        <name>
+                            <surname>Peng</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Le</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Carroll</surname>
+                            <given-names>B</given-names>
+                        </name>
+                        <name>
+                            <surname>Ward</surname>
+                            <given-names>T</given-names>
+                        </name>
+                        <name>
+                            <surname>Yao</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Farid</surname>
+                            <given-names>LM</given-names>
+                        </name>
+                        <name>
+                            <surname>Cough</surname>
+                            <given-names>FJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Wilson</surname>
+                            <given-names>RB</given-names>
+                        </name>
+                        <name>
+                            <surname>Weber</surname>
+                            <given-names>BL</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Localization of BRCA1 and a splice variant identifies the nuclear localization signal.</article-title>
+                    <source>Mol Cell Biol</source>
+                    <year>1997</year>
+                    <volume>17</volume>
+                    <fpage>444</fpage>
+                    <lpage>452</lpage>
+                    <pub-id pub-id-type="pmid">8972225</pub-id>
+                </citation>
+            </ref>
+            <ref id="B9">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>C-F</given-names>
+                        </name>
+                        <name>
+                            <surname>Riley</surname>
+                            <given-names>DJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Allred</surname>
+                            <given-names>DC</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>P-L</given-names>
+                        </name>
+                        <name>
+                            <surname>Von Hoff</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Osborne</surname>
+                            <given-names>K</given-names>
+                        </name>
+                        <name>
+                            <surname>Lee</surname>
+                            <given-names>W-H</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Aberrant subnuclear localization of BRCA1 in breast cancer.</article-title>
+                    <source>Science</source>
+                    <year>1995</year>
+                    <volume>270</volume>
+                    <fpage>789</fpage>
+                    <lpage>791</lpage>
+                    <pub-id pub-id-type="pmid">7481765</pub-id>
+                </citation>
+            </ref>
+            <ref id="B10">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Lee</surname>
+                            <given-names>WH</given-names>
+                        </name>
+                        <name>
+                            <surname>Chew</surname>
+                            <given-names>HK</given-names>
+                        </name>
+                        <name>
+                            <surname>Farmer</surname>
+                            <given-names>AA</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>PL</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Biological functions of the BRCA1 protein.</article-title>
+                    <source>Breast Dis</source>
+                    <year>1998</year>
+                    <volume>10</volume>
+                    <fpage>11</fpage>
+                    <lpage>22</lpage>
+                    <pub-id pub-id-type="pmid">15687545</pub-id>
+                </citation>
+            </ref>
+            <ref id="B11">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Wilson</surname>
+                            <given-names>CA</given-names>
+                        </name>
+                        <name>
+                            <surname>Ramos</surname>
+                            <given-names>L</given-names>
+                        </name>
+                        <name>
+                            <surname>Villasenor</surname>
+                            <given-names>MR</given-names>
+                        </name>
+                        <name>
+                            <surname>Anders</surname>
+                            <given-names>KH</given-names>
+                        </name>
+                        <name>
+                            <surname>Press</surname>
+                            <given-names>MF</given-names>
+                        </name>
+                        <name>
+                            <surname>Clarke</surname>
+                            <given-names>K</given-names>
+                        </name>
+                        <name>
+                            <surname>Karlan</surname>
+                            <given-names>B</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>JJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Scully</surname>
+                            <given-names>R</given-names>
+                        </name>
+                        <name>
+                            <surname>Livingston</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Zuch</surname>
+                            <given-names>RH</given-names>
+                        </name>
+                        <name>
+                            <surname>Kanter</surname>
+                            <given-names>MH</given-names>
+                        </name>
+                        <name>
+                            <surname>Cohen</surname>
+                            <given-names>S</given-names>
+                        </name>
+                        <name>
+                            <surname>Calzone</surname>
+                            <given-names>FJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Slamon</surname>
+                            <given-names>DJ</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Localization of human BRCA1 and its loss in high-grade, non-inherited breast carcinomas.</article-title>
+                    <source>Nat Genet</source>
+                    <year>1999</year>
+                    <volume>21</volume>
+                    <fpage>236</fpage>
+                    <lpage>240</lpage>
+                    <pub-id pub-id-type="pmid">9988281</pub-id>
+                </citation>
+            </ref>
+            <ref id="B12">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Bernard-Gallon</surname>
+                            <given-names>DJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Dechelotte</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Rio</surname>
+                            <given-names>PG</given-names>
+                        </name>
+                        <name>
+                            <surname>Bignon</surname>
+                            <given-names>YJ</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>BRCA1 and BRCA2 proteins are expressed in milk fat globules.</article-title>
+                    <source>Int J Cancer</source>
+                    <year>1999</year>
+                    <volume>81</volume>
+                    <fpage>839</fpage>
+                    <lpage>843</lpage>
+                    <pub-id pub-id-type="pmid">10328242</pub-id>
+                </citation>
+            </ref>
+            <ref id="B13">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Bernard-Gallon</surname>
+                            <given-names>DJ</given-names>
+                        </name>
+                        <name>
+                            <surname>Dechelotte</surname>
+                            <given-names>P</given-names>
+                        </name>
+                        <name>
+                            <surname>Rio</surname>
+                            <given-names>PG</given-names>
+                        </name>
+                        <name>
+                            <surname>Bignon</surname>
+                            <given-names>YJ</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>Expression of human BRCA1 and BRCA2 proteins in lung from a fetus at 19 weeks' gestation.</article-title>
+                    <source>Int J Cancer</source>
+                    <year>1999</year>
+                    <volume>82</volume>
+                    <fpage>771</fpage>
+                    <lpage>773</lpage>
+                    <pub-id pub-id-type="pmid">10417779</pub-id>
+                </citation>
+            </ref>
+            <ref id="B14">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Ruffner</surname>
+                            <given-names>H</given-names>
+                        </name>
+                        <name>
+                            <surname>Verma</surname>
+                            <given-names>I</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>BRCA1 is a cell cycle-regulated nuclear phosphoprotein.</article-title>
+                    <source>Proc Natl Acad Sci USA</source>
+                    <year>1997</year>
+                    <volume>94</volume>
+                    <fpage>138</fpage>
+                    <lpage>143</lpage>
+                </citation>
+            </ref>
+            <ref id="B15">
+                <citation citation-type="journal">
+                    <person-group person-group-type="author">
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>P-L</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>C-F</given-names>
+                        </name>
+                        <name>
+                            <surname>Chen</surname>
+                            <given-names>Y</given-names>
+                        </name>
+                        <name>
+                            <surname>Xiao</surname>
+                            <given-names>J</given-names>
+                        </name>
+                        <name>
+                            <surname>Sharp</surname>
+                            <given-names>D</given-names>
+                        </name>
+                        <name>
+                            <surname>Lee</surname>
+                            <given-names>W-H</given-names>
+                        </name>
+                    </person-group>
+                    <article-title>The BRC repeats in BRCA2 are critical for RAD51 binding and resistance to methyl methanesulfonate treatment.</article-title>
+                    <source>Proc Natl Acad Sci USA</source>
+                    <year>1998</year>
+                    <volume>95</volume>
+                    <fpage>5287</fpage>
+                    <lpage>5292</lpage>
+                    <pub-id pub-id-type="pmid">9560268</pub-id>
+                </citation>
+            </ref>
+        </ref-list>
+        <sec sec-type="display-objects">
+            <title>Figures and Tables</title>
+            <fig position="float" id="F1">
+                <label>Figure 1</label>
+                <caption>
+                    <p>Immunohistochemical localization of BRCA1 and BRCA2 with formalin-fixed and paraffin sections in an ovotestis. <bold>(a)</bold> Hematoxylin eosin saffron (HES) histology of the ovotestis demonstrating testicular tissue with seminiferous cords (triangle), adjacent to ovarian tissue with primordial follicles (arrow) (× 200). For BRCA1 protein: <bold>(b)</bold> K-18 antibodies showed cytoplasmic staining of oocytes (arrowhead) surrounded by follicule primordial and cytoplasmic staining of male germ cells (arrow) in seminiferous cords identified by the presence of Sertoli cells inside (× 220); <bold>(c)</bold> 8F7 antibodies showed predominantly nuclear stainings of Sertoli cells (asterisk) and of oocytes (arrowhead), and cytoplasmic staining was also exhibited in the oocytes (× 450); <bold>(d)</bold> 17F8 antibodies showed exclusive nuclear staining of Sertoli cells (arrow) (× 470); <bold>(e)</bold> 17F8 antibodies showed cytoplasmic staining of oocytes (arrow) (× 315); <bold>(f)</bold> 66046N antibodies showed cytoplasmic staining of oocytes (arrowhead) (× 540); and <bold>(g)</bold> 66036N antibodies showed cytoplasmic staining of male and female germ cells, and slight nuclear staining in Sertoli cells in the tube (asterisk) (× 385). For BRCA2 protein: <bold>(h)</bold> 66066E antibodies showed cytoplasmic staining of Sertoli cells (arrowhead) and oocytes (asterisk) (× 545); and <bold>(i)</bold> 3E6 antibodies showed low cytoplasmic staining of Sertoli cells (asterisk) and female germ cells (arrowhead) (× 660).</p>
+                </caption>
+                <graphic xlink:href="BCR-3-1-061-1" />
+            </fig>
+            <table-wrap position="float" id="T1">
+                <label>Table 1</label>
+                <caption>
+                    <p>Specificity of the primary antibodies used, and corresponding subcellular localization and degree of staining observed for ovotestis</p>
+                </caption>
+                <table frame="hsides" rules="groups">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td align="left" colspan="2">Staining of ovotestis</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">
+                                <hr></hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td align="left">Male germ cells</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left">Antibodies</td>
+                            <td align="left">Specificities</td>
+                            <td align="left">Sources</td>
+                            <td align="left">and Sertoli cells</td>
+                            <td align="left">Female germ cells</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td align="left">Anti-BRCA1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left"> K-18<sup>*</sup></td>
+                            <td align="left">hBRCA1 (aa 70-89)</td>
+                            <td align="left">Santa Cruz Biotechnologies</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 8F7<sup>†</sup></td>
+                            <td align="left">Fusion protein GST-hBRCA1</td>
+                            <td align="left">GeneTex</td>
+                            <td align="left">N (+)</td>
+                            <td align="left">Cyt. (+), N (+)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="left">(aa 341-748)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 17F8<sup>†</sup></td>
+                            <td align="left">Fusion protein GST-hBRCA1</td>
+                            <td align="left">GeneTex</td>
+                            <td align="left">N (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="left">(aa 762-1315)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 66036N<sup>*</sup></td>
+                            <td align="left">hBRCA1 (aa 2-20)</td>
+                            <td align="left">Pharmingen</td>
+                            <td align="left">Cyt. (+), N (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 66046N<sup>*</sup></td>
+                            <td align="left">hBRCA1 (aa 768-793)</td>
+                            <td align="left">Pharmingen</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 66056N<sup>*</sup></td>
+                            <td align="left">hBRCA1 (aa 1847-1863)</td>
+                            <td align="left">Pharmingen</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (++)</td>
+                        </tr>
+                        <tr>
+                            <td align="left">Anti-BRCA2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 66066E<sup>*</sup></td>
+                            <td align="left">hBRCA2 (aa 1323-1346)</td>
+                            <td align="left">Pharmingen</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 66076E<sup>*</sup></td>
+                            <td align="left">hBRCA2 (aa 2586-2600)</td>
+                            <td align="left">Pharmingen</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 5F6 (clone 1H3)<sup>†</sup></td>
+                            <td align="left">Fusion protein GST-hBRCA2</td>
+                            <td align="left">GeneTex</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (+), N (+)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="left">(aa 2336-2478)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td align="left"> 3E6<sup>†</sup></td>
+                            <td align="left">Fusion protein GST-hBRCA2</td>
+                            <td align="left">GeneTex</td>
+                            <td align="left">Cyt. (+)</td>
+                            <td align="left">Cyt. (+)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="left">(aa 188-563)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table-wrap-foot>
+                    <p>
+                        <sup>*</sup>Rabbit polyclonal antibodies and <sup>†</sup>mouse monoclonal antibodies. aa, Amino acid; Cyt., cytoplasm; N, nuclear; (+) intensive; (++), very intensive.</p>
+                </table-wrap-foot>
+            </table-wrap>
+        </sec>
+    </back>
+</article>

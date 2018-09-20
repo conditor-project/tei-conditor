@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2018-09-19T06:07:14Z</responseDate><request verb="GetRecord" identifier="oai:pubmedcentral.nih.gov:152494" metadataPrefix="pmc_fm">https:/www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi</request><GetRecord><record><header><identifier>oai:pubmedcentral.nih.gov:152494</identifier><datestamp>2003-05-26</datestamp><setSpec>aac</setSpec></header><metadata><article xmlns="https://dtd.nlm.nih.gov/ns/archiving/2.3/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="https://dtd.nlm.nih.gov/ns/archiving/2.3/ https://dtd.nlm.nih.gov/archiving/2.3/xsd/archivearticle.xsd">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Antimicrob Agents Chemother</journal-id>
+      <journal-id journal-id-type="publisher-id">aac</journal-id>
+      <journal-title>Antimicrobial Agents and Chemotherapy</journal-title>
+      <issn pub-type="ppub">0066-4804</issn>
+      <issn pub-type="epub">1098-6596</issn>
+      <publisher>
+        <publisher-name>American Society for Microbiology</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="accession">PMC152494</article-id>
+      <article-id pub-id-type="pmcid">PMC152494</article-id>
+      <article-id pub-id-type="pmc-uid">152494</article-id>
+      <article-id pub-id-type="pmid">12654674</article-id>
+      <article-id pub-id-type="publisher-id">0514</article-id>
+      <article-id pub-id-type="doi">10.1128/AAC.47.4.1382-1390.2003</article-id>
+      <article-id pub-id-type="pmid">12654674</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Mechanisms of Resistance</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Epidemiology of Rifampin ADP-Ribosyltransferase (<italic>arr-2</italic>) and Metallo-β-Lactamase (<italic>bla</italic><sub>IMP-4</sub>) Gene Cassettes in Class 1 Integrons in <italic>Acinetobacter</italic> Strains Isolated from Blood Cultures in 1997 to 2000</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Houang</surname>
+            <given-names>Elizabeth T. S.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chu</surname>
+            <given-names>Yiu-Wai</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Lo</surname>
+            <given-names>Wai-Sing</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chu</surname>
+            <given-names>Ka-Yi</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cheng</surname>
+            <given-names>Augustine F. B.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">1</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">Department of Microbiology, The Chinese University of Hong Kong, Prince of Wales Hospital, Shatin,<label>1</label> Public Health Laboratory Centre, Department of Health, Kowloon, <italic>Hong Kong, China</italic><label>2</label></aff>
+      <author-notes>
+        <fn id="cor1">
+          <label>*</label>
+          <p>Corresponding author. Mailing address: Department of Microbiology, The Chinese University of Hong Kong, Prince of Wales Hospital, Shatin, NT, Hong Kong, Special Administrative Region, People's Republic of China. Phone: (852) 2632 2304. Fax: (852) 2647 3227. E-mail: <email>ehouang@cuhk.edu.hk</email>.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>4</month>
+        <year>2003</year>
+      </pub-date>
+      <volume>47</volume>
+      <issue>4</issue>
+      <fpage>1382</fpage>
+      <lpage>1390</lpage>
+      <history>
+        <date date-type="received">
+          <day>13</day>
+          <month>5</month>
+          <year>2002</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>10</day>
+          <month>9</month>
+          <year>2002</year>
+        </date>
+        <date date-type="accepted">
+          <day>23</day>
+          <month>1</month>
+          <year>2003</year>
+        </date>
+      </history>
+      <copyright-statement>Copyright © 2003, American Society for Microbiology</copyright-statement>
+      <copyright-year>2003</copyright-year>
+    </article-meta>
+  </front>
+</article>
+
+</metadata></record></GetRecord></OAI-PMH>
