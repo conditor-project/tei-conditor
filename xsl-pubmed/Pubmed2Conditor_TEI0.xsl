@@ -4,43 +4,60 @@
     exclude-result-prefixes="xs"
     version="1.0">
     
-<!-- de une ou plusieurs notices PubMed récupérées via l'IHM vers TEI Conditor. A voir : 
- - format issu de l'API
- - requête : il y a des notices en cours de finition, MedlineCitation @Status="In-Data-Review" ou "In-Process" ou "Publisher"; il en reste en 2014, bcp plus en 2017  -->
-    
-<!-- C. Stock et C. Morel, 2018-07 :
-        - modèle TEI non finalisé complétement
-        - en cours. Copie de sav le 25-07, même dossier.
--->
+<!-- ========================================================================================================
+        C. Morel, 2018-09
+        
+      De une ou plusieurs notices PubMed récupérées via l'IHM vers TEI Conditor, corpus 2014-2017. Une des APIs rend le même format.
+        
+      2 modèles TEI disponibles :
+      -oafr.xsd, modèle encore actuel de HAL, des choix spécifiques sur attributs, valeurs d'attributs et arborescence organismes
+      - HAL_odd.xml, modèle plus récent déposé sur GitHub HAL et créé par L. Romary; et son dérivé via ROMA, document.xsd (qui appelle 2 autres xsd)
+      Déposés dans https://github.com/conditor-project/tei-conditor/tree/master/schema, sous-répertoire HALschema.xsd pour les 3 xsd liés.
+      
+      3 grandes différences :
+      - "abstract" : dans le nouveau modèle, il doit avoir un ou plusieurs fils éléments (p, list table). Dans l'ancien, valeur textuelle.
+      - "idno" de type analytic : dans le nouveau modèle, fils de "analytic", dans l'ancien, fils de biblStruct (après monographic)
+      abstract à modifier dans le fichier de config vers ElasticSearch. idno : le chemin est large, donc bon dans les 2 cas.
+      - détail affiliations et organismes en général soit dans biblStruct (possible avec odd, choix Conditor) soit dans 'back' (modèle aofr, avec lien de type rid dans biblStruct) 
+      
+      Ce XSL traite la forme adoptée pour les 1° corpus chargés.
+      - idno analytic dans biblStruct
+      - abstract sans fils
+      - affiliation détaillée dans author
+      
 
-<!-- à affiner :
-        -Identifiers de Author, AffiliationInfo, Investigator : j'ai traité ceux que j'ai trouvés en 2014-17 
-        - <!ENTITY % text             "#PCDATA | b | i | sup | sub | u" > in : 
+    A suivre :
+        - Traitement des fils de certains éléments, en général textuels dans autres sources : 
+        <!ENTITY % text             "#PCDATA | b | i | sup | sub | u" > possibles dans : 
             - AbstractText, Affiliation, ArticleTitle, BookTitle et VernacularTitle (plus mml), CollectiveName, Keyword (plus mml), 
             - sub,sup, b,i,u(%text)*, 
             - CitationString, CoiStatement, CollectionTitle, Param, PublisherName, SectionTitle, Suffix, VolumeTitle
-        - Allowed <mml:math> in <AbstractText>, <ArticleTitle>, <BookTitle>, <CollectionTitle>, <Keyword>, <VernacularTitle> : une seule notice
+        sup et sub ont un sens sémantique, pas les autres. 
+        - Allowed <mml:math> in <AbstractText>, <ArticleTitle>, <BookTitle>, <CollectionTitle>, <Keyword>, <VernacularTitle> : une seule notice, résumé
+        *** Pour l'instant, texte plat ***.
         
-        - email avant affiliation : NEW - inactivé car encore bazar
- -->
+        - affiliations non structurées et très hétérogènes ; création de "country" dans la cible 'affiliation' : 
+        *** pour France uniquement pour l'instant ***, reste trop hétérogène au découpage, ou il faut une liste de pays ... ou rien : infos apportées par autres sources
+        - email : dans affiliation, idem - inactivé car à affiner 
+        
+ ============================================================================================================== -->
 
-<xsl:output encoding="UTF-8" indent="no" standalone="no"/> <!-- !!! changer avant de fournir -->
+<xsl:output encoding="UTF-8" indent="yes" standalone="no"/> 
 
-<xsl:param name="DateAcqu">2018-07-04</xsl:param>  <!-- en dur pour l'instant : nom de fichier ? -->
-<xsl:param name="DateCreat">2018-07-24</xsl:param>  <!-- indiquée par le shell ultérieur -->
+<xsl:param name="DateAcqu"/>  
+<xsl:param name="DateCreat"/>  <!-- indiquée par le shell Conditor ultérieur -->
     
     <!-- élément racine  : 
         - sur les fichiers années 2014-17 : PubmedArticleSet (PubmedArticle (en majorité), PubmedBookArticle (42 ou 43), DeleteCitation (0 dans le corpus)
         - Possible dans la DTD : PubmedBookArticleSet (PubmedBookArticle*)  : pas dans ce corpus -->
-    
   
  <xsl:template match="/">
-     <!-- au choix : une ou plusieurs notices, elt racine non précisé : -->
+     <!-- traite au choix : une ou plusieurs notices, elt racine non précisé : -->
     <xsl:choose>
-        <!-- <xsl:when test="count(PubmedArticleSet/*) &gt; 1"> -->  <!-- racine trouvée ici, à suivre ; pour s'en affranchir : -->
         <xsl:when test="count(*/PubmedArticle) &gt; 1 or count(*/PubmedBookArticle) &gt; 1">
             <teiCorpus>
-                <xsl:attribute name="xsi:schemaLocation">http://www.tei-c.org/ns/1.0 HALschema_xsd/document.xsd</xsl:attribute>
+                <!-- si on veut valider sur schéma, exemple (attention au chemin, contextuel) : 
+                <xsl:attribute name="xsi:schemaLocation">http://www.tei-c.org/ns/1.0 HALschema_xsd/document.xsd</xsl:attribute> -->
                 <xsl:for-each select="*/PubmedArticle | */PubmedBookArticle | */DeleteCitation">
                     <xsl:apply-templates select="."/>
                 </xsl:for-each>
@@ -49,7 +66,6 @@
         <xsl:when test="count(//PubmedArticle)=1">
                 <xsl:apply-templates select="//PubmedArticle"/>
         </xsl:when>
-       <!-- idem -->
            <xsl:when test="count(//PubmedBookArticle)=1">
                 <xsl:apply-templates select="//PubmedBookArticle"/>
         </xsl:when>
@@ -58,14 +74,14 @@
         </xsl:when>
         <xsl:otherwise>
             <TEI xmlns="http://www.tei-c.org/ns/1.0">
-                <xsl:text>*** NOUVELLE ARBORESCENCE SOURCE : regarder ***</xsl:text>
+                <xsl:text>*** NOUVELLE ARBORESCENCE SOURCE : ***</xsl:text>
             </TEI>
         </xsl:otherwise>
     </xsl:choose> 
 </xsl:template>
     
 <xsl:template match="PubmedArticle">
-    <!-- dans le fils MedlineCitation, un attribut : Owner (NLM|NASA|PIP|KIE|HSR|HMD) "NLM" . Voir si on garde toutes les notices -->
+    <!-- dans le fils MedlineCitation, un attribut : Owner (NLM|NASA|PIP|KIE|HSR|HMD) "NLM" . Non traité -->
    
   <TEI xmlns="http://www.tei-c.org/ns/1.0">
     
@@ -73,10 +89,16 @@
     <body>
         <listBibl>
             <biblFull>
-                <!-- titleStmt obligatoire ; minimum : fils title. HAL ajoute les auteurs, et les funder (la meilleure solution)  -->
+                <!-- titleStmt obligatoire ; minimum : fils title. HAL ajoute les auteurs, et les funder (la meilleure solution pouir ces derniers)  -->
                 <titleStmt>
-                    <xsl:apply-templates select="MedlineCitation/Article/ArticleTitle"/> <!-- tj 1 seul -->
-                    <xsl:apply-templates select="MedlineCitation/Article/AuthorList"/>
+                    <xsl:apply-templates select="MedlineCitation/Article/ArticleTitle"/> <!-- tj 1 et un seul -->
+                    
+                    <!-- <xsl:apply-templates select="MedlineCitation/Article/AuthorList"/> OU au choix : -->
+                    <xsl:comment>
+                        <xsl:text>Pour ne pas allonger inutilement la description, les auteurs sont présents ci-dessous,  
+                            chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author 
+                            ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author</xsl:text>
+                    </xsl:comment>
                     <xsl:apply-templates select="MedlineCitation/Article/GrantList"/>
                 </titleStmt>
                 
@@ -84,9 +106,9 @@
                     <edition>
                         <date type="whenDownloaded"><xsl:value-of select="$DateAcqu"/></date>
                         <date type="whenCreated"><xsl:value-of select="$DateCreat"/></date>
-                        <xsl:comment>
+                        <!-- <xsl:comment>
                             <xsl:text>Elément suivant particulier à PubMed : les notices sont à différents stades de traitement, voir https://dtd.nlm.nih.gov/ncbi/pubmed/doc/out/180101/att-Status.html</xsl:text>
-                        </xsl:comment>    
+                        </xsl:comment>  --> 
                      <!-- à décommenter si utile :   <note type="recordStatus"><xsl:value-of select="MedlineCitation/@Status"/></note> -->
                     </edition>
                 </editionStmt>
@@ -94,18 +116,7 @@
                 <publicationStmt>
                     <distributor>Conditor</distributor> <!-- ou authority ou publisher -->
                 </publicationStmt>
-                
-                <!-- voir après si dispo dans Pubmed :
-                <notesStmt>
-                    <note type="commentary">Commentaire</note>$$$ %%metadata comment $$
-                    <note type="audience" n=" "/> Audience, public  $$$ 0=not set, 1=international, 2=national  audience  $$
-                    <note type="invited" n=" "/> Conférence invitée (= Keynote speaker ? à vérifier)$$$ %%mandatory metadata invitedCommunication $$
-                    <note type="popular" n=" "/>  popularLevel  $$$ 0=no, 1=yes  $$
-                    <note type="peer" n=" "/>   peerReviewing  $$$ 0=no, 1=yes $$
-                    <note type="proceedings" n=" "/>  proceedings  (ce sont des actes ???)  $$$ 0=no, 1=yes  $$
-                    <note type="openAccess" n=" "/>  Open Access    ;  Transformation : n="0", si le champ OA = No,  n="1", si le champ OA = Green... ; n="2", si le champ OA = Gold</note> 
-                </notesStmt> -->
-               
+
                 
                 <sourceDesc>
                     <biblStruct>
@@ -114,22 +125,20 @@
                             <xsl:apply-templates select="MedlineCitation/Article/ArticleTitle"/>
                             
                             <xsl:apply-templates select="MedlineCitation/Article/AuthorList"/>
-                            <!-- InvestigatorList (209497)
-                                (PubMed : identifies an investigator (or collaborator) who contributed to the publication as a member of a group author.) -->
+                            <!-- InvestigatorList (209497), "identifies an investigator (or collaborator) who contributed to the publication as a member of a group author.") -->
                             <xsl:apply-templates select="MedlineCitation/InvestigatorList"/>
                             
-                            <!-- ICI si modèle TEI NEW (voir avec dédoublonnage) -->
-                            <xsl:call-template name="ArticleIdList"/>
+                            <!-- *** idno analytic ICI si modèle TEI NEW (valide avec HAL_odd.xml, pas valide avec aofr.xsd) 
+                            <xsl:call-template name="ArticleIdList"/>  -->
                         </analytic>
                         
                         <monogr>
                             <xsl:apply-templates select="MedlineCitation/Article/Journal"></xsl:apply-templates>
-                            <!-- voir plus tard si author fils de authorList de type editor dans PubMed ; sur ce corpus 2014-2017, uniquement dans les PubmedBookArticle -->
                             <xsl:call-template name="Imprint"/> <!-- elts dispersés -->
                         </monogr>
                         
-                        <!-- *** idno ici, modèle TEI OLD *** :
-                        <xsl:call-template name="ArticleIdList"/>  -->
+                        <!-- *** idno ici, modèle TEI0 *** :  -->
+                        <xsl:call-template name="ArticleIdList"/> 
                         
                     </biblStruct>
                 </sourceDesc>
@@ -142,11 +151,11 @@
                 </langUsage>
                 
                
-                <!-- mots-clés :  -->             
+                <!-- mots-clés et type de publication (classcode, toujours au moins 1) :  -->             
                 <!-- <xsl:if test="MedlineCitation/SupplMeshList|MedlineCitation/MeshHeadingList|MedlineCitation/PersonalNameSubjectList|MedlineCitation/KeywordList"> -->
                     <!-- fils de MedlineCitation, disséminés -->
                     <textClass>
-                        <xsl:apply-templates select="MedlineCitation"/>  <!-- mots clés diverses listes et clascode type Publi -->
+                        <xsl:apply-templates select="MedlineCitation"/>
                     </textClass>
                <!-- </xsl:if> -->
                 
@@ -173,10 +182,7 @@
                 <xsl:if test="not(contains(.,'Not Available'))">
                     <title xml:lang="en"> 
                         <xsl:value-of select="normalize-space(.)"/>
-                        <!-- efficace, à affiner ou décider autre chose :
-                        <xsl:for-each select="text()|node()">
-                            <xsl:copy-of select="."/>
-                        </xsl:for-each> -->
+                        <!-- texte plat. Voir si on récupère des éléments fils sémantiques comme sub et sup -->
                     </title>
                 </xsl:if>
             </xsl:if>
@@ -186,16 +192,12 @@
             <!-- pas d'attribut lang à VernacularTitle, utiliser celui de Language et le mettre sur 2 lettres -->
             <xsl:attribute name="xml:lang"><xsl:value-of select="substring(../Language, 1, 2)"/></xsl:attribute>
             <xsl:value-of select="normalize-space(..//VernacularTitle)"/>
-            <!-- <xsl:for-each select="text()|node()">  les sup et sub et mathml slt, je pense
-                <xsl:copy-of select="."/>
-            </xsl:for-each> -->
+            <!-- idem, texte plat --> 
             </xsl:element>
         </xsl:if>
 </xsl:template>
     
 <xsl:template match="Journal"> <!-- Journal (ISSN?, JournalIssue, Title?, ISOAbbreviation?) -->
-    
-    <!-- pas d'ISBN dans les PubmedArticle 2014-17 -->
     
     <xsl:for-each select="ISSN[@IssnType='Print']">
         <idno type="issn"><xsl:value-of select="."/></idno>
@@ -225,11 +227,9 @@
 </xsl:template>
     
     
-    <xsl:template match="AuthorList">  <!-- @Type optionnel (une vingtaine sur cq année), @CompleteYN="Y|N"> 
-    aucun élément avec @CompleteYN="N" -->
-    <!-- revu : 
-        - editor au lieu de author role=edt
-        - pour les Books complets, ils sont dans Book (et sont auteur, sauf mention contraire) -->
+    <xsl:template match="AuthorList">
+        <!-- Chemins variés selon type de document ; 2 rôles TEI (author et editor), dans la source : @Type optionnel (mais peu : une vingtaine sur cq année), @CompleteYN="Y|N", tous complets.   
+        test sur position par rapport à articleTitle quand pas d'attribut Type -->
         
         <xsl:for-each select="Author"> <!-- <!ELEMENT	Author (((LastName, ForeName?, Initials?, Suffix?) | CollectiveName), Identifier*, AffiliationInfo*), @ValidYN="Y">
                                                 2014:98, 2015:117, 2016:9, 2017:0 Valid=N-->
@@ -239,7 +239,7 @@
             <xsl:when test="../@Type='authors'">
             <author role="aut">
                 <xsl:if test="@ValidYN='N'">
-                    <xsl:attribute name="cert">unknown</xsl:attribute> <!-- high, medium, low ... -->
+                    <xsl:attribute name="cert">unknown</xsl:attribute> <!-- Voir si on garde cet attribut ... -->
                 </xsl:if>
                 <xsl:call-template name="Names"/>
             </author>   
@@ -254,18 +254,18 @@
             </xsl:when>
             <xsl:otherwise>  <!-- pas d'attribut -->
                 <xsl:choose>
-                    <xsl:when test="../../ArticleTitle">    <!-- book chapter: on est dans BookDocument, niveau analytic -->
+                    <xsl:when test="../../ArticleTitle">    <!-- article ou book chapter(on est dans BookDocument), niveau analytic -->
                         <author role="aut">
                             <xsl:if test="@ValidYN='N'">
-                                <xsl:attribute name="cert">unknown</xsl:attribute> <!-- high, medium, low ... -->
+                                <xsl:attribute name="cert">unknown</xsl:attribute>
                             </xsl:if>
                             <xsl:call-template name="Names"/>
                         </author>
                     </xsl:when>
-                    <xsl:when test="../../BookTitle and not(../../..//ArticleTitle)">  <!-- nv monogr, Book, sans nv analytic : livre complet -->
+                    <xsl:when test="../../BookTitle and not(../../..//ArticleTitle)">  <!-- nv monogr, Book (fils de BookDocument), sans info nv analytic : livre complet -->
                         <author role="aut">
                             <xsl:if test="@ValidYN='N'">
-                                <xsl:attribute name="cert">unknown</xsl:attribute> <!-- high, medium, low ... -->
+                                <xsl:attribute name="cert">unknown</xsl:attribute>
                             </xsl:if>
                             <xsl:call-template name="Names"/>
                         </author>
@@ -273,7 +273,7 @@
                     <xsl:when test="../../BookTitle and ../../..//ArticleTitle">  <!-- nv monogr mais avec analytic : chapitre -->
                         <editor role="edt">
                             <xsl:if test="@ValidYN='N'">
-                                <xsl:attribute name="cert">unknown</xsl:attribute> <!-- high, medium, low ... -->
+                                <xsl:attribute name="cert">unknown</xsl:attribute>
                             </xsl:if>
                             <xsl:call-template name="Names"/>
                         </editor>
@@ -292,7 +292,8 @@
     </xsl:template>
     
     <xsl:template match="InvestigatorList"> <!-- pas d'attribut -->
-        <!-- Investigator (LastName, ForeName?, Initials?, Suffix?, Identifier*, AffiliationInfo*), @ValidYN (Y | N) "Y" -->
+        <!-- Investigator (LastName, ForeName?, Initials?, Suffix?, Identifier*, AffiliationInfo*), @ValidYN (Y | N) "Y" 
+        On peut faire pareil avec 'cert' ou non -->
         <xsl:for-each select="Investigator">
             <author role="aut">
                 <xsl:call-template name="Names"/>
@@ -312,29 +313,16 @@
              <xsl:if test="Initials">
                  <forename type="initial"><xsl:value-of select="Initials"/></forename>
              </xsl:if>
-             <!-- contenu hétérogène (tei:genName ou tei:roleName) , et pas auteurs fr: -->
-             <!--    <xsl:if test="string-length(Suffix) &gt; 0">
-                            <genName><xsl:value-of select="Suffix"/></genName> 
-                        </xsl:if> -->
              <surname><xsl:value-of select="LastName"/></surname>
          </persName>
      </xsl:if>   
-     <xsl:if test="CollectiveName"> <!-- 8905; string, sans pays en général ; 2785 avec Investigator(s) -->
+     <xsl:if test="CollectiveName">
          <orgName><xsl:value-of select="CollectiveName"/></orgName>  <!-- pas possible d'isoler le pays, rarement indiqué -->
      </xsl:if>
      
-
-
-     <!-- ID, 4 dans la source pubmed : 
-                        <Identifier Source="ORCID">0000-0002-6711-872X</Identifier>  ou <Identifier Source="ORCID">http://orcid.org/0000-0002-9127-348X</Identifier>
-                        <Identifier Source="GRID" (grid.numéro
-                        <Identifier Source="ISNI" (numéro), , <Identifier Source="RINGGOLD" (numéro)
-                        Attention : URL complète ou id seul.
-                         Fils de Author, Affilliation, Investigator   -->
      <xsl:for-each select="Identifier">
          <xsl:element name="idno">
              <xsl:attribute name="type">
-                 <!-- mettre du choose pour voir nouveaux cas ? -->
                  <xsl:if test="@Source='ORCID'">orcid</xsl:if>
                  <xsl:if test="@Source='ISNI'">isni</xsl:if>
                  <xsl:if test="@Source='GRID'">grid</xsl:if>  <!-- ces 2 derniers : organismes, mais ne côute rien -->
@@ -342,7 +330,7 @@
              </xsl:attribute>
              <xsl:choose>
                  <xsl:when test="contains(., 'http://orcid.org')">
-                     <xsl:value-of select="substring-after(substring-after(., '.'), '/')"/>         <!-- car normalement pas l'URL; j'ai les 2 cas -->
+                     <xsl:value-of select="substring-after(substring-after(., '.'), '/')"/>         <!-- normalement pas l'URL; les 2 cas -->
                  </xsl:when>
                  <xsl:otherwise> <xsl:value-of select="."/></xsl:otherwise>
              </xsl:choose>
@@ -351,40 +339,16 @@
      </xsl:for-each>
      
      <xsl:for-each select="AffiliationInfo/Affiliation">
-         <!-- new : mail, à tester !!! TO DO : Découper après ":", mais qqfois il y en a 2, et on a encore des noms, adresses, des ponctuations ... 
-         <xsl:variable name="apres">
-         <xsl:choose>
-             <xsl:when test="contains(., '.')">
-                <xsl:value-of select="substring-after(., '.')"/>
-             </xsl:when>
-             <xsl:when test="contains(., ';')">
-                 <xsl:value-of select="substring-after(., ';')"/>
-             </xsl:when>
-         </xsl:choose>
-         </xsl:variable>
-         <xsl:if test="contains($apres, '@')">
-             <email><xsl:value-of select="$apres"/></email>
-         </xsl:if> -->
+         <!-- très hétérogène, tests de découpage pour récupérer mail et country non satisfaisants. On se limite à récupérer <country>France<country> -->
+         <!-- mail éventuel -->
          
          <affiliation>
              <xsl:value-of select="normalize-space(.)"/>
-             <!-- affiner : isoler pays : plus simple en dehors de la chaine affiliation : -->
              <xsl:choose>
                  <xsl:when test="contains(., ', France,') or contains(., ', France.') or contains(., ', France ,') or contains(., 'France;')"><country>France</country></xsl:when>
-                 <xsl:when test="contains(., ', Gadeloupe,') or contains(., ', Guadeloupe.') or contains(., ', Guadeloupe ,') or contains(., 'Guadeloupe;')"><country>France</country></xsl:when>
+                 <xsl:when test="contains(., ', Guadeloupe,') or contains(., ', Guadeloupe.') or contains(., ', Guadeloupe ,') or contains(., 'Guadeloupe;')"><country>France</country></xsl:when>
                  <xsl:when test="contains(., ', Martinique,') or contains(., ', Martinique.') or contains(., ', Martinique ,') or contains(., 'Marinique;')"><country>France</country></xsl:when>
-                 <!-- <xsl:otherwise>
-                    <xsl:call-template name="finChaine">
-                        <xsl:with-param name="avant">
-                            <xsl:choose>
-                                <xsl:when test="contains(., '.')"><xsl:value-of select="substring-before(., '.')"/></xsl:when>
-                                <xsl:when test="contains(., ';')"><xsl:value-of select="substring-before(., ';')"/></xsl:when>
-                                <xsl:otherwise><xsl:value-of select="normalize-space(.)"/></xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:with-param>
-                        <xsl:with-param name="apres" select="."/>
-                    </xsl:call-template>
-                </xsl:otherwise> -->
+                 <!-- à suivre ou pas autres pays ... -->
              </xsl:choose>
          </affiliation>
          
@@ -402,42 +366,13 @@
      </xsl:for-each>
  </xsl:template>
     
-<xsl:template name="finChaine">
-    <xsl:param name="avant"/>
-    <xsl:param name="apres"/>
-        <xsl:choose>
-            <xsl:when test="contains($apres, ',')">
-                <xsl:call-template name="finChaine">
-                    <xsl:with-param name="avant" select="substring-before($apres, ',')"/>
-                    <xsl:with-param name="apres" select="substring-after($apres, ',')"/>
-                </xsl:call-template>
-            </xsl:when>
-            <xsl:otherwise>
-                <country>
-                    <xsl:choose>
-                        <xsl:when test="contains($apres, 'India')">India</xsl:when>
-                        <xsl:when test="contains($apres, 'China')">China</xsl:when>
-                        <xsl:when test="contains($apres, 'UK')">UK</xsl:when>
-                        <xsl:when test="contains($apres, ', France')">France</xsl:when>
-                        <xsl:otherwise>
-                            <xsl:choose>
-                                <xsl:when test="contains($apres, '.')"> <!-- il ne devrait plus y en avoir, mais il y en a -->
-                                    <xsl:value-of select="normalize-space(substring-before(($apres), '.'))"/>
-                                </xsl:when>
-                                <xsl:otherwise><xsl:value-of select="normalize-space($apres)"/></xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:otherwise>          
-                    </xsl:choose>
-                </country>
-            </xsl:otherwise>
-        </xsl:choose>
-</xsl:template>
+
     
-    <xsl:template name="Imprint">  <!-- un autre pour les Books, trop long sinon -->
+<xsl:template name="Imprint">  <!-- ne sert que pour les articles ; un autre pour les Books, trop long sinon -->
         
         <imprint>
             <xsl:choose>
-                <xsl:when test="Publisher"> <!-- ( PublisherName, PublisherLocation? ) pour books et chapter, élément fils de Book, template appelé dans celui sur Book -->
+                <xsl:when test="Publisher"> <!-- dans les articles, n'existe pas jusque là ; pays seul -->
                     <publisher>
                         <xsl:value-of select="Publisher/PublisherName"/>
                         <xsl:if test="Publisher/PublisherLocation">
@@ -446,15 +381,15 @@
                         </xsl:if>
                     </publisher>
                 </xsl:when>
-            <!-- le groupe du 10-09-2018 n'en veut pas :
+            <!-- le groupe du 10-09-2018 ne veut pas récupérer le pays, sauf s'il est dans une chaîne difficile à découper.
                 <xsl:when test="MedlineCitation/MedlineJournalInfo/Country">   $$$ articles, pas de Publisher $$
                     <pubPlace><xsl:value-of select="MedlineCitation/MedlineJournalInfo/Country"/></pubPlace>
                 </xsl:when> -->
             </xsl:choose>
             
-            <date type="datePub"> <!-- Articles - Alain ajoute :  <date type="yearPub">2014</date>, fait ci-dessous --> 
+            <date type="datePub"> <!-- Articles --> 
                 <xsl:choose>
-                    <xsl:when test="MedlineCitation/Article/ArticleDate"> <!-- (ArticleDate?, (Year, Month, Day)) -->
+                    <xsl:when test="MedlineCitation/Article/ArticleDate"> <!-- ArticleDate? (Year, Month, Day) -->
                         <xsl:value-of select="MedlineCitation/Article/ArticleDate/Year"/>
                         <xsl:text>-</xsl:text>
                         <xsl:value-of select="MedlineCitation/Article/ArticleDate/Month"/>
@@ -494,15 +429,10 @@
                         <xsl:value-of select="MedlineDate"/>
                     </xsl:when>
                     
-                    <!-- Book (..PubDate, BeginningDate?, EndingDate?), fils "year" slt dans le corpus : -->
-                    <xsl:when test="PubDate">
-                        <xsl:value-of select="PubDate/Year"/>
-                    </xsl:when>   <!-- BeginningDate=PubDate ; *** EndingDate non traité (qquns) -->
                     
-                    <xsl:otherwise><xsl:text>£££ trouver une date</xsl:text></xsl:otherwise>
                 </xsl:choose>
-                </date> <!-- date @datePub -->
-                <date type="year">
+                </date> 
+            <date type="year">  <!-- ajouté :  <date type="yearPub">2014</date> -->
                     <xsl:choose>
                         <xsl:when test="MedlineCitation/Article/ArticleDate"> <!-- ArticleDate? (Year, Month, Day) -->
                             <xsl:value-of select="MedlineCitation/Article/ArticleDate/Year"/>
@@ -516,44 +446,40 @@
                 </date>
             
             <xsl:if test="string-length(MedlineCitation/Article/Journal/JournalIssue/Volume) &gt; 0"> 
-                <!-- OK mais contient des Suppl, Suppl 2, Pt [A-Z1-9],  Spec Iss (avec ou sans rien), Spec No 1,  Hors série n°2,  ... : 
-                    <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/Volume"/> 
-                    *** Décider si on garde ou pas le texte -->
+                <!-- OK mais contient des Suppl, Suppl 2, Pt [A-Z1-9],  Spec Iss (avec ou sans rien), Spec No 1,  Hors série n°2,  ... :  -->
                 <xsl:variable name="Vol" select="MedlineCitation/Article/Journal/JournalIssue/Volume"/>
                 
-                <!-- On peut créer une seule fois le Volume.  -->
-                <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, ' '))"/></biblScope>
-                
-                <!-- Ajout info supplémentaire dans Issue|autresEquivalents : -->
+                <!-- Volume et num spéciaux intégrés dans volume : -->
                 <xsl:choose>
-                    <xsl:when test="contains($Vol, 'No')"> 
-                        <!-- <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after ($Vol, 'No'))"/></biblScope>
-                         je découpe ici, mais ne peux le faire sur l'élément issue : trop de cas. A voir si on garde le texte partout ou ou si le nettoie quand on peut :  
-                        OU, si on garde le texte : -->
-                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after ($Vol, ''))"/></biblScope>
-                        <!-- <xsl:text>£££ Issu du Vol £££</xsl:text> -->
-                    </xsl:when>
-                    <xsl:when test="contains($Vol, '°')"> <!-- 32 Hors série n°2 -->
-                        <!-- <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after($Vol, '°'))"/></biblScope> -->
-                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after($Vol, ' '))"/></biblScope>
-                       <!-- <xsl:text>£££ Issu du Vol £££</xsl:text> -->
-                    </xsl:when>
                     <xsl:when test="contains($Vol, 'Suppl')"> <!-- homogène : Vol Suppl chiffres, qquns : 46 Suppl 1 UCTN -->
                         <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, 'Suppl'))"/></biblScope>
                         <!-- <biblScope unit="supplement"><xsl:value-of select="normalize-space(substring-after($Vol, 'Suppl'))"/></biblScope> -->
                         <biblScope unit="supplement"><xsl:value-of select="normalize-space(substring-after($Vol, ' '))"/></biblScope>
-                        <!-- <xsl:text>£££ Issu du Vol £££</xsl:text> -->
                     </xsl:when> 
                     <xsl:when test="contains($Vol, 'Pt')"> <!-- idem : Vol Pt 1ch ou lettre -->
-                    <!-- <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, 'Pt'))"/></biblScope> -->
+                    <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, 'Pt'))"/></biblScope>
                     <!--    <biblScope unit="part"><xsl:value-of select="normalize-space(substring-after($Vol, 'Pt '))"/></biblScope> -->
                         <biblScope unit="part"><xsl:value-of select="normalize-space(substring-after($Vol, ' '))"/></biblScope>
-                        <!-- <xsl:text>£££ Issu du Vol £££</xsl:text> -->
                     </xsl:when>
                     <xsl:when test="contains($Vol, 'Spec')"> <!-- Spec Iss -->
-                      <!--  <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, 'Spec'))"/></biblScope> -->
-                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after ($Vol, 'Iss'))"/></biblScope>
-                        <!-- <xsl:text>£££ Issu du Vol £££</xsl:text> -->
+                      <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, 'Spec'))"/></biblScope>
+                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after ($Vol, ' '))"/></biblScope>
+                    </xsl:when>
+                    <xsl:when test="contains($Vol, 'No')">
+                        <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, ' '))"/></biblScope>
+                        <!-- découpe : <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after ($Vol, 'No'))"/></biblScope>
+                         je découpe ici, mais ne peux le faire sur l'élément issue : trop de cas. A voir si on garde le texte partout OU ou si le nettoie quand on peut :  
+                        OU, si on garde le texte : -->
+                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after($Vol, ''))"/></biblScope>
+                    </xsl:when>
+                    <xsl:when test="contains($Vol, '°')"> <!-- 32 Hors série n°2 -->
+                        <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, ' '))"/></biblScope>
+                        <!-- découpe num : <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after($Vol, '°'))"/></biblScope> -->
+                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after($Vol, ' '))"/></biblScope>
+                    </xsl:when>
+                    <xsl:when test="contains($Vol, ' ')"> <!-- Spec Iss -->
+                        <biblScope unit="volume"><xsl:value-of select="normalize-space(substring-before($Vol, ' '))"/></biblScope>
+                        <biblScope unit="specialIssue"><xsl:value-of select="normalize-space(substring-after ($Vol, ' '))"/></biblScope>
                     </xsl:when>
                     <xsl:otherwise>
                         <biblScope unit="volume"><xsl:value-of select="normalize-space($Vol)"/></biblScope>
@@ -570,6 +496,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                 Spe : 2 slt : 2 and 3-Spec Issue, Spec Iss ; pas de H, N, n (sauf 2 supl avec titres)
                  
                 1 seul avec Suppl dans le num et le Vol : Suppl 1 23Suppl 1       PMID 28198925
+                Choix actuel : numéro simple dans issue, et, quand indications spécifiques : num et indications dans suppl, part ... 
                 -->
                 <xsl:choose>
                     <xsl:when test="contains($Issue, 'Sup')">
@@ -586,8 +513,8 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                     </xsl:when>
                     <xsl:otherwise><biblScope unit="issue"><xsl:value-of select="normalize-space($Issue)"/></biblScope></xsl:otherwise>
                 </xsl:choose>
-                <!-- Autres (IsgmlInfos, à voir : (ordre : Issue    Vol      PMID)
-                    Database issue  43      25428371
+                <!-- valeurs  : (IsgmlInfos, à voir : (ordre : Issue    Vol     ex de PMID)
+                    Database issue          43      25428371
                     Web Server issue        42      24878919 
                     F1000 Faculty Rev       4       26594351
                 -->
@@ -597,7 +524,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                <biblScope unit="pp">  
             <!-- dans Article/Pagination avec fils EndPage/StartPage (rare, en devenir) ou MedlinePgn -->
                 <xsl:choose>
-                    <xsl:when test="MedlineCitation/Article/Pagination/MedlinePgn"> <!-- forme : 4 si seule ; 3841-50 ... plus bizarres aussi mais ... -->
+                    <xsl:when test="MedlineCitation/Article/Pagination/MedlinePgn"> <!-- forme : 4 si seule ; 3841-50 sinon -->
                         <xsl:value-of select="MedlineCitation/Article/Pagination/MedlinePgn"/>
                     </xsl:when>
                     <xsl:when test="StartPage">  <!-- les 2 pages complètes -->
@@ -611,7 +538,6 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
             </biblScope>
           </xsl:if> <!-- pag -->
               
-           <!-- <biblScope unit="meetAbstrNo">   numéro  de "meeting abstract"   (WOS)  </biblScope> Pubmed ne sait pas dire-->
         </imprint>
         
     </xsl:template>
@@ -626,11 +552,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
             </xsl:if>
             <name>     <!-- orgname ??? -->
                 <xsl:value-of select="normalize-space(Agency)"/>
-                <!--  <xsl:if test="Acronym">  $$$ funder peut contenir abbr. ; on supprime car propre US
-                    <xsl:text> (</xsl:text>
-                    <xsl:value-of select="Acronym"/>
-                    <xsl:text>)</xsl:text>
-                </xsl:if> -->
+                <!--  funder peut contenir abbr. ; on supprime car propre US -->
             </name>
                 <country><xsl:value-of select="Country"/></country>   <!-- existe comme fils de funder -->
         </funder>
@@ -661,7 +583,6 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
              <xsl:for-each select="PubmedData//ArticleId">
          <xsl:if test="@IdType='doi'"><idno type="doi"><xsl:value-of select="."/></idno></xsl:if>
          <xsl:if test="@IdType='pii'"><idno type="pii"><xsl:value-of select="."/></idno></xsl:if>
-         <!--  -->
              <xsl:if test="@IdType='pubmed'"><idno type="pubmed"><xsl:value-of select="."/></idno></xsl:if>
             <xsl:if test="@IdType='pmc'"><idno type="pmc"><xsl:value-of select="."/></idno></xsl:if>
             <!-- etc ... --> 
@@ -718,38 +639,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
    
   <xsl:template match="MedlineCitation">
         <xsl:if test="MeshHeadingList">
- <!--   <xsl:comment>
-        <xsl:text>Mots-Clés, choix : </xsl:text>
-        <xsl:text>1 : simple, type présentation : un "term" par couple "descripteur/qualificatif", avec * quand Major, attributs pour lang et identifiant des descripteurs. 
-        </xsl:text>
-        <xsl:text>2 : complet et granulaire : un keywords par MeshHeading, un 'term' avec attributs supplémentaires</xsl:text>
-    </xsl:comment>
-    <keywords scheme="meshHeading">
-        <xsl:for-each select="MeshHeadingList/MeshHeading"> 
-            <xsl:choose>
-                <xsl:when test="QualifierName">
-                    <xsl:for-each select="QualifierName">
-                        <term xml:lang="en">
-                            <xsl:attribute name="xml:base"><xsl:text>https://www.ncbi.nlm.nih.gov/mesh/</xsl:text><xsl:value-of select="../DescriptorName/@UI"/></xsl:attribute>
-                            <xsl:value-of select="normalize-space(../DescriptorName)"/>
-                            <xsl:if test="../DescriptorName/@MajorTopicYN='Y'"><xsl:text>*</xsl:text></xsl:if>
-                            <xsl:text>/</xsl:text>
-                            <xsl:value-of select="."/>
-                            <xsl:if test="@MajorTopicYN='Y'"><xsl:text>*</xsl:text></xsl:if>
-                        </term>
-                    </xsl:for-each>
-                </xsl:when>
-                <xsl:otherwise>
-                    <term xml:lang="en">
-                        <xsl:attribute name="xml:base"><xsl:text>https://www.ncbi.nlm.nih.gov/mesh/</xsl:text><xsl:value-of select="DescriptorName/@UI"/></xsl:attribute>
-                        <xsl:value-of select="normalize-space(DescriptorName)"/></term>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:for-each>
-    </keywords>  fin choix simple -->
-    
-<!--    <xsl:comment>
-        <xsl:text>MeshHeadings : choix granularité maximale : </xsl:text></xsl:comment> -->
+ <!-- on choisit de les structurer au maximum. Autre solution en réserve ailleurs -->
     <xsl:for-each select="MeshHeadingList/MeshHeading">
     <keywords scheme="meshHeading">
             <term>
@@ -806,24 +696,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     </xsl:if>
  
     <xsl:if test="ChemicalList">
-    <!--    <xsl:comment>
-     <xsl:text>2 formes possibles : la 1° est alignée avec HAL, la seconde granulaire comme Pubmed</xsl:text>
- </xsl:comment> -->
-        
-   <!--     <keywords scheme="meshChemical">
-        <xsl:for-each select="ChemicalList/Chemical"> $$$ Chemical (RegistryNumber, NameOfSubstance) $$
-            <term type="Mesh-Chemical">
-                <xsl:attribute name="xml:base"><xsl:text>https://www.ncbi.nlm.nih.gov/mesh/</xsl:text><xsl:value-of select="NameOfSubstance/@UI"/></xsl:attribute>
-                <xsl:value-of select="NameOfSubstance"/>
-                <xsl:text> - Registry Number : </xsl:text>
-                <xsl:value-of select="RegistryNumber"/>
-            </term>
-        </xsl:for-each>
-        </keywords> -->
-       
-<!-- <xsl:comment>
-     <xsl:text>meshChemical, Forme la plus granulaire :</xsl:text>
- </xsl:comment> -->
+   <!-- on choisit de garder la structure source. Autre solution en réserve ailleurs -->
         
             <xsl:for-each select="ChemicalList/Chemical"> <!-- Chemical (RegistryNumber, NameOfSubstance) -->
                 <keywords scheme="meshChemical">
@@ -841,10 +714,8 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     
         <!-- GeneSymbolList? 1991-1995 -->
     
-    <xsl:if test="KeywordList"> <!--Owner (NLM | NLM-AUTO | NASA | PIP | KIE | NOTNLM | HHS) -->   
+      <xsl:if test="KeywordList"> <!--Owner (NLM | NLM-AUTO | NASA | PIP | KIE | NOTNLM | HHS), uniquement valeur "NOTNLM" dans le corpus. -->   
         <keywords scheme="author">
-            <!-- je pensais traiter chaque cas, mais uniquement valeur "NOTNLM" dans le corpus.
-            Ils sont tous mineurs -->
             <xsl:for-each select="KeywordList[@Owner='NOTNLM']/Keyword">
              <term type="author">
                 <xsl:value-of select="."/>
@@ -884,26 +755,14 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
 
     
 <xsl:template match="Abstract"> 
-    <!-- AbstracText+, @Label CDATA #IMPLIED
-		               NlmCategory (BACKGROUND | OBJECTIVE | METHODS | RESULTS | CONCLUSIONS | UNASSIGNED) #IMPLIED2 
-    - créer des p avec @type=(BACKGROUND ... ?) - Non, 2018-09-10 -->
+    <!-- fils source : AbstracText+, @Label CDATA #IMPLIED
+		                              @NlmCategory (BACKGROUND | OBJECTIVE | METHODS | RESULTS | CONCLUSIONS | UNASSIGNED) #IMPLIED2 
+    Quand @label ou @NlmCategory est renseigné, la valeur n'est plus dans le texte. On la récupère ici
+    Et on en crée pas plusieurs 'p' typés, mais un seul p pour tout le résumé (2018-09-10) 
+    
+    (%text; | mml:math | DispFormula)* ; un seul résumé contient mml ; texte à plat pour l'instant.
+    -->
     <abstract xml:lang="en"> 
-        <!-- un 'p' par partie, OK :
-        <xsl:for-each select="AbstractText"> $$$ (%text; | mml:math | DispFormula)* $$$
-            <p>
-                <xsl:if test="@Label">
-                    <xsl:value-of select="@Label"/>
-                    <xsl:text> : </xsl:text>
-                </xsl:if>
-                <xsl:value-of select="normalize-space(.)"/>   
-            </p>
-        </xsl:for-each>  
-       
-        <xsl:if test="CopyrightInformation">
-            <p>
-            <xsl:text>Copyright : </xsl:text><xsl:value-of select="CopyrightInformation"/>
-            </p>
-        </xsl:if> -->
         
         <!-- sans 'p' : -->
         <xsl:for-each select="AbstractText"> 
@@ -913,7 +772,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                 </xsl:if>
                 <xsl:value-of select="normalize-space(.)"/>  
             <xsl:if test="position()!=last()"><xsl:text> </xsl:text></xsl:if>
-        </xsl:for-each>  
+        </xsl:for-each> 
         <xsl:if test="CopyrightInformation">
             <!-- inutile en général : contient "Copyright" "©" <xsl:text> Copyright : </xsl:text> -->
             <xsl:text> </xsl:text>
@@ -927,28 +786,27 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     <!-- <OtherAbstract @Type="Publisher" @Language="fre", spa ...> -->
     <abstract>
         <xsl:attribute name="xml:lang"><xsl:value-of select="substring(@Language, 1, 2)"/></xsl:attribute>
-        <!-- <xsl:attribute name="type"><xsl:value-of select="@Type"/></xsl:attribute> pas autorisé dans abstract -->
+        <!-- <p> -->
         <xsl:for-each select="AbstractText"> 
-           <!-- <p> -->
             <xsl:value-of select="normalize-space(.)"/>
             <xsl:if test="position()!=last()"><xsl:text> </xsl:text></xsl:if>
-           <!-- </p> -->
             <xsl:if test="CopyrightInformation">
                 <!-- <xsl:text> Copyright : </xsl:text> -->
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="normalize-space(CopyrightInformation)"/>
             </xsl:if>
         </xsl:for-each>
+        <!-- </p> -->
     </abstract>
     </xsl:template>
     
     
     
  <!-- *************************************** 
-     2° élément fils de PubmedArticleSet : 
+     2° élément fils de PubmedArticleSet, PubmedBookArticle : 
       *************************************** -->
-<xsl:template match="PubmedBookArticle">  <!-- copie de PubmedArticle, en cours -->
-    
+<xsl:template match="PubmedBookArticle"> 
+ <!-- 41 sur 43 sont des chapitres de livres, 2 des livres complets -->   
     <TEI xmlns="http://www.tei-c.org/ns/1.0">
         
         <text>
@@ -958,7 +816,13 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                         <!-- titleStmt obligatoire ; minimum : fils title. HAL ajoute les auteurs (sans parent "authorList"), et les funder (c'est une solution)  -->
                         <titleStmt>
                             <xsl:call-template name="Title"/>   <!-- quand partie de book -->
-                            <xsl:apply-templates select="BookDocument/AuthorList"/>   <!-- auteurs de la partie. Voir qd pas de partie -->
+                            
+                            <!-- <xsl:apply-templates select="BookDocument/AuthorList"/>  OU :-->
+                            <xsl:comment>
+                        <xsl:text>Pour ne pas allonger inutilement la description, les auteurs sont présents ci-dessous,  
+                            chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author 
+                            ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author</xsl:text>
+                    </xsl:comment>
                             <!-- les auteurs de type editor sont dans BookDocument/Book/AuthorList -->
                             <xsl:apply-templates select=".//GrantList"/> <!-- ** TO DO -->
                            
@@ -971,23 +835,9 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                             </edition>
                         </editionStmt>
                         
-                        <!-- !!! obligatoire dans le schéma documentNamesDates.xsd (rep ROMA_min), présent modèle MD HAL : publicationStmt OU extent) -->
                         <publicationStmt>
                             <distributor>Conditor</distributor> <!-- ou authority ou publisher -->
                         </publicationStmt>
-                        
-                        <!-- voir après dans notices :
-                <notesStmt>
-                    <note type="commentary">Commentaire</note>$$$ %%metadata comment $$
-                    <note type="audience" n=" "/> Audience, public  $$$ 0=not set, 1=international, 2=national  audience  $$
-                    <note type="invited" n=" "/> Conférence invitée (= Keynote speaker ? à vérifier)$$$ %%mandatory metadata invitedCommunication $$
-                    <note type="popular" n=" "/>  popularLevel  $$$ 0=no, 1=yes  $$
-                    <note type="peer" n=" "/>   peerReviewing  $$$ 0=no, 1=yes $$
-                    <note type="proceedings" n=" "/>  proceedings  (ce sont des actes ???)  $$$ 0=no, 1=yes  $$
-                    <note type="openAccess" n=" "/>  Open Access    ;  Transformation : n="0", si le champ OA = No,  n="1", si le champ OA = Green... ; n="2", si le champ OA = Gold</note> 
-                
-                    <note type="thesisOriginal" n=" "/>  la notice décrit la version de soutenance = original  $$$  0=no, 1=yes  $$
-                </notesStmt> -->
                         
                         
                         <sourceDesc>
@@ -1004,7 +854,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                                     <xsl:apply-templates select=".//InvestigatorList"/> <!-- dans Book ou BookDocument, 0 dans le corpus -->
                                     
                                     <!-- ICI si modèle TEI NEW (voir avec dédoublonnage) -->
-                                    <xsl:call-template name="ArticleIdList"/>  <!-- plus haut -->
+                                    <!--    <xsl:call-template name="ArticleIdList"/> -->
                                 </analytic>
                                 </xsl:if>
                                 
@@ -1012,11 +862,10 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                                 
                                     <xsl:apply-templates select="BookDocument/Book"/>  <!-- idno, title, authorList[@type=editor] -->
                                     
-                                    <!-- <xsl:call-template name="Imprint"/> dans Book -->
                                 </monogr>
                                 
-                                <!-- *** idno ici, modèle TEI OLD *** :
-                        <xsl:call-template name="ArticleIdList"/>  -->
+                                <!-- *** idno ici, modèle TEI OLD *** : -->
+                        <xsl:call-template name="ArticleIdList"/>  
                                 
                             </biblStruct>
                         </sourceDesc>
@@ -1163,9 +1012,8 @@ cf notices_PubmedBookArticle, indent ou pas -->
                         </xsl:if>
                        </xsl:when> 
                     
-                    <xsl:otherwise><xsl:text>£££ date ? £££</xsl:text></xsl:otherwise>
                 </xsl:choose>
-            </date> <!-- date @datePub -->
+            </date> 
             <date type="year">
                 <xsl:choose>
                     <xsl:when test="PubDate"><xsl:value-of select="PubDate/Year"/></xsl:when>
@@ -1198,7 +1046,6 @@ cf notices_PubmedBookArticle, indent ou pas -->
                 </biblScope>
             </xsl:if> <!-- pag -->
             
-            <!-- <biblScope unit="meetAbstrNo">   numéro  de "meeting abstract"   (WOS)  </biblScope> Pubmed ne sait pas dire-->
         </imprint>
         
     </xsl:template>
