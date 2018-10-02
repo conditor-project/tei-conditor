@@ -1,0 +1,15 @@
+{
+  "name": "tei-conditor",
+  "version": "0.0.1",
+  "description": "xslt stylesheet for Conditor project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conditor-project/tei-conditor.git"
+  },
+  "author": "conditor-team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conditor-project/tei-conditor/issues"
+  },
+  "homepage": "https://github.com/conditor-project/tei-conditor#readme"
+}
