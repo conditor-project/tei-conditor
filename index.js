@@ -4,17 +4,17 @@ const path = require('path');
 
 const teiConditor = {};
 
-teiConditor.getResource = function (source, type) {
+teiConditor.getResource = function (target) {
   return this.walker(path.resolve('src'))
-    .then(result => this.get(result, source))
-    .then(result => this.get(result, type));
+    .then(result => this.get(result, 'source'))
+    .then(result => this.get(result, target));
 };
 
 teiConditor.get = function (directoryTree, target) {
   return Promise.filter(directoryTree, directory => directory.name === target)
     .then(directory => {
-      if (directory.length === 0) return Promise.reject(new Error('no source founded'));
-      if (directory.length > 1) return Promise.reject(new Error('too many source founded'));
+      if (directory.length === 0) return Promise.reject(new Error('no directory founded'));
+      if (directory.length > 1) return Promise.reject(new Error('too many directories founded'));
       const objSource = directory.pop();
       if (!objSource.hasOwnProperty('children')) return Promise.reject(new Error('directory empty'));
       return objSource.children;
@@ -46,7 +46,7 @@ teiConditor.walker = function (directory) {
   });
 };
 
-// teiConditor.getResource('pubmed', 'xsl').then(result => {
+// teiConditor.getResource('pubmed').then(result => {
 //   console.dir(result, {depth: 8});
 // });
 
