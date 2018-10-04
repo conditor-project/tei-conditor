@@ -12,8 +12,19 @@
   "bugs": {
     "url": "https://github.com/conditor-project/tei-conditor/issues"
   },
+  "scripts": {
+    "test": "mocha"
+  },
   "homepage": "https://github.com/conditor-project/tei-conditor#readme",
   "dependencies": {
     "bluebird": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "co-config": "git+https://github.com/conditor-project/co-config.git",
+    "computron": "0.0.5",
+    "mocha": "^5.2.0",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.27"
   }
 }
