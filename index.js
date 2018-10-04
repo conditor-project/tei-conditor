@@ -46,8 +46,4 @@ teiConditor.walker = function (directory) {
   });
 };
 
-// teiConditor.getResource('pubmed').then(result => {
-//   console.dir(result, {depth: 8});
-// });
-
 module.exports = teiConditor;
