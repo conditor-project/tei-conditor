@@ -23,18 +23,17 @@ teiConditor.get = function (directoryTree, target) {
 
 teiConditor.walker = function (directory) {
   return fs.readdirAsync(directory).map(content => {
-    return fs.statAsync(path.join(directory, content))
-      .then(stats => {
-        const result = {
-          name: content,
-          path: path.join(directory, content),
-          size: stats.size,
-          type: 'unknown'
-        };
-        if (stats.isFile()) result.type = 'file';
-        if (stats.isDirectory()) result.type = 'directory';
-        return result;
-      });
+    return fs.statAsync(path.join(directory, content)).then(stats => {
+      const result = {
+        name: content,
+        path: path.join(directory, content),
+        size: stats.size,
+        type: 'unknown'
+      };
+      if (stats.isFile()) result.type = 'file';
+      if (stats.isDirectory()) result.type = 'directory';
+      return result;
+    });
   }).map(content => {
     if (content.type === 'directory') {
       return this.walker(content.path).then(result => {
