@@ -11,7 +11,7 @@ const metadataXpaths = require('co-config/metadata-xpaths.json');
 const Computron = require('computron');
 Promise.promisifyAll(Computron.prototype);
 
-describe('Xpath validation for Conditor load chaining', function () {
+describe('Xpath validation for Conditor processing chain', function () {
   const datasets = fs.readdirSync(path.join(__dirname, 'dataset/pubmed'))
     .map(dataset => {
       return {
@@ -23,7 +23,7 @@ describe('Xpath validation for Conditor load chaining', function () {
 
   stylesheets.map(stylesheet => {
     datasets.map(dataset => {
-      describe(`${stylesheet.name} with ${dataset.name}`, function () {
+      describe(`dataset ${dataset.name} transform with ${stylesheet.name}`, function () {
         metadataXpaths.map(metadataXpath => {
           it(`it should retriving ${metadataXpath.name}`, function () {
             const transformer = new Computron();
