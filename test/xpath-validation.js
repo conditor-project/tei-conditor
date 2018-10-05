@@ -25,7 +25,7 @@ describe('Xpath validation for Conditor processing chain', function () {
     datasets.map(dataset => {
       describe(`dataset ${dataset.name} transform with ${stylesheet.name}`, function () {
         metadataXpaths.map(metadataXpath => {
-          it(`it should retriving ${metadataXpath.name}`, function () {
+          it(`it should retrieving ${metadataXpath.name}`, function () {
             const transformer = new Computron();
             return transformer.loadStylesheetAsync(stylesheet.path)
               .then(() => transformer.applyAsync(dataset.path))
