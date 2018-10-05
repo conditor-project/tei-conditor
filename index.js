@@ -2,17 +2,18 @@ const Promise = require('bluebird');
 const fs = Promise.promisifyAll(require('fs'));
 const path = require('path');
 
-function getResource (target) {
+function getStylesheetFrom (target) {
   return walker(path.resolve('src'))
     .then(result => get(result, 'source'))
-    .then(result => get(result, target));
+    .then(result => get(result, target))
+    .filter(file => path.extname(file.name) === '.xsl');
 }
 
-function getResourceSync (target) {
+function getStylesheetFromSync (target) {
   const directoryTree = walkerSync(path.resolve('src'));
   const source = getSync(directoryTree, 'source');
   const result = getSync(source, target);
-  return result;
+  return result.filter(file => path.extname(file.name) === '.xsl');
 }
 
 function get (directoryTree, target) {
@@ -81,6 +82,4 @@ function walkerSync (directory) {
   });
 }
 
-walkerSync('/home/moi/Dev');
-
-module.exports = { getResource, getResourceSync };
+module.exports = { getStylesheetFrom, getStylesheetFromSync };
