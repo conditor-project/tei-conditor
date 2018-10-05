@@ -3,14 +3,14 @@ const fs = Promise.promisifyAll(require('fs'));
 const path = require('path');
 
 function getStylesheetFrom (target) {
-  return walker(path.resolve('src'))
+  return walker(path.join(__dirname, 'src'))
     .then(result => get(result, 'source'))
     .then(result => get(result, target))
     .filter(file => path.extname(file.name) === '.xsl');
 }
 
 function getStylesheetFromSync (target) {
-  const directoryTree = walkerSync(path.resolve('src'));
+  const directoryTree = walkerSync(path.join(__dirname, 'src'));
   const source = getSync(directoryTree, 'source');
   const result = getSync(source, target);
   return result.filter(file => path.extname(file.name) === '.xsl');
