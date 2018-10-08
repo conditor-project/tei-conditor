@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/conditor-project/tei-conditor#readme",
   "dependencies": {
-    "bluebird": "^3.5.2"
+    "bluebird": "^3.5.2",
+    "co-formatter": "git+https://github.com/conditor-project/co-formatter.git"
   },
   "devDependencies": {
     "chai": "^4.2.0",
