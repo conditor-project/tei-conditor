@@ -13,7 +13,7 @@ const coFormatter = require('co-formatter');
 const Computron = require('computron');
 Promise.promisifyAll(Computron.prototype);
 
-describe('Xpath validation for Conditor processing chain', function () {
+describe('Xpath validation for PubMed', function () {
   const datasets = fs.readdirSync(path.join(__dirname, 'dataset/pubmed'))
     .map(dataset => {
       return {
@@ -22,37 +22,56 @@ describe('Xpath validation for Conditor processing chain', function () {
       };
     });
   const stylesheets = getStylesheetFromSync('pubmed');
+  const xpathToTest = [
+    'title',
+    'titleen',
+    'author',
+    'authorFull',
+    'authorInit',
+    'authorRef',
+    'issn',
+    'xissn',
+    'issue',
+    'page',
+    'volume',
+    'publicationDate',
+    'titreSourceJ',
+    'abstract',
+    'typeDocument'
+  ];
 
   stylesheets.map(stylesheet => {
     datasets.map(dataset => {
       describe(`dataset ${dataset.name} transform with ${stylesheet.name}`, function () {
-        metadataXpaths.map(metadataXpath => {
-          it(`it should retrieving ${metadataXpath.name}`, function () {
-            const transformer = new Computron();
-            return transformer.loadStylesheetAsync(stylesheet.path)
-              .then(() => transformer.applyAsync(dataset.path))
-              .then(xml => new DOM().parseFromString(xml))
-              .then(xmlDoc => {
-                const evaluatorOptions = {
-                  node: xmlDoc,
-                  namespaces: {
-                    'TEI': 'http://www.tei-c.org/ns/1.0',
-                    'xml': 'http://www.w3.org/XML/1998/namespace'
-                  },
-                  functions: {
-                    'lower-case': function (context, arg) {
-                      return context
-                        .contextNode
-                        .getAttribute('type')
-                        .toLowerCase();
+        metadataXpaths
+          .filter(metadataXpath => xpathToTest.includes(metadataXpath.name))
+          .map(metadataXpath => {
+            it(`it should retrieving ${metadataXpath.name}`, function () {
+              const transformer = new Computron();
+              return transformer.loadStylesheetAsync(stylesheet.path)
+                .then(() => transformer.applyAsync(dataset.path))
+                .then(xml => new DOM().parseFromString(xml))
+                .then(xmlDoc => {
+                  const evaluatorOptions = {
+                    node: xmlDoc,
+                    namespaces: {
+                      'TEI': 'http://www.tei-c.org/ns/1.0',
+                      'xml': 'http://www.w3.org/XML/1998/namespace'
+                    },
+                    functions: {
+                      'lower-case': function (context, arg) {
+                        return context
+                          .contextNode
+                          .getAttribute('type')
+                          .toLowerCase();
+                      }
                     }
-                  }
-                };
-                const value = coFormatter.extract(metadataXpath, evaluatorOptions);
-                expect(value).to.not.be.empty;
-              });
+                  };
+                  const value = coFormatter.extract(metadataXpath, evaluatorOptions);
+                  expect(value).to.not.be.empty;
+                });
+            });
           });
-        });
 
         it(`it should fail retrieving element with bad xpath`, function () {
           const badXpath = {
