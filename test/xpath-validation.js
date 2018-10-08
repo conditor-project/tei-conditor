@@ -9,6 +9,7 @@ const path = require('path');
 const Promise = require('bluebird');
 const fs = Promise.promisifyAll(require('fs'));
 const metadataXpaths = require('co-config/metadata-xpaths.json');
+const coFormatter = require('co-formatter');
 const Computron = require('computron');
 Promise.promisifyAll(Computron.prototype);
 
@@ -32,7 +33,6 @@ describe('Xpath validation for Conditor processing chain', function () {
               .then(() => transformer.applyAsync(dataset.path))
               .then(xml => new DOM().parseFromString(xml))
               .then(xmlDoc => {
-                const evaluator = xpath.parse(metadataXpath.path);
                 const evaluatorOptions = {
                   node: xmlDoc,
                   namespaces: {
@@ -48,7 +48,8 @@ describe('Xpath validation for Conditor processing chain', function () {
                     }
                   }
                 };
-                evaluator.evaluate(evaluatorOptions);
+                const value = coFormatter.extract(metadataXpath, evaluatorOptions);
+                expect(value).to.not.be.empty;
               });
           });
         });
