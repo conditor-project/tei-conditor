@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st June 2018//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_180601.dtd">
+<PubmedArticleSet>
+
+<PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+        <PMID Version="1">29977837</PMID>
+        <DateRevised>
+            <Year>2018</Year>
+            <Month>07</Month>
+            <Day>08</Day>
+        </DateRevised>
+        <Article PubModel="Print-Electronic">
+            <Journal>
+                <ISSN IssnType="Print">2231-3796</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>70</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <Year>2018</Year>
+                        <Month>Jun</Month>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Indian journal of otolaryngology and head and neck surgery : official publication of the Association of Otolaryngologists of India</Title>
+                <ISOAbbreviation>Indian J Otolaryngol Head Neck Surg</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>The Role of Hypertonic Saline in Monopolar Tonsillectomy in Pediatric Patients.</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>180-183</MedlinePgn>
+            </Pagination>
+            <ELocationID EIdType="doi" ValidYN="Y">10.1007/s12070-014-0774-7</ELocationID>
+            <Abstract>
+                <AbstractText>Looking for a simple and inexpensive method to reduce patients' pain during tonsillectomy. Bilateral tonsillectomy patients were enrolled and placed into different groups based on their admission numbers. Patients with odd numbers had electrical tonsillectomy on the right side with hypertonic saline injection into peritonsillar gap (group A) or electrical tonsillectomy on the left side without hypertonic saline injection (group B). Those with even numbers had electrical tonsillectomy on the left side with hypertonic saline injection into peritonsillar gap (group A) or electrical tonsillectomy on the right side without hypertonic saline injection (group B). Pain, operative bleeding, post-operation bleeding and operation time were evaluated. Injecting hypertonic saline into peritonsillar gap reduced pain caused by electrical tonsillectomy but did not impact operation or postoperative bleeding and operation time. While simple and economic, monopolar electrical tonsillectomy with the help of hypertonic saline injected into peritonsillar gap can effectively relieve patients from pain compared with surgeries without hypertonic saline injection.</AbstractText>
+            </Abstract>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Ma</LastName>
+                    <ForeName>Jian</ForeName>
+                    <Initials>J</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Department of Otorhinolaryngology, Rizhao City Hospital, 126 Taian Road, Rizhao, China.</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Zheng</LastName>
+                    <ForeName>Mei</ForeName>
+                    <Initials>M</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Health School of Donggang District, Rizhao, China.</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Mu</LastName>
+                    <ForeName>Jun-Wei</ForeName>
+                    <Initials>JW</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Department of Otorhinolaryngology, Rizhao City Hospital, 126 Taian Road, Rizhao, China.</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Cui</LastName>
+                    <ForeName>Peng</ForeName>
+                    <Initials>P</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Department of Otorhinolaryngology, Rizhao City Hospital, 126 Taian Road, Rizhao, China.</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <ArticleDate DateType="Electronic">
+                <Year>2014</Year>
+                <Month>09</Month>
+                <Day>11</Day>
+            </ArticleDate>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>India</Country>
+            <MedlineTA>Indian J Otolaryngol Head Neck Surg</MedlineTA>
+            <NlmUniqueID>9422551</NlmUniqueID>
+            <ISSNLinking>2231-3796</ISSNLinking>
+        </MedlineJournalInfo>
+        <CommentsCorrectionsList>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Hippokratia. 2012 Jan;16(1):11-6</RefSource>
+                <PMID Version="1">23930051</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Int J Pediatr Otorhinolaryngol. 2002 May 31;64(1):9-15</RefSource>
+                <PMID Version="1">12020908</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Laryngoscope. 2002 Aug;112(8 Pt 2 Suppl 100):3-5</RefSource>
+                <PMID Version="1">12172228</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Otolaryngol Head Neck Surg. 2006 Jun;134(6):975-8</RefSource>
+                <PMID Version="1">16730541</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Int J Pediatr Otorhinolaryngol. 2000 May 30;52(3):239-46</RefSource>
+                <PMID Version="1">10841953</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Otolaryngol Head Neck Surg. 2003 Oct;129(4):360-4</RefSource>
+                <PMID Version="1">14574289</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Int J Pediatr Otorhinolaryngol. 2003 Apr;67(4):345-51</RefSource>
+                <PMID Version="1">12663105</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>ORL J Otorhinolaryngol Relat Spec. 2005;67(4):225-9</RefSource>
+                <PMID Version="1">16224200</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Clin Otolaryngol Allied Sci. 1999 Feb;24(1):9-12</RefSource>
+                <PMID Version="1">10196640</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="Cites">
+                <RefSource>Eur Arch Otorhinolaryngol. 2005 Sep;262(9):716-8</RefSource>
+                <PMID Version="1">16133467</PMID>
+            </CommentsCorrections>
+        </CommentsCorrectionsList>
+        <KeywordList Owner="NOTNLM">
+            <Keyword MajorTopicYN="N">Hypertonic saline</Keyword>
+            <Keyword MajorTopicYN="N">Monopolar tonsillectomy</Keyword>
+            <Keyword MajorTopicYN="N">Operation bleeding</Keyword>
+            <Keyword MajorTopicYN="N">Post-operation bleeding</Keyword>
+        </KeywordList>
+    </MedlineCitation>
+    <PubmedData>
+        <History>
+            <PubMedPubDate PubStatus="received">
+                <Year>2014</Year>
+                <Month>02</Month>
+                <Day>28</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="accepted">
+                <Year>2014</Year>
+                <Month>09</Month>
+                <Day>05</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="pmc-release">
+                <Year>2019</Year>
+                <Month>06</Month>
+                <Day>01</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2018</Year>
+                <Month>7</Month>
+                <Day>7</Day>
+                <Hour>6</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2018</Year>
+                <Month>7</Month>
+                <Day>7</Day>
+                <Hour>6</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2018</Year>
+                <Month>7</Month>
+                <Day>7</Day>
+                <Hour>6</Hour>
+                <Minute>1</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pubmed">29977837</ArticleId>
+            <ArticleId IdType="doi">10.1007/s12070-014-0774-7</ArticleId>
+            <ArticleId IdType="pii">774</ArticleId>
+            <ArticleId IdType="pmc">PMC6015567</ArticleId>
+        </ArticleIdList>
+    </PubmedData>
+</PubmedArticle>
+
+</PubmedArticleSet>
