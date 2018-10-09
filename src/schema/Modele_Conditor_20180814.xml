@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 DTD/HAL_source_resultat_schemas/HALschema_xsd/document.xsd"
+ xmlns="http://www.tei-c.org/ns/1.0">
+<!-- valide par rapport au schéma de HAL déclaré ci-dessus, CM, 31 aout. -->
+    
+<!-- ce modèle du 30 novembre inclut les derniers consignes du lot 4  et comporte des changements des attributs suivants : 
+		"bp" et "ep" deviennent "pp"
+		"pagesNb devient "pagesNo"
+		ajout de l'attribut "meetAbstrNo"-->
+<!-- ajout 6 mars 2018 : tester la multioccurrence des identifiants suivants et les atomiser le cas échéant pour la TEI : ISSN (SN et EI), ISBN (BN), DOI (DI), pubmed (PM)   -->
+<!-- ajout le 12 mars 2018 :  <biblScope unit="supplement"> et  <biblScope unit="specialIssue"> pour éviter des fusions des notices WOS (ZEITSCHRIFT FUR GEOMORPHOLOGIE avec série de suppléments en numérotation parallèle)  suite au recettage lot 4-->
+<!-- bugs du shell corrigés semaine 11 : espace manquant dans les titres et résumés (line feed) ; affiliation coupée à cause du caractère de substitution pour le "&"  -->
+<!--  26 mars 2018  :  suite au recettage et absence de date de publication pour certains types de documents  :  ajout de   <date type="whenProduced"> pour les notices HAL qui n'ont pas de date de publication ; à prendre dans  <editionStmt><edition> dans <imprint>  -->
+<!--  26 mars 2018 :  mention de responsabilité secondaire (cf. thèses) : ajout des balises  suivantes pour les responsabilités secondaires :  
+                     <editor role=" "> 
+                            <orgName type= institution|laboratory>   ==> à faire valider par Laurent Romary 
+			table de correspondance code rôle Unimarc  -  marcrel  (avec qq créations marcrel pour les codes 9XX Unimarc ) -->
+<!-- ajout le 16 mai 2018 :  Besoin de harmonisation avec HAL (de HAL avec le WOS) : le rôle "crp" du corresponding author est abandonné, l'info se trouve comme attribut dans la balise <affiliation type="rp"> -->
+<!-- ajout le 3 juillet 2018 :  Enrichissement des notices en vue de la notice de signalement en sortie : Inclure des éléments du bloc notesStmt de la TEI HAL ; et le funder. -->
+<!-- ajout le 6 juillet 2018 :  Balise <funder> - ajout de balises <name> et <note>. Placement de ces balises dans <monogr>, après </imprint>. Le champ FU du Wos mélange actuellement noms de financeurs et noms de projets et n'est pas suffisamment structuré pour en faire un signalement plus fin  
+                                         ???   Ajout du bloc  <notesStmt> avec différets champs de <note> - voir attributs et valeurs  -->
+<!-- ajout le 16 juillet 2018 :  ajout de la balise <note type="recordStatus"> dans <editionStmt><edition> : statut des notices Pubmed ; peut également servir pour la mention de "retracted article" ? ; emplacement à voir : <editionStmt> ou <notesStmt>
+                                               Balise <idno> pour  author ou editor :   -  ajout de nouvelles valeurs pour l'attribut @type :  isni, grid, ringgold   suite à l'analyse du corpus PubMed. Dans PubMed GRID, ISNI et RINGGOLD sont utilisés comme identifiant de l'affiliation
+                                               Element <funder> - ajout de balises <country> et <idno type="grantNumber">  suite à l'analyse du corpus PubMed.  
+                                               Balise <idno> pour document  -  ajout de l'attribut @type="pii" pour  Publisher Item Identifier  ; emplacement :  -->
+<!--  17 juillet 2018 :  Création de la balise <titleStmt> sous <biblFull> avec fils <title>, <author> et <funder> : obligatoire en TEI de base, et présent dans le "modèle" HAL_API_all_MD.xml
+                                   Balise <funder> : remonte sous la balise <titleStmt>, le plus pertinent ; ajout de la balise <idno @type="grantId"> dans ce bloc
+                                   Création de la balise <publicationStmt> sous <biblFull> avec pour contenu <distributor>Conditor</distributor>   -  TO DO for <header !!!!! 
+									<tei:persName>  : ajout de la balise <genName> = "generational name component"  pour inclure les mentions "Jr", "II" etc. pour distinguer père et fils. Pubmed : <Suffix>  -  annulé le 18 juillet, car contenu de la balise <Suffix> trop hétérogène   -->
+<!--   27 juillet 2018 : 	<affiliation : ajout d'une balise <country> qui reprend la fin de contenu d'un champ "affiliation" non structuré du WOS et de PubMed afin de faciliter l'isolation des affiliations françaises pour l'enrichissement RNSR	   
+                                    Ajout de la balise <date type="whenEndEmbargoed">  date de fin d'embargo pour le full-text (notices HAL)  </date>  
+									Pubmed - Grant  : on ignore le champ acronyme, (pour les subventions americaines), car on ne sait pas à quoi il correspond ; l'agence est bien identifiée  
+									Pubmed  -  Si <ArticleTitle> est vide ou comporte la mention <ArticleTitle>[Not Available].</ArticleTitle>  (dans ce cas il existe bien un champ <VernacularTitle>) : on ne crée pas de balise <ArticleTitle>  
+									Pubmed - <keywords> ajout de valeurs pour l'attribut @scheme= : "chemical" et "meshSuppl"  --> 
+<!--  14 août 2018 : Pubmed  -  ajout d'exemples de granularité maximale des keywords 
+                                ajout d'exemple de résumé structuré en éléments 'p', obligatoire en TEI (un seul le cas échéant)  -->
+<!-- pour les URL d'API HAL, voir plutôt en prod :
+https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:relator&fl=*&wt=xml -->
+  
+ <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="xx">  même que dans la balise analytic/title  </title>
+            <!-- <subTitle></subTitle>  ??? -->
+            <author>Mêmes que dans la balise analytic/author (pas d'authorList ici dans HAL)</author>
+            <funder> 
+              <name>    Funding agency or project name ; champ multivalué WOS - atomiser les occurrences ; PubMed : concatener nom et (acronyme)  </name>
+              <idno type="grantId">  numéro de subvention ou de projet  attribué par le "Funder"  </idno>
+              <country>  Pays du "Funder"  - cf. Pubmed  </country>
+              <note>    Note sur le projet copié tel quel de la publication (WOS : champ FX)  </note>
+            </funder>
+          </titleStmt>
+          <editionStmt>
+            <edition >
+              <date type="whenDownloaded">  date de recupération du flux (API, ftp, OAI)   </date>
+              <date type="whenCreated">  Date création notice Conditor (en dur dans le shell)</date>
+              <date type="whenEndEmbargoed">  date de fin d'embargo pour le full-text (notices HAL)  </date>
+			  <!-- pas de date de création/modification notice source : requête de toutes celles qui ont été créées/modifiées depuis la dernière requête -->
+			  <!-- A discuter : emplacement de la balise <note type="recordStatus"> ici ou avec les autres <notes> dans <notesStmt> -->
+              <note type="recordStatus">Statut de la notice PubMed : In Process, In Data Review, Publisher .. et classique. Changement d'identifiant  </note>
+            </edition>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>Conditor</distributor>   <!-- valeur par défaut  -->
+          </publicationStmt>
+          <notesStmt>  <!-- TO DO -->
+            <note type="commentary">Commentaire</note><!-- %%metadata comment-->
+            <note type="audience" n=" "> Audience, public </note> <!-- 0=not set, 1=international, 2=national  audience  -->
+            <note type="invited" n=" "> Conférence invitée (= Keynote speaker ? à vérifier) </note><!-- %%mandatory metadata invitedCommunication-->
+            <note type="popular" n=" ">  popularLevel  </note> <!-- 0=no, 1=yes  -->
+            <note type="peer" n=" ">   peerReviewing </note>  <!-- 0=no, 1=yes -->
+            <note type="proceedings" n=" ">  proceedings  (ce sont des actes ???  oui !!) </note> <!-- 0=no, 1=yes  -->
+            <note type="openAccess" n=" ">  Open Access    ;  Transformation : n="0", si le champ OA = No,  n="1", si le champ OA = Green... ; n="2", si le champ OA = Gold </note>
+<!-- contenu du champ OA du WOS en forte variation selon les années dans le Wos : No disqparaît en 2015, Green or bronze apparaît en 2017 ; on se contente des attributs pour green et gold  -->
+            <note type="thesisOriginal" n=" ">  la notice décrit la version de soutenance = original  </note>  <!--   0=no, 1=yes  -->
+<!--   <note type="recordStatus">Statut de la notice PubMed : In Process, In Data Review, Publisher .. et classique. Changement d'identifiant  -  emplacement alternatif  </note>  -->
+          </notesStmt>
+		  
+           <sourceDesc>
+              <biblStruct>
+                <analytic>
+                    <title xml:lang="en">  Titre de la production en anglais (cf. WOS par défaut)  </title>
+                    <title type="sub" xml:lang="en"> sous-titre  en anglais, s'il existe</title> <!-- subtitle n'existe pas en TEI, valeur de type : sub dans l'exemple HAL_MD_API, subtitle dans la doc --> 
+                    <title  xml:lang=" ">  Titre  de la production dans une autre langue, s'il existe  </title>
+                    <title type="sub" xml:lang=" ">  sous-titre dans une autre langue, s'il existe </title>
+                    <author role="aut"> <!-- pour un auteur personne  -->
+                        <persName>
+                            <forename type="first">   prénom </forename>
+                            <forename type="middle">   autre prénom</forename>
+       <!--              <forename type="genName"> les Suffix de PubMed, Junior, Co-Chair; on ne veut pas trier avec roleName. Abandonné    </forename>  -->
+                            <surname> nom   </surname>
+                        </persName>
+                        <idno type="orcid"> Orcid </idno>
+                        <idno type="researcherId"> ResearcherID - WOS</idno>
+                        <idno type="idRef">  IdRef  - ABES (subfield)  </idno>
+                        <idno type="halAuthorId">   Identifiant auteur HAL   </idno>
+                        <idno type="viaf">   VIAF </idno> 
+                        <idno type="isni">   Identifiant auteur ISNI   </idno>
+                        <email> adresse mél de l'auteur  </email>
+                        <affiliation type="rp"> affiliation du "corresponding author"  </affiliation> 
+                        <affiliation> affiliation no structurée (WOS, Pubmed) 
+                              <country>  isoler le pays d'affiliation, en dernière position du champ </country>
+                        </affiliation>
+                        <affiliation ref="#struct-____"> HAL version courte ; cf. fichier de correspondance HAL refstruc</affiliation>
+     <!--             <affiliation> affiliation structurée si possible - suggestion 
+                            <orgName type="institution">  Nom de l'organisation, de la collaboration   </orgName>
+                            <orgName type="laboratory"> Nom de la subdivision : labo, département, équipe  </orgName>
+                            <settlement> Ville  </settlement>
+                            <country>  Pays  </country>
+                            <idno type="___">  code de l'unité dans l'institution, cf. CNRS, Inserm, INRA   </idno> 
+                            <idno type="isni">   Identifiant organisation ISNI   </idno>
+						    <idno type="grid">   Identifiant organisation GRID - Global Research Identifier Database  </idno>
+						    <idno type="ringgold">   Identifiant organisation Ringgold   </idno>
+                        </affiliation>  -->
+                    </author>
+                    <author role="aut">  <!-- pour une collectivité auteur -->
+                        <orgName type="institution">  Nom de l'organisation, de la collaboration   </orgName>
+                        <orgName type="subdivision"> Nom de la subdivision : labo, département, équipe  </orgName>
+                            <settlement> Ville  </settlement>
+                            <country>  Pays  </country>
+                        <idno type="idRef">  IdRef  - ABES(/subfield)  </idno>
+                        <idno type="viaf">   VIAF </idno> 
+                        <idno type="isni">   Identifiant auteur ISNI   </idno>
+                        <idno type="grid">   Identifiant auteur GRID - Global Research Identifier Database  </idno>
+                        <idno type="ringgold">   Identifiant collectivité auteur Ringgold   </idno>
+                    </author>
+                </analytic>
+			
+                <monogr>
+                    <idno type="isbn">  ISBN  ; tester si occurrences multiples et atomiser les occurrences  </idno>
+                    <idno type="issn">  ISSN  ; tester si occurrences multiples et atomiser les occurrences  </idno>
+                    <idno type="eissn">  ISSN électrionique ; tester si occurrences multiples et atomiser les occurrences  </idno>
+                    <idno type="lissn">Enrichissement :  ISSN de liaison </idno>
+                    <title level="j">  Titre du contenant, type "revue"  ou "book-series"   </title>
+                    <title level="j" type="abbrevIso">   Titre clé abrégé ISO du contenant, type "revue"    </title> 
+                    <title level="m">  Titre du contenant, type "monographie"  </title>
+                    <editor role="_ _ _">  Responsabilité autre qu'auteur  (cf directeur de publication, directeur de thèse) ; pour l'attribut @rôles : voir table MarcRel
+                        <persName> champs "authority" de HAL : sans détail  </persName>
+                        <persName> 
+                            <forename type="first">   prénom   </forename>
+                            <surname>  nom  </surname>
+                        </persName>
+                        <idno type="xxx">  voir les identifiants listés pour la balise "author"  </idno>
+                    </editor>
+                    <editor role="_ _ _">  
+                        <orgName type="institution">  Nom de l'organisation, de la collaboration   </orgName>
+                        <orgName type="subdivision"> Nom de la subdivision : labo, département, équipe  </orgName>
+                            <settlement> Ville  </settlement>
+                            <country>  Pays  </country>
+                        <idno type="idRef">  IdRef  - ABES (/subfield)  </idno>
+                        <idno type="viaf">   VIAF </idno> 
+                        <idno type="xxx">  voir les identifiants listés pour la balise "author"  </idno>     
+                    </editor>
+					
+					
+                    <meeting>  <!-- TO FIND, pas d'élt PubMed, des ArticleTitle et/ou des  <Keyword MajorTopicYN="Y">International meeting</Keyword> - type doc ? -->
+                        <title>  conferenceTitle  </title>
+                        <date type="start">  date de début de conférence </date>
+                        <date type="end"> date de fin de conférence</date>
+                        <settlement> lieu de la conférence</settlement>
+                        <country key="_ _">  pays de la conférence  </country> 
+                    </meeting>
+                    <imprint>
+                        <publisher>  Editeur commercial ou publisher  </publisher> <!-- à récupérer dans nlmcatalog_result avec alain -->
+                        <pubPlace>    Lieu de publication  </pubPlace> <!-- j'ai le pays dans la notice, pas plus; nlmcatalog aussi  -->
+                        <date type="datePub">   Date de publication  Format ??? <!-- sans précision par rapport au support de la production (papier/DVD/Electronique) --> </date>
+                        <date type="dateDefended"> année de soutenance   </date>
+                        <date type="whenProduced"> date de production HAL, si date de publication absente - littérature grise  </date>
+        <!--         <biblScope unit="serie">   (Titre de la collection ) ; dans HAL, mais renseigné n'importe comment  </biblScope>   -->
+                        <biblScope unit="volume">   volume  </biblScope>
+                        <biblScope unit="issue">   numéro    </biblScope>
+                        <biblScope unit="part">   partie    </biblScope>
+                        <biblScope unit="supplement">   numérotation du supplément / de la série de supplement  (WOS)</biblScope>
+                        <biblScope unit="specialIssue">   mention de numéro spécial ; distinction foreword dans WOS </biblScope>
+                        <biblScope unit="pp"> page de début-page de fin  </biblScope>
+                  <!-- PubMed met une URL pour les doc numériques (en fait DOI et/ou PII) -->
+                        <biblScope unit="pagesNo">   nombre de pages  (monographie) </biblScope>
+                        <biblScope unit="artNo">   numéro d'article pour une production électronique   (WOS) </biblScope>  <!-- ??? -->
+                        <biblScope unit="meetAbstrNo">   numéro  de "meeting abstract"   (WOS)  </biblScope>
+                    </imprint>
+                </monogr>
+          <!-- place des idno ? pas valide ici : 
+                <idno type="doi"> DOI -  article/chapitre/paper   </idno>
+                <idno type="doiB">   DOI book : tester utilité   </idno>
+                <idno type="pubmed"> identifiant Pubmed </idno>
+                <idno type="utKey">  identifiant WoS   </idno>
+                <idno type="nnt">  Numéro national de thèse   </idno>
+                <idno type="ppnSudoc">  identifiant Sudoc   </idno>
+                <idno type="halId">  Identifiant notice HAL  </idno>
+                <idno type="arxiv">   Identifiant arXiv   </idno>
+                <idno type="patentNumber">     Numéro de brevet   </idno>
+                <idno type="idProdInra">    Identifiant ProdInra </idno>
+                <idno type="pii">  Identifiant PII = Publisher Item Identifier (PubMed entre autres), voir https://en.wikipedia.org/wiki/Publisher_Item_Identifier </idno> -->
+              </biblStruct>
+           </sourceDesc>
+		   
+           <profileDesc>
+              <langUsage>
+                <language ident="xx">   langue de la production  </language> 
+                  <!-- dans HAL_MD_API.xml, élément vide : valeur de l'attribut slt. décider ! --> 
+              </langUsage>
+              <textClass>
+              <!-- modèle HAL : un seul "keywords" par scheme source -->
+                <keywords scheme="author">
+                    <term xml:lang="xx">  Descripteur, mot clé </term>
+                    <term xml:lang="xx">  Descripteur, mot clé </term>
+                </keywords>
+                <keywords scheme="rameau">
+                    <term></term><!-- Indexation RAMEAU  - concatenation des composants --></keywords>
+                <keywords scheme="fmesh"> <!-- Indexation fMeSH   - concatenation des composants  -->
+                    <term></term></keywords>
+                <keywords scheme="mesh"> <!-- Indexation MeSH   - concatenation des composants  -->
+                <term></term></keywords>
+                <keywords scheme="meshSuppl"> <!--Indexation PubMed   - concatenation des composants -->
+                    <term></term>
+                </keywords>
+                <keywords scheme="chemical"> <!-- Indexation PubMed éléments chimiques   - concatenation des composants  -->
+                    <term></term></keywords>
+<!-- Ou, PubMed : choix granularité maximale : -->
+                <keywords scheme="meshHeading">
+                   <term type="minorDescriptor" xml:lang="en" xml:base="https://www.ncbi.nlm.nih.gov/mesh/D000783">Aneurysm</term>
+                   <term type="minorQualifier" xml:lang="en" xml:base="https://www.ncbi.nlm.nih.gov/mesh/Q000150">complications</term>
+                   <term type="minorQualifier" xml:lang="en" xml:base="https://www.ncbi.nlm.nih.gov/mesh/Q000175">diagnosis</term>
+                    <term type="majorQualifier" xml:lang="en" xml:base="https://www.ncbi.nlm.nih.gov/mesh/Q000628">therapy</term>
+                </keywords>
+                <keywords scheme="chemical">
+                   <term type="substanceName" xml:base="https://www.ncbi.nlm.nih.gov/mesh/D004121">Dimethyl Sulfoxide</term>
+                   <term type="registryNumber">YOW8V9698H</term>
+                </keywords>
+<!-- fin granularité maximale PubMed  -->
+                <classCode scheme="_ _ _ _ ">   catégories/ classification propre à la base source (catégorie WOS, catégorie HAL)  </classCode>
+                <classCode scheme="thesesDomain">  Domaine de thèse  </classCode>
+                <classCode scheme="typology">  Document type </classCode>
+              </textClass>
+              <!-- pas valide :
+              <abstract xml:lang="en">   Abstract en anglais  </abstract>
+              <abstract xml:lang="_ _">   Abstract dans une autre langue  </abstract> -->
+	<!-- abstract structuré en 'p' conforme à la TEI  -->
+              <abstract xml:lang="en">   
+                <!-- ??? <title> Titre de la partie, cf. Background, etc. </title> -->
+                <p> paragraphe de texte suivant le titre </p>
+              </abstract>
+   <!-- fin abstract structuré -->
+           </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+    </back>
+ </text>
+</TEI>
