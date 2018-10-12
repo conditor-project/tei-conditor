@@ -4,16 +4,18 @@ const path = require('path');
 
 function getStylesheetFrom (target) {
   return walker(path.join(__dirname, 'src'))
-    .then(result => get(result, 'source'))
-    .then(result => get(result, target))
-    .filter(file => path.extname(file.name) === '.xsl');
+    .then(directoryTree => get(directoryTree, 'source'))
+    .then(source => {
+      if (!target) return source;
+      return get(source, target).filter(file => path.extname(file.name) === '.xsl');
+    });
 }
 
 function getStylesheetFromSync (target) {
   const directoryTree = walkerSync(path.join(__dirname, 'src'));
   const source = getSync(directoryTree, 'source');
-  const result = getSync(source, target);
-  return result.filter(file => path.extname(file.name) === '.xsl');
+  if (!target) return source;
+  return getSync(source, target).filter(file => path.extname(file.name) === '.xsl');
 }
 
 function get (directoryTree, target) {
