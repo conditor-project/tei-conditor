@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "xslt stylesheet for Conditor project",
   "main": "index.js",
+  "bin": "bin/tei-conditor.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/conditor-project/tei-conditor.git"
@@ -18,12 +19,13 @@
   "homepage": "https://github.com/conditor-project/tei-conditor#readme",
   "dependencies": {
     "bluebird": "^3.5.2",
-    "co-formatter": "git+https://github.com/conditor-project/co-formatter.git"
+    "co-formatter": "git+https://github.com/conditor-project/co-formatter.git",
+    "commander": "^2.19.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "co-config": "git+https://github.com/conditor-project/co-config.git",
-    "computron": "0.0.5",
+    "computron": "^1.0.0",
     "mocha": "^5.2.0",
     "xmldom": "^0.1.27",
     "xpath": "0.0.27"
