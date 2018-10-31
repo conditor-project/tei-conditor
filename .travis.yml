@@ -1,3 +1,15 @@
 language: node_js
 node_js:
   - "10"
+env:
+  - CXX=gcc-7
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - curl
+      - g++-7
+      - cmake
+      - libxml2-dev
+      - libxslt1-dev
