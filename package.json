@@ -1,6 +1,6 @@
 {
   "name": "tei-conditor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "xslt stylesheet for Conditor project",
   "main": "index.js",
   "repository": {
