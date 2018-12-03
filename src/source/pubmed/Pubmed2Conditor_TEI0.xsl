@@ -10,7 +10,7 @@
       De une ou plusieurs notices PubMed récupérées via l'IHM vers TEI Conditor, corpus 2014-2017. Une des APIs rend le même format.
         
       2 modèles TEI disponibles :
-      -oafr.xsd, modèle encore actuel de HAL, des choix spécifiques sur attributs, valeurs d'attributs et arborescence organismes
+      -oafr.xsd, modèle encore actuel de HAL, des choix spécifiques sur attributs, valeurs d'attributs et arborescence organismes. ne convient pas tel que pour Conditor
       - HAL_odd.xml, modèle plus récent déposé sur GitHub HAL et créé par L. Romary; et son dérivé via ROMA, document.xsd (qui appelle 2 autres xsd)
       Déposés dans https://github.com/conditor-project/tei-conditor/tree/master/schema, sous-répertoire HALschema.xsd pour les 3 xsd liés.
       
@@ -20,13 +20,15 @@
       abstract à modifier dans le fichier de config vers ElasticSearch. idno : le chemin est large, donc bon dans les 2 cas.
       - détail affiliations et organismes en général soit dans biblStruct (possible avec odd, choix Conditor) soit dans 'back' (modèle aofr, avec lien de type rid dans biblStruct) 
       
-      Ce XSL traite la forme adoptée pour les 1° corpus chargés.
+      Ce XSL traite la forme adoptée pour les 1° corpus chargés. Le faire évoluer en _TEI1 pour la suite
       - idno analytic dans biblStruct
       - abstract sans fils
-      - affiliation détaillée dans author
+      - on garde affiliation (non structurée ici) dans author
       
-
-    A suivre :
+    Commence par traiter les notices "PubmedArticle" : templates génériques et granulaires appelés
+    Puis vers ligne 820 : les notices "PubmedBookArticle" : templates génériques, appel de certains templates granulaires précédents et de nouveaux templates(plus bas)
+    
+    A suivre si besoin :
         - Traitement des fils de certains éléments, en général textuels dans autres sources : 
         <!ENTITY % text             "#PCDATA | b | i | sup | sub | u" > possibles dans : 
             - AbstractText, Affiliation, ArticleTitle, BookTitle et VernacularTitle (plus mml), CollectiveName, Keyword (plus mml), 
@@ -37,15 +39,20 @@
         *** Pour l'instant, texte plat ***.
         
         - affiliations non structurées et très hétérogènes ; création de "country" dans la cible 'affiliation' : 
-        *** pour France uniquement pour l'instant ***, reste trop hétérogène au découpage, ou il faut une liste de pays ... ou rien : infos apportées par autres sources
+        *** pour France uniquement pour l'instant *** (country key="FR" comme dans HAL), reste trop hétérogène au découpage, ou il faut une liste de pays ... ou rien : infos apportées par autres sources
         - email : dans affiliation, idem - inactivé car à affiner 
+        
+        Modif 22-10-2018 :
+        - tj un titre dans 'analytic' meme pour ouvrages complets car utile XPath vers JSON
+        - les titres originaux ne sont pas forcément de la langue de l'article, notamment quand c'est en Anglais
+        - correction erreur chemin sur medlineDate et identifiers affiliation.
         
  ============================================================================================================== -->
 
 <xsl:output encoding="UTF-8" indent="yes" standalone="no"/> 
 
-<xsl:param name="DateAcqu"/>  
-<xsl:param name="DateCreat"/>  <!-- indiquée par le shell Conditor ultérieur -->
+<xsl:param name="DateAcqu">2018-07-24</xsl:param>  
+<xsl:param name="DateCreat">2018-09-26</xsl:param>  <!-- valeur à supprimer après : indiquée par le shell Conditor ultérieur -->
     
     <!-- élément racine  : 
         - sur les fichiers années 2014-17 : PubmedArticleSet (PubmedArticle (en majorité), PubmedBookArticle (42 ou 43), DeleteCitation (0 dans le corpus)
@@ -94,10 +101,7 @@
                     <xsl:apply-templates select="MedlineCitation/Article/ArticleTitle"/> <!-- tj 1 et un seul -->
                     
                     <!-- <xsl:apply-templates select="MedlineCitation/Article/AuthorList"/> OU au choix : -->
-                    <xsl:comment>
-                        <xsl:text>Pour ne pas allonger inutilement la description, les auteurs sont présents ci-dessous,  
-                            chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author 
-                            ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author</xsl:text>
+                    <xsl:comment><xsl:text>Les auteurs sont dans la description bibliographique, chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author</xsl:text>
                     </xsl:comment>
                     <xsl:apply-templates select="MedlineCitation/Article/GrantList"/>
                 </titleStmt>
@@ -117,6 +121,14 @@
                     <distributor>Conditor</distributor> <!-- ou authority ou publisher -->
                 </publicationStmt>
 
+                <!-- ajout d'une note indiquant l'état de publication (plusieurs flux dans PubMed dont éditeurs avec acceptés non publiés, plusieurs PMID 
+                Voire le statut dans le workflow : -->
+                <noteStmt>
+                    <note type="publicationStatus">
+                        <xsl:value-of select="PubmedData/PublicationStatus"/>
+                    </note>
+                    <note type="recordStatus"><xsl:value-of select="MedlineCitation/@Status"/></note>
+                </noteStmt>
                 
                 <sourceDesc>
                     <biblStruct>
@@ -190,8 +202,11 @@
         <xsl:if test="../VernacularTitle">
             <xsl:element name="title"> 
             <!-- pas d'attribut lang à VernacularTitle, utiliser celui de Language et le mettre sur 2 lettres -->
-            <xsl:attribute name="xml:lang"><xsl:value-of select="substring(../Language, 1, 2)"/></xsl:attribute>
-            <xsl:value-of select="normalize-space(..//VernacularTitle)"/>
+                <!-- il n'y a pas d'attribut lang à VernacularTitle, utiliser celui de Language (sauf quand eng, faux***NEW octobre) - et le mettre sur 2 lettres -->
+                <xsl:if test="../Language!='eng'">
+                    <xsl:attribute name="xml:lang"><xsl:value-of select="substring(../Language, 1, 2)"/></xsl:attribute>
+                </xsl:if>
+                <xsl:value-of select="normalize-space(..//VernacularTitle)"/>
             <!-- idem, texte plat --> 
             </xsl:element>
         </xsl:if>
@@ -309,10 +324,10 @@
                  <!-- <forename type="first"> mais il n'y a qu'un élément dans Pubmed -->
                  <forename><xsl:value-of select="ForeName"/></forename>
              </xsl:if>
-             <!-- Initiales : complété lot 4, test -->
+             <!-- Initiales : complété lot 4, test 
              <xsl:if test="Initials">
                  <forename type="initial"><xsl:value-of select="Initials"/></forename>
-             </xsl:if>
+             </xsl:if> -->
              <surname><xsl:value-of select="LastName"/></surname>
          </persName>
      </xsl:if>   
@@ -338,19 +353,18 @@
          </xsl:element>
      </xsl:for-each>
      
-     <xsl:for-each select="AffiliationInfo/Affiliation">
+     <xsl:for-each select="AffiliationInfo">
          <!-- très hétérogène, tests de découpage pour récupérer mail et country non satisfaisants. On se limite à récupérer <country>France<country> -->
          <!-- mail éventuel -->
          
          <affiliation>
-             <xsl:value-of select="normalize-space(.)"/>
+             <xsl:value-of select="normalize-space(Affiliation)"/>
              <xsl:choose>
-                 <xsl:when test="contains(., ', France,') or contains(., ', France.') or contains(., ', France ,') or contains(., 'France;')"><country>France</country></xsl:when>
-                 <xsl:when test="contains(., ', Guadeloupe,') or contains(., ', Guadeloupe.') or contains(., ', Guadeloupe ,') or contains(., 'Guadeloupe;')"><country>France</country></xsl:when>
-                 <xsl:when test="contains(., ', Martinique,') or contains(., ', Martinique.') or contains(., ', Martinique ,') or contains(., 'Marinique;')"><country>France</country></xsl:when>
-                 <!-- à suivre ou pas autres pays ... -->
+                 <xsl:when test="contains(Affiliation, ', France,') or contains(., ', France.') or contains(., ', France ,') or contains(., 'France;')"><country key="FR"/></xsl:when>
+                 <xsl:when test="contains(Affiliation, ', Guadeloupe,') or contains(., ', Guadeloupe.') or contains(., ', Guadeloupe ,') or contains(., 'Guadeloupe;')"><country key="FR"/></xsl:when>
+                 <xsl:when test="contains(Affiliation, ', Martinique,') or contains(., ', Martinique.') or contains(., ', Martinique ,') or contains(., 'Marinique;')"><country key="FR"/></xsl:when>
+                 <!-- à suivre autres DOM-TOM et ou pas autres pays ... -->
              </xsl:choose>
-         </affiliation>
          
          <xsl:for-each select="Identifier">
              <xsl:element name="idno">
@@ -363,7 +377,11 @@
                  <xsl:value-of select="normalize-space(.)"/>
              </xsl:element>
          </xsl:for-each>
+             
+         </affiliation>
      </xsl:for-each>
+     
+     
  </xsl:template>
     
 
@@ -381,7 +399,7 @@
                         </xsl:if>
                     </publisher>
                 </xsl:when>
-            <!-- le groupe du 10-09-2018 ne veut pas récupérer le pays, sauf s'il est dans une chaîne difficile à découper.
+            <!-- le groupe du 10-09-2018 ne veut pas récupérer le pays, sauf s'il est dans une chaîne difficile à découper. Si change d'avis :
                 <xsl:when test="MedlineCitation/MedlineJournalInfo/Country">   $$$ articles, pas de Publisher $$
                     <pubPlace><xsl:value-of select="MedlineCitation/MedlineJournalInfo/Country"/></pubPlace>
                 </xsl:when> -->
@@ -424,15 +442,24 @@
                                 <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Day"/>
                             </xsl:if>
                         </xsl:if>
-                    </xsl:when>
-                    <xsl:when test="MedlineDate"> <!--  articles : date qui ne convient pas aux patterns précédents, ex de la doc : <MedlineDate>2015 Nov-Dec</MedlineDate>, <MedlineDate>1998 Dec-1999 Jan</MedlineDate> -->
-                        <xsl:value-of select="MedlineDate"/>
+                        
+                        <xsl:if test="MedlineCitation/Article/Journal/JournalIssue/PubDate/Season">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Season"/>
+                        </xsl:if>
+                    </xsl:when> <!-- sur Year -->
+                    
+                    <xsl:when test="MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate"> 
+                        <!--  articles : date qui ne convient pas aux patterns précédents, ex de la doc :
+                            <MedlineDate>2015 Nov-Dec</MedlineDate>, <MedlineDate>1998 Dec-1999 Jan</MedlineDate> -->
+                        <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate"/>
                     </xsl:when>
                     
                     
                 </xsl:choose>
                 </date> 
-            <date type="year">  <!-- ajouté :  <date type="yearPub">2014</date> -->
+            
+            <date type="yearPub">  <!-- ajouté :  <date type="yearPub">2014</date> -->
                     <xsl:choose>
                         <xsl:when test="MedlineCitation/Article/ArticleDate"> <!-- ArticleDate? (Year, Month, Day) -->
                             <xsl:value-of select="MedlineCitation/Article/ArticleDate/Year"/>
@@ -440,8 +467,11 @@
                         <xsl:when test="MedlineCitation/Article/Journal/JournalIssue/PubDate/Year">   <!-- PubDate oblig ((Year, ((Month, Day?) | Season)?) | MedlineDate) -->
                             <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Year"/>
                         </xsl:when>
-                        <!-- Books -->
-                        <xsl:when test="PubDate"><xsl:value-of select="PubDate/Year"/></xsl:when>
+                        <xsl:when test="MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate">   <!-- PubDate oblig ((Year, ((Month, Day?) | Season)?) | MedlineDate) -->
+                            <xsl:value-of select="substring-before(MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate, ' ')"/>
+                        </xsl:when>
+                        <!-- Books, traité ailleurs
+                        <xsl:when test="PubDate"><xsl:value-of select="PubDate/Year"/></xsl:when> -->
                     </xsl:choose>
                 </date>
             
@@ -615,27 +645,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
      </xsl:choose>
 </xsl:template>
 
-    <!-- MC
-        source : dans MedlineCitation, divers :
-           KeywordList* @ Owner (NLM | NLM-AUTO | NASA | PIP | KIE | NOTNLM | HHS) "NLM"
-                Keyword+ @MajorTopicYN (Y | N) "N" (si NOTNLM, tj 'N')
-           SupplMeshList? (SupplMeshName+)
-                 @Type (Disease | Protocol | Organism) #REQUIRED
-		           UI CDATA #REQUIRED >
-           MeshHeadingList?
-                (MeshHeading+)
-                        (DescriptorName, QualifierName*)pour les 2, @UI et MajorTopicYN oblig ; pour Desciptorname, Type (Geographic) opt. 
-                        traités de 2 manières : concaténé, ou pas du tout.
-           PersonalNameSubjectList?
-           ChemicalList?
-           GeneSymbolList?
-                   
-    résultat TEI Sudoc Alain :
-                          <keywords scheme="rameau">
-                                <term xml:lang="fr" type="topicalName" ref="https://www.idref.fr/031387136">Édentation partielle</term>
-                                <term xml:lang="fr" type="subdivisionForm" ref="https://www.idref.fr/027253139">Thèses et écrits académiques</term>
-                            </keywords>
--->
+    
    
   <xsl:template match="MedlineCitation">
         <xsl:if test="MeshHeadingList">
@@ -802,9 +812,9 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     
     
     
- <!-- *************************************** 
+ <!-- **********************************************************
      2° élément fils de PubmedArticleSet, PubmedBookArticle : 
-      *************************************** -->
+      ********************************************************** -->
 <xsl:template match="PubmedBookArticle"> 
  <!-- 41 sur 43 sont des chapitres de livres, 2 des livres complets -->   
     <TEI xmlns="http://www.tei-c.org/ns/1.0">
@@ -842,11 +852,13 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                         
                         <sourceDesc>
                             <biblStruct>
-                                <xsl:if test=".//ArticleTitle">
+                               
                                 <analytic>
-                                    
+                                    <!-- crée un analytic dans tous les cas, même book complet, pour XPath utltérieurs sur titles.
+                                    Sinon, mettre le if ci-dessous au-dessus de analytic-->
                                     <xsl:call-template name="Title"/>      <!-- cas avec BookTitle slt ou ArticleTitle, plus bas -->
                                     
+                                    <xsl:if test=".//ArticleTitle">
                                     <xsl:apply-templates select="BookDocument/AuthorList"/>  <!-- auteurs de la partie ; plus haut -->
                                     
                                     <!-- InvestigatorList (209497)
@@ -855,8 +867,10 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                                     
                                     <!-- ICI si modèle TEI NEW (voir avec dédoublonnage) -->
                                     <!--    <xsl:call-template name="ArticleIdList"/> -->
+                                        
+                                    </xsl:if>
                                 </analytic>
-                                </xsl:if>
+                                
                                 
                                 <monogr>
                                 
@@ -978,43 +992,48 @@ cf notices_PubmedBookArticle, indent ou pas -->
                 </xsl:if>
             
             <date type="datePub"> <!-- Alain ajoute :  <date type="yearPub">2014</date>, fait ci-dessous --> 
-                    <!-- PubDate oblig ((Year, ((Month, Day?) | Season)?) | MedlineDate) -->
+                    
                 <xsl:choose>
                         <xsl:when test="PubDate/Year[string-length(.) &gt; 0]">
                             <xsl:value-of select="PubDate/Year"/>
-                          <!-- BeginningDate=PubDate ; *** EndingDate non traité (qquns) -->
+                          <!-- BeginningDate=PubDate ; *** EndingDate non traité (qquns, semble être fin de diffusion) -->
                         
-                        <!-- <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Month"/> -->
-                        <xsl:if test="PubDate/Month">
-                            <xsl:text>-</xsl:text>
-                            <xsl:variable  name="mois" select="PubDate/Month"/>
-                            <!-- 01 et 1 à 12 et Apr, Aug, Dec, Feb, Jan, Jul, Jun, Mar May Nov Oct Sep -->
-                            <xsl:choose>
-                                <xsl:when test="contains($mois, '0')"><xsl:value-of select="$mois"/></xsl:when>
-                                <xsl:when test="$mois='1' or $mois='Jan'">01</xsl:when>
-                                <xsl:when test="$mois='2' or $mois='Fev'">02</xsl:when>
-                                <xsl:when test="$mois='3' or $mois='Mar'">03</xsl:when>
-                                <xsl:when test="$mois='4' or $mois='Apr'">04</xsl:when>
-                                <xsl:when test="$mois='5' or $mois='May'">05</xsl:when>
-                                <xsl:when test="$mois='6' or $mois='Jun'">06</xsl:when>
-                                <xsl:when test="$mois='7' or $mois='Jul'">07</xsl:when>
-                                <xsl:when test="$mois='8' or $mois='Aug'">08</xsl:when>
-                                <xsl:when test="$mois='9' or $mois='Sep'">09</xsl:when>
-                                <xsl:when test="contains($mois,'Oct')">10</xsl:when>
-                                <xsl:when test="contains($mois,'Nov')">11</xsl:when>
-                                <xsl:when test="contains($mois,'Dec')">12</xsl:when>
-                                <xsl:otherwise><xsl:value-of select="$mois"/></xsl:otherwise>
-                            </xsl:choose>
-                            <xsl:if test="PubDate/Day">
+                            <!-- <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Month"/> -->
+                            <xsl:if test="PubDate/Month">
                                 <xsl:text>-</xsl:text>
-                                <xsl:value-of select="PubDate/Day"/>
+                                <xsl:variable  name="mois" select="PubDate/Month"/>
+                                <!-- 01 et 1 à 12 et Apr, Aug, Dec, Feb, Jan, Jul, Jun, Mar May Nov Oct Sep -->
+                                <xsl:choose>
+                                    <xsl:when test="contains($mois, '0')"><xsl:value-of select="$mois"/></xsl:when>
+                                    <xsl:when test="$mois='1' or $mois='Jan'">01</xsl:when>
+                                    <xsl:when test="$mois='2' or $mois='Fev'">02</xsl:when>
+                                    <xsl:when test="$mois='3' or $mois='Mar'">03</xsl:when>
+                                    <xsl:when test="$mois='4' or $mois='Apr'">04</xsl:when>
+                                    <xsl:when test="$mois='5' or $mois='May'">05</xsl:when>
+                                    <xsl:when test="$mois='6' or $mois='Jun'">06</xsl:when>
+                                    <xsl:when test="$mois='7' or $mois='Jul'">07</xsl:when>
+                                    <xsl:when test="$mois='8' or $mois='Aug'">08</xsl:when>
+                                    <xsl:when test="$mois='9' or $mois='Sep'">09</xsl:when>
+                                    <xsl:when test="contains($mois,'Oct')">10</xsl:when>
+                                    <xsl:when test="contains($mois,'Nov')">11</xsl:when>
+                                    <xsl:when test="contains($mois,'Dec')">12</xsl:when>
+                                    <xsl:otherwise><xsl:value-of select="$mois"/></xsl:otherwise>
+                                </xsl:choose>
+                                <xsl:if test="PubDate/Day">
+                                    <xsl:text>-</xsl:text>
+                                    <xsl:value-of select="PubDate/Day"/>
+                                </xsl:if>
                             </xsl:if>
-                        </xsl:if>
+                            <xsl:if test="PubDate/Season">
+                                <xsl:text> </xsl:text>
+                                <xsl:value-of select="PubDate/Season"/>
+                            </xsl:if>
                        </xsl:when> 
-                    
+                        
                 </xsl:choose>
             </date> 
-            <date type="year">
+            
+            <date type="yearPub">
                 <xsl:choose>
                     <xsl:when test="PubDate"><xsl:value-of select="PubDate/Year"/></xsl:when>
                 </xsl:choose>
