@@ -633,8 +633,7 @@
                 <xsl:choose>
                     <xsl:when test="@scheme='halTypology'">
                         <classCode scheme="typology">
-                            <xsl:copy-of select="@n"/>
-                            <xsl:value-of select="."/>
+                            <xsl:value-of select="@n"/>
                         </classCode>
                     </xsl:when>
                     <xsl:otherwise>
