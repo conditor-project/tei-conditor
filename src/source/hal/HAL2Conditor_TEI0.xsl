@@ -8,17 +8,17 @@
     version="1.0">
     
     <!-- de la TEI HAL, modèle aofr.xsd à la TEI Conditor V0.
-        Différence principale : affiliations fils de auteur (TEI HAL : dans l'élément "back") ; dans Conditor :
+        Différence principale : affiliations fils de auteur avec détail organismes (TEI HAL : dans l'élément "back") ; dans Conditor :
         - non structurée (PubMed, WoS ; pour HAL : utilisation d'un fichier travaillé sur le référentiel AureHal, affil_hal_struct.xml) 
         - structurée pour HAL (structure proche de TEI HAL, desc en moins) ; au choix ultérierement.
-        Des attributs valides dans aofr.xsd ne le sont pas dans le schéma plus récent issu du odd (exemples : email @type). Un certain nmbre ont été conservés tel que faute d'attribut correct correspondant.
     
     Pour passer à la V1, valide par rapport à odd, schéma plus récent et plus générique TEI proposé par L. Romary mais non adopté par CCSD pour l'instant :
     - déplacer les idno de type analytic dans 'analytic' (prêt, en commentaire)
     - ajouter un 'p' fils de abstract (prêt, en commentaire)
-    - voir en détail pour ces attributs : @type de email invalide, pour halId @notation idem (@subtype). 
-    Laurent Romary fait évoluer le .odd de HAL dans ce sens. -->
+    - voir en détail pour les attributs non valides : ex, @type de email invalide, @notation de halId idem (proposé : @subtype). 
+    Laurent Romary a fait évoluer le .odd de HAL pour ces 2 là. -->
     
+    <!-- xsl bavard pour éviter les xmlns hal parasites en sortie -->
     
     <xsl:output indent="yes"/>
     
@@ -26,12 +26,12 @@
     <xsl:param name="DateAcqu"/>  
     <xsl:param name="DateCreat"/>  <!-- indiquée par le shell Conditor ultérieur -->
     
-    <!-- élément racine  : TEI, un seul à cause des id de valeur répétée si plusieurs. -->
+    <!-- élément racine  : TEI, un seul -->
     
     <xsl:template match="/tei:TEI">
         <TEI xmlns="http://www.tei-c.org/ns/1.0" > 
-            <!-- validation, tmp : -->
-            <xsl:attribute name="xsi:schemaLocation">http://www.tei-c.org/ns/1.0 ../modele/HAL_source_resultat_schemas/HALschema_xsd/document.xsd</xsl:attribute>
+            <!-- validation, tmp : 
+            <xsl:attribute name="xsi:schemaLocation">http://www.tei-c.org/ns/1.0 ../../../TEI_modeles/HAL_odd_201812/document.xsd</xsl:attribute> -->
             <text>
                 <body>
                     <listBibl>
@@ -59,7 +59,7 @@
                                 
                                 <xsl:comment><xsl:text>Les auteurs sont dans la description bibliographique, chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author</xsl:text>
                                 </xsl:comment>
-                                <!-- OU (auteur + affiliation forme lien slt: 
+                                <!-- OU (auteur + affiliation forme lien slt (OU affiliation complète, à suivre) : 
                                 <xsl:choose>
                                     <xsl:when test="tei:text/tei:body/tei:listBibl/tei:biblFull/tei:titleStmt/tei:author">
    
@@ -104,6 +104,7 @@
                         
                             <editionStmt>
                                 <edition>
+                                    <xsl:copy-of select="//tei:edition/@*"/> <!-- NEW - ou plus précisément : tei:text/tei:body/tei:listBibl/tei:biblFull/tei:editionStmt/edition -->
                                     <date type="whenDownloaded"><xsl:value-of select="$DateAcqu"/></date>
                                     <date type="whenCreated"><xsl:value-of select="$DateCreat"/></date>
                                     <xsl:copy-of select="tei:text//tei:date[@whenEndEmbargoed]"/> <!-- plutôt dans imprint ? -->
@@ -227,7 +228,8 @@
                    
                    <xsl:call-template name="IDNO"/> 
                     
-               </xsl:when></xsl:choose>
+               </xsl:when>
+           </xsl:choose>
        </author>
    </xsl:template>
     
@@ -256,24 +258,25 @@
                 </xsl:otherwise>
             </xsl:choose>
             
-            <!-- infos complémentaires structurées, dans orgName (org pas autorisé comme fils de affiliation) : -->
+            <!-- infos complémentaires structurées, dans org pour cette version suite échanges LR (sinon : org pas autorisé comme fils de affiliation) : -->
             
-          <orgName xmlns="http://www.tei-c.org/ns/1.0">
+          <org xmlns="http://www.tei-c.org/ns/1.0">
                 <xsl:attribute name="type"><xsl:value-of select="ancestor::tei:TEI//tei:org[@xml:id=$aff]/@type"/></xsl:attribute>
-                <name>
+                <orgName>
                     <xsl:value-of select="normalize-space(ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName)"/>
-                </name>
+                </orgName>
                 <xsl:if test="ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName[@type='acronym']">
-                    <name type="acronym">
+                    <orgName type="acronym">
                         <xsl:value-of select="normalize-space(ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName[@type='acronym'])"/>
-                    </name>
+                    </orgName>
                 </xsl:if>
                 <!-- récupère un code de structure - *** pas OK : -->
                 <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]//tei:listRelation/tei:relation[@name]">
                     <name type="code"><xsl:value-of select="@name"/></name>
                 </xsl:for-each>
                 
-                <address>
+              <desc>
+              <address>
                     <!-- <xsl:copy-of select="/tei:TEI//tei:org[@xml:id=$aff]//tei:addrLine"/>
                          et <xsl:copy-of select="/tei:TEI//tei:org[@xml:id=$aff]//tei:country"/> m pb xsltproc : xmlns hal-->
                     <xsl:if test="/tei:TEI//tei:org[@xml:id=$aff]//tei:addrLine">
@@ -286,6 +289,8 @@
                     </country>
                     
                 </address>
+              </desc>  
+                  
                 <idno type="halStructureId"><xsl:value-of select="$aff"/></idno>
 
                 
@@ -294,7 +299,7 @@
                 </xsl:for-each>   
                 
                 
-            </orgName>
+            
             
             
             <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]//tei:relation[@active]">
@@ -302,7 +307,9 @@
                     <xsl:with-param name="RelAct" select="substring-after(@active, '#')"/>
                 </xsl:call-template>
                 
-            </xsl:for-each>   
+            </xsl:for-each>  
+              
+          </org>
         </affiliation> 
     </xsl:template> 
 
@@ -310,17 +317,17 @@
         <xsl:param name="RelAct"/>    
 
         <xsl:for-each select="ancestor::tei:TEI//tei:org[@xml:id=$RelAct]">
-           <!-- <xsl:if test="@type='institution'"> --><!-- élimine niveaux intermédiaires pour certains, demande A. Coret et D Le Hennaff -->
-                <orgName xmlns="http://www.tei-c.org/ns/1.0">
+           <!-- <xsl:if test="@type='institution'"> --><!-- élimine niveaux intermédiaires pour certains, demande A. Coret et D Le Hennaff, mais dommage -->
+                <org xmlns="http://www.tei-c.org/ns/1.0">
             <xsl:attribute name="type">
                 <xsl:value-of select="@type"/>  <!-- élément de back/listOrg typé avec @type=labo, reseauchteam, institution ... et contenu informationnel -->
             </xsl:attribute>
             
-            <name>
+            <orgName>
                 <xsl:value-of select="tei:orgName"/>
-            </name>
+            </orgName>
             <xsl:if test="tei:orgName[@type='acronym']">
-                <name type="acronym"><xsl:value-of select="tei:orgName[@type='acronym']"/></name>
+                <orgName type="acronym"><xsl:value-of select="tei:orgName[@type='acronym']"/></orgName>
             </xsl:if>
            <!--  <xsl:copy-of select="/*//tei:org[@xml:id=$aff]/tei:desc"/>   --> <!-- addrLine et country -->
             
@@ -328,7 +335,7 @@
             <!-- autres : (type RNSR, IdRef, autres?), valeur d'attribut transformée par template IDNO suivant : -->
             <xsl:call-template name="IDNO"/>
             
-        </orgName>
+        </org>
           <!--  </xsl:if> -->
             
             <xsl:for-each select="ancestor::tei:TEI//tei:org[@xml:id=$RelAct]//tei:relation[@active]">
@@ -351,8 +358,8 @@
             </xsl:for-each>
             <xsl:apply-templates select="tei:analytic/tei:author"/>
             
-            <!-- ajouter les idno de type analytic ici dans V1, y compris halId qui est dans publicationStmt -->
-            <xsl:call-template name="IDNO"/>
+            <!-- ajouter les idno de type analytic ici dans V1, y compris halId qui est dans publicationStmt 
+            <xsl:call-template name="IDNO"/> -->
         </analytic>
         
         <xsl:apply-templates select="tei:monogr"/>
@@ -361,14 +368,13 @@
         <idno type="halId" xmlns="http://www.tei-c.org/ns/1.0"><xsl:value-of select="//tei:TEI//tei:publicationStmt/tei:idno[@type='halId']"/></idno>
         <xsl:call-template name="IDNO"/>
        
-        <!-- <ref type=’file’ target=’[URL]’/>, URL item et full text -->
+        <!--  URL item et full text -->
         <!-- <xsl:text>ref</xsl:text> -->
         <xsl:for-each select="/tei:TEI//tei:editionStmt//tei:ref">
-            <!-- <xsl:element name="{local-name(.)}"> crée xmlns="" -->
             <ref xmlns="http://www.tei-c.org/ns/1.0">
                 <xsl:copy-of select="@*"/>
                 <xsl:if test="date">
-                <date xmlns="http://www.tei-c.org/ns/1.0"><xsl:copy-of select="date/@*"/></date>  <!-- date fin embargo -->
+                <date xmlns="http://www.tei-c.org/ns/1.0"><xsl:copy-of select="date/@*"/></date>  <!-- date fin embargo en @ -->
                 </xsl:if>
             </ref>
         </xsl:for-each>
@@ -385,11 +391,11 @@
                        <xsl:when test="@type='ISBN'"><idno><xsl:attribute name="type">isbn</xsl:attribute><xsl:value-of select="."/></idno></xsl:when>
                        
                        <xsl:when test="@type='localRef'"><idno><xsl:attribute name="type">localRef</xsl:attribute><xsl:value-of select="."/></idno></xsl:when>
-                       <!-- exemple : mémoire, patent intéressant -->
+                       <!-- pour mémoire, patent intéressant -->
                        
                        <xsl:when test="@type='halJournalId'"></xsl:when>
                        
-                       <xsl:otherwise>   <!-- corrects source : issn, eissn, isbn notamment -->
+                       <xsl:otherwise>   <!-- corrects dans la source : issn, eissn, isbn notamment -->
                            <!-- <xsl:copy-of select="."/> xmlns hal-->
                            <idno xmlns="http://www.tei-c.org/ns/1.0">
                                 <xsl:copy-of select="@*"/>
@@ -400,13 +406,13 @@
                
            </xsl:for-each>
             
-            <!-- qqc comme title est obligatoire pour valider si on a imprint, et on a tj, au moins une date dedans. Or les titres de monogr comme thèses peuvent être dans analytic, on récupère. -->
+            <!-- qqc comme title est obligatoire pour valider si on a imprint, et on l'a tj, au moins une date dedans. Or les titres de monogr comme thèses peuvent être dans analytic, on récupère. -->
             <xsl:choose>
                 <xsl:when test="tei:title">
                     <xsl:for-each select="tei:title">
                         <xsl:element name="{local-name()}">
-                            <xsl:copy-of select="tei:title/@*"/>
-                            <xsl:value-of select="tei:title"/>
+                            <xsl:copy-of select="./@*"/>
+                            <xsl:value-of select="."/>
                         </xsl:element>
                     </xsl:for-each>
                 </xsl:when>
@@ -423,29 +429,42 @@
                 <editor role="ths"><persName>
                     <xsl:value-of select="tei:authority[@type='supervisor']"/>
                 </persName>
-                    <xsl:if test="tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
+                    <xsl:if test="tei:authority[@type='supervisor']/tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
                 </editor>
             </xsl:if>   
             <xsl:if test="tei:authority[@type='institution']">
                 <editor role="dgg"><orgName>
                     <xsl:value-of select="tei:authority[@type='institution']"/>
                 </orgName>
-                    <xsl:if test="tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
+                    <xsl:if test="tei:authority[@type='institution']/tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
                 </editor>
             </xsl:if>
             <xsl:if test="tei:authority[@type='school']">
                 <editor role="dos"><orgName>
-                    <xsl:value-of select="tei:authority[@type='institution']"/>
+                    <xsl:value-of select="tei:authority[@type='school']"/>  <!--  @type=institution corrigé en "school"  -->
                 </orgName>
-                    <xsl:if test="tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
+                    <xsl:if test="tei:authority[@type='school']/tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
                 </editor>
             </xsl:if>
             <xsl:if test="tei:editor">
                 <editor role="edt">
-                    <persName>
-                        <xsl:value-of select="tei:authority[@type='supervisor']"/>
-                    </persName>
-                    <xsl:if test="tei:idno"><xsl:call-template name="IDNO"/></xsl:if>
+                    <xsl:choose>
+                        <xsl:when test="tei:editor/tei:persName">
+                            <persName>
+                                <xsl:value-of select="tei:editor/tei:persName"/>
+                            </persName>
+                        </xsl:when>
+            
+                        <xsl:when test="tei:editor/tei:orgName">
+                            <orgName>
+                                <xsl:value-of select="tei:editor/tei:orgName"/>
+                            </orgName>
+                        </xsl:when>
+                        
+                        <xsl:otherwise><xsl:value-of select="tei:editor"/></xsl:otherwise>
+                    </xsl:choose>
+                   
+                    <xsl:if test="tei:editor/tei:idno"><xsl:call-template name="IDNO"/></xsl:if>  <!-- CS : récupère aussi l'ISBN, pas uniquement les id auteur  cf. hal-01442304  -->
                 </editor>
             </xsl:if>
             
@@ -572,7 +591,9 @@
                     <xsl:when test="@scheme='halTypology'">
                         <classCode scheme="typology">
                             <xsl:copy-of select="@n"/>
-                            <xsl:value-of select="."/>
+                            <!-- auparavant, et autres bases : <xsl:value-of select="."/> -->
+                            <!-- demandé par Claude et Valérie en plus pour HAL -->
+                            <xsl:value-of select="@n"/>
                         </classCode>
                     </xsl:when>
                     <xsl:otherwise>
