@@ -626,70 +626,24 @@
     </xsl:template>
 
     <xsl:template match="tei:profileDesc">
-        <!-- <xsl:copy-of select="tei:langUsage"/> xsltproc ajoute xmlns hal -->
-        <profileDesc xmlns="http://www.tei-c.org/ns/1.0">
-            <xsl:if test="string-length(tei:langUsage/tei:language/@ident) &gt; 0">
-                <langUsage xmlns="http://www.tei-c.org/ns/1.0">
-                    <language>
-                        <xsl:attribute name="ident">
-                            <xsl:value-of select="tei:langUsage/tei:language/@ident"/>
-                        </xsl:attribute>
-                        <xsl:value-of select="tei:langUsage/tei:language"/>
-                    </language>
-                </langUsage>
-            </xsl:if>
-            <textClass xmlns="http://www.tei-c.org/ns/1.0">
-                <!-- <xsl:copy-of select="tei:textClass/tei:keywords"/> -->
-                <xsl:for-each select="tei:textClass/tei:keywords">
-                    <keywords>
-                        <xsl:copy-of select="@*"/>
-                        <xsl:for-each select="tei:term">
-                            <xsl:element name="{local-name(.)}">
-                                <xsl:copy-of select="@*"/>
-                                <xsl:value-of select="normalize-space(.)"/>
-                            </xsl:element>
-                        </xsl:for-each>
-                    </keywords>
-                </xsl:for-each>
-                <xsl:if test="tei:textClass/tei:classCode[@scheme='mesh']">
-                    <keywords scheme="mesh">
-                        <xsl:for-each select="tei:textClass/tei:classCode[@scheme='mesh']">
-                            <term xml:lang="en">
-                                <xsl:value-of select="."/>
-                            </term>
-                        </xsl:for-each>
-                    </keywords>
-                </xsl:if>
-
-                <xsl:for-each select="tei:textClass/tei:classCode[@scheme!='mesh']">
-                    <xsl:choose>
-                        <xsl:when test="@scheme='halTypology'">
-                            <classCode scheme="typology">
-                                <xsl:copy-of select="@n"/>
-                                <xsl:value-of select="."/>
-                            </classCode>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <classCode xmlns="http://www.tei-c.org/ns/1.0">
-                                <xsl:copy-of select="@*"/>
-                                <xsl:value-of select="."/>
-                            </classCode>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:for-each>
-            </textClass>
-
-            <xsl:if test="tei:abstract">
-                <abstract xmlns="http://www.tei-c.org/ns/1.0">
-                    <xsl:copy-of select="tei:abstract/@*"/>
-                    <!-- <p> -->
-                    <xsl:value-of select="normalize-space(tei:abstract)"/>
-                    <!-- </p> -->
-                </abstract>
-            </xsl:if>
-            <!-- V1 : fils 'p' à abstract -->
-
-        </profileDesc>
+        <xsl:copy-of select="tei:langUsage"/>
+        <textClass>
+            <xsl:copy-of select="tei:textClass/tei:keywords"/>
+            <xsl:for-each select="tei:textClass/tei:classCode">
+                <xsl:choose>
+                    <xsl:when test="@scheme='halTypology'">
+                        <classCode scheme="typology">
+                            <xsl:copy-of select="@n"/>
+                            <xsl:value-of select="."/>
+                        </classCode>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of select="."/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+        </textClass>
+        <xsl:copy-of select="tei:abstract"/>
     </xsl:template>
 
     <xsl:template name="IDNO">
