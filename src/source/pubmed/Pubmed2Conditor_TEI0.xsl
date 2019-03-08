@@ -5,14 +5,13 @@
     version="1.0">
     
 <!-- ========================================================================================================
-        C. Morel, 2018-09. Dernière modif : 17-12-2018.
+        C. Morel, 2018-09. Dernière modif : 8-03-2019.
         
-      De une ou plusieurs notices PubMed récupérées via l'IHM vers TEI Conditor, corpus 2014-2017. Une des APIs rend le même format.
         
       2 modèles TEI disponibles :
       -oafr.xsd, modèle encore actuel de HAL, des choix spécifiques sur attributs, valeurs d'attributs et arborescence organismes. ne convient pas tel que pour Conditor
       - HAL_odd.xml, modèle plus récent déposé sur GitHub HAL et créé par L. Romary; et son dérivé via ROMA, document.xsd (qui appelle 2 autres xsd)
-      Déposés dans https://github.com/conditor-project/tei-conditor/tree/master/schema, sous-répertoire HALschema.xsd pour les 3 xsd liés.
+      Déposés dans https://github.com/conditor-project/tei-conditor/src/schema, sous-répertoire HALschema.xsd pour les 3 xsd liés. 
       
       3 grandes différences :
       - "abstract" : dans le nouveau modèle, il doit avoir un ou plusieurs fils éléments (p, list table). Dans l'ancien, valeur textuelle.
@@ -40,7 +39,7 @@
         
         - affiliations non structurées et très hétérogènes ; création de "country" dans la cible 'affiliation' : 
         *** pour France uniquement pour l'instant *** (country key="FR" comme dans HAL), reste trop hétérogène au découpage, ou il faut une liste de pays ... ou rien : infos apportées par autres sources
-        - email : dans affiliation, idem - inactivé car à affiner 
+        - email : dans affiliation, idem - inactivé  
         
         Modif 22-10-2018 :
         - tj un titre dans 'analytic' meme pour ouvrages complets car utile XPath vers JSON
@@ -48,6 +47,7 @@
         - correction erreur chemin sur medlineDate et identifiers affiliation.
 		
 		Modif décembre 2018 : ajouter une URL par calcul quand notice PMC.
+		Modif 8 mars 2019 : distinguer dates publi numérique article et journal
         
  ============================================================================================================== -->
 
