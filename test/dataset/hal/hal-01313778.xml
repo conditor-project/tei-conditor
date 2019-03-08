@@ -1,0 +1,271 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" 
+  xmlns:hal="http://hal.archives-ouvertes.fr/">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>HAL TEI export of hal-01313778</title>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>CCSD</distributor>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License</licence>
+        </availability>
+        <date when="2019-02-27T19:51:41+01:00"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p part="N">HAL API platform</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="en">New developments for matrix fraction descriptions: A fully-parametrised approach</title>
+            <author role="aut">
+              <persName>
+                <forename type="first">Jérémy</forename>
+                <surname>Vayssettes</surname>
+              </persName>
+              <idno type="halauthorid">1335920</idno>
+              <orgName ref="#struct-82720"/>
+              <affiliation ref="#struct-82720"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Guillaume</forename>
+                <surname>Mercère</surname>
+              </persName>
+              <email type="md5">d31491eec9a1359b4f1c4dfca74782f0</email>
+              <email type="domain">univ-poitiers.fr</email>
+              <idno type="halauthorid">120714</idno>
+              <affiliation ref="#struct-18401"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Olivier</forename>
+                <surname>Prot</surname>
+              </persName>
+              <email type="md5">e79b29fab209bd7dcffa5e183d36d199</email>
+              <email type="domain">unilim.fr</email>
+              <ptr type="url" target="http://www.unilim.fr/pages_perso/olivier.prot/"/>
+              <idno type="halauthorid">979416</idno>
+              <affiliation ref="#struct-444304"/>
+            </author>
+            <editor role="depositor">
+              <persName>
+                <forename>Yolande</forename>
+                <surname>Vieceli</surname>
+              </persName>
+              <email type="md5">7754cdfc4a436165e5a2c09cac15c952</email>
+              <email type="domain">xlim.fr</email>
+            </editor>
+          </titleStmt>
+          <editionStmt>
+            <edition n="v1" type="current">
+              <date type="whenSubmitted">2016-05-10 13:44:53</date>
+              <date type="whenModified">2018-09-05 13:30:05</date>
+              <date type="whenReleased">2016-05-10 13:44:53</date>
+              <date type="whenProduced">2016</date>
+            </edition>
+            <respStmt>
+              <resp>contributor</resp>
+              <name key="110375">
+                <persName>
+                  <forename>Yolande</forename>
+                  <surname>Vieceli</surname>
+                </persName>
+                <email type="md5">7754cdfc4a436165e5a2c09cac15c952</email>
+                <email type="domain">xlim.fr</email>
+              </name>
+            </respStmt>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>CCSD</distributor>
+            <idno type="halId">hal-01313778</idno>
+            <idno type="halUri">https://hal.archives-ouvertes.fr/hal-01313778</idno>
+            <idno type="halBibtex">vayssettes:hal-01313778</idno>
+            <idno type="halRefHtml">&lt;i&gt;Automatica&lt;/i&gt;, Elsevier, 2016, 66, pp.15-24. &lt;a target="_blank" href="https://dx.doi.org/10.1016/j.automatica.2015.12.002"&gt;&amp;#x3008;10.1016/j.automatica.2015.12.002&amp;#x3009;&lt;/a&gt;</idno>
+            <idno type="halRef">Automatica, Elsevier, 2016, 66, pp.15-24. &amp;#x3008;10.1016/j.automatica.2015.12.002&amp;#x3009;</idno>
+          </publicationStmt>
+          <seriesStmt>
+            <idno type="stamp" n="UNILIM">UNILIM</idno>
+            <idno type="stamp" n="XLIM" p="UNILIM">XLIM</idno>
+            <idno type="stamp" n="CNRS">CNRS</idno>
+            <idno type="stamp" n="UNIV-POITIERS">UNIV-POITIERS</idno>
+            <idno type="stamp" n="TDS-MACS">TDS-MACS</idno>
+            <idno type="stamp" n="INSMI">INSMI</idno>
+            <idno type="stamp" n="XLIM-MATHIS" p="XLIM">XLIM-MATHIS</idno>
+          </seriesStmt>
+          <notesStmt>
+            <note type="audience" n="2">International</note>
+            <note type="popular" n="0">No</note>
+            <note type="peer" n="1">Yes</note>
+          </notesStmt>
+          <sourceDesc>
+            <biblStruct>
+              <analytic>
+                <title xml:lang="en">New developments for matrix fraction descriptions: A fully-parametrised approach</title>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Jérémy</forename>
+                    <surname>Vayssettes</surname>
+                  </persName>
+                  <idno type="halauthorid">1335920</idno>
+                  <orgName ref="#struct-82720"/>
+                  <affiliation ref="#struct-82720"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Guillaume</forename>
+                    <surname>Mercère</surname>
+                  </persName>
+                  <email type="md5">d31491eec9a1359b4f1c4dfca74782f0</email>
+                  <email type="domain">univ-poitiers.fr</email>
+                  <idno type="halauthorid">120714</idno>
+                  <affiliation ref="#struct-18401"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Olivier</forename>
+                    <surname>Prot</surname>
+                  </persName>
+                  <email type="md5">e79b29fab209bd7dcffa5e183d36d199</email>
+                  <email type="domain">unilim.fr</email>
+                  <ptr type="url" target="http://www.unilim.fr/pages_perso/olivier.prot/"/>
+                  <idno type="halauthorid">979416</idno>
+                  <affiliation ref="#struct-444304"/>
+                </author>
+              </analytic>
+              <monogr>
+                <idno type="halJournalId" status="VALID">10940</idno>
+                <idno type="issn">0005-1098</idno>
+                <title level="j">Automatica</title>
+                <imprint>
+                  <publisher>Elsevier</publisher>
+                  <biblScope unit="volume">66</biblScope>
+                  <biblScope unit="pp">15-24</biblScope>
+                  <date type="datePub">2016</date>
+                </imprint>
+              </monogr>
+              <idno type="doi">10.1016/j.automatica.2015.12.002</idno>
+            </biblStruct>
+          </sourceDesc>
+          <profileDesc>
+            <langUsage>
+              <language ident="en">English</language>
+            </langUsage>
+            <textClass>
+              <classCode scheme="halDomain" n="math.math-oc">Mathematics [math]/Optimization and Control [math.OC]</classCode>
+              <classCode scheme="halTypology" n="ART">Journal articles</classCode>
+            </textClass>
+            <abstract xml:lang="en">This article aims at giving a new answer for the challenging problem of the parametrisation of multi-input multi-output matrix fraction descriptions. In order to reach this goal, new parametrisations of matrix fraction descriptions, called fully-parametrised left matrix fraction descriptions (F-LMFD), are first introduced. Their structural properties as well as their suitability for multi-input multi-output model description are more precisely analysed. As any over-parametrised model description, the F-LMFD cannot describe a transfer function uniquely. The structure of the space of equivalent F-LMFD is then investigated through the determination of its basis. The study carried out in this article is the prelude to a computational improvement of the identification of matrix fraction descriptions with gradient-based optimisation methods.</abstract>
+          </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+      <listOrg type="structures">
+        <org type="institution" xml:id="struct-82720" status="VALID">
+          <orgName>Institut Supérieur de l'Aéronautique et de l'Espace</orgName>
+          <orgName type="acronym">ISAE-SUPAERO</orgName>
+          <desc>
+            <address>
+              <addrLine>ISAE - 10 av. Edouard Belin - BP 54032 - 31055 TOULOUSE Cedex 4</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">https://www.isae-supaero.fr/fr/</ref>
+          </desc>
+        </org>
+        <org type="laboratory" xml:id="struct-18401" status="VALID">
+          <orgName>Laboratoire d'Automatique et d'Informatique Industrielle</orgName>
+          <orgName type="acronym">LAII</orgName>
+          <desc>
+            <address>
+              <addrLine>40 avenue du recteur Pinot, 86022 Poitiers</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://laii.univ-poitiers.fr</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-54493" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="researchteam" xml:id="struct-444304" status="VALID">
+          <orgName>Mathématiques &amp; Sécurité de l'information</orgName>
+          <orgName type="acronym">XLIM-MATHIS</orgName>
+          <date type="start">2016-01-01</date>
+          <desc>
+            <address>
+              <addrLine>XLIM -  123, avenue Albert Thomas - 87060 LIMOGES CEDEX</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.xlim.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation name="MATHIS" active="#struct-182467" type="direct"/>
+            <relation name="UMR7252" active="#struct-5928" type="indirect"/>
+            <relation name="UMR7252" active="#struct-441569" type="indirect"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-54493" status="VALID">
+          <orgName>Université de Poitiers</orgName>
+          <desc>
+            <address>
+              <addrLine>15, rue de l'Hôtel Dieu - 86034 Poitiers Cedex</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.univ-poitiers.fr/</ref>
+          </desc>
+        </org>
+        <org type="laboratory" xml:id="struct-182467" status="VALID">
+          <idno type="IdRef">128007052</idno>
+          <idno type="ISNI">0000000405977726</idno>
+          <idno type="RNSR">201220195D</idno>
+          <orgName>XLIM</orgName>
+          <orgName type="acronym">XLIM</orgName>
+          <date type="start">2012-01-01</date>
+          <desc>
+            <address>
+              <addrLine>123 Avenue Albert THOMAS 87060 LIMOGES CEDEX</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.xlim.fr</ref>
+          </desc>
+          <listRelation>
+            <relation name="UMR7252" active="#struct-5928" type="direct"/>
+            <relation name="UMR7252" active="#struct-441569" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-5928" status="VALID">
+          <idno type="ISNI">0000000121654861</idno>
+          <idno type="IdRef">026403315</idno>
+          <orgName>Université de Limoges</orgName>
+          <orgName type="acronym">UNILIM</orgName>
+          <date type="start">1968-10-01</date>
+          <desc>
+            <address>
+              <addrLine>33 rue François Mitterrand BP23204 87032 Limoges</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.unilim.fr</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-441569" status="VALID">
+          <idno type="IdRef">02636817X</idno>
+          <idno type="ISNI">0000000122597504</idno>
+          <orgName>Centre National de la Recherche Scientifique</orgName>
+          <orgName type="acronym">CNRS</orgName>
+          <date type="start">1939-10-19</date>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.cnrs.fr/</ref>
+          </desc>
+        </org>
+      </listOrg>
+    </back>
+  </text>
+</TEI>

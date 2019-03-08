@@ -7,44 +7,155 @@ const { expect } = require('chai');
 const DOM = require('xmldom').DOMParser;
 const path = require('path');
 const Promise = require('bluebird');
-const fs = Promise.promisifyAll(require('fs'));
 const metadataXpaths = require('co-config/metadata-xpaths.json');
 const coFormatter = require('co-formatter');
 const Computron = require('computron');
 Promise.promisifyAll(Computron.prototype);
 
-describe('Xpath validation for PubMed', function () {
-  const datasets = fs.readdirSync(path.join(__dirname, 'dataset/pubmed'))
-    .map(dataset => {
-      return {
-        name: dataset,
-        path: path.join(__dirname, 'dataset/pubmed', dataset)
-      };
-    });
-  const stylesheets = getStylesheetFromSync('pubmed');
-  const xpathToTest = [
-    'title',
-    'titleen',
-    'author',
-    'authorFull',
-    'authorInit',
-    'authorRef',
-    'issn',
-    'xissn',
-    'issue',
-    'page',
-    'volume',
-    'publicationDate',
-    'titreSourceJ',
-    'abstract',
-    'typeDocument'
-  ];
+const datasets = [
+  {
+    source: 'hal',
+    name: 'hal-01246266.xml',
+    path: path.join(__dirname, 'dataset/hal/hal-01246266.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'issn',
+      'xissn',
+      'issue',
+      'pageRange',
+      'halId',
+      'halAuthorId',
+      'publicationDate',
+      'abstract',
+      'typeDocument',
+      'isni'
+    ]
+  },
+  {
+    source: 'hal',
+    name: 'hal-01313778.xml',
+    path: path.join(__dirname, 'dataset/hal/hal-01313778.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'issn',
+      'xissn',
+      'doi',
+      'pageRange',
+      'volume',
+      'halId',
+      'halAuthorId',
+      'publicationDate',
+      'abstract',
+      'typeDocument',
+      'isni'
+    ]
+  },
+  {
+    source: 'hal',
+    name: 'hal-01575728.xml',
+    path: path.join(__dirname, 'dataset/hal/hal-01575728.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'halId',
+      'idHal',
+      'halAuthorId',
+      'publicationDate',
+      'abstract',
+      'typeDocument',
+      'isni'
+    ]
+  },
+  {
+    source: 'pubmed',
+    name: 'pubmed-11700088.xml',
+    path: path.join(__dirname, 'dataset/pubmed/pubmed-11700088.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'issn',
+      'xissn',
+      'pii',
+      'doi',
+      'pmid',
+      'issue',
+      'pageRange',
+      'volume',
+      'publicationDate',
+      'abstract',
+      'typeDocument'
+    ]
+  },
+  {
+    source: 'pubmed',
+    name: 'pubmed-11748933.xml',
+    path: path.join(__dirname, 'dataset/pubmed/pubmed-11748933.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'issn',
+      'xissn',
+      'pii',
+      'doi',
+      'pmid',
+      'issue',
+      'pageRange',
+      'volume',
+      'publicationDate',
+      'abstract',
+      'typeDocument'
+    ]
+  },
+  {
+    source: 'pubmed',
+    name: 'pubmed-29977837.xml',
+    path: path.join(__dirname, 'dataset/pubmed/pubmed-29977837.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'issn',
+      'xissn',
+      'pmc',
+      'pii',
+      'doi',
+      'pmid',
+      'issue',
+      'pageRange',
+      'volume',
+      'publicationDate',
+      'abstract',
+      'typeDocument'
+    ]
+  }
+];
 
-  stylesheets.map(stylesheet => {
-    datasets.map(dataset => {
+describe('Xpath validation', function () {
+  datasets.map(dataset => {
+    const stylesheets = getStylesheetFromSync(dataset.source);
+    stylesheets.map(stylesheet => {
       describe(`dataset ${dataset.name} transform with ${stylesheet.name}`, function () {
         metadataXpaths
-          .filter(metadataXpath => xpathToTest.includes(metadataXpath.name))
+          .filter(metadataXpath => dataset.xpathToTest.includes(metadataXpath.name))
           .map(metadataXpath => {
             it(`it should retrieving ${metadataXpath.name}`, function () {
               const transformer = new Computron();
