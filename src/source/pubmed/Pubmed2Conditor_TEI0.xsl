@@ -423,15 +423,21 @@
                 </xsl:when> -->
             </xsl:choose>
             
+            
+            <xsl:if test="MedlineCitation/Article/ArticleDate"> 
+            <!-- ArticleDate? (Year, Month, Day) pour uniquement des publis électroniques (DateType="Electronic slt"). Ils ont tous en plus une PubDate dans Journal-->
+                <date type="dateEpub">
+                    <xsl:value-of select="MedlineCitation/Article/ArticleDate/Year"/>
+                    <xsl:text>-</xsl:text>
+                    <xsl:value-of select="MedlineCitation/Article/ArticleDate/Month"/>
+                    <xsl:text>-</xsl:text>
+                    <xsl:value-of select="MedlineCitation/Article/ArticleDate/Day"/>
+                </date>
+            </xsl:if>
+            
             <date type="datePub"> <!-- Articles. Forme ISO à passer en attribut, et originale à garder ??? --> 
                 <xsl:choose>
-                    <xsl:when test="MedlineCitation/Article/ArticleDate"> <!-- ArticleDate? (Year, Month, Day) -->
-                        <xsl:value-of select="MedlineCitation/Article/ArticleDate/Year"/>
-                        <xsl:text>-</xsl:text>
-                        <xsl:value-of select="MedlineCitation/Article/ArticleDate/Month"/>
-                        <xsl:text>-</xsl:text>
-                        <xsl:value-of select="MedlineCitation/Article/ArticleDate/Day"/>
-                    </xsl:when>
+                    
                     <xsl:when test="MedlineCitation/Article/Journal/JournalIssue/PubDate/Year">   <!-- PubDate oblig ((Year, ((Month, Day?) | Season)?) | MedlineDate) -->
                         <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Year"/>
                         <xsl:text>-</xsl:text>
@@ -442,7 +448,7 @@
                             <xsl:choose>
                              <xsl:when test="contains($mois, '0')"><xsl:value-of select="$mois"/></xsl:when>
                              <xsl:when test="$mois='1' or $mois='Jan'">01</xsl:when>
-                                <xsl:when test="$mois='2' or $mois='Fev'">02</xsl:when>
+                                <xsl:when test="$mois='2' or $mois='Feb'">02</xsl:when>
                                 <xsl:when test="$mois='3' or $mois='Mar'">03</xsl:when>
                                 <xsl:when test="$mois='4' or $mois='Apr'">04</xsl:when>
                                 <xsl:when test="$mois='5' or $mois='May'">05</xsl:when>
@@ -470,7 +476,8 @@
                     
                     <xsl:when test="MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate"> 
                         <!--  articles : date qui ne convient pas aux patterns précédents, ex de la doc :
-                            <MedlineDate>2015 Nov-Dec</MedlineDate>, <MedlineDate>1998 Dec-1999 Jan</MedlineDate> -->
+                            <MedlineDate>2015 Nov-Dec</MedlineDate>, <MedlineDate>1998 Dec-1999 Jan</MedlineDate>
+                            Décision lot 4 : uniquement l'année -->
                         <xsl:choose>
                             <xsl:when test="contains(MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate, ' ')">
                                 <xsl:value-of select="substring-before(MedlineCitation/Article/Journal/JournalIssue/PubDate/MedlineDate, ' ')"/>
