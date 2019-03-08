@@ -1,0 +1,186 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" 
+  xmlns:hal="http://hal.archives-ouvertes.fr/">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>HAL TEI export of hal-01246266</title>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>CCSD</distributor>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License</licence>
+        </availability>
+        <date when="2019-01-17T19:44:07+01:00"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p part="N">HAL API platform</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="en">An integrated geochemical and mineralogical approach for the evaluation of Zn distribution in long-term sludge-amended soil</title>
+            <author role="aut">
+              <persName>
+                <forename type="first">Dominique</forename>
+                <surname>Proust</surname>
+              </persName>
+              <email type="md5">510035301b662fd610fc6dd848f74cb2</email>
+              <email type="domain">univ-lr.fr</email>
+              <idno type="halauthorid">1266203</idno>
+              <affiliation ref="#struct-154635"/>
+            </author>
+            <editor role="depositor">
+              <persName>
+                <forename>Dominique</forename>
+                <surname>PROUST</surname>
+              </persName>
+              <email type="md5">510035301b662fd610fc6dd848f74cb2</email>
+              <email type="domain">univ-lr.fr</email>
+            </editor>
+          </titleStmt>
+          <editionStmt>
+            <edition n="v1" type="current">
+              <date type="whenSubmitted">2016-01-04 09:46:05</date>
+              <date type="whenModified">2018-01-11 06:23:35</date>
+              <date type="whenReleased">2016-01-04 14:50:04</date>
+              <date type="whenProduced">2015</date>
+              <date type="whenEndEmbargoed">2015-12-18</date>
+              <ref type="file" target="https://hal.archives-ouvertes.fr/hal-01246266/document">
+                <date notBefore="2015-12-18"/>
+              </ref>
+              <ref type="file" subtype="author" n="1" target="https://hal.archives-ouvertes.fr/hal-01246266/file/OJSS.pdf">
+                <date notBefore="2015-12-18"/>
+              </ref>
+            </edition>
+            <respStmt>
+              <resp>contributor</resp>
+              <name key="328293">
+                <persName>
+                  <forename>Dominique</forename>
+                  <surname>PROUST</surname>
+                </persName>
+                <email type="md5">510035301b662fd610fc6dd848f74cb2</email>
+                <email type="domain">univ-lr.fr</email>
+              </name>
+            </respStmt>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>CCSD</distributor>
+            <idno type="halId">hal-01246266</idno>
+            <idno type="halUri">https://hal.archives-ouvertes.fr/hal-01246266</idno>
+            <idno type="halBibtex">proust:hal-01246266</idno>
+            <idno type="halRefHtml">&lt;i&gt;Open Journal of Soil Science&lt;/i&gt;, Scientific Research Publishing, 2015, pp.251-265</idno>
+            <idno type="halRef">Open Journal of Soil Science, Scientific Research Publishing, 2015, pp.251-265</idno>
+          </publicationStmt>
+          <seriesStmt>
+            <idno type="stamp" n="CNRS">CNRS</idno>
+            <idno type="stamp" n="GIP-BE">GIP-BE</idno>
+            <idno type="stamp" n="INSU">INSU</idno>
+            <idno type="stamp" n="UNIV-ROCHELLE">UNIV-ROCHELLE</idno>
+          </seriesStmt>
+          <notesStmt>
+            <note type="audience" n="2">International</note>
+            <note type="popular" n="0">No</note>
+            <note type="peer" n="1">Yes</note>
+          </notesStmt>
+          <sourceDesc>
+            <biblStruct>
+              <analytic>
+                <title xml:lang="en">An integrated geochemical and mineralogical approach for the evaluation of Zn distribution in long-term sludge-amended soil</title>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Dominique</forename>
+                    <surname>Proust</surname>
+                  </persName>
+                  <email type="md5">510035301b662fd610fc6dd848f74cb2</email>
+                  <email type="domain">univ-lr.fr</email>
+                  <idno type="halauthorid">1266203</idno>
+                  <affiliation ref="#struct-154635"/>
+                </author>
+              </analytic>
+              <monogr>
+                <idno type="halJournalId" status="VALID">98161</idno>
+                <idno type="issn">2162-5379</idno>
+                <title level="j">Open Journal of Soil Science</title>
+                <imprint>
+                  <publisher>Scientific Research Publishing</publisher>
+                  <biblScope unit="issue">5</biblScope>
+                  <biblScope unit="pp">251-265</biblScope>
+                  <date type="datePub">2015</date>
+                </imprint>
+              </monogr>
+            </biblStruct>
+          </sourceDesc>
+          <profileDesc>
+            <langUsage>
+              <language ident="en">English</language>
+            </langUsage>
+            <textClass>
+              <keywords scheme="author">
+                <term xml:lang="en">zinc</term>
+                <term xml:lang="en">heavy metal</term>
+                <term xml:lang="en">Weathering</term>
+                <term xml:lang="en">soil</term>
+                <term xml:lang="en">clay minerals</term>
+              </keywords>
+              <classCode scheme="halDomain" n="sdu.envi">Sciences of the Universe [physics]/Continental interfaces, environment</classCode>
+              <classCode scheme="halDomain" n="sdu.stu.mi">Sciences of the Universe [physics]/Earth Sciences/Mineralogy</classCode>
+              <classCode scheme="halDomain" n="sdu.stu.pe">Sciences of the Universe [physics]/Earth Sciences/Petrography</classCode>
+              <classCode scheme="halTypology" n="ART">Journal articles</classCode>
+            </textClass>
+            <abstract xml:lang="en">This research work was designed to compare the Zn distribution in a long-term sludge-amended soil with that in a control soil. Two complementary approaches were performed: (1) a geochemical approach at the metric scale of the bulk soil horizons and (2) a mineralogical approach at the micrometric scale of the primary minerals weathering microsites. The geochemical approach reveals that Zn in the control soil is inherited from the weathering parent-rock. Its concentration is always lower than in the amended soil where Zn is supplied at the surface by the spread sludges and moves downwards. The mineralogical approach shows that the clay minerals, produced by the weathering of the primary minerals (amphiboles and plagioclases), or filling the fissure network are made up of smectites (saponite and montmorillonite) at the bottom and kaolinite at the top of the two soil profiles. Each clay mineral, with its specific sorption capacity, controls the Zn distribution within the soil: the smectites produced by the amphiboles have high sorption capacity and favor Zn retention in the upper horizons of the soil. Conversely, the kaolinites produced by the plagioclases have lower sorption capacity, do not retain Zn in the surface horizons, and allow it to migrate to deeper horizons where it is sorbed onto the montmorillonites.</abstract>
+          </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+      <listOrg type="structures">
+        <org type="laboratory" xml:id="struct-154635" status="VALID">
+          <orgName>LIttoral ENvironnement et Sociétés - UMR 7266</orgName>
+          <orgName type="acronym">LIENSs</orgName>
+          <desc>
+            <address>
+              <addrLine>Bâtiment Marie Curie Avenue Michel Crépeau 17 042 La Rochelle cx1 - Bâtiment ILE 2, rue Olympe de Gouges 17 000 La Rochelle</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://lienss.univ-larochelle.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-300311" type="direct"/>
+            <relation name="UMR7266" active="#struct-441569" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-300311" status="VALID">
+          <idno type="IdRef">035375043</idno>
+          <idno type="ISNI">0000 0001 2169 7335</idno>
+          <orgName>Université de La Rochelle</orgName>
+          <orgName type="acronym">ULR</orgName>
+          <desc>
+            <address>
+              <addrLine>Technoforum - 23 avenue Albert Einstein - BP 33060 - 17031 La Rochelle - France</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.univ-larochelle.fr</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-441569" status="VALID">
+          <idno type="IdRef">02636817X</idno>
+          <idno type="ISNI">0000000122597504</idno>
+          <orgName>Centre National de la Recherche Scientifique</orgName>
+          <orgName type="acronym">CNRS</orgName>
+          <date type="start">1939-10-19</date>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.cnrs.fr/</ref>
+          </desc>
+        </org>
+      </listOrg>
+    </back>
+  </text>
+</TEI>
