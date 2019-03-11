@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<!-- ce modèle est basé sur la version présentée le 10 septembre 2018 au lot 3 en réunion.   -->
+<!-- valide par rapport au schéma odd de HAL, L. Romary, CM, 31 aout.
+	QQ soucis de conformiyté suite à divers ajouts depuis. -->
+
+<!--  Particularités HAL :
+     26 mars 2018  :  suite au recettage et absence de date de publication pour certains types de documents  :  ajout de   <date type="whenProduced"> de <editionStmt><edition> dans <imprint> 
+    16 mai 2018 : Besoin de harmonisation avec HAL (de HAL avec le WOS) : le rôle "crp" du corresponding author est abandonné, l'info se trouve comme attribut dans la balise <affiliation type="rp"> 
+    3 juillet 2018 :  Enrichissement des notices en vue de la notice de signalement en sortie : 
+                               <notesStmt> avec différents champs de <note> - voir attributs et valeurs ;  
+                                <date type="whenEndEmbargoed">  dans <editionStmt><edition>-->
+
+<!-- Particularités autres sources:
+     12 mars 2018 :  <biblScope unit="supplement"> et  <biblScope unit="specialIssue"> pour éviter des fusions des notices WOS (ZEITSCHRIFT FUR GEOMORPHOLOGIE avec série de suppléments en numérotation parallèle)  suite au recettage lot 4
+     26 mars 2018 :  mention de responsabilité secondaire (cf. thèses) : ajout des balises  suivantes pour les responsabilités secondaires :  
+                     <editor role=" "> 
+                            <orgName type= institution|laboratory>   ok validé en réunion du 10 septembre 
+                    table de correspondance code rôle Unimarc  -  marcrel  (avec qq créations marcrel pour les codes 9XX Unimarc ) 
+     6 juillet 2018 :  Element <funder> [dans bloc <titleStmt>] - ajout de balises <name> et <note> ; ajout de balises <country> et <idno type="grantId">  suite à l'analyse du corpus PubMed le 16 juillet
+    16 juillet 2018 :  Element <note type="recordStatus"> dans <editionStmt><edition> : statut des notices Pubmed ; peut également servir pour la mention de "retracted article" ? ; emplacement à voir : <editionStmt> ou <notesStmt>
+                                 Element <idno> pour  author ou editor :   -  ajout de nouvelles valeurs pour l'attribut @type :  isni, grid, ringgold   suite à l'analyse du corpus PubMed. Dans PubMed GRID, ISNI et RINGGOLD sont utilisés comme identifiant de l'affiliation
+                                 Element <idno> pour document  -  ajout de l'attribut @type="pii" pour  Publisher Item Identifier  ; emplacement :  à voir
+    17 juillet 2018 :  Création de la balise <titleStmt> sous <biblFull> avec fils <title>, <author> et <funder> : obligatoire en TEI de base, et présent dans le "modèle" HAL_API_all_MD.xml
+                                 Création de la balise <publicationStmt> sous <biblFull> avec pour contenu <distributor>Conditor</distributor>   -  TO DO for <header> par lot 4 !!!!! 
+    27 juillet 2018 :  <affiliation : ajout d'une balise <country> qui reprend la fin de contenu d'un champ "affiliation" non structuré du WOS et de PubMed afin de faciliter l'isolation des affiliations françaises pour l'enrichissement RNSR	   
+                                 Element <date type="whenEndEmbargoed">  date de fin d'embargo pour le full-text (notices HAL)  </date>  
+								Pubmed - Grant  : on ignore le champ acronyme, (pour les subventions americaines), car on ne sait pas à quoi il correspond ; l'agence est bien identifiée  
+								Pubmed  -  Si <ArticleTitle> est vide ou comporte la mention <ArticleTitle>[Not Available].</ArticleTitle>  (dans ce cas il existe bien un champ <VernacularTitle>) : on ne crée pas de balise <ArticleTitle>  
+								Pubmed - <keywords> ajout de valeurs pour l'attribut @scheme= : "chemical" et "meshSuppl" 
+    14 août 2018 : Pubmed  -  ajout d'exemples de granularité maximale des keywords 
+                                ajout d'exemple de résumé structuré en éléments 'p', obligatoire en TEI (un seul le cas échéant)  -->
+<!-- 10 septembre 2018 - décisions de la réunion du lot 3 :
+         Element <idno> objet [hors identifiant auteur] est placé dans le bloc <analytic>
+		 Granularité maxiale pour les mots-clés
+		 Element <abstract> intègre systématiquement un élément <p>  -->
+ <!--  15 octobre 2018 : element <funder> <idno> @type : changement de la valeur "grantId" en "number"  -->  
+
+<!-- pour les URL d'API HAL, voir plutôt en prod :
+https://api.archives-ouvertes.fr/ref/metadataList/?q=metaName_s:relator&fl=*&wt=xml -->
+  <text>
+		<body>
+			<listBibl>
+				<biblFull>
+					<titleStmt>
+						<title xml:lang="xx">	Replique du contenu analytic/title	</title>
+		<!-- <author>Replique du contenu analytic/author </author>	voir si nécessaire - validation lot 3	-->
+						<funder> 
+							<name> <!-- copier de	<text><back> <listOrg type="projects"><org><orgName> -->	 Funding agency or project name ; </name>
+						 <!-- *** --> <idno type="number">	 <!-- Copier de	<text><back><listOrg type="projects"><org><idno>numéro de subvention ou de projet	attribué par le "Funder" -->	</idno>
+							<country>	Pays du "Funder"	: <!-- générer "France", si <back>//<org type="anrProject"> ; générer "Europe", si <back>//<org type="europeanProject"> --></country>
+							<!-- <desc>		 Copier de <text><back><listOrg type="projects"><org><desc> </desc> -->
+							<note>Note sur le projet copié tel quel de la publication	</note>
+						</funder>
+					</titleStmt>
+					<editionStmt>
+						<edition >
+							<date type="whenDownloaded">	date de recupération du flux ;	récupérer de :<!-- <teiHeader><fileDesc><publicationStmt><date when="XXX"/> --></date>
+							<date type="whenCreated">	Date de création notice Conditor (en dur )</date>
+							<date type="whenEndEmbargoed">	date de fin d'embargo pour le full-text (notices HAL)	Copier de <!-- //<editionStmt><edition><date type="whenEndEmbargoed">	--></date>
+						</edition>
+					</editionStmt>
+					<publicationStmt>
+						<distributor>Conditor</distributor>	 <!-- valeur par défaut	-->
+					</publicationStmt>
+					<notesStmt>
+						<note type="commentary">Commentaire</note>	 <!-- metadata comment-->
+						<note type="audience" n=" "> Audience, public </note> <!-- 0=not set, 1=international, 2=national	audience	-->
+						<note type="invited" n=" "> Conférence invitée (= Keynote speaker ? à vérifier) </note>	<!-- 0=no, 1=yes	--><!-- mandatory metadata invitedCommunication-->
+						<note type="popular" n=" ">	popularLevel	no/yes </note> <!-- 0=no, 1=yes	-->
+						<note type="peer" n=" ">	 peerReviewing no/yes	</note>	<!-- 0=no, 1=yes -->
+						<note type="proceedings" n=" ">	proceedings	no/yes	</note> <!-- 0=no, 1=yes	-->
+						<note type="openAccess" n=" ">	Open Access		;	Transformation : n="0", si le champ OA = No,	n="1", si le champ OA = Green... ; n="2", si le champ OA = Gold </note>
+						<note type="thesisOriginal" n=" ">	la notice décrit la version de soutenance = original	</note>	<!--	 0=no, 1=yes	-->
+	<!--	 <note type="recordStatus">Statut de la notice PubMed : In Process, In Data Review, Publisher .. et classique. Changement d'identifiant	-	emplacement alternatif	</note>	-->
+					</notesStmt>
+
+					<sourceDesc>
+							<biblStruct>
+								<analytic>
+										<title xml:lang="XX"> tel quel	(Titre de la production) </title>
+										<title type="sub" xml:lang="XX"> tel quel	(sous-titre de la production) </title>
+										<author role="aut"> <!-- pour un auteur personne	-->
+										<!-- <author role="crp">	: info transférée dans la balise "affiliation" type="rp" -->	 <!--à corriger pour nouvel envoi	 !!!!!!	 --> 
+												<persName>
+														<forename type="first">		prénom : récupérer tel quel </forename>
+														<forename type="middle">	autre prénom ;	récupérer tel quel	</forename>
+														<surname>	nom	de famille ;	récupérer tel quel	 </surname>
+												</persName>
+<!-- les identifiants auteur ont des attributs@type dont la valeur est transformé en lowerCamelCase selon une table de correspondance	-->
+						<idno type="halAuthorId">	 valeur : tel quel.	BALISE : Modifier la valeur de l'attribut type "halauthorid" -> "halAuthorId" </idno>
+												<idno type="orcid">	valeur : tel quel.	BALISE : Modifier la valeur de l'attribut @type "ORCID"	--> "orcid"	 </idno>
+												<idno type="researcherId">		valeur : tel quel </idno> 
+												<idno type="idRef">	valeur : tel quel.	 </idno>
+												<idno type="isni">	valeur : tel quel.	 </idno>
+												<idno type="viaf">	 valeur : tel quel.	BALISE : Modifier la valeur de l'attribut @type "VIAF"	--> "viaf" </idno>
+												<email type="md5"> tel quel	( nom crypté) </email>
+												<email type="domain"> tel quel	(domaine)	</email>
+												<affiliation ref="#struct-____"> tel quel.	BALISE : Ajouter balise fermante </affiliation>
+												<affiliation type="rp" ref="#struct-XXX"> pour l'auteur correspondant.	BALISE : Ajouter balise fermante </affiliation>	<!--	NEW	!!!	-->
+		 <!--	 structuration de l'affiliation, si la source le permet	: pour Hal se servir du numéro de structure et chercher les informations correspondantes dans le <back>-->
+												<affiliation> 
+														<orgName type="institution">	Nom de l'organisation, de la collaboration	 </orgName>
+														<orgName type="laboratory"> Nom de la subdivision : labo, département, équipe	</orgName>
+														<settlement> Ville	</settlement>
+														<country>	Pays	</country>
+														<idno type="xxx">	code de l'unité dans l'institution, cf. CNRS, Inserm, INRA	 </idno> 
+														<idno type="isni">	 Identifiant organisation ISNI	 </idno>
+														<idno type="grid">	 Identifiant organisation GRID - Global Research Identifier Database	</idno>
+														<idno type="ringgold">	 Identifiant organisation Ringgold	 </idno>
+		<!--	L'enrichissement via l'application Conditor comportera à minima le code RNSR de la structure	--> 
+							<idno type="rnsr">	code RNSR de la structure	</idno>
+												</affiliation>
+										</author>
+									 <author role="aut">	<!-- pour une collectivité auteur -->
+												<orgName type="institution">	Nom de l'organisation, de la collaboration	 </orgName>
+												<orgName type="laboratory"> Nom de la subdivision : labo, département, équipe	</orgName>
+														<settlement> Ville	</settlement>
+														<country>	Pays	</country>
+												<idno type="idRef">	IdRef	- ABES(/subfield)	</idno>
+												<idno type="viaf">	 VIAF </idno> 
+												<idno type="isni">	 Identifiant auteur ISNI	 </idno>
+												<idno type="grid">	 Identifiant auteur GRID - Global Research Identifier Database	</idno>
+												<idno type="ringgold">	 Identifiant collectivité auteur Ringgold	 </idno>
+										</author>
+										<idno type="halId">	Copier de	<!--<text><body><listBibl><biblFull><publicationStmt><idno type="halId"> ... -->Identifiant notice HAL	</idno>
+										<idno type="doi">		tel quel	 (DOI)	</idno>
+										<idno type="arxiv">	tel quel	 (ID arXiv)	 </idno>
+										<idno type="nnt">	tel quel	 (Identifiant national de thèse)	</idno>
+										<idno type="patentNumber">	tel quel	 (Numéro de brevet)	 </idno>
+										<idno type="arxiv">	tel quel	 (ID arXiv)	 </idno>
+										<idno type="pubmed">		tel quel	 (Identifiant PubMed )	</idno>
+										<idno type="idProdInra">		tel quel	 (Identifiant ProdInra)	</idno>
+										<idno type="utKey"> tel quel	 (identifiant WoS)		</idno> 
+										<idno type="pii">	Identifiant PII = Publisher Item Identifier (PubMed entre autres), voir https://en.wikipedia.org/wiki/Publisher_Item_Identifier </idno> -->
+								</analytic>
+								<monogr>
+										<idno type="isbn">	tel quel	(ISBN) </idno>
+										<idno type="issn">	tel quel	(ISSN) </idno>
+										<idno type="eissn">	 tel quel	(E-ISSN)	 </idno>
+										<idno type="lissn"> AJOUTER COMME ENRICHISSEMENT	:	ISSN de liaison </idno>
+										<title level="j">		tel quel	(Titre du contenant, type "revue"	ou "book-series") </title>
+	 <!--					 <title level="j" type="abbrevIso">	Titre clé abrégé ISO du contenant, type "revue"	</title>	 -->
+										<title level="m">	 tel quel	(Titre du contenant, type "livre" ou	"proceedings" ) </title>
+		<!--		Pour les THESES	 -->
+										<editor role="ths">	Directeur de thèse	- non structuré
+											<persName>	Coller ici	<!-- //<monogr><authority type="supervisor">  nom du directeur de thèse	</authority>	--> </persName>
+										</editor>	
+										<editor role="dgg">	Etablissement de soutenance	- non structuré
+												<orgName type="institution">		 Coller ici	<!--//<monogr><authority type="institution"> nom de l'université	</authority> -->	</orgName>
+										</editor>	
+										<editor role="dos">	Ecole doctorale	- non structuré
+												<orgName type="institution">		 Coller ici <!--	//<monogr><authority type="school"> nom de l'école doctorale	</authority>	--></orgName>
+										</editor>	
+<!-- fin thèses ; impossible de préciser les fonctions des membres du jury	-->
+										<editor role="edt">	Editeur scientifique
+												<persName>	Coller ici	<!-- //<monogr><editor> nom tel quel	 </editor>	--> </persName>
+										</editor>	
+										<meeting>
+												<title>	tel quel	(conferenceTitle)	</title>
+												<date type="start">	tel quel	 (date de début de conférence) </date>
+												<date type="end">	tel quel	 (date de fin de conférence)	</date>
+												<settlement>	 tel quel	 (ville de la conférence)	</settlement>
+												<country key="XX">	 tel quel	 ( pays de la conférence )	</country> 
+										</meeting>
+										<imprint>
+												<publisher>	tel quel	 (Editeur commercial ou publisher)	</publisher>
+												<pubPlace>	 tel quel	 (Lieu de publication)	</pubPlace>
+												<date type="datePub">	 tel quel	 (date de publication numérique article)	</date>
+											<date type="dateEpub">	 tel quel	 (date de publication)	</date>
+												<date type="dateDefended">	tel quel	(date de soutenance Thèse ou mémoire )	</date>
+		<!--						 <biblScope unit="serie">	 tel quel	(Titre de la collection ) </biblScope> -->
+												<biblScope unit="volume">	 tel quel	 (volume )	</biblScope>
+												<biblScope unit="issue">	 tel quel	 (numéro)	 </biblScope>
+								 <biblScope unit="part">	partie </biblScope>	
+												<biblScope unit="pp">		 tel quel	 (pagination)	</biblScope>
+											 <biblScope unit="pagesNo">	(nombre de pages)	: récupérer de :	<!--<biblScope unit="pp">	si la valeur du champ <biblScope unit="pp"> contient un "p"	--></biblScope>
+										</imprint>
+								</monogr>
+							</biblStruct>
+					 </sourceDesc>
+					 <profileDesc>
+							<langUsage>
+								<language ident="_ _">		tel quel	 ( langue	du document)	 </language>
+							</langUsage>
+							<textClass>
+								<keywords scheme="author">
+										<term xml:lang="_ _">		 tel quel	 ( mot-clé auteur)	</term>
+										<term xml:lang="_ _">		 tel quel	 ( mot-clé auteur)	</term>
+										<term xml:lang="_ _">		 tel quel	 ( mot-clé auteur)	</term>
+								</keywords>
+								<classCode scheme="typology" n="XXX">			tel quel	 ( Type de document)		</classCode>
+							</textClass>
+							<abstract xml:lang="xx"> <p> tel quel	( Abstract)	</p></abstract>
+					 </profileDesc>
+				</biblFull>
+			</listBibl>
+		</body>
+		<back>
+		</back>
+ </text>
+</TEI>
