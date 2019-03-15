@@ -284,18 +284,17 @@
                 </address>
               </desc>  
                   
-                <idno type="halStructureId"><xsl:value-of select="$aff"/></idno>
-
-                
-                <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]">  <!-- for-each pour descendre au niveau idno, traité par le call-template avec for-each -->
-                    <xsl:call-template name="IDNO"/> 
-                </xsl:for-each>   
+            <idno type="halStructureId"><xsl:value-of select="$aff"/></idno>
+            
+            
+            <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]">  <!-- for-each pour descendre au niveau idno, traité par le call-template avec for-each -->
+                <xsl:call-template name="IDNO"/> 
+            </xsl:for-each>   
             
             <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]//tei:relation[@active]">
-                <xsl:call-template name="Affiliation">
+                 <xsl:call-template name="Affiliation">
                     <xsl:with-param name="RelAct" select="substring-after(@active, '#')"/>
-                </xsl:call-template>
-                
+                 </xsl:call-template>
             </xsl:for-each>  
               
           </org>
@@ -327,12 +326,12 @@
         </org>
           <!--  </xsl:if> -->
             
-            <xsl:for-each select="ancestor::tei:TEI//tei:org[@xml:id=$RelAct]//tei:relation[@active]">
+<!--            <xsl:for-each select="ancestor::tei:TEI//tei:org[@xml:id=$RelAct]//tei:relation[@active]">
                 <xsl:call-template name="Affiliation">
                     <xsl:with-param name="RelAct" select="substring-after(@active, '#')"/>
                 </xsl:call-template>
             </xsl:for-each>
-            
+-->            
         </xsl:for-each>
     </xsl:template>
 
