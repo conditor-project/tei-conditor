@@ -22,10 +22,11 @@
     
     <xsl:output indent="yes"/>
     
-    
+    <xsl:key name="orgsById" match="//tei:org" use="@xml:id"/>
+
     <xsl:param name="DateAcqu"/>  
     <xsl:param name="DateCreat"/>  <!-- indiquée par le shell Conditor ultérieur -->
-    
+
     <!-- élément racine  : TEI, un seul -->
     
     <xsl:template match="/tei:TEI">
@@ -235,39 +236,31 @@
     
   <xsl:template match="tei:affiliation">
     <xsl:variable name="aff" select="substring-after(@ref, '#')"/>
-      <affiliation xmlns="http://www.tei-c.org/ns/1.0">
-            <xsl:attribute name="n"><xsl:value-of select="$aff"/></xsl:attribute>
-            <!-- 1 - en un élément texte : -->
-            <xsl:choose>
-                <xsl:when test="document('affil_hal_struct.xml')//structures/structure[struct=$aff]/ad"> <!-- travail de Alain pour 2014 : toutes infos -->
-                    <xsl:value-of select="document('affil_hal_struct.xml')//structures/structure[struct=$aff]/ad"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    
-                    <xsl:for-each select="ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName">
-                        <xsl:value-of select="normalize-space(.)"/>
-                    </xsl:for-each>
-                    <xsl:if test="ancestor::tei:TEI//tei:org[@xml:id=$aff]//tei:addrLine">
-                        <xsl:text>, </xsl:text>
-                        <xsl:value-of select="normalize-space(ancestor::tei:TEI//tei:org[@xml:id=$aff]//tei:addrLine)"/>
-                    </xsl:if>
-                    <xsl:if test="ancestor::tei:TEI//tei:org[@xml:id=$aff]//tei:country">
-                        <xsl:text>, </xsl:text>
-                        <xsl:value-of select="ancestor::tei:TEI//tei:org[@xml:id=$aff]//tei:country/@key"/>
-                    </xsl:if>
-                </xsl:otherwise>
-            </xsl:choose>
+      <affiliation xmlns="http://www.tei-c.org/ns/1.0" n="{$aff}">
+            
+            <!-- Version concaténée de l'affiliation -->
+            <xsl:for-each select="key('orgsById',$aff)//tei:relation[@active and @type='direct']">
+                <xsl:call-template name="AffiliationString">
+                    <xsl:with-param name="RelAct" select="substring-after(@active, '#')"/>
+                    <xsl:with-param name="name" select="@name"/>
+                </xsl:call-template>
+                <xsl:text>, </xsl:text>
+            </xsl:for-each>  
+            <xsl:call-template name="AffiliationString">
+                <xsl:with-param name="RelAct" select="substring-after(@ref, '#')"/>
+                <xsl:with-param name="withAddress">true</xsl:with-param>
+            </xsl:call-template>
             
             <!-- infos complémentaires structurées, dans org pour cette version suite échanges LR (sinon : org pas autorisé comme fils de affiliation) : -->
             
-          <org xmlns="http://www.tei-c.org/ns/1.0">
-                <xsl:attribute name="type"><xsl:value-of select="ancestor::tei:TEI//tei:org[@xml:id=$aff]/@type"/></xsl:attribute>
+            <org xmlns="http://www.tei-c.org/ns/1.0">
+                <xsl:attribute name="type"><xsl:value-of select="key('orgsById',$aff)/@type"/></xsl:attribute>
                 <orgName>
-                    <xsl:value-of select="normalize-space(ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName)"/>
+                    <xsl:value-of select="normalize-space(key('orgsById',$aff)/tei:orgName)"/>
                 </orgName>
-                <xsl:if test="ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName[@type='acronym']">
+                <xsl:if test="key('orgsById',$aff)/tei:orgName[@type='acronym']">
                     <orgName type="acronym">
-                        <xsl:value-of select="normalize-space(ancestor::tei:TEI//tei:org[@xml:id=$aff]/tei:orgName[@type='acronym'])"/>
+                        <xsl:value-of select="normalize-space(key('orgsById',$aff)/tei:orgName[@type='acronym'])"/>
                     </orgName>
                 </xsl:if>
                 <!-- récupère un code de structure - *** pas OK : -->
@@ -281,11 +274,11 @@
                          et <xsl:copy-of select="/tei:TEI//tei:org[@xml:id=$aff]//tei:country"/> m pb xsltproc : xmlns hal-->
                     <xsl:if test="/tei:TEI//tei:org[@xml:id=$aff]//tei:addrLine">
                     <addrLine>
-                        <xsl:value-of select="ancestor::tei:TEI//tei:org[@xml:id=$aff]//tei:addrLine"/>
+                        <xsl:value-of select="key('orgsById',$aff)//tei:addrLine"/>
                     </addrLine>
                     </xsl:if>
                     <country>
-                        <xsl:attribute name="key"><xsl:value-of select="ancestor::tei:TEI//tei:org[@xml:id=$aff]//tei:country/@key"/></xsl:attribute>
+                        <xsl:attribute name="key"><xsl:value-of select="key('orgsById',$aff)//tei:country/@key"/></xsl:attribute>
                     </country>
                     
                 </address>
@@ -297,10 +290,6 @@
                 <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]">  <!-- for-each pour descendre au niveau idno, traité par le call-template avec for-each -->
                     <xsl:call-template name="IDNO"/> 
                 </xsl:for-each>   
-                
-                
-            
-            
             
             <xsl:for-each select="/tei:TEI//tei:org[@xml:id=$aff]//tei:relation[@active]">
                 <xsl:call-template name="Affiliation">
@@ -345,6 +334,27 @@
             </xsl:for-each>
             
         </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template name="AffiliationString">
+        <xsl:param name="RelAct"/>
+        <xsl:param name="name"/>        
+        <xsl:param name="withAddress"/>
+        <xsl:if test="$name"><xsl:value-of select="$name"/>, </xsl:if>
+        <xsl:for-each select="key('orgsById',$RelAct)/tei:orgName">
+            <xsl:if test="position() &gt; 1"><xsl:text> </xsl:text></xsl:if>
+            <xsl:value-of select="normalize-space(.)"/>
+        </xsl:for-each>
+        <xsl:if test="$withAddress = 'true'">
+          <xsl:if test="key('orgsById',$RelAct)//tei:addrLine">
+              <xsl:text>, </xsl:text>
+              <xsl:value-of select="normalize-space(key('orgsById',$RelAct)//tei:addrLine)"/>
+          </xsl:if>
+          <xsl:if test="key('orgsById',$RelAct)//tei:country">
+              <xsl:text>, </xsl:text>
+              <xsl:value-of select="key('orgsById',$RelAct)//tei:country/@key"/>
+          </xsl:if>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="tei:biblStruct">
@@ -544,7 +554,7 @@
                     <xsl:copy-of select="@*"/>
                     <name><xsl:value-of select="tei:orgName"/></name>
                     <xsl:copy-of select="tei:desc/*"/>
-                        <xsl:copy-of select="tei:date"/>
+                    <xsl:copy-of select="tei:date"/>
                     <xsl:if test="@type='anrProject'"><country key="FR">France</country></xsl:if>
                     <xsl:if test="@type='europeanProject'"><country key="FR">Europe</country></xsl:if>
                 </orgName>
