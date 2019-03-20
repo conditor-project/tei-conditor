@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/"><link xmlns="" type="text/css" id="dark-mode" rel="stylesheet" href=""/><style xmlns="" type="text/css" id="dark-mode-custom-style"/>
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>HAL TEI export of hal-00719737</title>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>CCSD</distributor>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License</licence>
+        </availability>
+        <date when="2019-03-06T00:51:24+01:00"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p part="N">HAL API platform</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="en">Simulation of confined magnetohydrodynamic flows with Dirichlet boundary conditions using a pseudo-spectral method with volume penalization</title>
+            <author role="aut">
+              <persName>
+                <forename type="first">Jorge</forename>
+                <surname>Morales</surname>
+              </persName>
+              <idno type="halauthorid">288575</idno>
+              <affiliation ref="#struct-694"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Matthieu</forename>
+                <surname>Leroy</surname>
+              </persName>
+              <idno type="halauthorid">746898</idno>
+              <affiliation ref="#struct-871"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Wouter J.T.</forename>
+                <surname>Bos</surname>
+              </persName>
+              <email type="md5">6c14b8eea162ac11d2776f2e6c025d4e</email>
+              <email type="domain">ec-lyon.fr</email>
+              <ptr type="url" target="http://lmfa.ec-lyon.fr/spip.php?article189"/>
+              <idno type="idhal" notation="string">wouter-bos</idno>
+              <idno type="idhal" notation="numeric">4430</idno>
+              <idno type="halauthorid">301244</idno>
+              <affiliation ref="#struct-694"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Kai</forename>
+                <surname>Schneider</surname>
+              </persName>
+              <ptr type="url" target="kai.schneider@univ-amu.fr"/>
+              <idno type="halauthorid">207522</idno>
+              <affiliation ref="#struct-871"/>
+            </author>
+            <editor role="depositor">
+              <persName>
+                <forename>Wouter</forename>
+                <surname>Bos</surname>
+              </persName>
+              <email type="md5">1814cff0f07428dfb9dc0f4fd9233644</email>
+              <email type="domain">ec-lyon.fr</email>
+            </editor>
+          </titleStmt>
+          <editionStmt>
+            <edition n="v1" type="current">
+              <date type="whenSubmitted">2012-07-20 16:05:36</date>
+              <date type="whenModified">2018-12-12 15:22:29</date>
+              <date type="whenReleased">2012-07-20 16:06:56</date>
+              <date type="whenProduced">2014-10-01</date>
+              <date type="whenEndEmbargoed">2012-07-20</date>
+              <ref type="file" target="https://hal.archives-ouvertes.fr/hal-00719737/document">
+                <date notBefore="2012-07-20"/>
+              </ref>
+              <ref type="file" subtype="author" n="1" target="https://hal.archives-ouvertes.fr/hal-00719737/file/jcp_V13.pdf">
+                <date notBefore="2012-07-20"/>
+              </ref>
+            </edition>
+            <respStmt>
+              <resp>contributor</resp>
+              <name key="123484">
+                <persName>
+                  <forename>Wouter</forename>
+                  <surname>Bos</surname>
+                </persName>
+                <email type="md5">1814cff0f07428dfb9dc0f4fd9233644</email>
+                <email type="domain">ec-lyon.fr</email>
+              </name>
+            </respStmt>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>CCSD</distributor>
+            <idno type="halId">hal-00719737</idno>
+            <idno type="halUri">https://hal.archives-ouvertes.fr/hal-00719737</idno>
+            <idno type="halBibtex">morales:hal-00719737</idno>
+            <idno type="halRefHtml">&lt;i&gt;Journal of Computational Physics&lt;/i&gt;, Elsevier, 2014, 274, pp.64-94. &lt;a target="_blank" href="https://dx.doi.org/10.1016/j.jcp.2014.05.038"&gt;&amp;#x3008;10.1016/j.jcp.2014.05.038&amp;#x3009;&lt;/a&gt;</idno>
+            <idno type="halRef">Journal of Computational Physics, Elsevier, 2014, 274, pp.64-94. &amp;#x3008;10.1016/j.jcp.2014.05.038&amp;#x3009;</idno>
+          </publicationStmt>
+          <seriesStmt>
+            <idno type="stamp" n="CNRS">CNRS</idno>
+            <idno type="stamp" n="INSA-LYON">INSA-LYON</idno>
+            <idno type="stamp" n="EC-LYON">EC-LYON</idno>
+            <idno type="stamp" n="LMFA" p="INSA-LYON">LMFA</idno>
+            <idno type="stamp" n="UNIV-AMU">UNIV-AMU</idno>
+            <idno type="stamp" n="M2P2">M2P2</idno>
+            <idno type="stamp" n="UNIV-LYON1">UNIV-LYON1</idno>
+            <idno type="stamp" n="TEST-AMU">TEST-AMU</idno>
+            <idno type="stamp" n="INSA-GROUPE">INSA-GROUPE</idno>
+          </seriesStmt>
+          <notesStmt>
+            <note type="audience" n="1">Not set</note>
+            <note type="popular" n="0">No</note>
+            <note type="peer" n="1">Yes</note>
+          </notesStmt>
+          <sourceDesc>
+            <biblStruct>
+              <analytic>
+                <title xml:lang="en">Simulation of confined magnetohydrodynamic flows with Dirichlet boundary conditions using a pseudo-spectral method with volume penalization</title>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Jorge</forename>
+                    <surname>Morales</surname>
+                  </persName>
+                  <idno type="halauthorid">288575</idno>
+                  <affiliation ref="#struct-694"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Matthieu</forename>
+                    <surname>Leroy</surname>
+                  </persName>
+                  <idno type="halauthorid">746898</idno>
+                  <affiliation ref="#struct-871"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Wouter J.T.</forename>
+                    <surname>Bos</surname>
+                  </persName>
+                  <email type="md5">6c14b8eea162ac11d2776f2e6c025d4e</email>
+                  <email type="domain">ec-lyon.fr</email>
+                  <ptr type="url" target="http://lmfa.ec-lyon.fr/spip.php?article189"/>
+                  <idno type="idhal" notation="string">wouter-bos</idno>
+                  <idno type="idhal" notation="numeric">4430</idno>
+                  <idno type="halauthorid">301244</idno>
+                  <affiliation ref="#struct-694"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Kai</forename>
+                    <surname>Schneider</surname>
+                  </persName>
+                  <ptr type="url" target="kai.schneider@univ-amu.fr"/>
+                  <idno type="halauthorid">207522</idno>
+                  <affiliation ref="#struct-871"/>
+                </author>
+              </analytic>
+              <monogr>
+                <idno type="halJournalId" status="VALID">15275</idno>
+                <idno type="issn">0021-9991</idno>
+                <idno type="eissn">1090-2716</idno>
+                <title level="j">Journal of Computational Physics</title>
+                <imprint>
+                  <publisher>Elsevier</publisher>
+                  <biblScope unit="volume">274</biblScope>
+                  <biblScope unit="pp">64–94</biblScope>
+                  <date type="datePub">2014-10-01</date>
+                </imprint>
+              </monogr>
+              <idno type="doi">10.1016/j.jcp.2014.05.038</idno>
+            </biblStruct>
+          </sourceDesc>
+          <profileDesc>
+            <langUsage>
+              <language ident="en">English</language>
+            </langUsage>
+            <textClass>
+              <classCode scheme="halDomain" n="phys.meca.mefl">Physics [physics]/Mechanics [physics]/Mechanics of the fluids [physics.class-ph]</classCode>
+              <classCode scheme="halDomain" n="spi.meca.mefl">Engineering Sciences [physics]/Mechanics [physics.med-ph]/Fluids mechanics [physics.class-ph]</classCode>
+              <classCode scheme="halTypology" n="ART">Journal articles</classCode>
+            </textClass>
+            <abstract xml:lang="en">A volume penalization approach to simulate magnetohydrodynamic (MHD) flows in confined domains is presented. Here the incompressible visco-resistive MHD equations are solved using parallel pseudo-spectral solvers in Cartesian geometries. The volume penalization technique is an immersed boundary method which is characterized by a high flexibility for the geometry of the considered flow. In the present case, it allows to use other than periodic boundary conditions in a Fourier pseudo-spectral approach. The numerical method is validated and its convergence is assessed for two- and three-dimensional hydrodynamic (HD) and MHD flows, by comparing the numerical results with results from literature and analytical solutions. The test cases considered are two-dimensional Taylor-Couette flow, the $z$-pinch configuration, three dimensional Orszag-Tang flow, ohmic-decay in a periodic cylinder, three-dimensional Taylor-Couette flow with and without axial magnetic field and three-dimensional Hartmann-instabilities in a cylinder with an imposed helical magnetic field.</abstract>
+          </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+      <listOrg type="structures">
+        <org type="laboratory" xml:id="struct-694" status="VALID">
+          <orgName>Laboratoire de Mecanique des Fluides et d'Acoustique</orgName>
+          <orgName type="acronym">LMFA</orgName>
+          <desc>
+            <address>
+              <addrLine>36 Av Guy de Collongue 69134 ECULLY CEDEX</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.lmfa.ec-lyon.fr</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-126765" type="direct"/>
+            <relation active="#struct-301088" type="indirect"/>
+            <relation active="#struct-194495" type="direct"/>
+            <relation active="#struct-219748" type="direct"/>
+            <relation active="#struct-301232" type="indirect"/>
+            <relation name="UMR5509" active="#struct-441569" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="laboratory" xml:id="struct-871" status="OLD">
+          <orgName>Modélisation et Simulation Numérique en Mécanique et Génie des Procédés</orgName>
+          <orgName type="acronym">MSNMGP</orgName>
+          <desc>
+            <address>
+              <addrLine>Technopole de Château-Gombert 38 rue Frédéric Joliot Curie 13451 MARSEILLE CEDEX 13</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www-msnm.univ-mrs.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-5033" type="direct"/>
+            <relation active="#struct-27501" type="direct"/>
+            <relation active="#struct-92823" type="direct"/>
+            <relation name="UMR6181" active="#struct-441569" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-126765" status="VALID">
+          <orgName>École Centrale de Lyon</orgName>
+          <orgName type="acronym">ECL</orgName>
+          <desc>
+            <address>
+              <addrLine>36 avenue Guy de Collongue - 69134 Ecully cedex</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.ec-lyon.fr</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-301088" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="regroupinstitution" xml:id="struct-301088" status="VALID">
+          <orgName>Université de Lyon</orgName>
+          <desc>
+            <address>
+              <addrLine>92 rue Pasteur - CS 30122, 69361 Lyon Cedex 07</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">https://www.universite-lyon.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-194495" status="VALID">
+          <idno type="IdRef">026402823</idno>
+          <idno type="ISNI">0000000121686185</idno>
+          <orgName>Université Claude Bernard Lyon 1</orgName>
+          <orgName type="acronym">UCBL</orgName>
+          <desc>
+            <address>
+              <addrLine>43, boulevard du 11 novembre 1918, 69622 Villeurbanne cedex</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.univ-lyon1.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-301088" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-219748" status="VALID">
+          <idno type="IdRef">052444724</idno>
+          <idno type="ISNI">0000 0001 2292 0228</idno>
+          <orgName>Institut National des Sciences Appliquées de Lyon</orgName>
+          <orgName type="acronym">INSA Lyon</orgName>
+          <date type="start">1957-03-18</date>
+          <desc>
+            <address>
+              <addrLine>20 Avenue Albert Einstein, 69621 Villeurbanne cedex</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.insa-lyon.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-301088" type="direct"/>
+            <relation active="#struct-301232" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="regroupinstitution" xml:id="struct-301232" status="VALID">
+          <idno type="IdRef">162105150</idno>
+          <orgName>Institut National des Sciences Appliquées</orgName>
+          <orgName type="acronym">INSA</orgName>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-441569" status="VALID">
+          <idno type="IdRef">02636817X</idno>
+          <idno type="ISNI">0000000122597504</idno>
+          <orgName>Centre National de la Recherche Scientifique</orgName>
+          <orgName type="acronym">CNRS</orgName>
+          <date type="start">1939-10-19</date>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.cnrs.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-5033" status="OLD">
+          <idno type="IdRef">026402882</idno>
+          <orgName>Université de la Méditerranée - Aix-Marseille 2</orgName>
+          <date type="start">1969</date>
+          <date type="end">2011</date>
+          <desc>
+            <address>
+              <addrLine>58, boulevard Charles Livon - 13284 Marseille cedex 07</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.univmed.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-27501" status="OLD">
+          <idno type="IdRef">026403153</idno>
+          <orgName>Université Paul Cézanne - Aix-Marseille 3</orgName>
+          <date type="end">2011</date>
+          <desc>
+            <address>
+              <addrLine>3, avenue Robert Schumann - 13628 Aix-en-Provence cedex 1</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.univ-cezanne.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-92823" status="OLD">
+          <idno type="IdRef">026403781</idno>
+          <orgName>Université de Provence - Aix-Marseille 1</orgName>
+          <date type="end">2011-12-31</date>
+          <desc>
+            <address>
+              <addrLine>3, place Victor Hugo - 13331 Marseille Cedex 03</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.univ-provence.fr/</ref>
+          </desc>
+        </org>
+      </listOrg>
+    </back>
+  </text>
+</TEI>
