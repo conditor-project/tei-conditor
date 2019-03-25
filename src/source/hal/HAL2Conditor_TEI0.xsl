@@ -3,7 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:hal="http://hal.archives-ouvertes.fr"
     xmlns:date="http://exslt.org/dates-and-times" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="xs tei hal"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="xs tei hal date"
     version="1.0">
 
     <!-- de la TEI HAL, modèle aofr.xsd à la TEI Conditor V0.
@@ -87,7 +87,7 @@
                                         <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:date/@when"/>
                                     </date>
                                     <date type="whenCreated">
-                                        <xsl:choose>
+                                        <xsl:choose> 
                                             <xsl:when test="function-available('date:date-time')">
                                                 <xsl:value-of select="date:date-time()"/>
                                             </xsl:when>
@@ -275,9 +275,6 @@
                 <xsl:attribute name="type">
                     <xsl:value-of select="key('orgsById', $aff)/@type"/>
                 </xsl:attribute>
-                <xsl:if test="key('orgsById', $aff)/@status != ''">
-                    <xsl:attribute name="status"><xsl:value-of select="key('orgsById', $aff)/@status"/></xsl:attribute>
-                </xsl:if>
                 <orgName>
                     <xsl:value-of select="normalize-space(key('orgsById', $aff)/tei:orgName)"/>
                 </orgName>
@@ -343,9 +340,6 @@
                     <xsl:value-of select="@type"/>
                     <!-- élément de back/listOrg typé avec @type=labo, reseauchteam, institution ... et contenu informationnel -->
                 </xsl:attribute>
-                <xsl:if test="@status != ''">
-                    <xsl:attribute name="status"><xsl:value-of select="@status"/></xsl:attribute>
-                </xsl:if>
 
                 <orgName>
                     <xsl:value-of select="tei:orgName"/>
@@ -363,14 +357,6 @@
                 </idno>
                 <!-- autres : (type RNSR, IdRef, autres?), valeur d'attribut transformée par template IDNO suivant : -->
                 <xsl:call-template name="IDNO"/>
-
-                <xsl:if test="tei:date">
-                    <date xmlns="http://www.tei-c.org/ns/1.0">
-                        <xsl:copy-of select="tei:date/@*"/>
-                        <xsl:copy-of select="tei:date/text()"/>
-                        <xsl:copy-of select="tei:date/child::*"/>
-                    </date>
-                </xsl:if>
 
             </org>
             <!--  </xsl:if> -->
@@ -436,9 +422,9 @@
         <xsl:for-each select="/tei:TEI//tei:editionStmt//tei:ref">
             <ref xmlns="http://www.tei-c.org/ns/1.0">
                 <xsl:copy-of select="@*"/>
-                <xsl:if test="tei:date">
+                <xsl:if test="date">
                     <date xmlns="http://www.tei-c.org/ns/1.0">
-                        <xsl:copy-of select="tei:date/@*"/>
+                        <xsl:copy-of select="date/@*"/>
                     </date>
                     <!-- date fin embargo en @ -->
                 </xsl:if>
@@ -622,7 +608,7 @@
                 </xsl:for-each>
                 <xsl:if test="not(tei:imprint/tei:date)">
                     <!-- <xsl:copy-of select="/tei:TEI//tei:date[@type='whenProduced']"/> xmlns de hal -->
-                    <date type="whenProduced">
+                    <date type="datePub">
                         <xsl:value-of select="/tei:TEI//tei:date[@type = 'whenProduced']"/>
                     </date>
                 </xsl:if>
@@ -753,7 +739,7 @@
                         <xsl:value-of select="."/>
                     </idno>
                 </xsl:when>
-                <xsl:when test="@type = 'idRef'">
+                <xsl:when test="type = 'idRef'">
                     <idno type="idRef" xmlns="http://www.tei-c.org/ns/1.0">
                         <xsl:value-of select="."/>
                     </idno>

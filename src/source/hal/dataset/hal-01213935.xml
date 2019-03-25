@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>HAL TEI export of hal-01213935</title>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>CCSD</distributor>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License</licence>
+        </availability>
+        <date when="2019-03-21T15:54:55+01:00"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p part="N">HAL API platform</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="en">A Linear Interpolation Algorithm for Spectral Filter Array Demosaicking</title>
+            <author role="aut">
+              <persName>
+                <forename type="first">Congcong</forename>
+                <surname>Wang</surname>
+              </persName>
+              <idno type="halauthorid">1231719</idno>
+              <orgName ref="#struct-301160"/>
+              <affiliation ref="#struct-439007"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Xingbo</forename>
+                <surname>Wang</surname>
+              </persName>
+              <email type="md5">3e28c85e0d1131125aab55583f8a9a18</email>
+              <email type="domain">u-bourgogne.fr</email>
+              <ptr type="url" target="http://xingbo.wang.blog.163.com"/>
+              <idno type="idhal" notation="string">xingbo-wang</idno>
+              <idno type="idhal" notation="numeric">5402</idno>
+              <idno type="halauthorid">873271</idno>
+              <affiliation ref="#struct-439007"/>
+              <affiliation ref="#struct-22594"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Jon Yngve</forename>
+                <surname>Hardeberg</surname>
+              </persName>
+              <email type="md5">420e7a472c59b46292595aada16041e1</email>
+              <email type="domain">hig.no</email>
+              <idno type="halauthorid">655120</idno>
+              <affiliation ref="#struct-439007"/>
+            </author>
+            <editor role="depositor">
+              <persName>
+                <forename>Xingbo</forename>
+                <surname>Wang</surname>
+              </persName>
+              <email type="md5">3e28c85e0d1131125aab55583f8a9a18</email>
+              <email type="domain">u-bourgogne.fr</email>
+            </editor>
+          </titleStmt>
+          <editionStmt>
+            <edition n="v1" type="current">
+              <date type="whenSubmitted">2015-10-09 14:57:49</date>
+              <date type="whenModified">2018-09-12 01:26:49</date>
+              <date type="whenReleased">2015-10-12 14:29:29</date>
+              <date type="whenProduced">2014-06-30</date>
+              <date type="whenEndEmbargoed">2015-10-09</date>
+              <ref type="file" target="https://hal.archives-ouvertes.fr/hal-01213935/document">
+                <date notBefore="2015-10-09"/>
+              </ref>
+              <ref type="file" subtype="author" n="1" target="https://hal.archives-ouvertes.fr/hal-01213935/file/paper244.pdf">
+                <date notBefore="2015-10-09"/>
+              </ref>
+            </edition>
+            <respStmt>
+              <resp>contributor</resp>
+              <name key="134643">
+                <persName>
+                  <forename>Xingbo</forename>
+                  <surname>Wang</surname>
+                </persName>
+                <email type="md5">3e28c85e0d1131125aab55583f8a9a18</email>
+                <email type="domain">u-bourgogne.fr</email>
+              </name>
+            </respStmt>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>CCSD</distributor>
+            <idno type="halId">hal-01213935</idno>
+            <idno type="halUri">https://hal.archives-ouvertes.fr/hal-01213935</idno>
+            <idno type="halBibtex">wang:hal-01213935</idno>
+            <idno type="halRefHtml">&lt;i&gt;6th International Conference on Image and Signal Processing&lt;/i&gt;, Jun 2014, Cherbourg, France. 8509, pp.151-160, 2014, Lecture Notes in Computer Science. &lt;a target="_blank" href="https://dx.doi.org/10.1007/978-3-319-07998-1_18"&gt;&amp;#x3008;10.1007/978-3-319-07998-1_18&amp;#x3009;&lt;/a&gt;</idno>
+            <idno type="halRef">6th International Conference on Image and Signal Processing, Jun 2014, Cherbourg, France. 8509, pp.151-160, 2014, Lecture Notes in Computer Science. &amp;#x3008;10.1007/978-3-319-07998-1_18&amp;#x3009;</idno>
+          </publicationStmt>
+          <seriesStmt>
+            <idno type="stamp" n="CNRS">CNRS</idno>
+            <idno type="stamp" n="UNIV-BOURGOGNE">UNIV-BOURGOGNE</idno>
+            <idno type="stamp" n="LE2I" p="UNIV-BOURGOGNE">LE2I</idno>
+            <idno type="stamp" n="AGREENIUM">AGREENIUM</idno>
+            <idno type="stamp" n="ENSAM">ENSAM</idno>
+            <idno type="stamp" n="ICB" p="UNIV-BOURGOGNE">ICB</idno>
+            <idno type="stamp" n="UNIV-HESAM-ENSAM" p="UNIV-HESAM">UNIV-HESAM-ENSAM</idno>
+            <idno type="stamp" n="UNIV-HESAM">UNIV-HESAM</idno>
+          </seriesStmt>
+          <notesStmt>
+            <note type="audience" n="2">International</note>
+            <note type="invited" n="0">No</note>
+            <note type="popular" n="0">No</note>
+            <note type="peer" n="1">Yes</note>
+            <note type="proceedings" n="1">Yes</note>
+          </notesStmt>
+          <sourceDesc>
+            <biblStruct>
+              <analytic>
+                <title xml:lang="en">A Linear Interpolation Algorithm for Spectral Filter Array Demosaicking</title>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Congcong</forename>
+                    <surname>Wang</surname>
+                  </persName>
+                  <idno type="halauthorid">1231719</idno>
+                  <orgName ref="#struct-301160"/>
+                  <affiliation ref="#struct-439007"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Xingbo</forename>
+                    <surname>Wang</surname>
+                  </persName>
+                  <email type="md5">3e28c85e0d1131125aab55583f8a9a18</email>
+                  <email type="domain">u-bourgogne.fr</email>
+                  <ptr type="url" target="http://xingbo.wang.blog.163.com"/>
+                  <idno type="idhal" notation="string">xingbo-wang</idno>
+                  <idno type="idhal" notation="numeric">5402</idno>
+                  <idno type="halauthorid">873271</idno>
+                  <affiliation ref="#struct-439007"/>
+                  <affiliation ref="#struct-22594"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Jon Yngve</forename>
+                    <surname>Hardeberg</surname>
+                  </persName>
+                  <email type="md5">420e7a472c59b46292595aada16041e1</email>
+                  <email type="domain">hig.no</email>
+                  <idno type="halauthorid">655120</idno>
+                  <affiliation ref="#struct-439007"/>
+                </author>
+              </analytic>
+              <monogr>
+                <meeting>
+                  <title>6th International Conference on Image and Signal Processing</title>
+                  <date type="start">2014-06-30</date>
+                  <date type="end">2014-07-02</date>
+                  <settlement>Cherbourg</settlement>
+                  <country key="FR">France</country>
+                </meeting>
+                <imprint>
+                  <biblScope unit="serie">Lecture Notes in Computer Science</biblScope>
+                  <biblScope unit="volume">8509</biblScope>
+                  <biblScope unit="pp">151-160</biblScope>
+                  <date type="datePub">2014</date>
+                </imprint>
+              </monogr>
+              <idno type="doi">10.1007/978-3-319-07998-1_18</idno>
+            </biblStruct>
+          </sourceDesc>
+          <profileDesc>
+            <langUsage>
+              <language ident="en">English</language>
+            </langUsage>
+            <textClass>
+              <keywords scheme="author">
+                <term xml:lang="en">Multispectral</term>
+                <term xml:lang="en">Demosaicking</term>
+                <term xml:lang="en">Linear</term>
+                <term xml:lang="en">Residual</term>
+              </keywords>
+              <classCode scheme="halDomain" n="info.info-ti">Computer Science [cs]/Image Processing</classCode>
+              <classCode scheme="halTypology" n="COMM">Conference papers</classCode>
+            </textClass>
+            <abstract xml:lang="en">Linear interpolation methods have the characteristics of low computational complexity which makes them widely developed in CFA (color filter array) demosaicking. However, the trichromatic nature of colour images enables CFA demosaicking algorithms to take advantage of the luminance-chrominance representation to interpolate the colour planes efficiently and effectively. It seems, however, this does not apply to multispectral images in a straightforward manner. In this paper, we first propose a linear interpolation method for SFA (spectral filter array) demosaicking drawing on the mathematical analysis of mosaicking, demosaicking processes and the idea of residual interpolation. We then compare the performance of the proposed method with that of five other techniques by means of the SSIM index. The result shows that our new algorithm has a good performance with less computing time.</abstract>
+          </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+      <listOrg type="structures">
+        <org type="laboratory" xml:id="struct-439007" status="INCOMING">
+          <orgName>The Norwegian Colour and Visual Computing Laboratory</orgName>
+          <desc>
+            <address>
+              <country key="NO"/>
+            </address>
+            <ref type="url">http://www.colourlab.no</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-301160" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="laboratory" xml:id="struct-22594" status="OLD">
+          <idno type="IdRef">035175249</idno>
+          <idno type="RNSR">201220441W</idno>
+          <orgName>Laboratoire Electronique, Informatique et Image [UMR6303]</orgName>
+          <orgName type="acronym">Le2i</orgName>
+          <date type="end">2016-12-31</date>
+          <desc>
+            <address>
+              <addrLine>Université de Bourgogne - Laboratoire Le2i - UFR Sciences et Techniques - BP 47870 - 21078 DIJON CEDEX</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://le2i.cnrs.fr</ref>
+          </desc>
+          <listRelation>
+            <relation name="UMR6306" active="#struct-441569" type="direct"/>
+            <relation active="#struct-300270" type="direct"/>
+            <relation active="#struct-415469" type="direct"/>
+            <relation active="#struct-301320" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-301160" status="VALID">
+          <orgName>Gjøvik University College</orgName>
+          <date type="start">2016-10-28</date>
+          <desc>
+            <address>
+              <country key="NO"/>
+            </address>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-441569" status="VALID">
+          <idno type="IdRef">02636817X</idno>
+          <idno type="ISNI">0000000122597504</idno>
+          <orgName>Centre National de la Recherche Scientifique</orgName>
+          <orgName type="acronym">CNRS</orgName>
+          <date type="start">1939-10-19</date>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.cnrs.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-300270" status="VALID">
+          <idno type="IdRef">02819005X</idno>
+          <orgName>Université de Bourgogne</orgName>
+          <orgName type="acronym">UB</orgName>
+          <desc>
+            <address>
+              <addrLine>Maison de l'université - Esplanade Érasme - BP 27877 - 21078 Dijon cedex</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.u-bourgogne.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-415469" status="VALID">
+          <idno type="IdRef">13996634X</idno>
+          <orgName>AgroSup Dijon - Institut National Supérieur des Sciences Agronomiques, de l'Alimentation et de l'Environnement</orgName>
+          <date type="start">2009-03-01</date>
+          <desc>
+            <address>
+              <addrLine>26 Boulevard du Dr Petitjean - BP 87999 - 21079 Dijon cedex</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.agrosupdijon.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-301320" status="VALID">
+          <orgName>École Nationale Supérieure d'Arts et Métiers </orgName>
+          <orgName type="acronym">ENSAM</orgName>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+          </desc>
+        </org>
+      </listOrg>
+    </back>
+  </text>
+</TEI>
