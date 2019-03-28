@@ -496,7 +496,7 @@
                     </title>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:element name="{local-name(tei:title)}"/>
+                    <xsl:element name="title"/>
                 </xsl:otherwise>
             </xsl:choose>
 
