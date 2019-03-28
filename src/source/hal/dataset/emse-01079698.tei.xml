@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>HAL TEI export of emse-01079698</title>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>CCSD</distributor>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by-nc-sa/">Attribution - NonCommercial - ShareAlike</licence>
+        </availability>
+        <date when="2018-12-14T00:20:43+01:00"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p part="N">HAL API platform</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="en">Hydrogen effects on the plasticity of model fcc and bcc alloys</title>
+            <title xml:lang="en" type="sub">Experiments on model engineering materials and modelling in the framework of the elastic theory of discrete crystal defects</title>
+            <author role="aut">
+              <persName>
+                <forename type="first">David</forename>
+                <forename type="middle">Delafosse</forename>
+                <surname>Delafosse</surname>
+              </persName>
+              <email type="md5">3d836fcfc4e2467cf549ed2c7e1276e2</email>
+              <email type="domain">mines-stetienne.fr</email>
+              <idno type="halauthorid">1102266</idno>
+              <orgName ref="#struct-29212"/>
+              <affiliation ref="#struct-209650"/>
+              <affiliation ref="#struct-3109"/>
+              <affiliation ref="#struct-22126"/>
+            </author>
+            <editor role="depositor">
+              <persName>
+                <forename>David</forename>
+                <surname>Delafosse</surname>
+              </persName>
+              <email type="md5">3d836fcfc4e2467cf549ed2c7e1276e2</email>
+              <email type="domain">mines-stetienne.fr</email>
+            </editor>
+          </titleStmt>
+          <editionStmt>
+            <edition n="v1" type="current">
+              <date type="whenSubmitted">2014-11-03 14:58:52</date>
+              <date type="whenWritten">2014-10-07</date>
+              <date type="whenModified">2018-10-24 01:00:52</date>
+              <date type="whenReleased">2014-11-28 15:26:30</date>
+              <date type="whenProduced">2014-10-06</date>
+              <ref type="annex" subtype="" n="0" target="https://hal-emse.ccsd.cnrs.fr/emse-01079698/file/2014.10.07-DDelafosse-HEmbrittlement-NPL.pdf">
+                <date notBefore="2014-11-03"/>
+              </ref>
+            </edition>
+            <respStmt>
+              <resp>contributor</resp>
+              <name key="185878">
+                <persName>
+                  <forename>David</forename>
+                  <surname>Delafosse</surname>
+                </persName>
+                <email type="md5">3d836fcfc4e2467cf549ed2c7e1276e2</email>
+                <email type="domain">mines-stetienne.fr</email>
+              </name>
+            </respStmt>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>CCSD</distributor>
+            <idno type="halId">emse-01079698</idno>
+            <idno type="halUri">https://hal-emse.ccsd.cnrs.fr/emse-01079698</idno>
+            <idno type="halBibtex">delafosse:emse-01079698</idno>
+            <idno type="halRefHtml">&lt;i&gt;Hydrogen embrittlement - Multi-scale modelling and measurement: What is the impact?&lt;/i&gt;, Oct 2014, Teddington, uk, France</idno>
+            <idno type="halRef">Hydrogen embrittlement - Multi-scale modelling and measurement: What is the impact?, Oct 2014, Teddington, uk, France</idno>
+            <availability status="restricted">
+              <licence target="http://creativecommons.org/licenses/by-nc-sa/">Attribution - NonCommercial - ShareAlike</licence>
+            </availability>
+          </publicationStmt>
+          <seriesStmt>
+            <idno type="stamp" n="EMSE">EMSE</idno>
+            <idno type="stamp" n="INSTITUT-TELECOM">INSTITUT-TELECOM</idno>
+            <idno type="stamp" n="CNRS">CNRS</idno>
+          </seriesStmt>
+          <notesStmt>
+            <note type="audience" n="2">International</note>
+            <note type="invited" n="1">Yes</note>
+            <note type="popular" n="0">No</note>
+            <note type="peer" n="1">Yes</note>
+            <note type="proceedings" n="1">Yes</note>
+          </notesStmt>
+          <sourceDesc>
+            <biblStruct>
+              <analytic>
+                <title xml:lang="en">Hydrogen effects on the plasticity of model fcc and bcc alloys</title>
+                <title xml:lang="en" type="sub">Experiments on model engineering materials and modelling in the framework of the elastic theory of discrete crystal defects</title>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">David</forename>
+                    <forename type="middle">Delafosse</forename>
+                    <surname>Delafosse</surname>
+                  </persName>
+                  <email type="md5">3d836fcfc4e2467cf549ed2c7e1276e2</email>
+                  <email type="domain">mines-stetienne.fr</email>
+                  <idno type="halauthorid">1102266</idno>
+                  <orgName ref="#struct-29212"/>
+                  <affiliation ref="#struct-209650"/>
+                  <affiliation ref="#struct-3109"/>
+                  <affiliation ref="#struct-22126"/>
+                </author>
+              </analytic>
+              <monogr>
+                <meeting>
+                  <title>Hydrogen embrittlement - Multi-scale modelling and measurement: What is the impact?</title>
+                  <date type="start">2014-10-06</date>
+                  <date type="end">2014-10-08</date>
+                  <settlement>Teddington, uk</settlement>
+                  <country key="FR">France</country>
+                </meeting>
+                <respStmt>
+                  <resp>conferenceOrganizer</resp>
+                  <name>National Physical Laboratory</name>
+                </respStmt>
+                <imprint/>
+              </monogr>
+            </biblStruct>
+          </sourceDesc>
+          <profileDesc>
+            <langUsage>
+              <language ident="en">English</language>
+            </langUsage>
+            <textClass>
+              <keywords scheme="author">
+                <term xml:lang="en">discrete dislocations</term>
+                <term xml:lang="en">modelling</term>
+                <term xml:lang="en">single crystals</term>
+                <term xml:lang="en">model materials</term>
+                <term xml:lang="en">nickel-based alloys</term>
+                <term xml:lang="en">stainless steels</term>
+                <term xml:lang="en">Plasticity</term>
+                <term xml:lang="en">Hydrogen</term>
+              </keywords>
+              <classCode scheme="halDomain" n="spi.mat">Engineering Sciences [physics]/Materials</classCode>
+              <classCode scheme="halTypology" n="COMM">Conference papers</classCode>
+            </textClass>
+            <abstract xml:lang="en">Because crack propagation in engineering materials – even ‘brittle’ ones - is always associated to the development of a plastic zone, the understanding and prediction of hydrogen-assisted damage has to consider both aspects: hydrogen effects on the microscopic fracture process on the one hand ; and on the dynamics and extent of plastic activity on the other. In this communication, we will report on a 12-years effort conducted at Ecole des Mines de Saint-Etienne to address the later. Because of the localized character of hydrogen-plasticity interactions and the existence of steep gradients close to notches and crack tips, we chose to investigate these effects by looking at the stress-strain response of uniformly charged smooth tensile specimens, assuming that modern simulation methods such as gradient / crystal plasticity or discrete dislocation dynamics will be able to transpose the results in the vicinity of cracks and defects. For modelling, we rely on the framework of ‘hydrogen elasticity’ – as laid out by P. Sofronis in the mid 90s by elaborating on Larché and Kahn theory of chemo-elasticity - to revisit the classical theory of dislocation plasticity, introducing hydrogen effects on elementary dislocation properties, such as elastic pair interactions, line energy, line tension, and (in bcc crystals) activation enthalpy of double-kink formation. Despite the experimental difficulties raised by such an approach, quantitative results were obtained and cross-checked, which are now ready to be incorporated in mesoscopic-scale simulations of crack-tip plasticity.</abstract>
+          </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+      <listOrg type="structures">
+        <org type="laboratory" xml:id="struct-209650" status="VALID">
+          <orgName>Laboratoire Georges Friedel</orgName>
+          <orgName type="acronym">LGF-ENSMSE</orgName>
+          <desc>
+            <address>
+              <addrLine>158, cours Fauriel F-42023 Saint-Étienne cedex 2</addrLine>
+              <country key="FR"/>
+            </address>
+          </desc>
+          <listRelation>
+            <relation active="#struct-29212" type="direct"/>
+            <relation active="#struct-302102" type="indirect"/>
+            <relation name="umr5307" active="#struct-441569" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="laboratory" xml:id="struct-3109" status="VALID">
+          <orgName>Département Mécanique physique et interfaces</orgName>
+          <orgName type="acronym">MPI-ENSMSE</orgName>
+          <desc>
+            <address>
+              <addrLine>158, cours Fauriel F-42023 Saint-Étienne cedex 2</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.emse.fr/spip/-MPI-.html</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-29212" type="direct"/>
+            <relation active="#struct-302102" type="indirect"/>
+            <relation active="#struct-300059" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="laboratory" xml:id="struct-22126" status="VALID">
+          <orgName>Centre Science des Matériaux et des Structures</orgName>
+          <orgName type="acronym">SMS-ENSMSE</orgName>
+          <desc>
+            <address>
+              <addrLine>158 cours Fauriel 42023 SAINT-ETIENNE Cedex 02</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.emse.fr/spip/-SMS-.html</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-29212" type="direct"/>
+            <relation active="#struct-302102" type="indirect"/>
+          </listRelation>
+        </org>
+        <org type="regrouplaboratory" xml:id="struct-29212" status="VALID">
+          <orgName>École des Mines de Saint-Étienne</orgName>
+          <orgName type="acronym">Mines Saint-Étienne MSE</orgName>
+          <desc>
+            <address>
+              <addrLine>158, Cours Fauriel - 42023 Saint Étienne cedex 2</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.mines-stetienne.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-302102" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-302102" status="VALID">
+          <orgName>Institut Mines-Télécom [Paris]</orgName>
+          <desc>
+            <address>
+              <addrLine>37-39 Rue Dareau, 75014 Paris</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.mines-telecom.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-441569" status="VALID">
+          <idno type="IdRef">02636817X</idno>
+          <idno type="ISNI">0000000122597504</idno>
+          <orgName>Centre National de la Recherche Scientifique</orgName>
+          <orgName type="acronym">CNRS</orgName>
+          <date type="start">1939-10-19</date>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.cnrs.fr/</ref>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-300059" status="VALID">
+          <orgName>SMS</orgName>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+          </desc>
+        </org>
+      </listOrg>
+    </back>
+  </text>
+</TEI>
