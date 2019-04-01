@@ -29,18 +29,8 @@ describe('Xpath validation', function () {
                 .then(xmlDoc => {
                   const evaluatorOptions = {
                     node: xmlDoc,
-                    namespaces: {
-                      'TEI': 'http://www.tei-c.org/ns/1.0',
-                      'xml': 'http://www.w3.org/XML/1998/namespace'
-                    },
-                    functions: {
-                      'lower-case': function (context, arg) {
-                        return context
-                          .contextNode
-                          .getAttribute('type')
-                          .toLowerCase();
-                      }
-                    }
+                    namespaces: coFormatter.namespaces,
+                    functions: coFormatter.evalFunctions
                   };
                   const value = coFormatter.extract(metadataXpath, evaluatorOptions);
                   expect(value).to.not.be.empty;
@@ -62,18 +52,8 @@ describe('Xpath validation', function () {
               const evaluator = xpath.parse(badXpath.path);
               const evaluatorOptions = {
                 node: xmlDoc,
-                namespaces: {
-                  'TEI': 'http://www.tei-c.org/ns/1.0',
-                  'xml': 'http://www.w3.org/XML/1998/namespace'
-                },
-                functions: {
-                  'lower-case': function (context, arg) {
-                    return context
-                      .contextNode
-                      .getAttribute('type')
-                      .toLowerCase();
-                  }
-                }
+                namespaces: coFormatter.namespaces,
+                functions: coFormatter.evalFunctions
               };
               evaluator.evaluate(evaluatorOptions);
             })

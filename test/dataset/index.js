@@ -19,8 +19,7 @@ module.exports = [
       'halAuthorId',
       'publicationDate',
       'abstract',
-      'typeDocument',
-      'isni'
+      'typeDocument'
     ]
   },
   {
@@ -42,8 +41,7 @@ module.exports = [
       'halAuthorId',
       'publicationDate',
       'abstract',
-      'typeDocument',
-      'isni'
+      'typeDocument'
     ]
   },
   {
@@ -58,6 +56,23 @@ module.exports = [
       'authors',
       'halId',
       'idHal',
+      'halAuthorId',
+      'publicationDate',
+      'abstract',
+      'typeDocument'
+    ]
+  },
+  {
+    source: 'hal',
+    name: 'hal-test-3.xml',
+    path: path.join(__dirname, 'hal/hal-test-3.xml'),
+    xpathToTest: [
+      'title',
+      'first3AuthorNames',
+      'authorNames',
+      'first3AuthorNamesWithInitials',
+      'authors',
+      'halId',
       'halAuthorId',
       'publicationDate',
       'abstract',
