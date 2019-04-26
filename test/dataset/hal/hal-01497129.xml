@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:hal="http://hal.archives-ouvertes.fr/">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>HAL TEI export of hal-01497129</title>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>CCSD</distributor>
+        <availability status="restricted">
+          <licence target="http://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License</licence>
+        </availability>
+        <date when="2019-03-29T14:46:58+01:00"/>
+      </publicationStmt>
+      <sourceDesc>
+        <p part="N">HAL API platform</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <listBibl>
+        <biblFull>
+          <titleStmt>
+            <title xml:lang="fr">Chromatic Gallai identities operating on Lovász number</title>
+            <author role="aut">
+              <persName>
+                <forename type="first">Denis</forename>
+                <surname>Cornaz</surname>
+              </persName>
+              <idno type="halauthorid">1138254</idno>
+              <affiliation ref="#struct-989"/>
+            </author>
+            <author role="aut">
+              <persName>
+                <forename type="first">Philippe</forename>
+                <surname>Meurdesoif</surname>
+              </persName>
+              <idno type="halauthorid">1518241</idno>
+            </author>
+            <editor role="depositor">
+              <persName>
+                <forename>Christine</forename>
+                <surname>Okret-Manville</surname>
+              </persName>
+              <email type="md5">6ffd5e76a68def939db5fedce4ba649e</email>
+              <email type="domain">dauphine.psl.eu</email>
+            </editor>
+          </titleStmt>
+          <editionStmt>
+            <edition n="v1" type="current">
+              <date type="whenSubmitted">2017-03-28 12:40:21</date>
+              <date type="whenModified">2018-01-11 06:17:30</date>
+              <date type="whenReleased">2017-03-28 12:40:21</date>
+              <date type="whenProduced">2014</date>
+            </edition>
+            <respStmt>
+              <resp>contributor</resp>
+              <name key="318905">
+                <persName>
+                  <forename>Christine</forename>
+                  <surname>Okret-Manville</surname>
+                </persName>
+                <email type="md5">6ffd5e76a68def939db5fedce4ba649e</email>
+                <email type="domain">dauphine.psl.eu</email>
+              </name>
+            </respStmt>
+          </editionStmt>
+          <publicationStmt>
+            <distributor>CCSD</distributor>
+            <idno type="halId">hal-01497129</idno>
+            <idno type="halUri">https://hal.archives-ouvertes.fr/hal-01497129</idno>
+            <idno type="halBibtex">cornaz:hal-01497129</idno>
+            <idno type="halRefHtml">&lt;i&gt;Mathematical Programming&lt;/i&gt;, 2014, 144 (1-2), &lt;a target="_blank" href="https://dx.doi.org/10.1007/s10107-013-0636-1"&gt;&amp;#x3008;10.1007/s10107-013-0636-1&amp;#x3009;&lt;/a&gt;</idno>
+            <idno type="halRef">Mathematical Programming, 2014, 144 (1-2), &amp;#x3008;10.1007/s10107-013-0636-1&amp;#x3009;</idno>
+          </publicationStmt>
+          <seriesStmt>
+            <idno type="stamp" n="UNIV-DAUPHINE">UNIV-DAUPHINE</idno>
+            <idno type="stamp" n="LAMSADE-DAUPHINE" p="UNIV-DAUPHINE">LAMSADE-DAUPHINE</idno>
+            <idno type="stamp" n="CNRS">CNRS</idno>
+            <idno type="stamp" n="PSL">PSL</idno>
+          </seriesStmt>
+          <notesStmt>
+            <note type="audience" n="2">International</note>
+            <note type="popular" n="0">No</note>
+            <note type="peer" n="1">Yes</note>
+          </notesStmt>
+          <sourceDesc>
+            <biblStruct>
+              <analytic>
+                <title xml:lang="fr">Chromatic Gallai identities operating on Lovász number</title>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Denis</forename>
+                    <surname>Cornaz</surname>
+                  </persName>
+                  <idno type="halauthorid">1138254</idno>
+                  <affiliation ref="#struct-989"/>
+                </author>
+                <author role="aut">
+                  <persName>
+                    <forename type="first">Philippe</forename>
+                    <surname>Meurdesoif</surname>
+                  </persName>
+                  <idno type="halauthorid">1518241</idno>
+                </author>
+              </analytic>
+              <monogr>
+                <idno type="halJournalId" status="INCOMING">116141</idno>
+                <title level="j">Mathematical Programming</title>
+                <imprint>
+                  <biblScope unit="volume">144</biblScope>
+                  <biblScope unit="issue">1-2</biblScope>
+                  <date type="datePub">2014</date>
+                </imprint>
+              </monogr>
+              <idno type="doi">10.1007/s10107-013-0636-1</idno>
+            </biblStruct>
+          </sourceDesc>
+          <profileDesc>
+            <langUsage>
+              <language ident="en">English</language>
+            </langUsage>
+            <textClass>
+              <keywords scheme="author">
+                <term xml:lang="fr">Gallai identities</term>
+                <term xml:lang="fr">Graph coloring</term>
+                <term xml:lang="fr">Lovász number</term>
+                <term xml:lang="fr">Fractional chromatic number</term>
+                <term xml:lang="fr">Semidefinite programming</term>
+              </keywords>
+              <classCode scheme="halDomain" n="info">Computer Science [cs]</classCode>
+              <classCode scheme="halTypology" n="ART">Journal articles</classCode>
+            </textClass>
+            <abstract xml:lang="en">If G is a triangle-free graph, then two Gallai identities can be written as α(G)+χ−(L(G))=|V(G)|=α(L(G))+χ−(G) , where α and χ− denote the stability number and the clique-partition number, and L(G) is the line graph of  G . We show that, surprisingly, both equalities can be preserved for any graph G by deleting the edges of the line graph corresponding to simplicial pairs of adjacent arcs, according to any acyclic orientation of  G . As a consequence, one obtains an operator Φ which associates to any graph parameter β such that α(G)≤β(G)≤χ−(G) for all graph G , a graph parameter Φβ such that α(G)≤Φβ(G)≤χ−(G) for all graph G . We prove that ϑ(G)≤Φϑ(G) and that Φχ−f(G)≤χ−f(G) for all graph  G , where ϑ is Lovász theta function and χ−f is the fractional clique-partition number. Moreover, χ−f(G)≤Φϑ(G) for triangle-free G . Comparing to the previous strengthenings Ψϑ and ϑ+△ of ϑ , numerical experiments show that Φϑ is a significant better lower bound for χ− than ϑ .</abstract>
+          </profileDesc>
+        </biblFull>
+      </listBibl>
+    </body>
+    <back>
+      <listOrg type="structures">
+        <org type="laboratory" xml:id="struct-989" status="VALID">
+          <orgName>Laboratoire d'analyse et modélisation de systèmes pour l'aide à la décision</orgName>
+          <orgName type="acronym">LAMSADE</orgName>
+          <desc>
+            <address>
+              <addrLine>Place de Lattre de Tassigny 75775 PARIS CEDEX 16</addrLine>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.lamsade.dauphine.fr/</ref>
+          </desc>
+          <listRelation>
+            <relation active="#struct-300302" type="direct"/>
+            <relation name="UMR7024" active="#struct-441569" type="direct"/>
+          </listRelation>
+        </org>
+        <org type="institution" xml:id="struct-300302" status="VALID">
+          <orgName>Université Paris-Dauphine</orgName>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+          </desc>
+        </org>
+        <org type="institution" xml:id="struct-441569" status="VALID">
+          <idno type="IdRef">02636817X</idno>
+          <idno type="ISNI">0000000122597504</idno>
+          <orgName>Centre National de la Recherche Scientifique</orgName>
+          <orgName type="acronym">CNRS</orgName>
+          <date type="start">1939-10-19</date>
+          <desc>
+            <address>
+              <country key="FR"/>
+            </address>
+            <ref type="url">http://www.cnrs.fr/</ref>
+          </desc>
+        </org>
+      </listOrg>
+    </back>
+  </text>
+</TEI>
