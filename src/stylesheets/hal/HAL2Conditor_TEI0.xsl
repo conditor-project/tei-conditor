@@ -275,6 +275,9 @@
                 <xsl:attribute name="type">
                     <xsl:value-of select="key('orgsById', $aff)/@type"/>
                 </xsl:attribute>
+                <xsl:if test="key('orgsById', $aff)/@status != ''">
+                    <xsl:attribute name="status"><xsl:value-of select="key('orgsById', $aff)/@status"/></xsl:attribute>
+                </xsl:if>
                 <orgName>
                     <xsl:value-of select="normalize-space(key('orgsById', $aff)/tei:orgName)"/>
                 </orgName>
@@ -340,6 +343,10 @@
                     <xsl:value-of select="@type"/>
                     <!-- élément de back/listOrg typé avec @type=labo, reseauchteam, institution ... et contenu informationnel -->
                 </xsl:attribute>
+                
+                <xsl:if test="@status != ''">
+                    <xsl:attribute name="status"><xsl:value-of select="@status"/></xsl:attribute>
+                </xsl:if>
 
                 <orgName>
                     <xsl:value-of select="tei:orgName"/>
@@ -357,6 +364,15 @@
                 </idno>
                 <!-- autres : (type RNSR, IdRef, autres?), valeur d'attribut transformée par template IDNO suivant : -->
                 <xsl:call-template name="IDNO"/>
+
+                <xsl:if test="tei:date">
+                    <date xmlns="http://www.tei-c.org/ns/1.0">
+                        <xsl:copy-of select="tei:date/@*"/>
+                        <xsl:copy-of select="tei:date/text()"/>
+                        <xsl:copy-of select="tei:date/child::*"/>
+                    </date>
+                </xsl:if>
+
 
             </org>
             <!--  </xsl:if> -->
