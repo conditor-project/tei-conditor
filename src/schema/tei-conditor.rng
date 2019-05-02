@@ -2,13 +2,15 @@
 <grammar ns="http://www.tei-c.org/ns/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <start>
     <element name="TEI">
-      <element name="teiHeader">
-        <element name="fileDesc">
-          <ref name="titleStmt"/>
-          <ref name="publicationStmt"/>
-          <ref name="sourceDesc"/>
+      <optional>
+        <element name="teiHeader">
+          <element name="fileDesc">
+            <ref name="titleStmt"/>
+            <ref name="publicationStmt"/>
+            <ref name="sourceDesc"/>
+          </element>
         </element>
-      </element>
+      </optional>
       <element name="text">
         <element name="body">
           <element name="listBibl">
@@ -17,9 +19,11 @@
               <element name="editionStmt">
                 <oneOrMore>
                   <element name="edition">
-                    <attribute name="n">
-                      <data type="NCName"/>
-                    </attribute>
+                    <optional>
+                      <attribute name="n">
+                        <data type="NCName"/>
+                      </attribute>
+                    </optional>
                     <optional>
                       <attribute name="type">
                         <data type="NCName"/>
@@ -60,34 +64,40 @@
                 </optional>
               </element>
               <ref name="publicationStmt"/>
-              <element name="seriesStmt">
-                <zeroOrMore>
-                  <ref name="idno"/>
-                </zeroOrMore>
-              </element>
-              <element name="notesStmt">
-                <zeroOrMore>
-                  <element name="note">
-                    <optional>
-                      <attribute name="n">
-                        <data type="integer"/>
+              <optional>
+               <element name="seriesStmt">
+                 <zeroOrMore>
+                   <ref name="idno"/>
+                 </zeroOrMore>
+               </element>
+              </optional>
+              <optional>
+                <element name="notesStmt">
+                  <zeroOrMore>
+                    <element name="note">
+                      <optional>
+                        <attribute name="n">
+                          <data type="integer"/>
+                        </attribute>
+                      </optional>
+                      <attribute name="type">
+                        <data type="NCName"/>
                       </attribute>
-                    </optional>
-                    <attribute name="type">
-                      <data type="NCName"/>
-                    </attribute>
-                    <text/>
-                  </element>
-                </zeroOrMore>
-              </element>
+                      <text/>
+                    </element>
+                  </zeroOrMore>
+                </element>
+              </optional>
               <ref name="sourceDesc"/>
               <element name="profileDesc">
-                <element name="langUsage">
+                <optional>
+                  <element name="langUsage">
                   <element name="language">
                     <attribute name="ident"/>
                     <text/>
                   </element>
                 </element>
+                </optional>
                 <element name="textClass">
                   <optional>
                     <element name="keywords">
@@ -139,7 +149,8 @@
             </element>
           </element>
         </element>
-        <element name="back">
+        <optional>
+          <element name="back">
           <oneOrMore>
             <element name="listOrg">
               <attribute name="type">
@@ -151,6 +162,7 @@
             </element>
           </oneOrMore>
         </element>
+        </optional>
       </element>
     </element>
   </start>
@@ -252,27 +264,29 @@
               <ref name="country"/>
             </optional>
             <element name="imprint">
-              <zeroOrMore>
-                <element name="publisher">
-                  <text/>
-                </element>
-              </zeroOrMore>
-              <optional>
-                <element name="pubPlace">
-                  <data type="anyURI"/>
-                </element>
-              </optional>
-              <zeroOrMore>
-                <element name="biblScope">
-                  <attribute name="unit">
-                    <data type="NCName"/>
-                  </attribute>
-                  <text/>
-                </element>
-              </zeroOrMore>
-              <zeroOrMore>
-                <ref name="date"/>
-              </zeroOrMore>
+              <interleave>
+                <zeroOrMore>
+                  <element name="publisher">
+                    <text/>
+                  </element>
+                </zeroOrMore>
+                <optional>
+                  <element name="pubPlace">
+                    <data type="anyURI"/>
+                  </element>
+                </optional>
+                <zeroOrMore>
+                  <element name="biblScope">
+                    <attribute name="unit">
+                      <data type="NCName"/>
+                    </attribute>
+                    <text/>
+                  </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                  <ref name="date"/>
+                </zeroOrMore>
+              </interleave>
             </element>
             <zeroOrMore>
               <element name="authority">
@@ -324,9 +338,11 @@
             </element>
           </element>
           <element name="p">
-            <attribute name="part">
-              <data type="NCName"/>
-            </attribute>
+            <optional>
+             <attribute name="part">
+               <data type="NCName"/>
+             </attribute>
+            </optional>
             <text/>
           </element>
           <element name="recordingStmt">
@@ -396,7 +412,7 @@
   <define name="respStmt">
     <element name="respStmt">
       <element name="resp">
-        <data type="NCName"/>
+        <data type="string"/>
       </element>
       <oneOrMore>
         <element name="name">
@@ -469,6 +485,11 @@
           <ref name="desc"/>
           <ref name="idno"/>
           <ref name="orgName"/>
+          <ref name="org"/>
+          <element name="name">
+            <optional><attribute name="type"></attribute></optional>
+            <text></text>
+          </element>
           <element name="listRelation">
             <oneOrMore>
               <element name="relation">
@@ -511,34 +532,43 @@
 
   <define name="author">
     <element name="author">
-      <attribute name="role">
-        <data type="NCName"/>
-      </attribute>
-      <ref name="persName"/>
-      <zeroOrMore>
-        <ref name="email"/>
-      </zeroOrMore>
-      <optional>
-        <element name="ptr">
-          <attribute name="target">
-            <data type="anyURI"/>
-          </attribute>
-          <attribute name="type">
-            <data type="NCName"/>
-          </attribute>
-        </element>
-      </optional>
-      <oneOrMore>
-        <ref name="idno"/>
-      </oneOrMore>
-      <optional>
-        <ref name="orgName"/>
-      </optional>
-      <zeroOrMore>
-        <element name="affiliation">
-          <attribute name="ref"/>
-        </element>
-      </zeroOrMore>
+      <interleave>
+        <attribute name="role">
+          <data type="NCName"/>
+        </attribute>
+        <ref name="persName"/>
+        <zeroOrMore>
+          <ref name="email"/>
+        </zeroOrMore>
+        <optional>
+          <element name="ptr">
+            <attribute name="target">
+              <data type="anyURI"/>
+            </attribute>
+            <attribute name="type">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+        </optional>
+        <zeroOrMore>
+          <ref name="idno"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="orgName"/>
+        </optional>
+        <zeroOrMore>
+          <element name="affiliation">
+            <optional><attribute name="n"/></optional>
+            <optional><attribute name="ref"/></optional>
+            <optional><text/></optional>
+            <optional>
+              <zeroOrMore>
+                <ref name="org"/>
+              </zeroOrMore>
+            </optional>
+          </element>
+        </zeroOrMore>
+      </interleave>
     </element>
   </define>
 
