@@ -290,7 +290,7 @@
                 </xsl:if>
                 <!-- récupère un code de structure - *** pas OK : -->
                 <xsl:for-each
-                    select="/tei:TEI//tei:org[@xml:id = $aff]//tei:listRelation/tei:relation[@name]">
+                    select="/tei:TEI//tei:org[@xml:id = $aff]//tei:listRelation/tei:relation[@name and @type='direct']">
                     <name type="code">
                         <xsl:value-of select="@name"/>
                     </name>
@@ -356,9 +356,15 @@
                         <xsl:value-of select="tei:orgName[@type = 'acronym']"/>
                     </orgName>
                 </xsl:if>
-                <!--  <xsl:copy-of select="/*//tei:org[@xml:id=$aff]/tei:desc"/>   -->
-                <!-- addrLine et country -->
 
+                <!-- récupère un code de structure -->
+                <xsl:for-each select=".//tei:listRelation/tei:relation[@name and @type='direct']">
+                    <name type="code">
+                        <xsl:value-of select="@name"/>
+                    </name>
+                </xsl:for-each>
+
+                <!-- récupération d'ids -->
                 <idno type="halStructureId">
                     <xsl:value-of select="$RelAct"/>
                 </idno>
