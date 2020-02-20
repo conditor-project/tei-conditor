@@ -16,6 +16,8 @@
     - ajouter un 'p' fils de abstract (prêt, en commentaire)
     - voir en détail pour les attributs non valides : ex, @type de email invalide, @notation de halId idem (proposé : @subtype). 
     Laurent Romary a fait évoluer le .odd de HAL pour ces 2 là. -->
+	
+	<!--  17 février 2020 : modification de l'élément <abstract> avec xsl:for-each pour récupérer les 2 abstracts avec le bon attribut  -->
 
     <!-- xsl bavard pour éviter les xmlns hal parasites en sortie -->
 
@@ -735,12 +737,14 @@
             </textClass>
 
             <xsl:if test="tei:abstract">
+                <xsl:for-each select="tei:abstract">
                 <abstract xmlns="http://www.tei-c.org/ns/1.0">
-                    <xsl:copy-of select="tei:abstract/@*"/>
+                    <xsl:copy-of select="@*"/>
                     <!-- <p> -->
-                    <xsl:value-of select="normalize-space(tei:abstract)"/>
+                    <xsl:value-of select="normalize-space(.)"/>
                     <!-- </p> -->
                 </abstract>
+                </xsl:for-each>
             </xsl:if>
             <!-- V1 : fils 'p' à abstract -->
 
