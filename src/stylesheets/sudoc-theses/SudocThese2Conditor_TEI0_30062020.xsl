@@ -280,7 +280,7 @@ Cette feuille de style traite les notices de thèses françaises issus de la bbi
 
 	<!-- bloc identifier -->
 <xsl:template match="controlfield[@tag='001']">
-	<idno type="ppnSudoc">
+	<idno type="ppn">
 		<xsl:apply-templates/>
 	</idno>
 </xsl:template>
