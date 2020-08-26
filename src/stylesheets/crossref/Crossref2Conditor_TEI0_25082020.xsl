@@ -381,7 +381,7 @@ version="1.0">
                 </xsl:if>
                 
                             <textClass>
-                                <classCode scheme="typology">conference_paper </classCode>
+                                <classCode scheme="typology">conference_paper</classCode>
                 </textClass>
                 
                 <!-- résumé(s), 'en', autres : -->
