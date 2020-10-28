@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:hal="http://hal.archives-ouvertes.fr"
@@ -15,18 +15,27 @@
     - déplacer les idno de type analytic dans 'analytic' (prêt, en commentaire)
     - ajouter un 'p' fils de abstract (prêt, en commentaire)
     - voir en détail pour les attributs non valides : ex, @type de email invalide, @notation de halId idem (proposé : @subtype). 
-    Laurent Romary a fait évoluer le .odd de HAL pour ces 2 là. -->
+    Laurent Romary a fait évoluer le .odd de HAL pour ces 2 là. 
 	
-	<!--  17 février 2020 : modification de l'élément <abstract> avec xsl:for-each pour récupérer les 2 abstracts avec le bon attribut  -->
-
-    <!-- xsl bavard pour éviter les xmlns hal parasites en sortie -->
+    Modifications  17 février 2020 : modification de l'élément <abstract> avec xsl:for-each pour récupérer les 2 abstracts avec le bon attribut  
+    
+    Modifications  1 octobre 2020 : 
+         bloc <funder> : 
+          -   <idno type="anr"> devient <idno type="grantNumber"> 
+          -  Projet européen : <idno type="grantNumber"> issu de concatenation idno@type=call et idno@type=number
+          - <name type="agency"> : génération de "ANR" et de "ERC" à partir de listOrg type="projects"/org type="xx"
+          - ajout des dates de projet
+          
+                
+ ===============================================     
+    xsl bavard pour éviter les xmlns hal parasites en sortie   
+==========================================================================================================================   -->
 
     <xsl:output indent="yes"/>
 
     <xsl:key name="orgsById" match="//tei:org" use="@xml:id"/>
 
-    <xsl:param name="currentDate"/>
-    <!-- indiquée par le shell Conditor ultérieur -->
+    <xsl:param name="today"/>
 
     <!-- élément racine  : TEI, un seul -->
 
@@ -72,11 +81,8 @@
                                         </xsl:for-each>
                                     </xsl:when>
                                 </xsl:choose>
-
-
                                 <!-- 
-                                    Les auteurs sont dans la description bibliographique, chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author
-                                    -->
+                                    Les auteurs sont dans la description bibliographique, chemin : TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/analytic/author ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author       -->
 
                                 <!-- funders -->
                                 <xsl:apply-templates
@@ -93,7 +99,7 @@
                                             <xsl:when test="function-available('date:date-time')">
                                                 <xsl:value-of select="date:date-time()"/>
                                             </xsl:when>
-                                            <xsl:otherwise><xsl:value-of select="$currentDate"/></xsl:otherwise>
+                                            <xsl:otherwise><xsl:value-of select="$today"/></xsl:otherwise>
                                         </xsl:choose>
                                     </date>
                                     <xsl:copy-of select="tei:text//tei:date[@whenEndEmbargoed]"/>
@@ -109,7 +115,6 @@
                                 <distributor>Conditor</distributor>
                                 <!-- ou authority ou publisher -->
                             </publicationStmt>
-
 
                             <xsl:if
                                 test="tei:text/tei:body/tei:listBibl/tei:biblFull/tei:notesStmt/tei:note">
@@ -131,7 +136,6 @@
                                        - ref-->
                                 </biblStruct>
                             </sourceDesc>
-
 
                             <xsl:apply-templates
                                 select="tei:text/tei:body/tei:listBibl/tei:biblFull/tei:profileDesc"/>
@@ -203,7 +207,6 @@
 
             </note>
         </xsl:for-each>
-
     </xsl:template>
 
     <xsl:template match="tei:author">
@@ -380,7 +383,6 @@
                         <xsl:copy-of select="tei:date/child::*"/>
                     </date>
                 </xsl:if>
-
 
             </org>
             <!--  </xsl:if> -->
@@ -641,6 +643,7 @@
 
     </xsl:template>
 
+<!--  funder  -->
 
     <xsl:template match="tei:listOrg[@type = 'projects']">
         <!-- source :
@@ -658,26 +661,60 @@
         <xsl:for-each select="tei:org">
             <funder xmlns="http://www.tei-c.org/ns/1.0">
                 <!-- <xsl:copy-of select=".//tei:idno"/> -->
-                <xsl:call-template name="IDNO"/>
-                <xsl:if test="orgName">
-                    <orgName>
-                        <xsl:copy-of select="@*"/>
-                        <name>
+                
+                <xsl:if test="@type = 'anrProject'">
+                    <name type="agency">ANR</name>   
+                    <xsl:if test="tei:orgName">
+                        <name type="project">
                             <xsl:value-of select="tei:orgName"/>
                         </name>
-                        <xsl:copy-of select="tei:desc/*"/>
-                        <xsl:copy-of select="tei:date"/>
-                        <xsl:if test="@type = 'anrProject'">
-                            <country key="FR">France</country>
-                        </xsl:if>
-                        <xsl:if test="@type = 'europeanProject'">
-                            <country key="FR">Europe</country>
-                        </xsl:if>
-                    </orgName>
+                    </xsl:if>
+                        <xsl:call-template name="IDNO"/>
+                    <country key="FR">France</country>
+                    <note>
+                        <xsl:value-of select="tei:desc"/> 
+                    </note>
+                    <date type="start">
+                        <xsl:value-of select="tei:date[@type='start']"/>
+                    </date>
+                    <xsl:if test="tei:date[@type='end']">
+                        <date type="end">
+                            <xsl:value-of select="tei:date[@type='end']"/>
+                        </date>
+                    </xsl:if>
                 </xsl:if>
+                 <xsl:if test="@type = 'europeanProject'">
+                            <name type="agency">ERC</name>
+                     <xsl:if test="tei:orgName">
+                         <name type="project">
+                             <xsl:value-of select="tei:orgName"/>
+                         </name>
+                     </xsl:if>
+                         <idno type="grantNumber">                             
+                             <xsl:value-of select="tei:idno[@type='call']"/> 
+                             <xsl:text>-</xsl:text>                             
+                             <xsl:value-of select="tei:idno[@type='number']"/> 
+                         </idno>
+                     <xsl:if test="tei:idno[@type='program']">
+                         <idno type="program"> 
+                             <xsl:value-of select="tei:idno[@type='program']"/> 
+                         </idno>
+                     </xsl:if>
+                     <country key="EU">Europe</country>
+                     <note>
+                         <xsl:value-of select="tei:desc"/> 
+                     </note>
+                     <date type="start">
+                         <xsl:value-of select="tei:date[@type='start']"/>
+                     </date>
+                     <xsl:if test="tei:date[@type='end']">
+                         <date type="end">
+                             <xsl:value-of select="tei:date[@type='end']"/>
+                         </date>
+                     </xsl:if>
+                 </xsl:if>
             </funder>
         </xsl:for-each>
-
     </xsl:template>
 
     <xsl:template match="tei:profileDesc">
@@ -891,7 +928,7 @@
 
                 <!-- (inutile qd on enlève otherwise, mais à suivre après tests -->
                 <xsl:when test="@type = 'anr'">
-                    <idno type="anr" xmlns="http://www.tei-c.org/ns/1.0">
+                    <idno type="grantNumber" xmlns="http://www.tei-c.org/ns/1.0">
                         <xsl:value-of select="."/>
                     </idno>
                 </xsl:when>
