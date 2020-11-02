@@ -7,7 +7,7 @@
     exclude-result-prefixes="xs">  
 	
 <!--  ================================================================================
-   C Stock, S. Gregorio, 2020-06. Dernière modification : 30-06-2020.    
+   C Stock, S. Gregorio, 2020-06. Dernière modification : 27-10-2020.    
 
 Cette feuille de style traite les notices de thèses françaises issus de la bibliographie nationale des thèses dans leur version de soutenance signalés dans le Sudoc en format Unimarc version XMLlisée.
   
@@ -20,6 +20,14 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
       
       Modification le 25/08/2020 :
          xmlns:tei="http://www.tei-c.org/ns/1.0" devient     xmlns="http://www.tei-c.org/ns/1.0"
+      Modification 2 octobre 2020 :
+      	<language> : générer le libellé en anglais et corrections code 2 caractères
+      Modification 7 octobre 2020 :
+      	<language> - ajout du code "la" pour "Latin" dans l'attribut
+      Modifications le 27 octobre 2020 :
+      -  Mots clés auteur : ajout de @xml:lang="und" pour "undetermined"
+      -  Template "jury" : ajout de "702" (notices avant reforme)
+      -  Template "institution" : ajout de 712 (notices avant reforme)
 =======================================================================================  -->
 	
  <xsl:output encoding="UTF-8" indent="yes"/>
@@ -76,7 +84,7 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
             <monogr>
             	            	
             	<!--ajout SG -->
-            	<xsl:for-each select="datafield[@tag='701']">
+            	<xsl:for-each select="datafield[@tag='701'] | datafield[@tag='702']">
             		<xsl:if test="subfield[@code='4']!='070'">
             			<xsl:call-template name="jury"/> 
             		</xsl:if>
@@ -229,7 +237,7 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
 	
 	<!--  Etablissement de soutenance, école doctorale, laboratoire d'accueil, etc  -->
 <xsl:template name="institution">
-	<xsl:for-each select="datafield[@tag='711']">
+	<xsl:for-each select="datafield[@tag='711'] | datafield[@tag='712']">
 		<xsl:element name="editor">
 		<xsl:attribute name="role">
 		<xsl:choose>
@@ -297,14 +305,170 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
 	</xsl:if>
 </xsl:template>
 
+<!--  Language>  -->
 <xsl:template match="datafield[@tag='101']/subfield[@code='a']">
 	<xsl:element name="language">
 		<xsl:attribute name="ident">
-		<xsl:value-of select="substring(.,1,2)"/>
-		</xsl:attribute>  
+		     <xsl:choose>
+		   	<xsl:when test="normalize-space(.)='chi' ">zh</xsl:when>
+		   	<xsl:when test="normalize-space(.)='cze' ">cs</xsl:when>
+		   	<xsl:when test="normalize-space(.)='ger' ">de</xsl:when>
+		     	<xsl:when test="normalize-space(.)='gre' ">el</xsl:when>
+		     	<xsl:when test="normalize-space(.)='lat' ">la</xsl:when>
+			<xsl:when test="normalize-space(.)='pol' ">pl</xsl:when>
+			<xsl:when test="normalize-space(.)='por' ">pt</xsl:when>
+		     	<xsl:when test="normalize-space(.)='rum' ">ro</xsl:when>
+		     	<xsl:when test="normalize-space(.)='spa' ">es</xsl:when>
+		     	<xsl:when test="normalize-space(.)='rum' ">ro</xsl:when>
+		   	<xsl:otherwise>
+		   		<xsl:value-of select="substring(.,1,2)"/>
+		   	</xsl:otherwise>
+		     </xsl:choose>
+		</xsl:attribute> 
+		<!--<xsl:template match="Language"> -->
+		<xsl:choose>
+				<xsl:when test="normalize-space(.)='aar' ">Afar</xsl:when>
+				<xsl:when test="normalize-space(.)='abk' ">Abkhazian</xsl:when>
+				<xsl:when test="normalize-space(.)='afr' ">Afrikaans</xsl:when>
+				<xsl:when test="normalize-space(.)='aka' ">Akan</xsl:when>
+				<xsl:when test="normalize-space(.)='alb' ">Albanian</xsl:when>
+				<xsl:when test="normalize-space(.)='amh' ">Amharic</xsl:when>
+				<xsl:when test="normalize-space(.)='ara' ">Arabic</xsl:when>
+				<xsl:when test="normalize-space(.)='arm' ">Armenian</xsl:when>
+				<xsl:when test="normalize-space(.)='asm' ">Assamese</xsl:when>
+				<xsl:when test="normalize-space(.)='ava' ">Avaric</xsl:when>
+				<xsl:when test="normalize-space(.)='ave' ">Avestan</xsl:when>
+				<xsl:when test="normalize-space(.)='aym' ">Aymara</xsl:when>
+				<xsl:when test="normalize-space(.)='aze' ">Azerbajani</xsl:when>
+				<xsl:when test="normalize-space(.)='bak' ">Bashkir</xsl:when>
+				<xsl:when test="normalize-space(.)='bam' ">Bambara</xsl:when>
+				<xsl:when test="normalize-space(.)='baq' ">Basque</xsl:when>
+				<xsl:when test="normalize-space(.)='bel' ">Byelorussian</xsl:when>
+				<xsl:when test="normalize-space(.)='ben' ">Bengali</xsl:when>
+				<xsl:when test="normalize-space(.)='bre' ">Breton</xsl:when>
+				<xsl:when test="normalize-space(.)='bul' ">Bulgarian</xsl:when>
+				<xsl:when test="normalize-space(.)='bur' ">Burmese</xsl:when>
+				<xsl:when test="normalize-space(.)='cat' ">Catalan</xsl:when>
+				<xsl:when test="normalize-space(.)='che' ">Chechen</xsl:when>
+				<xsl:when test="normalize-space(.)='chi' ">Chinese</xsl:when>
+				<xsl:when test="normalize-space(.)='chu' ">Church slavic</xsl:when>
+				<xsl:when test="normalize-space(.)='chv' ">Chuvash</xsl:when>
+				<xsl:when test="normalize-space(.)='cor' ">Cornish</xsl:when>
+				<xsl:when test="normalize-space(.)='cos' ">Corsican</xsl:when>
+				<xsl:when test="normalize-space(.)='cre' ">Cree</xsl:when>
+				<xsl:when test="normalize-space(.)='cze' ">Czech</xsl:when>
+				<xsl:when test="normalize-space(.)='dan' ">Danish</xsl:when>
+				<xsl:when test="normalize-space(.)='dut' ">Dutch</xsl:when>
+				<xsl:when test="normalize-space(.)='eng' ">English</xsl:when>
+				<xsl:when test="normalize-space(.)='epo' ">Esperanto</xsl:when>
+				<xsl:when test="normalize-space(.)='est' ">Estonian</xsl:when>
+				<xsl:when test="normalize-space(.)='ewe' ">Ewe</xsl:when>
+				<xsl:when test="normalize-space(.)='fao' ">Faroese</xsl:when>
+				<xsl:when test="normalize-space(.)='fin' ">Finnish</xsl:when>
+				<xsl:when test="normalize-space(.)='fre' ">French</xsl:when>
+				<xsl:when test="normalize-space(.)='ful' ">Fulah</xsl:when>
+				<xsl:when test="normalize-space(.)='geo' ">Georgian</xsl:when>
+				<xsl:when test="normalize-space(.)='ger' ">German</xsl:when>
+				<xsl:when test="normalize-space(.)='glg' ">Galician</xsl:when>
+				<xsl:when test="normalize-space(.)='gre' ">Greek, modern</xsl:when>
+				<xsl:when test="normalize-space(.)='guj' ">Gujarati</xsl:when>
+				<xsl:when test="normalize-space(.)='hau' ">Hausa</xsl:when>
+				<xsl:when test="normalize-space(.)='heb' ">Hebrew</xsl:when>
+				<xsl:when test="normalize-space(.)='her' ">Herero</xsl:when>
+				<xsl:when test="normalize-space(.)='hin' ">Hindi</xsl:when>
+				<xsl:when test="normalize-space(.)='hrv' ">Croatian</xsl:when>
+				<xsl:when test="normalize-space(.)='hun' ">Hungarian</xsl:when>
+				<xsl:when test="normalize-space(.)='ice' ">Icelandic</xsl:when>
+				<xsl:when test="normalize-space(.)='ind' ">Indonesian</xsl:when>
+				<xsl:when test="normalize-space(.)='ita' ">Italian</xsl:when>
+				<xsl:when test="normalize-space(.)='jav' ">Javanese</xsl:when>
+				<xsl:when test="normalize-space(.)='jpn' ">Japanese</xsl:when>
+				<xsl:when test="normalize-space(.)='kan' ">Kannada</xsl:when>
+				<xsl:when test="normalize-space(.)='kas' ">Kashmiri</xsl:when>
+				<xsl:when test="normalize-space(.)='kau' ">Kanuri</xsl:when>
+				<xsl:when test="normalize-space(.)='kaz' ">Kazakh</xsl:when>
+				<xsl:when test="normalize-space(.)='kik' ">Kikuyu</xsl:when>
+				<xsl:when test="normalize-space(.)='kin' ">Kinyarwanda</xsl:when>
+				<xsl:when test="normalize-space(.)='kir' ">Kirghiz</xsl:when>
+				<xsl:when test="normalize-space(.)='kon' ">Kongo</xsl:when>
+				<xsl:when test="normalize-space(.)='kor' ">Korean</xsl:when>
+				<xsl:when test="normalize-space(.)='kur' ">Kurdish</xsl:when>
+				<xsl:when test="normalize-space(.)='lao' ">Lao</xsl:when>
+				<xsl:when test="normalize-space(.)='lat' ">Latin</xsl:when>
+				<xsl:when test="normalize-space(.)='lav' ">Latvian</xsl:when>
+				<xsl:when test="normalize-space(.)='lit' ">Lithuanian</xsl:when>
+				<xsl:when test="normalize-space(.)='lub' ">Luba-Katanga</xsl:when>
+				<xsl:when test="normalize-space(.)='lug' ">Ganda</xsl:when>
+				<xsl:when test="normalize-space(.)='mac' ">Macedonian</xsl:when>
+				<xsl:when test="normalize-space(.)='mal' ">Malayalam</xsl:when>
+				<xsl:when test="normalize-space(.)='mao' ">Maori</xsl:when>
+				<xsl:when test="normalize-space(.)='mar' ">Marathi</xsl:when>
+				<xsl:when test="normalize-space(.)='may' ">Malay</xsl:when>
+				<xsl:when test="normalize-space(.)='mlg' ">Malagasy</xsl:when>
+				<xsl:when test="normalize-space(.)='mlt' ">Maltese</xsl:when>
+				<xsl:when test="normalize-space(.)='mon' ">Mongolian</xsl:when>
+				<xsl:when test="normalize-space(.)='nav' ">Navajo</xsl:when>
+				<xsl:when test="normalize-space(.)='nep' ">Nepali</xsl:when>
+				<xsl:when test="normalize-space(.)='nor' ">Norwegian</xsl:when>
+				<xsl:when test="normalize-space(.)='nya' ">Nyanja</xsl:when>
+				<xsl:when test="normalize-space(.)='oci' ">Language d'Oc</xsl:when>
+				<xsl:when test="normalize-space(.)='oji' ">Ojibwa</xsl:when>
+				<xsl:when test="normalize-space(.)='ori' ">Oriya</xsl:when>
+				<xsl:when test="normalize-space(.)='oss' ">Ossetic</xsl:when>
+				<xsl:when test="normalize-space(.)='pan' ">Panjabi</xsl:when>
+				<xsl:when test="normalize-space(.)='per' ">Persan, modern</xsl:when>
+				<xsl:when test="normalize-space(.)='pli' ">Pali</xsl:when>
+				<xsl:when test="normalize-space(.)='pol' ">Polish</xsl:when>
+				<xsl:when test="normalize-space(.)='por' ">Portuguese</xsl:when>
+				<xsl:when test="normalize-space(.)='pus' ">Pushto</xsl:when>
+				<xsl:when test="normalize-space(.)='que' ">Quechua</xsl:when>
+				<xsl:when test="normalize-space(.)='roh' ">Raeto-Romance </xsl:when>
+				<xsl:when test="normalize-space(.)='rum' ">Romanian</xsl:when>
+				<xsl:when test="normalize-space(.)='run' ">Rundi</xsl:when>
+				<xsl:when test="normalize-space(.)='rus' ">Russian</xsl:when>
+				<xsl:when test="normalize-space(.)='sag' ">Sango</xsl:when>
+				<xsl:when test="normalize-space(.)='san' ">Sanskrit</xsl:when>
+				<xsl:when test="normalize-space(.)='sin' ">Sinhala; sinhalese</xsl:when>
+				<xsl:when test="normalize-space(.)='slo' ">Slovak</xsl:when>
+				<xsl:when test="normalize-space(.)='slv' ">Slovenian</xsl:when>
+				<xsl:when test="normalize-space(.)='snd' ">Sindhi</xsl:when>
+				<xsl:when test="normalize-space(.)='som' ">Somali</xsl:when>
+				<xsl:when test="normalize-space(.)='spa' ">Spanish</xsl:when>
+				<xsl:when test="normalize-space(.)='srp' ">Serbian</xsl:when>
+				<xsl:when test="normalize-space(.)='sun' ">Sundanese</xsl:when>
+				<xsl:when test="normalize-space(.)='swa' ">Swahili</xsl:when>
+				<xsl:when test="normalize-space(.)='swe' ">Swedish</xsl:when>
+				<xsl:when test="normalize-space(.)='tah' ">Tahitian</xsl:when>
+				<xsl:when test="normalize-space(.)='tam' ">Tamil</xsl:when>
+				<xsl:when test="normalize-space(.)='tel' ">Telugu</xsl:when>
+				<xsl:when test="normalize-space(.)='tha' ">Thao</xsl:when>
+				<xsl:when test="normalize-space(.)='tib' ">Tibetan</xsl:when>
+				<xsl:when test="normalize-space(.)='bor' ">Tibetan</xsl:when>
+				<xsl:when test="normalize-space(.)='tir' ">Tigrinya</xsl:when>
+				<xsl:when test="normalize-space(.)='tuk' ">Turkmen</xsl:when>
+				<xsl:when test="normalize-space(.)='tur' ">Turkish</xsl:when>
+				<xsl:when test="normalize-space(.)='twi' ">Twi</xsl:when>
+				<xsl:when test="normalize-space(.)='uig' ">Uighur</xsl:when>
+				<xsl:when test="normalize-space(.)='ukr' ">Ukrainian</xsl:when>
+				<xsl:when test="normalize-space(.)='urd' ">Urdu</xsl:when>
+				<xsl:when test="normalize-space(.)='uzb' ">Uzbek</xsl:when>
+				<xsl:when test="normalize-space(.)='vie' ">Vietnamese</xsl:when>
+				<xsl:when test="normalize-space(.)='wel' ">Welsh</xsl:when>
+				<xsl:when test="normalize-space(.)='wol' ">Wolof</xsl:when>
+				<xsl:when test="normalize-space(.)='xho' ">Xhosa</xsl:when>
+				<xsl:when test="normalize-space(.)='yid' ">Yiddish</xsl:when>
+				<xsl:when test="normalize-space(.)='yor' ">Yiddish</xsl:when>
+				<xsl:when test="normalize-space(.)='zul' ">Zulu</xsl:when>
+				<!-- à completer -->
+				<xsl:otherwise>
+					<xsl:text>English</xsl:text>
+				</xsl:otherwise>
+			</xsl:choose>   
 	</xsl:element>
 </xsl:template>
 
+
+	
 	<!--  link to fulltext  -->
 <xsl:template name="fulltext">
 	<xsl:if test="datafield[@tag='856']/subfield[@code='q']='PDF'">
@@ -427,7 +591,7 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
 <xsl:template match="datafield[@tag='610']">
 	<xsl:for-each select="./subfield[@code='a']">
 		<keywords scheme="author">
-			<term>
+			<term xml:lang="und">
 				<xsl:apply-templates/>
 			</term>
 		</keywords>

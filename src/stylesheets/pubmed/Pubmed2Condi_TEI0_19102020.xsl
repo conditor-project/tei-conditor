@@ -5,7 +5,7 @@
     version="1.0">
     
 <!-- ========================================================================================================
-        C. Morel, 2018-09. Dernière modification :12 juin 2020      
+        C. Morel, 2018-09. Christiane Stock.  Dernière modification : 19 octobre 2020     
         
       2 modèles TEI disponibles :
       -oafr.xsd, modèle encore actuel de HAL, des choix spécifiques sur attributs, valeurs d'attributs et arborescence organismes. ne convient pas tel que pour Conditor
@@ -54,9 +54,23 @@
          - commentaire sur auteurs dans <titleStmt> mis en commentaire
          - ajout du bloc <respStmt>
         
+   Modifications le 30-09-2020
+        bloc <funder> : 
+            - ajout <idno type="program"> (cf. notices HAL)  
+            - ajout <name@type="agency">
+            - ajout <name@type="project"> 
+         bloc <imprint> for Book :
+            - ajout <pubPlace>
+         bloc <keywords scheme="author"> :
+            - <term type="author"> devient <term xml:lang="en">
+         bloc <langUsage> :
+            - génération du libellé anglais à partir du code à 3 caractères (copie OG-EThOS)
+   
+   Modifications le 19 octobre 2020        
+                <keywords scheme="meshChemical"> : ajout de l'attribut @xml:lang="en"
  ============================================================================================================== -->
 
-<xsl:output encoding="UTF-8" indent="no"/> 
+<xsl:output encoding="UTF-8" indent="yes"/> 
 
     <xsl:param name="DateAcqu"/>
     <xsl:param name="today"/> <!-- Date de création de la notice Conditor = transformation XSLT -->
@@ -164,18 +178,23 @@
                         <!-- lien calculé vers document dans PMC : avec les attributs de HAL pour le Xpath Json -->
                         <xsl:if test="PubmedData//ArticleId[@IdType='pmc']">
                             <ref type="file" n="1">
-								<xsl:attribute name="target"><xsl:text>https://www.ncbi.nlm.nih.gov/pmc/articles/</xsl:text><xsl:value-of select="//ArticleId[@IdType='pmc']"/>
-								</xsl:attribute>
-							</ref>
+                                <xsl:attribute name="target">
+                                    <xsl:text>https://www.ncbi.nlm.nih.gov/pmc/articles/</xsl:text>
+                                    <xsl:value-of select="//ArticleId[@IdType='pmc']"/>
+                                </xsl:attribute>
+                            </ref>
                         </xsl:if>
                     </biblStruct>
                 </sourceDesc>
           
             <profileDesc>
                 <langUsage>
+                    <xsl:if test="MedlineCitation/Article/Language [string-length() &gt; 0]">
                     <language>
                         <xsl:attribute name="ident"><xsl:value-of select="substring(MedlineCitation/Article/Language, 1, 2)"/></xsl:attribute>
+                        <xsl:apply-templates select="MedlineCitation/Article/Language"></xsl:apply-templates>
                     </language>
+                    </xsl:if>
                 </langUsage>
                                
                 <!-- mots-clés et type de publication (classcode, toujours au moins 1) :  -->             
@@ -414,11 +433,12 @@
                 <xsl:when test="Publisher"> <!-- dans les articles, n'existe pas jusque là ; pays seul -->
                     <publisher>
                         <xsl:value-of select="Publisher/PublisherName"/>
-                        <xsl:if test="Publisher/PublisherLocation">
-                            <xsl:text>, </xsl:text>
-                            <xsl:value-of select="PublisherLocation"/>
-                        </xsl:if>
                     </publisher>
+                </xsl:when>
+                <xsl:when test="Publisher/PublisherLocation"> <!-- dans les articles, n'existe pas jusque là ; pays seul -->
+                    <pubPlace>
+                            <xsl:value-of select="PublisherLocation"/>
+                    </pubPlace>
                 </xsl:when>
             <!-- le groupe du 10-09-2018 ne veut pas récupérer le pays, sauf s'il est dans une chaîne difficile à découper. Si change d'avis :
                 <xsl:when test="MedlineCitation/MedlineJournalInfo/Country">   $$$ articles, pas de Publisher $$
@@ -501,8 +521,7 @@
                     <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Season"/></date>
             </xsl:if>
             
-           <!-- à rediscuter si usages :
-               <date type="yearPub">  
+  <!--         <date type="yearPub">  
                     <xsl:choose>
                         <xsl:when test="MedlineCitation/Article/ArticleDate"> 
                             <xsl:value-of select="MedlineCitation/Article/ArticleDate/Year"/>
@@ -617,14 +636,16 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     <xsl:for-each select="Grant">  <!-- Grant (GrantID?, Acronym?, Agency, Country) -->
         <funder>
             <xsl:if test="GrantID">
-            <idno type="grantId">  <!-- à discuter + indiquer la source ? -->
+            <idno type="grantNumber">  
                 <xsl:value-of select="GrantID"/>
             </idno>
             </xsl:if>
-            <name>     <!-- orgname ??? -->
+            <xsl:if test="Agency">
+            <name type="agency">     
                 <xsl:value-of select="normalize-space(Agency)"/>
                 <!--  funder peut contenir abbr. ; on supprime car propre US -->
             </name>
+            </xsl:if>
                 <country><xsl:value-of select="Country"/></country>   <!-- existe comme fils de funder -->
         </funder>
     </xsl:for-each>
@@ -705,7 +726,6 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                 </xsl:attribute>
                 <xsl:attribute name="xml:lang">en</xsl:attribute>
                 <xsl:attribute name="xml:base"><xsl:text>https://www.ncbi.nlm.nih.gov/mesh/</xsl:text><xsl:value-of select="DescriptorName/@UI"/></xsl:attribute>
-                
                 <xsl:value-of select="normalize-space(DescriptorName)"/>
             </term>
             <xsl:for-each select="QualifierName">
@@ -723,7 +743,6 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                     <xsl:value-of select="normalize-space(.)"/>
                 </term>
             </xsl:for-each>
-       
     </keywords>
     </xsl:for-each>
         </xsl:if>  <!-- MeshheadingList -->
@@ -750,7 +769,8 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
         
             <xsl:for-each select="ChemicalList/Chemical"> <!-- Chemical (RegistryNumber, NameOfSubstance) -->
                 <keywords scheme="meshChemical">
-                <term type="substanceName">
+                    <term type="substanceName">
+                     <xsl:attribute name="xml:lang">en</xsl:attribute>
                     <xsl:attribute name="xml:base"><xsl:text>https://www.ncbi.nlm.nih.gov/mesh/</xsl:text><xsl:value-of select="NameOfSubstance/@UI"/></xsl:attribute>
                     <xsl:value-of select="normalize-space(NameOfSubstance)"/>
                 </term>
@@ -767,13 +787,13 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
       <xsl:if test="KeywordList"> <!--Owner (NLM | NLM-AUTO | NASA | PIP | KIE | NOTNLM | HHS), uniquement valeur "NOTNLM" dans le corpus. -->   
         <keywords scheme="author">
             <xsl:for-each select="KeywordList[@Owner='NOTNLM']/Keyword">
-             <term type="author">
+             <term xml:lang="en">
                 <xsl:value-of select="normalize-space(.)"/>
             </term>
         </xsl:for-each>
         <!-- extension au cas où : -->
             <xsl:for-each select="KeywordList[@Owner!='NOTNLM']/Keyword">
-                <term>
+                <term xml:lang="en">
                     <xsl:attribute name="type"><xsl:value-of select="./@Owner"/></xsl:attribute>
                     <xsl:value-of select="normalize-space(.)"/>
                 </term>
@@ -800,7 +820,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
         <classCode scheme="typology"><xsl:value-of select="."/></classCode>
     </xsl:for-each>
   
-    </xsl:template>
+</xsl:template>
     
 <xsl:template match="Abstract"> 
     <!-- fils source : AbstracText+, @Label CDATA #IMPLIED
@@ -848,7 +868,146 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     </abstract>
     </xsl:template>
     
-    
+  <xsl:template match="Language">
+      
+      <xsl:choose>
+          <xsl:when test="normalize-space(.)='aar' ">Afar</xsl:when>
+          <xsl:when test="normalize-space(.)='abk' ">Abkhazian</xsl:when>
+          <xsl:when test="normalize-space(.)='afr' ">Afrikaans</xsl:when>
+          <xsl:when test="normalize-space(.)='aka' ">Akan</xsl:when>
+          <xsl:when test="normalize-space(.)='alb' ">Albanian</xsl:when>
+          <xsl:when test="normalize-space(.)='amh' ">Amharic</xsl:when>
+          <xsl:when test="normalize-space(.)='ara' ">Arabic</xsl:when>
+          <xsl:when test="normalize-space(.)='arm' ">Armenian</xsl:when>
+          <xsl:when test="normalize-space(.)='asm' ">Assamese</xsl:when>
+          <xsl:when test="normalize-space(.)='ava' ">Avaric</xsl:when>
+          <xsl:when test="normalize-space(.)='ave' ">Avestan</xsl:when>
+          <xsl:when test="normalize-space(.)='aym' ">Aymara</xsl:when>
+          <xsl:when test="normalize-space(.)='aze' ">Azerbajani</xsl:when>
+          <xsl:when test="normalize-space(.)='bak' ">Bashkir</xsl:when>
+          <xsl:when test="normalize-space(.)='bam' ">Bambara</xsl:when>
+          <xsl:when test="normalize-space(.)='baq' ">Basque</xsl:when>
+          <xsl:when test="normalize-space(.)='bel' ">Byelorussian</xsl:when>
+          <xsl:when test="normalize-space(.)='ben' ">Bengali</xsl:when>
+          <xsl:when test="normalize-space(.)='bre' ">Breton</xsl:when>
+          <xsl:when test="normalize-space(.)='bul' ">Bulgarian</xsl:when>
+          <xsl:when test="normalize-space(.)='bur' ">Burmese</xsl:when>
+          <xsl:when test="normalize-space(.)='cat' ">Catalan</xsl:when>
+          <xsl:when test="normalize-space(.)='che' ">Chechen</xsl:when>
+          <xsl:when test="normalize-space(.)='chi' ">Chinese</xsl:when>
+          <xsl:when test="normalize-space(.)='chu' ">Church slavic</xsl:when>
+          <xsl:when test="normalize-space(.)='chv' ">Chuvash</xsl:when>
+          <xsl:when test="normalize-space(.)='cor' ">Cornish</xsl:when>
+          <xsl:when test="normalize-space(.)='cos' ">Corsican</xsl:when>
+          <xsl:when test="normalize-space(.)='cre' ">Cree</xsl:when>
+          <xsl:when test="normalize-space(.)='cze' ">Czech</xsl:when>
+          <xsl:when test="normalize-space(.)='dan' ">Danish</xsl:when>
+          <xsl:when test="normalize-space(.)='dut' ">Dutch</xsl:when>
+          <xsl:when test="normalize-space(.)='eng' ">English</xsl:when>
+          <xsl:when test="normalize-space(.)='epo' ">Esperanto</xsl:when>
+          <xsl:when test="normalize-space(.)='est' ">Estonian</xsl:when>
+          <xsl:when test="normalize-space(.)='ewe' ">Ewe</xsl:when>
+          <xsl:when test="normalize-space(.)='fao' ">Faroese</xsl:when>
+          <xsl:when test="normalize-space(.)='fin' ">Finnish</xsl:when>
+          <xsl:when test="normalize-space(.)='fre' ">French</xsl:when>
+          <xsl:when test="normalize-space(.)='ful' ">Fulah</xsl:when>
+          <xsl:when test="normalize-space(.)='geo' ">Georgian</xsl:when>
+          <xsl:when test="normalize-space(.)='ger' ">German</xsl:when>
+          <xsl:when test="normalize-space(.)='glg' ">Galician</xsl:when>
+          <xsl:when test="normalize-space(.)='gre' ">Greek, modern</xsl:when>
+          <xsl:when test="normalize-space(.)='guj' ">Gujarati</xsl:when>
+          <xsl:when test="normalize-space(.)='hau' ">Hausa</xsl:when>
+          <xsl:when test="normalize-space(.)='heb' ">Hebrew</xsl:when>
+          <xsl:when test="normalize-space(.)='her' ">Herero</xsl:when>
+          <xsl:when test="normalize-space(.)='hin' ">Hindi</xsl:when>
+          <xsl:when test="normalize-space(.)='hrv' ">Croatian</xsl:when>
+          <xsl:when test="normalize-space(.)='hun' ">Hungarian</xsl:when>
+          <xsl:when test="normalize-space(.)='ice' ">Icelandic</xsl:when>
+          <xsl:when test="normalize-space(.)='ind' ">Indonesian</xsl:when>
+          <xsl:when test="normalize-space(.)='ita' ">Italian</xsl:when>
+          <xsl:when test="normalize-space(.)='jav' ">Javanese</xsl:when>
+          <xsl:when test="normalize-space(.)='jpn' ">Japanese</xsl:when>
+          <xsl:when test="normalize-space(.)='kan' ">Kannada</xsl:when>
+          <xsl:when test="normalize-space(.)='kas' ">Kashmiri</xsl:when>
+          <xsl:when test="normalize-space(.)='kau' ">Kanuri</xsl:when>
+          <xsl:when test="normalize-space(.)='kaz' ">Kazakh</xsl:when>
+          <xsl:when test="normalize-space(.)='kik' ">Kikuyu</xsl:when>
+          <xsl:when test="normalize-space(.)='kin' ">Kinyarwanda</xsl:when>
+          <xsl:when test="normalize-space(.)='kir' ">Kirghiz</xsl:when>
+          <xsl:when test="normalize-space(.)='kon' ">Kongo</xsl:when>
+          <xsl:when test="normalize-space(.)='kor' ">Korean</xsl:when>
+          <xsl:when test="normalize-space(.)='kur' ">Kurdish</xsl:when>
+          <xsl:when test="normalize-space(.)='lao' ">Lao</xsl:when>
+          <xsl:when test="normalize-space(.)='lat' ">Latin</xsl:when>
+          <xsl:when test="normalize-space(.)='lav' ">Latvian</xsl:when>
+          <xsl:when test="normalize-space(.)='lit' ">Lithuanian</xsl:when>
+          <xsl:when test="normalize-space(.)='lub' ">Luba-Katanga</xsl:when>
+          <xsl:when test="normalize-space(.)='lug' ">Ganda</xsl:when>
+          <xsl:when test="normalize-space(.)='mac' ">Macedonian</xsl:when>
+          <xsl:when test="normalize-space(.)='mal' ">Malayalam</xsl:when>
+          <xsl:when test="normalize-space(.)='mao' ">Maori</xsl:when>
+          <xsl:when test="normalize-space(.)='mar' ">Marathi</xsl:when>
+          <xsl:when test="normalize-space(.)='may' ">Malay</xsl:when>
+          <xsl:when test="normalize-space(.)='mlg' ">Malagasy</xsl:when>
+          <xsl:when test="normalize-space(.)='mlt' ">Maltese</xsl:when>
+          <xsl:when test="normalize-space(.)='mon' ">Mongolian</xsl:when>
+          <xsl:when test="normalize-space(.)='nav' ">Navajo</xsl:when>
+          <xsl:when test="normalize-space(.)='nep' ">Nepali</xsl:when>
+          <xsl:when test="normalize-space(.)='nor' ">Norwegian</xsl:when>
+          <xsl:when test="normalize-space(.)='nya' ">Nyanja</xsl:when>
+          <xsl:when test="normalize-space(.)='oci' ">Language d'Oc</xsl:when>
+          <xsl:when test="normalize-space(.)='oji' ">Ojibwa</xsl:when>
+          <xsl:when test="normalize-space(.)='ori' ">Oriya</xsl:when>
+          <xsl:when test="normalize-space(.)='oss' ">Ossetic</xsl:when>
+          <xsl:when test="normalize-space(.)='pan' ">Panjabi</xsl:when>
+          <xsl:when test="normalize-space(.)='per' ">Persan, modern</xsl:when>
+          <xsl:when test="normalize-space(.)='pli' ">Pali</xsl:when>
+          <xsl:when test="normalize-space(.)='pol' ">Polish</xsl:when>
+          <xsl:when test="normalize-space(.)='por' ">Portuguese</xsl:when>
+          <xsl:when test="normalize-space(.)='pus' ">Pushto</xsl:when>
+          <xsl:when test="normalize-space(.)='que' ">Quechua</xsl:when>
+          <xsl:when test="normalize-space(.)='roh' ">Raeto-Romance </xsl:when>
+          <xsl:when test="normalize-space(.)='rum' ">Romanian</xsl:when>
+          <xsl:when test="normalize-space(.)='run' ">Rundi</xsl:when>
+          <xsl:when test="normalize-space(.)='rus' ">Russian</xsl:when>
+          <xsl:when test="normalize-space(.)='sag' ">Sango</xsl:when>
+          <xsl:when test="normalize-space(.)='san' ">Sanskrit</xsl:when>
+          <xsl:when test="normalize-space(.)='sin' ">Sinhala; sinhalese</xsl:when>
+          <xsl:when test="normalize-space(.)='slo' ">Slovak</xsl:when>
+          <xsl:when test="normalize-space(.)='slv' ">Slovenian</xsl:when>
+          <xsl:when test="normalize-space(.)='snd' ">Sindhi</xsl:when>
+          <xsl:when test="normalize-space(.)='som' ">Somali</xsl:when>
+          <xsl:when test="normalize-space(.)='spa' ">Spanish</xsl:when>
+          <xsl:when test="normalize-space(.)='srp' ">Serbian</xsl:when>
+          <xsl:when test="normalize-space(.)='sun' ">Sundanese</xsl:when>
+          <xsl:when test="normalize-space(.)='swa' ">Swahili</xsl:when>
+          <xsl:when test="normalize-space(.)='swe' ">Swedish</xsl:when>
+          <xsl:when test="normalize-space(.)='tah' ">Tahitian</xsl:when>
+          <xsl:when test="normalize-space(.)='tam' ">Tamil</xsl:when>
+          <xsl:when test="normalize-space(.)='tel' ">Telugu</xsl:when>
+          <xsl:when test="normalize-space(.)='tha' ">Thao</xsl:when>
+          <xsl:when test="normalize-space(.)='tib' ">Tibetan</xsl:when>
+          <xsl:when test="normalize-space(.)='tir' ">Tigrinya</xsl:when>
+          <xsl:when test="normalize-space(.)='tuk' ">Turkmen</xsl:when>
+          <xsl:when test="normalize-space(.)='tur' ">Turkish</xsl:when>
+          <xsl:when test="normalize-space(.)='twi' ">Twi</xsl:when>
+          <xsl:when test="normalize-space(.)='uig' ">Uighur</xsl:when>
+          <xsl:when test="normalize-space(.)='ukr' ">Ukrainian</xsl:when>
+          <xsl:when test="normalize-space(.)='urd' ">Urdu</xsl:when>
+          <xsl:when test="normalize-space(.)='uzb' ">Uzbek</xsl:when>
+          <xsl:when test="normalize-space(.)='vie' ">Vietnamese</xsl:when>
+          <xsl:when test="normalize-space(.)='wel' ">Welsh</xsl:when>
+          <xsl:when test="normalize-space(.)='wol' ">Wolof</xsl:when>
+          <xsl:when test="normalize-space(.)='xho' ">Xhosa</xsl:when>
+          <xsl:when test="normalize-space(.)='yid' ">Yiddish</xsl:when>
+          <xsl:when test="normalize-space(.)='yor' ">Yiddish</xsl:when>
+          <xsl:when test="normalize-space(.)='zul' ">Zulu</xsl:when>
+          <!-- à completer -->
+          <xsl:otherwise>
+              <xsl:text>English</xsl:text>
+          </xsl:otherwise>
+      </xsl:choose>   
+  </xsl:template>  
     
  <!-- **********************************************************
      2° élément fils de PubmedArticleSet, PubmedBookArticle : 
@@ -872,7 +1031,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                             ou TEI/text/body/listBibl/biblFull/sourceDesc/biblStruct/monogr/author</xsl:text>
                     </xsl:comment>  -->
                             <!-- les auteurs de type editor sont dans BookDocument/Book/AuthorList -->
-                            <xsl:apply-templates select=".//GrantList"/> <!-- ** TO DO -->
+                            <xsl:apply-templates select=".//GrantList"/>
                         </titleStmt>
                         
                         <editionStmt>
@@ -1012,7 +1171,22 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
     
     <xsl:template name="ImprintBook">  <!-- un autre pour les Books, trop long sinon -->
         <imprint>
-                <xsl:if test="Publisher"> <!-- ( PublisherName, PublisherLocation? ) pour books et chapter, élément fils de Book, template appelé dans celui sur Book -->
+            <xsl:if test="Publisher/PublisherName">   <!-- ( PublisherName, PublisherLocation? ) pour books et chapter, élément fils de Book, template appelé dans celui sur Book -->
+                    <publisher>
+                        <xsl:value-of select="Publisher/PublisherName"/>
+                    </publisher>
+                </xsl:if>
+                <xsl:if test="Publisher/PublisherLocation">
+                    <pubPlace>
+                        <xsl:value-of select="Publisher/PublisherLocation"/>
+                    </pubPlace>
+                </xsl:if>
+                <!-- le groupe du 10-09-2018 ne veut pas récupérer le pays, sauf s'il est dans une chaîne difficile à découper. Si change d'avis :
+                <xsl:when test="MedlineCitation/MedlineJournalInfo/Country">   $$$ articles, pas de Publisher $$
+                    <pubPlace><xsl:value-of select="MedlineCitation/MedlineJournalInfo/Country"/></pubPlace>
+                </xsl:when> -->
+            
+     <!--           <xsl:if test="Publisher"> 
                     <publisher>
                         <xsl:value-of select="Publisher/PublisherName"/>
                         <xsl:if test="Publisher/PublisherLocation">
@@ -1020,7 +1194,7 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
                             <xsl:value-of select="Publisher/PublisherLocation"/>
                         </xsl:if>
                     </publisher>
-                </xsl:if>
+                </xsl:if>  -->
             
             <date type="datePub">  
                     
