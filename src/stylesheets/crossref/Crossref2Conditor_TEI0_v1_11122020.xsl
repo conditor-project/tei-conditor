@@ -12,7 +12,7 @@ exclude-result-prefixes="xs xsi fr jats cr cr1 rs"
 version="1.0">
 
     <!-- ========================================================================================================
-        C Stock, S. Gregorio, 2020-06. Dernière modification : 13-10-2020.        
+        C Stock, S. Gregorio, 2020-06. Dernière modification : 11-12-2020.        
         
      Cette feuille de style Crossref2Conditor_TEI0 regroupe le traitement de 3 catégories Crossref différentes :
      <journal>, <conference>, <book>.
@@ -77,6 +77,11 @@ version="1.0">
       
       Modifications 9 octobre 2020 :
       tests sur la langue au niveau journal_article/conference_paper/content_item et renseignement du bloc <langUsage> le cas échéant
+      
+      Modifications 11 décembre 2020 :
+      tests sur la langue du texte au niveau journal_article/conference_paper/content_item - et au niveau supérieur- ; renseignement du bloc <langUsage> avec un <xsl:choose>
+      Dans <xsl:otherwise> ajout de @xml:lang="und" pour "Undetermined" (cf.https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      Dans le template pour les langues : intégration du code "en" et de son libellé dans la liste des langues
  ============================================================================================================== -->
 <xsl:output encoding="UTF-8" indent="yes"/> 
 
@@ -190,12 +195,24 @@ version="1.0">
                 </sourceDesc>
           
             <profileDesc>
-                <xsl:if test="//journal/journal_article[@language!=''] |//cr:journal/cr:journal_article[@language!=''] |//cr1:journal/cr1:journal_article[@language!='']">
-                <langUsage>
-                <xsl:apply-templates select="//journal/journal_article/@language |//cr:journal/cr:journal_article/@language |//cr1:journal/cr1:journal_article/@language"/> 
-                </langUsage>
-                </xsl:if>
-                    
+                <!--  Langue du texte  -->
+                <xsl:choose>   
+                    <xsl:when test="//journal/journal_article[@language!=''] |//cr:journal/cr:journal_article[@language!=''] |//cr1:journal/cr1:journal_article[@language!='']">
+                        <langUsage>
+                        <xsl:apply-templates select="//journal/journal_article/@language |//cr:journal/cr:journal_article/@language |//cr1:journal/cr1:journal_article/@language"/> 
+                        </langUsage>
+                    </xsl:when>
+                    <xsl:when test="//journal/journal_metadata[@language!=''] | //cr:journal/cr:journal_metadata[@language!=''] | //cr1:journal/cr1:journal_metadata[@language!='']">
+                        <langUsage>
+                            <xsl:apply-templates select="//journal/journal_metadata/@language | //cr:journal/cr:journal_metadata/@language | //cr1:journal/cr1:journal_metadata/@language"/> 
+                        </langUsage>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <langUsage>
+                            <language ident="und">Undetermined</language>  
+                        </langUsage>    
+                    </xsl:otherwise>
+                </xsl:choose>       
                                 
                 <textClass>
                     <classCode scheme="typology">Journal article</classCode>
@@ -331,18 +348,36 @@ version="1.0">
                     </xsl:attribute>
                     <xsl:choose>
                         <xsl:when test=".='fr'">French</xsl:when>
+                        <xsl:when test=".='en'">English</xsl:when>
                         <xsl:when test=".='es'">Spanish</xsl:when>
                         <xsl:when test=".='it'">Italian</xsl:when>
-                       <xsl:when test=".='de'">German</xsl:when>
+                        <xsl:when test=".='de'">German</xsl:when>
                         <xsl:when test=".='pt'">Portuguese</xsl:when>
                         <xsl:when test=".='ca'">Catalan</xsl:when>
                         <xsl:when test=".='pl'">Polish</xsl:when>
                         <xsl:when test=".='el'">Greek</xsl:when>
                         <xsl:when test=".='ro'">Romanian</xsl:when>
-                        <xsl:otherwise>
-                            <xsl:text>English</xsl:text>
-                        </xsl:otherwise>
                     </xsl:choose>  
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="//journal/journal_metadata/@language|//cr:journal/cr:journal_metadata/@language|//cr1:journal/cr1:journal_metadata/@language">
+        <xsl:element name="language">
+            <xsl:attribute name="ident">
+                <xsl:value-of select="."/>
+            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test=".='fr'">French</xsl:when>
+                <xsl:when test=".='en'">English</xsl:when>
+                <xsl:when test=".='es'">Spanish</xsl:when>
+                <xsl:when test=".='it'">Italian</xsl:when>
+                <xsl:when test=".='de'">German</xsl:when>
+                <xsl:when test=".='pt'">Portuguese</xsl:when>
+                <xsl:when test=".='ca'">Catalan</xsl:when>
+                <xsl:when test=".='pl'">Polish</xsl:when>
+                <xsl:when test=".='el'">Greek</xsl:when>
+                <xsl:when test=".='ro'">Romanian</xsl:when>
+            </xsl:choose>  
         </xsl:element>
     </xsl:template>
  <!--  ===============================================================
@@ -410,11 +445,19 @@ version="1.0">
                 </sourceDesc>
           
                 <profileDesc>
-                    <xsl:if test="//conference/conference_paper[@language!=''] | //cr:conference/cr:conference_paper[@language!=''] | //cr1:conference/cr1:conference_paper[@language!='']">
-                        <langUsage>
-                           <xsl:apply-templates select="//conference/conference_paper/@language | //cr:conference/cr:conference_paper/@language | //cr1:conference/cr1:conference_paper/@language"/>  
-                      </langUsage>
-                </xsl:if>
+                <!--  Langue du texte  -->
+                    <xsl:choose>   
+                        <xsl:when test="//conference/conference_paper[@language!=''] | //cr:conference/cr:conference_paper[@language!=''] | //cr1:conference/cr1:conference_paper[@language!='']">
+                            <langUsage>
+                                <xsl:apply-templates select="//conference/conference_paper/@language | //cr:conference/cr:conference_paper/@language | //cr1:conference/cr1:conference_paper/@language"/>  
+                            </langUsage>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <langUsage>
+                                <language ident="und">Undetermined</language>  
+                            </langUsage>    
+                        </xsl:otherwise>
+                    </xsl:choose>       
                 
                 <textClass>
                                 <classCode scheme="typology">conference_paper</classCode>
@@ -539,7 +582,6 @@ version="1.0">
             <xsl:apply-templates/>    
         </settlement>
    </xsl:template>
-    
        
     <xsl:template match="//conference/conference_paper/@language | //cr:conference/cr:conference_paper/@language | //cr1:conference/cr1:conference_paper/@language">
         <xsl:element name="language">
@@ -548,6 +590,7 @@ version="1.0">
             </xsl:attribute>
             <xsl:choose>
                 <xsl:when test=".='fr'">French</xsl:when>
+                <xsl:when test=".='en'">English</xsl:when>
                 <xsl:when test=".='es'">Spanish</xsl:when>
                 <xsl:when test=".='it'">Italian</xsl:when>
                 <xsl:when test=".='de'">German</xsl:when>
@@ -556,9 +599,6 @@ version="1.0">
                 <xsl:when test=".='pl'">Polish</xsl:when>
                 <xsl:when test=".='el'">Greek</xsl:when>
                 <xsl:when test=".='ro'">Romanian</xsl:when>
-                <xsl:otherwise>
-                    <xsl:text>English</xsl:text>
-                </xsl:otherwise>
             </xsl:choose>  
         </xsl:element>
     </xsl:template>
@@ -681,11 +721,30 @@ version="1.0">
                 </sourceDesc>
           
             <profileDesc>
-                <xsl:if test="//book/content_item[@language!=''] | //cr:book/cr:content_item[@language!=''] | //cr1:book/cr1:content_item[@language!='']">
-                    <langUsage>
-                            <xsl:apply-templates select="//book/content_item/@language | //cr:book/cr:content_item/@language | //cr1:book/cr1:content_item/@language"/>
-                </langUsage>
-                </xsl:if>
+                
+                <!--  Langue du texte  -->
+                <xsl:choose>   
+                    <xsl:when test="//book/content_item[@language!=''] | //cr:book/cr:content_item[@language!=''] | //cr1:book/cr1:content_item[@language!='']">
+                        <langUsage>
+                            <xsl:apply-templates select="//book/content_item/@language | //cr:book/cr:content_item/@language | //cr1:book/cr1:content_item/@language"/> 
+                        </langUsage>
+                    </xsl:when>
+                    <xsl:when test="//book_series_metadata[@language!=''] | //cr:book_series_metadata[@language!=''] | //cr1:book_series_metadata[@language!='']">
+                        <langUsage>
+                            <xsl:apply-templates select="//book_series_metadata/@language | //cr:book_series_metadata/@language | //cr1:book_series_metadata/@language"/> 
+                        </langUsage>
+                    </xsl:when>
+                    <xsl:when test="//book_metadata[@language!=''] | //cr:book_metadata[@language!=''] | //cr1:book_metadata[@language!='']">
+                        <langUsage>
+                            <xsl:apply-templates select="//book_metadata/@language | //cr:book_metadata/@language | //cr1:book_metadata/@language"/> 
+                        </langUsage>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <langUsage>
+                            <language ident="und">Undetermined</language>  
+                        </langUsage>    
+                    </xsl:otherwise>
+                </xsl:choose> 
  
  <!--   type de document : génération de "book", si type Crossref = "other"  -->             
                <textClass>
@@ -944,6 +1003,7 @@ version="1.0">
             </xsl:attribute>
             <xsl:choose>
                 <xsl:when test=".='fr'">French</xsl:when>
+                <xsl:when test=".='en'">English</xsl:when>
                 <xsl:when test=".='es'">Spanish</xsl:when>
                 <xsl:when test=".='it'">Italian</xsl:when>
                 <xsl:when test=".='de'">German</xsl:when>
@@ -952,13 +1012,49 @@ version="1.0">
                 <xsl:when test=".='pl'">Polish</xsl:when>
                 <xsl:when test=".='el'">Greek</xsl:when>
                 <xsl:when test=".='ro'">Romanian</xsl:when>
-                <xsl:otherwise>
-                    <xsl:text>English</xsl:text>
-                </xsl:otherwise>
             </xsl:choose>  
-        </xsl:element>    
+        </xsl:element>
    </xsl:template>
     
+  <xsl:template match="//book_series_metadata/@language | //cr:book_series_metadata/@language | //cr1:book_series_metadata/@language">
+        <xsl:element name="language">
+            <xsl:attribute name="ident">
+                <xsl:value-of select="."/>
+            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test=".='fr'">French</xsl:when>
+                <xsl:when test=".='en'">English</xsl:when>
+                <xsl:when test=".='es'">Spanish</xsl:when>
+                <xsl:when test=".='it'">Italian</xsl:when>
+                <xsl:when test=".='de'">German</xsl:when>
+                <xsl:when test=".='pt'">Portuguese</xsl:when>
+                <xsl:when test=".='ca'">Catalan</xsl:when>
+                <xsl:when test=".='pl'">Polish</xsl:when>
+                <xsl:when test=".='el'">Greek</xsl:when>
+                <xsl:when test=".='ro'">Romanian</xsl:when>
+            </xsl:choose>  
+        </xsl:element>
+    </xsl:template>
+    
+   <xsl:template match="//book_metadata/@language|//cr:book_metadata/@language|//cr1:book_metadata/@language">
+        <xsl:element name="language">
+            <xsl:attribute name="ident">
+                <xsl:value-of select="."/>
+            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test=".='fr'">French</xsl:when>
+                <xsl:when test=".='en'">English</xsl:when>
+                <xsl:when test=".='es'">Spanish</xsl:when>
+                <xsl:when test=".='it'">Italian</xsl:when>
+                <xsl:when test=".='de'">German</xsl:when>
+                <xsl:when test=".='pt'">Portuguese</xsl:when>
+                <xsl:when test=".='ca'">Catalan</xsl:when>
+                <xsl:when test=".='pl'">Polish</xsl:when>
+                <xsl:when test=".='el'">Greek</xsl:when>
+                <xsl:when test=".='ro'">Romanian</xsl:when>
+            </xsl:choose>  
+        </xsl:element>
+    </xsl:template>
   
     <!--
   ===================================================================================================  
