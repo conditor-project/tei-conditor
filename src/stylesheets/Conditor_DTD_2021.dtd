@@ -1,0 +1,106 @@
+<!DOCTYPE TEI [
+        <!ELEMENT TEI (text)>
+        <!ELEMENT text (body|back)>
+        <!ELEMENT body (listBibl)>
+        <!ELEMENT listBibl (biblFull)>
+        <!ELEMENT biblFull (titleStmt, editionStmt, respStmt, publicationStmt, notesStmt?, sourceDesc, profileDesc)*>
+        <!ELEMENT titleStmt (title+, funder*)>
+        <!ELEMENT title (#PCDATA)>
+        <!ATTLIST title
+                level CDATA #IMPLIED
+                type CDATA #IMPLIED
+                xml:lang CDATA #IMPLIED>
+        <!ELEMENT funder (name|idno|country|note|date)*>
+        <!ELEMENT name (#PCDATA)>
+        <!ATTLIST name				<!-- NEW , also date  -->
+                type CDATA #IMPLIED>
+        <!ELEMENT idno (#PCDATA)>
+        <!ATTLIST idno
+                notation CDATA #IMPLIED
+                type CDATA #REQUIRED>
+        <!ELEMENT country (#PCDATA)>
+        <!ATTLIST country
+                key CDATA #IMPLIED>
+        <!ELEMENT note (#PCDATA)>
+        <!ATTLIST note
+                n CDATA #IMPLIED
+                type CDATA #IMPLIED>
+        <!ELEMENT date (#PCDATA)>
+        <!ATTLIST date
+                type CDATA #REQUIRED>
+        <!ELEMENT editionStmt (edition)*>
+        <!ELEMENT edition (date)*>
+        <!ELEMENT respStmt (resp, name)>
+        <!ELEMENT resp (#PCDATA)>
+        <!ELEMENT publicationStmt (distributor)>
+        <!ELEMENT distributor (#PCDATA)>
+        <!ELEMENT notesStmt (note)*>
+        <!ELEMENT sourceDesc (biblStruct)>
+        <!ELEMENT biblStruct (analytic, monogr, idno+, ref*)>
+        <!ELEMENT analytic (title+,author*)>   <!--   pas d'afficliation à ce niveau ; revoir notice modèle  -->
+        <!ELEMENT author (persName|idno|email|affiliation|orgName|settlement|country)*>
+        <!ATTLIST author
+                role CDATA #REQUIRED>
+        <!ELEMENT persName (forename|surname)*>
+        <!ELEMENT forename (#PCDATA)>
+        <!ATTLIST forename
+                type CDATA #IMPLIED> 
+        <!ELEMENT surname (#PCDATA)>
+        <!ELEMENT email (#PCDATA)>
+        <!ATTLIST email
+                type CDATA #IMPLIED>
+        <!ELEMENT affiliation (country|org|desc|ref|idno)*>  <!--   affiliation  : ok so -->
+        <!ATTLIST affiliation
+                n CDATA #IMPLIED>
+        <!ELEMENT org (orgName|name|desc|org|idno|date)*>	
+        <!ATTLIST org
+                key CDATA #IMPLIED
+                status CDATA #IMPLIED
+                type CDATA #REQUIRED
+                xml:id CDATA #IMPLIED>
+        <!ELEMENT orgName (#PCDATA)>
+        <!ATTLIST orgName
+                type CDATA #IMPLIED>
+        <!ELEMENT desc (address)*>
+        <!ELEMENT address (addrLine|settlement|country)*>
+        <!ELEMENT addrLine (#PCDATA)>
+        <!ELEMENT settlement (#PCDATA)>
+        <!ELEMENT ref (#PCDATA)>
+        <!ATTLIST ref
+                target CDATA #IMPLIED
+                type CDATA #REQUIRED>
+        <!ELEMENT monogr (idno|title|editor|meeting|imprint)*>
+        <!ELEMENT editor (persName|idno|orgName|settlement|country)*>
+        <!ATTLIST editor
+                role CDATA #REQUIRED>
+        <!ELEMENT meeting (title|date|settlement|country)*>
+        <!ELEMENT imprint (publisher|pubPlace|date|biblScope)*>
+        <!ELEMENT publisher (#PCDATA)>
+        <!ELEMENT pubPlace (#PCDATA)>
+        <!ELEMENT biblScope (#PCDATA)>
+        <!ATTLIST biblScope
+                unit CDATA #REQUIRED>
+        <!ELEMENT profileDesc (langUsage|textClass|abstract)*>
+        <!ELEMENT langUsage (language)*>
+        <!ELEMENT language (#PCDATA)>
+        <!ATTLIST language
+                ident CDATA #REQUIRED>
+        <!ELEMENT textClass (keywords|classCode)*>
+        <!ELEMENT keywords (term)*>
+        <!ATTLIST keywords
+                scheme CDATA #REQUIRED>
+        <!ELEMENT term (term|idno)*>
+        <!ATTLIST term
+                ref CDATA #IMPLIED
+                type CDATA #IMPLIED
+                xml:base CDATA #IMPLIED
+                xml:lang CDATA #IMPLIED>
+        <!ELEMENT classCode (#PCDATA)>
+        <!ATTLIST classCode
+                scheme CDATA #REQUIRED>
+        <!ELEMENT abstract (p)*>
+        <!ATTLIST abstract
+                xml:lang CDATA #REQUIRED>
+        <!ELEMENT p (#PCDATA)>
+        <!ELEMENT back (#PCDATA)>
+]>
