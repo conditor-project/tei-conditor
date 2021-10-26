@@ -18,6 +18,22 @@ function getStylesheetFromSync (target) {
   return getSync(source, target).filter(file => path.extname(file.name) === '.xsl');
 }
 
+function getSefFrom (target) {
+  return walker(path.join(__dirname, 'src'))
+    .then(directoryTree => get(directoryTree, 'stylesheets'))
+    .then(source => {
+      if (!target) return source;
+      return get(source, target).filter(file => path.extname(file.name) === '.sef.json');
+    });
+}
+
+function getSefFromSync (target) {
+  const directoryTree = walkerSync(path.join(__dirname, 'src'));
+  const source = getSync(directoryTree, 'stylesheets');
+  if (!target) return source;
+  return getSync(source, target).filter(file => path.extname(file.name) === '.sef.json');
+}
+
 function get (directoryTree, target) {
   return Promise.filter(directoryTree, directory => directory.name === target)
     .then(directory => {
@@ -84,4 +100,4 @@ function walkerSync (directory) {
   });
 }
 
-module.exports = { getStylesheetFrom, getStylesheetFromSync };
+module.exports = { getStylesheetFrom, getStylesheetFromSync, getSefFrom, getSefFromSync };
