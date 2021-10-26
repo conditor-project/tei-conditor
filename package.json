@@ -13,13 +13,15 @@
     "url": "https://github.com/conditor-project/tei-conditor/issues"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "xsl-compile": "find ./src/stylesheets/ -type f -name \"*.xsl\" -exec ./helpers/xsl-compile.sh {} \\;"
   },
   "homepage": "https://github.com/conditor-project/tei-conditor#readme",
   "dependencies": {
     "bluebird": "^3.7.2",
     "co-formatter": "git+https://github.com/conditor-project/co-formatter.git",
-    "commander": "^8.1.0"
+    "commander": "^8.1.0",
+    "xslt3": "^2.3.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",

@@ -23,7 +23,7 @@ function getSefFrom (target) {
     .then(directoryTree => get(directoryTree, 'stylesheets'))
     .then(source => {
       if (!target) return source;
-      return get(source, target).filter(file => path.extname(file.name) === '.sef.json');
+      return get(source, target).filter(file => file.name.endsWith('.sef.json'));
     });
 }
 
@@ -31,7 +31,7 @@ function getSefFromSync (target) {
   const directoryTree = walkerSync(path.join(__dirname, 'src'));
   const source = getSync(directoryTree, 'stylesheets');
   if (!target) return source;
-  return getSync(source, target).filter(file => path.extname(file.name) === '.sef.json');
+  return getSync(source, target).filter(file => file.name.endsWith('.sef.json'));
 }
 
 function get (directoryTree, target) {
