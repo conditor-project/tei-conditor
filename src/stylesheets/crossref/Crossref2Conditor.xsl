@@ -12,7 +12,7 @@ exclude-result-prefixes="xs xsi fr jats cr cr1 rs"
 version="1.0">
 
     <!-- ========================================================================================================
-        C Stock, S. Gregorio, 2020-06. Dernière modification : 11-12-2020.        
+        C Stock, S. Gregorio, 2020-06. Dernière modification : 26082021.        
         
      Cette feuille de style Crossref2Conditor_TEI0 regroupe le traitement de 3 catégories Crossref différentes :
      <journal>, <conference>, <book>.
@@ -79,9 +79,18 @@ version="1.0">
       tests sur la langue au niveau journal_article/conference_paper/content_item et renseignement du bloc <langUsage> le cas échéant
       
       Modifications 11 décembre 2020 :
-      tests sur la langue du texte au niveau journal_article/conference_paper/content_item - et au niveau supérieur- ; renseignement du bloc <langUsage> avec un <xsl:choose>
-      Dans <xsl:otherwise> ajout de @xml:lang="und" pour "Undetermined" (cf.https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
-      Dans le template pour les langues : intégration du code "en" et de son libellé dans la liste des langues
+      - tests sur la langue du texte au niveau journal_article/conference_paper/content_item - et au niveau supérieur- ; renseignement du bloc <langUsage> avec un <xsl:choose>
+      - Dans <xsl:otherwise> ajout de @xml:lang="und" pour "Undetermined" (cf.https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+      - Dans le template pour les langues : intégration du code "en" et de son libellé dans la liste des langues
+      
+      Modification le 10 mai 2021 :
+      Elément <fr:program> = Funder
+      - Ajout de <xsl:choose> pour prendre en compte pour l'élément <assertion> aussi bien les attributs "@fundgroup" que les "@funder_name" ou "@award_number". Frontiers in.. n'utilise pas "@fundgroup"
+      
+      Modification le 26 août 2021 :
+      Elément <publisher> pour le type "Journal"
+      - le schéma Crossref ignore les éléments <publisher > et <publisher_name> pour le type <journal>
+      - ajout de l'élément <crm-item @name="publisher-name"> pris dans le "header" : bloc <query> en amont du <doi_record>
  ============================================================================================================== -->
 <xsl:output encoding="UTF-8" indent="yes"/> 
 
@@ -179,7 +188,12 @@ version="1.0">
                             <xsl:apply-templates select="//journal/journal_issue/contributors/person_name[@contributor_role='editor'] |//cr:journal/cr:journal_issue/cr:contributors/cr:person_name[@contributor_role='editor'] |//cr1:journal/cr1:journal_issue/cr1:contributors/cr1:person_name[@contributor_role='editor']"/> 
                             <xsl:apply-templates select="//journal/journal_issue/contributors/organization[@contributor_role='editor'] |//cr:journal/cr:journal_issue/cr:contributors/cr:organization[@contributor_role='editor'] |//cr1:journal/cr1:journal_issue/cr1:contributors/cr1:organization[@contributor_role='editor']"/>
                             <imprint>
-                                <!--  No <publisher> for journals  in record  -->
+                                <!--  No <publisher> for journals in record  -->
+                                <xsl:if test="../../../rs:crm-item[@name='publisher-name']!=''">
+                                    <publisher>
+                                        <xsl:value-of select="../../../rs:crm-item[@name='publisher-name']"/>
+                                    </publisher>
+                                </xsl:if>
                                 <xsl:apply-templates select="//journal/journal_article/publication_date |//cr:journal/cr:journal_article/cr:publication_date  |//cr1:journal/cr1:journal_article/cr1:publication_date"/>
                                 <xsl:apply-templates select="//journal/journal_issue |//cr:journal/cr:journal_issue |//cr1:journal/cr1:journal_issue"/>
                                 <xsl:apply-templates select="//journal/journal_article/pages |//cr:journal/cr:journal_article/cr:pages |//cr1:journal/cr1:journal_article/cr1:pages"/>
@@ -303,6 +317,13 @@ version="1.0">
                 <xsl:value-of select="//journal/journal_issue/titles/title | //cr:journal/cr:journal_issue/cr:titles/cr:title | //cr1:journal/cr1:journal_issue/cr1:titles/cr1:title"/>
             </title></xsl:if>
     </xsl:template>
+ 
+ <!--  Publisher pris dans l'entête : correspond à l'organisme qui attribue le DOI (cf. OpenEdition et non pas Presses universitaires de Rennes)  
+    <xsl:template match="//body/query/crm-item[@name="publisher-name']">
+        <publisher>
+            <xsl:apply-templates/>    
+        </publisher>
+    </xsl:template> -->
     
   <!--  volumaison  -->
     <xsl:template match="journal_issue | cr:journal_issue | cr1:journal_issue">  
@@ -317,7 +338,7 @@ version="1.0">
         </biblScope> 
     </xsl:template>              
        
-    <xsl:template match="fr:program" mode="journal">
+<!--    <xsl:template match="fr:program" mode="journal">
         <xsl:for-each select="fr:assertion[@name='fundgroup']"> 
             <funder>
                 <xsl:if test="./fr:assertion[@name='funder_name']">
@@ -339,7 +360,7 @@ version="1.0">
                 </xsl:if>
             </funder>
         </xsl:for-each>
-    </xsl:template>
+    </xsl:template>  -->
  
     <xsl:template match="//journal/journal_article/@language|//cr:journal/cr:journal_article/@language|//cr1:journal/cr1:journal_article/@language">
         <xsl:element name="language">
@@ -1062,6 +1083,8 @@ version="1.0">
     
     <!-- funder  / funding  -->
     <xsl:template match="fr:program">
+        <xsl:choose>
+            <xsl:when test="./fr:assertion[@name='fundgroup']">
         <xsl:for-each select="fr:assertion[@name='fundgroup']">  
             <funder>
                 <xsl:if test="./fr:assertion[@name='funder_name']">
@@ -1092,6 +1115,38 @@ version="1.0">
                 </xsl:if>
             </funder>
         </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+                <funder>
+                    <xsl:if test="./fr:assertion[@name='funder_name']">
+                        <xsl:choose>
+                            <xsl:when test="contains(fr:assertion[@name='funder_name'],'http:')">
+                                <name type="agency">    
+                                    <xsl:value-of select="normalize-space(substring-before(fr:assertion[@name='funder_name'],'http:'))"/>
+                                </name> 
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <name type="agency">    
+                                    <xsl:value-of select="normalize-space(fr:assertion[@name='funder_name'] )"/>
+                                </name> 
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:if>
+                    <xsl:if test="./fr:assertion/fr:assertion[@name='funder_identifier']">
+                        <idno type="funder_identifier">
+                            <xsl:value-of select="normalize-space(./fr:assertion/fr:assertion[@name='funder_identifier'])"/>
+                        </idno>
+                    </xsl:if>
+                    <xsl:if test="./fr:assertion[@name='award_number']">
+                        <xsl:for-each  select="./fr:assertion[@name='award_number']">
+                            <idno type="grantNumber"> 
+                                <xsl:value-of select="."/>
+                            </idno>
+                        </xsl:for-each>
+                    </xsl:if>
+                </funder>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="isbn | cr:isbn | cr1:isbn">
