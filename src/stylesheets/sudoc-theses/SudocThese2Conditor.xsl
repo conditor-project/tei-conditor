@@ -7,7 +7,7 @@
     exclude-result-prefixes="xs">  
 	
 <!--  ================================================================================
-   C Stock, S. Gregorio, 2020-06. Dernière modification : 27-10-2020.    
+   C Stock, S. Gregorio, 2020-06. Dernière modification : 2021-08-27.    
 
 Cette feuille de style traite les notices de thèses françaises issus de la bibliographie nationale des thèses dans leur version de soutenance signalés dans le Sudoc en format Unimarc version XMLlisée.
   
@@ -28,6 +28,12 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
       -  Mots clés auteur : ajout de @xml:lang="und" pour "undetermined"
       -  Template "jury" : ajout de "702" (notices avant reforme)
       -  Template "institution" : ajout de 712 (notices avant reforme)
+      
+      Modifications le 27 août 2021 :
+      - élément <ref @target> : ajout d'un "normalize-space" pour la valeur de l'attribut (URL) afin de supprimer les espaces en fin d'URL (erreurs saisi Sudoc). Ceci crée des soucis pour récupérer le fulltext des notices avec le programme de Dominique Bésagni.
+      - type de thèse et domaine de thèse : 
+      		Ajout d'un test sur le contenu de 328$b <xsl:when test="contains(./subfield[@code='b'], 'exercice')"> et génération de la chaîne "Thèse d'exercice" pour éviter les rejets liés à l'apostrophe
+      		Ajout d'un test sur la présence de "Thèse d'exercice" en position 2 du champ répétitif 328 Unimarc pour éviter les rejets co-formatter si le type "Mémoire de DES" apparaît en premier
 =======================================================================================  -->
 	
  <xsl:output encoding="UTF-8" indent="yes"/>
@@ -123,8 +129,9 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
                 		<!--  classifications TEF et dewey  -->
                 	<xsl:apply-templates select="datafield[@tag='686']/subfield[@code='a']"/>
                 	<xsl:apply-templates select="datafield[@tag='676']/subfield[@code='a']"/>	
+                		
                 		<!--  type et discipline de thèse  -->
-                	<xsl:apply-templates select="datafield[@tag='328']/subfield[@code='c']"/>
+                	<xsl:apply-templates select="datafield[@tag='328']"/>  
                 	<xsl:apply-templates select="datafield[@tag='328']/subfield[@code='b']"/>  
 		</textClass>
                 	<!--  abstract  	<abstract xml:lang=""  --> 
@@ -474,7 +481,7 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
 	<xsl:if test="datafield[@tag='856']/subfield[@code='q']='PDF'">
 		<ref type="file" n="1">
 			<xsl:attribute name="target">
-				<xsl:value-of select="datafield[@tag='856']/subfield[@code='u']"/>
+				<xsl:value-of select="normalize-space(datafield[@tag='856']/subfield[@code='u'])"/>
 			</xsl:attribute>
 		</ref>
 	</xsl:if>
@@ -611,23 +618,41 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
 	</classCode>
 </xsl:template>
 	
-	<!--  Type de thèse et domaine scientifique de thèse  -->
-<xsl:template match="datafield[@tag='328']/subfield[@code='c']">
-	<xsl:if test="position()=1">
-	<classCode scheme="thesisDomain">
-		<xsl:apply-templates/>
-	</classCode>
-	</xsl:if>
+	<!--  Domaine scientifique de thèse  et type de thèse -->
+<xsl:template match="datafield[@tag='328']">
+	<xsl:choose>
+		<xsl:when test="contains(./subfield[@code='b'], 'exercice')">
+			<classCode scheme="thesisDomain">
+				<xsl:value-of select="subfield[@code='b']/following-sibling::subfield[@code='c'][1]"/>
+			</classCode>
+		</xsl:when>
+		<xsl:when test="contains(./subfield[@code='b'], 'doctorat')">
+			<xsl:if test="position()=1">
+				<classCode scheme="thesisDomain">
+					<xsl:value-of select="subfield[@code='b']/following-sibling::subfield[@code='c'][1]"/>
+				</classCode>
+			</xsl:if>
+		</xsl:when>
+		<xsl:otherwise/>
+	</xsl:choose>
 </xsl:template>
 	
 <xsl:template match="datafield[@tag='328']/subfield[@code='b']">
-	<xsl:if test="position()=1">
-	<classCode scheme="typology">
-		<xsl:apply-templates/>
-	</classCode>
-	</xsl:if>
+	<xsl:choose>
+		<xsl:when test="contains(., 'exercice')">
+			<classCode scheme="typology">Thèse d'exercice</classCode>
+		</xsl:when>
+		<xsl:when test="contains(., 'doctorat')">
+			<xsl:if test="position()=1">
+				<classCode scheme="typology">
+					<xsl:apply-templates/>
+			</classCode>
+		</xsl:if>
+		</xsl:when>
+	<xsl:otherwise/>
+	</xsl:choose>
 </xsl:template>
-
+	
 <!--   ABSTRACT  -->
 <xsl:template match="datafield[@tag='330']">
 	<xsl:choose>
