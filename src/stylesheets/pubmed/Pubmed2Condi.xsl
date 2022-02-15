@@ -68,6 +68,12 @@
    
    Modifications le 19 octobre 2020        
                 <keywords scheme="meshChemical"> : ajout de l'attribut @xml:lang="en"
+        
+   Modifications le 10-02-2022
+        Identifiant Pubmed :  <xsl:template name="ArticleIdList"> (la version précédente incluait les pmid des références bibliographiques !)
+            - changement de test pour inclure le niveau "ArticleIdList" dans le test et la sélection :
+             <xsl:when test="PubmedData//ArticleId"><xsl:for-each select="PubmedData//ArticleId"> DEVIENT  
+             <xsl:when test="PubmedData/ArticleIdList/ArticleId"><xsl:for-each select="PubmedData/ArticleIdList/ArticleId">
  ============================================================================================================== -->
 
 <xsl:output encoding="UTF-8" indent="yes"/> 
@@ -671,8 +677,8 @@ Suppl 1 Proceedings of the International Conference on Human, Supplement_5, Tech
   
      <xsl:choose>
          <!-- 1 : article : -->
-         <xsl:when test="PubmedData//ArticleId">  <!-- normalement constant, et complet pour pubmed -->
-             <xsl:for-each select="PubmedData//ArticleId">
+         <xsl:when test="PubmedData/ArticleIdList/ArticleId">  <!-- normalement constant, et complet pour pubmed -->
+             <xsl:for-each select="PubmedData/ArticleIdList/ArticleId">
          <xsl:if test="@IdType='doi'"><idno type="doi"><xsl:value-of select="."/></idno></xsl:if>
          <xsl:if test="@IdType='pii'"><idno type="pii"><xsl:value-of select="."/></idno></xsl:if>
              <xsl:if test="@IdType='pubmed'"><idno type="pubmed"><xsl:value-of select="."/></idno></xsl:if>
