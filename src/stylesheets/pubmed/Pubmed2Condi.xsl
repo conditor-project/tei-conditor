@@ -468,14 +468,14 @@
                     
                     <xsl:when test="MedlineCitation/Article/Journal/JournalIssue/PubDate/Year">   <!-- PubDate oblig ((Year, ((Month, Day?) | Season)?) | MedlineDate) -->
                         <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Year"/>
-                        <xsl:text>-</xsl:text>
                         <!-- <xsl:value-of select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Month"/> -->
                         <xsl:if test="MedlineCitation/Article/Journal/JournalIssue/PubDate/Month[text()]">
                             <xsl:variable  name="mois" select="MedlineCitation/Article/Journal/JournalIssue/PubDate/Month"/>
+                            <xsl:text>-</xsl:text>
                             <!-- 01 et 1 à 12 et Apr, Aug, Dec, Feb, Jan, Jul, Jun, Mar May Nov Oct Sep -->
                             <xsl:choose>
-                             <xsl:when test="contains($mois, '0')"><xsl:value-of select="$mois"/></xsl:when>
-                             <xsl:when test="$mois='1' or $mois='Jan'">01</xsl:when>
+                                <xsl:when test="contains($mois, '0')"><xsl:value-of select="$mois"/></xsl:when>
+                                <xsl:when test="$mois='1' or $mois='Jan'">01</xsl:when>
                                 <xsl:when test="$mois='2' or $mois='Feb'">02</xsl:when>
                                 <xsl:when test="$mois='3' or $mois='Mar'">03</xsl:when>
                                 <xsl:when test="$mois='4' or $mois='Apr'">04</xsl:when>
