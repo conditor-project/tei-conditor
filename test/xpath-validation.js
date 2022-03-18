@@ -21,10 +21,10 @@ describe('Xpath validation', function () {
         metadataXpaths
           .filter(metadataXpath => dataset.xpathToTest.includes(metadataXpath.name))
           .map(metadataXpath => {
-            it(`it should retrieving ${metadataXpath.name}`, function () {
+            it(`it should retrieve ${metadataXpath.name}`, function () {
               const transformer = new Computron();
               return transformer.loadStylesheetAsync(stylesheet.path)
-                .then(() => transformer.applyAsync(dataset.path))
+                .then(() => transformer.applyAsync(dataset.path, null))
                 .then(xml => new DOM().parseFromString(xml))
                 .then(xmlDoc => {
                   const evaluatorOptions = {
