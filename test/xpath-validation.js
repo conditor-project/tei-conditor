@@ -1,67 +1,72 @@
-'use strict';
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions */
-const { getStylesheetFromSync } = require('../index.js');
-const xpath = require('xpath');
+
+const path = require('path');
 const { expect } = require('chai');
-const DOM = require('xmldom').DOMParser;
-const Promise = require('bluebird');
-const metadataXpaths = require('co-config/metadata-xpaths.json');
-const coFormatter = require('co-formatter');
 const Computron = require('computron');
-Promise.promisifyAll(Computron.prototype);
+const { getStylesheetFrom } = require('../index');
 
-const datasets = require('./dataset');
+const stylesheetsPath = path.join(__dirname, '..', 'src', 'stylesheets');
+const datasetPath = path.join(__dirname, 'dataset');
 
-describe('Xpath validation', function () {
-  datasets.map(dataset => {
-    const stylesheets = getStylesheetFromSync(dataset.source);
-    stylesheets.map(stylesheet => {
-      describe(`dataset ${dataset.name} transform with ${stylesheet.name}`, function () {
-        metadataXpaths
-          .filter(metadataXpath => dataset.xpathToTest.includes(metadataXpath.name))
-          .map(metadataXpath => {
-            it(`it should retrieve ${metadataXpath.name}`, function () {
-              const transformer = new Computron();
-              return transformer.loadStylesheetAsync(stylesheet.path)
-                .then(() => transformer.applyAsync(dataset.path, null))
-                .then(xml => new DOM().parseFromString(xml))
-                .then(xmlDoc => {
-                  const evaluatorOptions = {
-                    node: xmlDoc,
-                    namespaces: coFormatter.namespaces,
-                    functions: coFormatter.evalFunctions
-                  };
-                  const value = coFormatter.extract(metadataXpath, evaluatorOptions);
-                  expect(value).to.not.be.empty;
-                });
-            });
-          });
+// TODO: do more advanced verifications on the TEI (not just checking the result length)
 
-        it(`it should fail retrieving element with bad xpath`, function () {
-          const badXpath = {
-            name: 'nope',
-            type: 'simpleString',
-            path: '//TEI/path/to/nothing/'
-          };
-          const transformer = new Computron();
-          return transformer.loadStylesheetAsync(stylesheet.path)
-            .then(() => transformer.applyAsync(dataset.path))
-            .then(xml => new DOM().parseFromString(xml))
-            .then(xmlDoc => {
-              const evaluator = xpath.parse(badXpath.path);
-              const evaluatorOptions = {
-                node: xmlDoc,
-                namespaces: coFormatter.namespaces,
-                functions: coFormatter.evalFunctions
-              };
-              evaluator.evaluate(evaluatorOptions);
-            })
-            .catch(error => {
-              expect(error).to.be.an('error');
-            });
-        });
-      });
-    });
+describe('Hal tests', () => {
+  const halStylesheetsPath = path.join(stylesheetsPath, 'hal');
+  const halDatasetPath = path.join(datasetPath, 'hal');
+  const transformer = new Computron();
+
+  before(async () => {
+    const stylesheets = await getStylesheetFrom('hal');
+    expect(stylesheets.length).to.equal(1);
+    expect(stylesheets[0].path).to.equal(path.join(halStylesheetsPath, 'Hal2Condi.xsl'));
+    transformer.loadStylesheet(stylesheets[0].path);
+  });
+
+  it('Apply Hal stylesheet on hal-01246266.xml', () => {
+    const xml = transformer.apply(path.join(halDatasetPath, 'hal-01246266.xml'));
+    expect(xml.length).to.be.greaterThan(0);
+  });
+
+  it('Apply Hal stylesheet on hal-01313778.xml', () => {
+    const xml = transformer.apply(path.join(halDatasetPath, 'hal-01313778.xml'));
+    expect(xml.length).to.be.greaterThan(0);
+  });
+
+  it('Apply Hal stylesheet on hal-01497129.xml', () => {
+    const xml = transformer.apply(path.join(halDatasetPath, 'hal-01497129.xml'));
+    expect(xml.length).to.be.greaterThan(0);
+  });
+
+  it('Apply Hal stylesheet on hal-01575728.xml', () => {
+    const xml = transformer.apply(path.join(halDatasetPath, 'hal-01575728.xml'));
+    expect(xml.length).to.be.greaterThan(0);
+  });
+});
+
+describe('Pubmed tests', () => {
+  const pubmedStylesheetsPath = path.join(stylesheetsPath, 'pubmed');
+  const pubmedDatasetPath = path.join(datasetPath, 'pubmed');
+  const transformer = new Computron();
+
+  before(async () => {
+    const stylesheets = await getStylesheetFrom('pubmed');
+    expect(stylesheets.length).to.equal(1);
+    expect(stylesheets[0].path).to.equal(path.join(pubmedStylesheetsPath, 'Pubmed2Condi.xsl'));
+    transformer.loadStylesheet(stylesheets[0].path);
+  });
+
+  it('Apply Hal stylesheet on pubmed-11700088.xml', () => {
+    const xml = transformer.apply(path.join(pubmedDatasetPath, 'pubmed-11700088.xml'));
+    expect(xml.length).to.be.greaterThan(0);
+  });
+
+  it('Apply Hal stylesheet on pubmed-11748933.xml', () => {
+    const xml = transformer.apply(path.join(pubmedDatasetPath, 'pubmed-11748933.xml'));
+    expect(xml.length).to.be.greaterThan(0);
+  });
+
+  it('Apply Hal stylesheet on pubmed-29977837.xml', () => {
+    const xml = transformer.apply(path.join(pubmedDatasetPath, 'pubmed-29977837.xml'));
+    expect(xml.length).to.be.greaterThan(0);
   });
 });
