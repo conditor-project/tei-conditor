@@ -24,7 +24,7 @@ function get (directoryTree, target) {
       if (directory.length === 0) return Promise.reject(new Error('no directory founded'));
       if (directory.length > 1) return Promise.reject(new Error('too many directories founded'));
       const objSource = directory.pop();
-      if (!objSource.hasOwnProperty('children')) return Promise.reject(new Error('directory empty'));
+      if (objSource.children === undefined) return Promise.reject(new Error('directory empty'));
       return objSource.children;
     });
 }
@@ -34,7 +34,7 @@ function getSync (directoryTree, target) {
   if (directoryTreeFiltered.length === 0) throw new Error('no directory founded');
   if (directoryTreeFiltered.length > 1) throw new Error('too many directories founded');
   const objSource = directoryTreeFiltered.pop();
-  if (!objSource.hasOwnProperty('children')) throw new Error('directory empty');
+  if (!objSource.children === undefined) throw new Error('directory empty');
   return objSource.children;
 }
 
@@ -45,7 +45,7 @@ function walker (directory) {
         name: content,
         path: path.join(directory, content),
         size: stats.size,
-        type: 'unknown'
+        type: 'unknown',
       };
       if (stats.isFile()) result.type = 'file';
       if (stats.isDirectory()) result.type = 'directory';
@@ -69,7 +69,7 @@ function walkerSync (directory) {
       name: content,
       path: path.join(directory, content),
       size: stats.size,
-      type: 'unknown'
+      type: 'unknown',
     };
     if (stats.isFile()) result.type = 'file';
     if (stats.isDirectory()) result.type = 'directory';
