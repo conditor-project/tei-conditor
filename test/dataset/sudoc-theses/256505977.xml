@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>     clm0 22        450 </leader>
+  <controlfield tag="001">256505977</controlfield>
+  <controlfield tag="002">15</controlfield>
+  <controlfield tag="003">http://www.sudoc.fr/256505977</controlfield>
+  <controlfield tag="004">20210709</controlfield>
+  <controlfield tag="005">20220217185638.000</controlfield>
+  <controlfield tag="006">335229901</controlfield>
+  <controlfield tag="007">341720001</controlfield>
+  <controlfield tag="008">Oax3</controlfield>
+  <datafield tag="029" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">2021BORDP049 (thèse d’exercice)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)1259641472</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">20210709d2021    k  y0frey50      ba</subfield>
+  </datafield>
+  <datafield tag="101" ind1="0" ind2=" ">
+    <subfield code="a">fre</subfield>
+    <subfield code="c">fre</subfield>
+    <subfield code="d">fre</subfield>
+    <subfield code="d">eng</subfield>
+    <subfield code="g">fre</subfield>
+  </datafield>
+  <datafield tag="102" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+  </datafield>
+  <datafield tag="105" ind1=" " ind2=" ">
+    <subfield code="a">a   ma  000yy</subfield>
+  </datafield>
+  <datafield tag="135" ind1=" " ind2=" ">
+    <subfield code="a">dr|||||||||||</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">i#</subfield>
+    <subfield code="b">xxxe##</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">b</subfield>
+  </datafield>
+  <datafield tag="183" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">ceb</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="200" ind1="1" ind2=" ">
+    <subfield code="a">Impact de l’affaire du Levothyrox sur le pharmacien d’officine en Nouvelle Aquitaine</subfield>
+    <subfield code="f">par Nicolescu-Catargi, Pierre</subfield>
+    <subfield code="g">sous la direction de, Catargi Bogdan</subfield>
+  </datafield>
+  <datafield tag="214" ind1=" " ind2="1">
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="230" ind1=" " ind2=" ">
+    <subfield code="a">Données textuelles</subfield>
+  </datafield>
+  <datafield tag="303" ind1=" " ind2=" ">
+    <subfield code="a">L’impression du document génère 90 f.</subfield>
+  </datafield>
+  <datafield tag="304" ind1=" " ind2=" ">
+    <subfield code="a">Titre provenant de l’écran-titre</subfield>
+  </datafield>
+  <datafield tag="320" ind1=" " ind2=" ">
+    <subfield code="a">Bibliographie 49 réf. Annexe</subfield>
+  </datafield>
+  <datafield tag="328" ind1=" " ind2="0">
+    <subfield code="b">Thèse d’exercice</subfield>
+    <subfield code="c">Pharmacie. Officine</subfield>
+    <subfield code="e">Bordeaux</subfield>
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">En 2017 le laboratoire Merck, sous l’impulsion de l’Agence National de Santé du Médicament, a changé la formulation de son médicament pour lutter contre les hypothyroïdies : le Levothyrox. Ce changement a provoqué une hausse des déclarations de pharmacovigilance ainsi que d’une grande médiatisation qui a conduit à ce qu’on connait aujourd’hui sous le nom de « l’affaire du Levothyrox® ». J’ai donc réalisé un questionnaire anonyme à destination des pharmaciens officinaux de Nouvelle Aquitaine afin d’établir quel a été l’impact de cette affaire sur leurs missions mais également sur la prise en charge des patients et leur suivi. La pharmacie clinique est une discipline de la pharmacie qui reste très peu utilisée en ville et son développement aurait permis aux pharmaciens d’améliorer la sécurité des patients dans le parcours de soin durant des crises comme celle-ci.</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">In 2017 Merck, with the advices of the ANSM, changed the formulation of the Levothyrox®: the medicine uses to treat hypothyroidism. This change has done a huge increase of side effects declarations at the ARS (health regional agencies) and the mediatisation leads to what we know today as: “the Levothyrox® affair”. So, I made an anonymous survey for Nouvelle Aquitaine officinal pharmacists to know what was the impact of this affair in their missions and also in the patient care and following. Clinical pharmacy is not really used in town pharmacy, the development of this part of pharmacy could help pharmacists to improve the security of their patients in the health care way in crisis like this one.</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">Configuration requise : un logiciel capable de lire un fichier au format pdf</subfield>
+  </datafield>
+  <datafield tag="541" ind1="|" ind2=" ">
+    <subfield code="a">Impact of the levothyrox affair on the officinal pharmacist in Nouvelle Aquitaine</subfield>
+    <subfield code="z">eng</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">032074921</subfield>
+    <subfield code="a">Hypothyroïdie</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">031393934</subfield>
+    <subfield code="a">Thyroxine</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">027338398</subfield>
+    <subfield code="a">Pharmacovigilance</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">027246639</subfield>
+    <subfield code="a">Pharmaciens</subfield>
+    <subfield code="3">193296063</subfield>
+    <subfield code="y">Nouvelle-Aquitaine (France)</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="608" ind1=" " ind2=" ">
+    <subfield code="3">027253139</subfield>
+    <subfield code="a">Thèses et écrits académiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="700" ind1=" " ind2="1">
+    <subfield code="3">256506175</subfield>
+    <subfield code="a">Nicolescu-Catargi</subfield>
+    <subfield code="b">Pierre</subfield>
+    <subfield code="f">1994-....</subfield>
+    <subfield code="4">070</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">071660542</subfield>
+    <subfield code="a">Nicolescu-Catargi</subfield>
+    <subfield code="b">Bogdan</subfield>
+    <subfield code="f">1962-....</subfield>
+    <subfield code="4">727</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">175206562</subfield>
+    <subfield code="a">Université de Bordeaux</subfield>
+    <subfield code="c">2014-....</subfield>
+    <subfield code="4">295</subfield>
+  </datafield>
+  <datafield tag="801" ind1=" " ind2="3">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">Abes</subfield>
+    <subfield code="c">20220217</subfield>
+    <subfield code="g">AFNOR</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="q">PDF</subfield>
+    <subfield code="u">https://dumas.ccsd.cnrs.fr/dumas-03244307</subfield>
+    <subfield code="2">Accès au texte intégral</subfield>
+  </datafield>
+  <datafield tag="930" ind1=" " ind2=" ">
+    <subfield code="5">335229901:701278811</subfield>
+    <subfield code="b">335229901</subfield>
+  </datafield>
+  <datafield tag="940" ind1=" " ind2=" ">
+    <subfield code="5">335229901:701278811</subfield>
+    <subfield code="a">20210709</subfield>
+    <subfield code="b">x</subfield>
+  </datafield>
+  <datafield tag="941" ind1=" " ind2=" ">
+    <subfield code="5">335229901:701278811</subfield>
+    <subfield code="a">20210709</subfield>
+    <subfield code="b">15:58:36.000</subfield>
+  </datafield>
+</record>

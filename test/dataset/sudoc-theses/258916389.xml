@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>     nlm0 22        450 </leader>
+  <controlfield tag="001">258916389</controlfield>
+  <controlfield tag="002">194</controlfield>
+  <controlfield tag="003">http://www.sudoc.fr/258916389</controlfield>
+  <controlfield tag="004">20211206</controlfield>
+  <controlfield tag="005">20211206155755.000</controlfield>
+  <controlfield tag="006">4001</controlfield>
+  <controlfield tag="007">4001</controlfield>
+  <controlfield tag="008">Oax3</controlfield>
+  <datafield tag="029" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">2021ENPC0013</subfield>
+  </datafield>
+  <datafield tag="033" ind1=" " ind2=" ">
+    <subfield code="a">http://www.theses.fr/2021ENPC0013</subfield>
+    <subfield code="2">theses.fr</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">STAR159780</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">20211206d2021    k  y0frey50      ba</subfield>
+  </datafield>
+  <datafield tag="101" ind1="0" ind2=" ">
+    <subfield code="a">fre</subfield>
+    <subfield code="d">fre</subfield>
+    <subfield code="d">eng</subfield>
+  </datafield>
+  <datafield tag="102" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+  </datafield>
+  <datafield tag="105" ind1=" " ind2=" ">
+    <subfield code="a">y   ma  00|yy</subfield>
+  </datafield>
+  <datafield tag="135" ind1=" " ind2=" ">
+    <subfield code="a">dr|||||||||||</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">i#</subfield>
+    <subfield code="b">xxxe##</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">b</subfield>
+  </datafield>
+  <datafield tag="183" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">ceb</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="200" ind1="1" ind2=" ">
+    <subfield code="a">Étude des débris plastiques et des fibres anthropiques lors d’évènements transitoires</subfield>
+    <subfield code="e">épisodes pluvieux en milieu urbain et dynamique de crue</subfield>
+    <subfield code="f">Robin Treilles</subfield>
+    <subfield code="g">sous la direction de Bruno Tassin et de Johnny Gasperi</subfield>
+  </datafield>
+  <datafield tag="214" ind1=" " ind2="1">
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="230" ind1=" " ind2=" ">
+    <subfield code="a">Données textuelles</subfield>
+  </datafield>
+  <datafield tag="304" ind1=" " ind2=" ">
+    <subfield code="a">Titre provenant de l’écran-titre</subfield>
+  </datafield>
+  <datafield tag="314" ind1=" " ind2=" ">
+    <subfield code="a">Ecole(s) Doctorale(s) : École doctorale Sciences, Ingénierie et Environnement</subfield>
+  </datafield>
+  <datafield tag="314" ind1=" " ind2=" ">
+    <subfield code="a">Partenaire(s) de recherche : Laboratoire Eau, Environnement et Systèmes Urbains (Laboratoire)</subfield>
+  </datafield>
+  <datafield tag="314" ind1=" " ind2=" ">
+    <subfield code="a">Autre(s) contribution(s) : Aurélie Cayla (Président du jury) ; Bruno Tassin, Johnny Gasperi, Alexandra Ter Halle, Rachid Amara, Cécile Delolme, François Galgani, Rachid Dris (Membre(s) du jury) ; Alexandra Ter Halle, Rachid Amara (Rapporteur(s))</subfield>
+  </datafield>
+  <datafield tag="328" ind1=" " ind2="0">
+    <subfield code="b">Thèse de doctorat</subfield>
+    <subfield code="c">Sciences de l’Univers et Environnement</subfield>
+    <subfield code="e">Marne-la-vallée, ENPC</subfield>
+    <subfield code="d">2021</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">La présence de débris plastiques, qu’il s’agisse de macrodéchets, de microplastiques ou de fibres, est reconnue aujourd’hui à l’échelle planétaire comme un enjeu environnemental majeur. Par les activités et les populations qu’il concentre, le milieu urbain est considéré comme une source majeure de pollution plastique. Cette thèse apporte un éclairage nouveau sur les évènements transitoires en milieu urbain et dans les eaux continentales. Elle présente de nouvelles données concernant les déchets plastiques et les fibres anthropiques dans le bassin de la Seine ainsi que dans le Grand Paris. Sur le plan analytique, elle a permis d’identifier les protocoles de préparation des échantillons les plus adaptés pour les fibres anthropiques, définies comme l’ensemble des fibres utilisées par l’Homme et qui sont rejetées in fine dans l’environnement. Sur le plan environnemental, ces travaux se sont attachés à analyser les variabilités temporelles des flux de plastiques à l’aval d’un bassin versant à l’échelle de l’évènement pluvieux, et sur la Seine à analyser cette même variabilité lors d’un épisode de crue (janvier 2018).Pour répondre à la première question, cinq protocoles de digestion de la matière organique couramment utilisés dans la littérature, ont été testés sur les sept types de fibres les plus produits dans le monde. Les protocoles KOH 10% à 60 °C et H2O2 30% à 40°C devraient être évités pour l’analyse des fibres. NaClO dilué à température ambiante pendant 15 h, et KOH à 10% à 40 °C pendant 24 h et la réaction de Fenton permettent de maintenir l’intégrité de ces fibres. La deuxième question a été abordée en étudiant l’abondance et la composition des macroplastiques, des microplastiques et des fibres anthropiques dans les eaux pluviales d’un bassin versant résidentiel péri-urbain (Sucy-en-Brie, France) du Grand Paris sur un an (macroplastiques) et 4 évènements pluvieux (fibres et microplastiques). Pour ce site, les concentrations en macroplastiques et microplastiques dans les eaux pluviales sont du même ordre de grandeur. En extrapolant à l’échelle de l’agglomération parisienne, la quantité estimée de débris macroplastiques rejetés dans l’environnement par les réseaux séparatifs varie de 8 à 33 tonnes.an-1, tandis que les flux de microplastiques et de fibres anthropiques varient respectivement de 3 à 48 tonnes.an-1 et de 0,3 à 0,8 tonne.an-1.Enfin, les concentrations de fibres et de microplastiques, la distribution de tailles et des polymères, et les flux massiques ont été évalués dans la Seine lors de conditions hydrologiques contrastées : en étiage et en crue. Les concentrations médianes de fibres et de microplastiques sont de 2,6 et 15,5 items/L et la crue ne les modifie pas de manière significative. La crue de janvier 2018, qui a duré 52 jours, soit environ 15% de l’année, a contribué à hauteur de 40% du flux annuel de microplastiques dans la Seine. La confrontation des différentes données en vue d’établir des flux à l’échelle de l’agglomération mais aussi à l’échelle du bassin versant de la Seine démontre toute la complexité d’aborder cette pollution de manière systémique. Les données de flux massiques de plastiques dans les compartiments urbains et dans les eaux de surface sont encore trop rares pour pouvoir être utilisés de manière opérationnelle à grande échelle. Cette thèse contribue à l’estimation de ces flux en fournissant de nouvelles informations sur le rôle des événements transitoires</subfield>
+  </datafield>
+  <datafield tag="330" ind1=" " ind2=" ">
+    <subfield code="a">Plastics are an important environmental issue. These debris range from macroplastics to microplastics. Moreover, anthropogenic fibers were identified in different environmental compartments. The urban environment represents a major source for this pollution.This thesis presents new data regarding plastic waste and anthropogenic fibers in the Seine river basin as well as in Greater Paris during transitory events. Firstly, methodological questions were addressed regarding the digestion protocols for fibers analyses. Then, inter and intra event variability of the macro and microplastic concentrations in stormwater of Greater Paris were assessed. The 2018 flood event and the urbanization gradient impact on the microplastic concentration in the Seine river basin were also evaluated. Finally, plastic waste and anthropogenic fibers fluxes were estimated in Greater Paris and in the Seine River.To address the first question, the impact of five commonly used digestion protocols on the seven most produced fibers in traditional textile were studied. 10% KOH 60 °C and 30% H2O2 40°C protocols should be avoided for synthetic fibers analyses. Diluted NaClO at room temperature for 15 h, 10% KOH at 40 °C for 24 h and Fenton’s reagent are more appropriate to maintain fibers integrity.The second question was addressed by studying the occurrence, abundance, and composition of the macrolitter, microplastics and anthropogenic fibers from stormwater at a small residential suburban catchment (Sucy-en-Brie, France) in Greater Paris for one year (macroplastics) and for four rain events (microplastics). For this sampling site, macroplastics and microplastics have the same order of magnitude. When extrapolated to the Greater Paris area, the estimated amount of macroplastic debris discarded into the environment through untreated stormwater of separate sewer systems ranges from 8 to 33 tons yr-1, while microplastic and anthropogenic fiber fluxes ranges from 3 to 48 tons yr-1 and from 0.3 to 0.8 tons yr-1.Finally, fiber and microplastic concentrations, size and polymer distributions, and mass fluxes were evaluated in the Seine river during contrasted hydrological conditions: low flow conditions versus a flood event. The median fiber and microplastic concentrations is 2.6 and 15.5 items/L with an interquartile range of 1.6 and 4.9 items/L (n=10), respectively. High flowrates did not significantly change the concentrations. However, microplastic mass fluxes are strongly impacted by the high flowrates during the flood. Fiber and microplastic fluxes show an increasing gradient from upstream to downstream. The flood event, which lasted 52 days (approximately 15% of the year), contributed to 40% of the annual microplastic flux in the Seine river. These events strongly contribute to these fluxes.Plastic mass fluxes in urban compartments and freshwater systems are still sparse. This PhD contributes to the estimation of these fluxes by providing new insights on the role of transitory events</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">Configuration requise : un logiciel capable de lire un fichier au format : PDF</subfield>
+  </datafield>
+  <datafield tag="541" ind1="|" ind2=" ">
+    <subfield code="a">Study of plastic debris and anthropogenic fibers during transitory events</subfield>
+    <subfield code="e">rainy periods in urban environments and flood dynamics</subfield>
+    <subfield code="z">eng</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">200731165</subfield>
+    <subfield code="a">Microplastiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">03265877X</subfield>
+    <subfield code="a">Eaux pluviales</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="607" ind1=" " ind2=" ">
+    <subfield code="3">027571181</subfield>
+    <subfield code="a">Seine (France ; cours d’eau)</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="607" ind1=" " ind2=" ">
+    <subfield code="3">027464180</subfield>
+    <subfield code="a">Île-de-France (France)</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="608" ind1=" " ind2=" ">
+    <subfield code="3">027253139</subfield>
+    <subfield code="a">Thèses et écrits académiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Macroplastique</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Microplastique</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Fibres anthropiques</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Pollution de la Seine</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Eaux urbaines</subfield>
+  </datafield>
+  <datafield tag="610" ind1="0" ind2=" ">
+    <subfield code="a">Évènements transitoires</subfield>
+  </datafield>
+  <datafield tag="676" ind1=" " ind2=" ">
+    <subfield code="a">550</subfield>
+  </datafield>
+  <datafield tag="686" ind1=" " ind2=" ">
+    <subfield code="a">550</subfield>
+    <subfield code="2">TEF</subfield>
+  </datafield>
+  <datafield tag="700" ind1=" " ind2="1">
+    <subfield code="3">258913819</subfield>
+    <subfield code="a">Treilles</subfield>
+    <subfield code="b">Robin</subfield>
+    <subfield code="f">1993-....</subfield>
+    <subfield code="4">070</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">031994830</subfield>
+    <subfield code="a">Tassin</subfield>
+    <subfield code="b">Bruno</subfield>
+    <subfield code="f">1961-....</subfield>
+    <subfield code="4">727</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">129416827</subfield>
+    <subfield code="a">Gasperi</subfield>
+    <subfield code="b">Johnny</subfield>
+    <subfield code="f">1979-...</subfield>
+    <subfield code="4">727</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">151006105</subfield>
+    <subfield code="a">Cayla</subfield>
+    <subfield code="b">Aurélie</subfield>
+    <subfield code="f">1984-....</subfield>
+    <subfield code="4">956</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">169998495</subfield>
+    <subfield code="a">Ter Halle</subfield>
+    <subfield code="b">Alexandra</subfield>
+    <subfield code="f">19..-....</subfield>
+    <subfield code="4">958</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">130217069</subfield>
+    <subfield code="a">Amara</subfield>
+    <subfield code="b">Rachid</subfield>
+    <subfield code="f">19..-....</subfield>
+    <subfield code="4">958</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">085700797</subfield>
+    <subfield code="a">Delolme</subfield>
+    <subfield code="b">Cécile</subfield>
+    <subfield code="f">1966-...</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">032507232</subfield>
+    <subfield code="a">Galgani</subfield>
+    <subfield code="b">François</subfield>
+    <subfield code="f">1958-....</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="3">201852004</subfield>
+    <subfield code="a">Dris</subfield>
+    <subfield code="b">Rachid</subfield>
+    <subfield code="f">1990-....</subfield>
+    <subfield code="4">555</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">026375060</subfield>
+    <subfield code="a">École nationale des ponts et chaussées</subfield>
+    <subfield code="c">France</subfield>
+    <subfield code="4">295</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">190708174</subfield>
+    <subfield code="a">École doctorale Sciences, Ingénierie et Environnement</subfield>
+    <subfield code="c">Champs-sur-Marne, Seine-et-Marne</subfield>
+    <subfield code="c">2015-....</subfield>
+    <subfield code="4">996</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">149211538</subfield>
+    <subfield code="a">Laboratoire Eau, Environnement et Systèmes Urbains</subfield>
+    <subfield code="4">981</subfield>
+  </datafield>
+  <datafield tag="801" ind1=" " ind2="3">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">Abes</subfield>
+    <subfield code="c">20211206</subfield>
+    <subfield code="g">AFNOR</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="q">PDF</subfield>
+    <subfield code="s">7977130</subfield>
+    <subfield code="u">http://www.theses.fr/2021ENPC0013/document</subfield>
+    <subfield code="z">Accès au texte intégral</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="u">http://www.theses.fr/2021ENPC0013/abes</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="u">https://pastel.archives-ouvertes.fr/tel-03467611</subfield>
+  </datafield>
+  <datafield tag="930" ind1=" " ind2=" ">
+    <subfield code="5">774689901:712781927</subfield>
+    <subfield code="b">774689901</subfield>
+    <subfield code="j">g</subfield>
+  </datafield>
+  <datafield tag="940" ind1=" " ind2=" ">
+    <subfield code="5">774689901:712781927</subfield>
+    <subfield code="a">20211206</subfield>
+    <subfield code="b">x</subfield>
+  </datafield>
+  <datafield tag="941" ind1=" " ind2=" ">
+    <subfield code="5">774689901:712781927</subfield>
+    <subfield code="a">20211206</subfield>
+    <subfield code="b">15:58:10.000</subfield>
+  </datafield>
+  <datafield tag="991" ind1=" " ind2=" ">
+    <subfield code="5">774689901:712781927</subfield>
+    <subfield code="a">exemplaire créé automatiquement par STAR</subfield>
+  </datafield>
+</record>

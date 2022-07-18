@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <leader>     cam0 22        450 </leader>
+  <controlfield tag="001">25651304X</controlfield>
+  <controlfield tag="002">63</controlfield>
+  <controlfield tag="003">http://www.sudoc.fr/25651304X</controlfield>
+  <controlfield tag="004">20210711</controlfield>
+  <controlfield tag="005">20220119202846.000</controlfield>
+  <controlfield tag="006">674822138</controlfield>
+  <controlfield tag="007">341720001</controlfield>
+  <controlfield tag="008">Aax3</controlfield>
+  <datafield tag="029" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">1995STR15120</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)1259641704</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">THOASTR1</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">20210711d1995    |||||frey50      ba</subfield>
+  </datafield>
+  <datafield tag="101" ind1="0" ind2=" ">
+    <subfield code="a">fre</subfield>
+  </datafield>
+  <datafield tag="102" ind1=" " ind2=" ">
+    <subfield code="a">FR</subfield>
+  </datafield>
+  <datafield tag="105" ind1=" " ind2=" ">
+    <subfield code="a">a   ma  |||yy</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="181" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">i#</subfield>
+    <subfield code="b">xxxe##</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="c">n</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="182" ind1=" " ind2="1">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">n</subfield>
+  </datafield>
+  <datafield tag="183" ind1=" " ind2=" ">
+    <subfield code="6">z01</subfield>
+    <subfield code="a">nga</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="200" ind1="1" ind2=" ">
+    <subfield code="a">Vaccins synthétiques</subfield>
+    <subfield code="e">rôle des glycopeptides dans l’induction de la réponse immunitaire</subfield>
+    <subfield code="f">Thumser-Henner-Lett</subfield>
+  </datafield>
+  <datafield tag="214" ind1=" " ind2="1">
+    <subfield code="d">1995</subfield>
+  </datafield>
+  <datafield tag="303" ind1=" " ind2=" ">
+    <subfield code="a">Description établie à partir du formulaire d’enregistrement de la thèse extrait de STAR ou de la version non corrigée de la thèse</subfield>
+  </datafield>
+  <datafield tag="305" ind1=" " ind2=" ">
+    <subfield code="a">La version de soutenance n’existe pas. La bibliothèque n’a pas reçu le dépôt après la soutenance de la thèse.</subfield>
+  </datafield>
+  <datafield tag="316" ind1=" " ind2=" ">
+    <subfield code="5">674822138:701321318</subfield>
+    <subfield code="a">La version de soutenance n’est pas disponible à la bibliothèque // Exemplaire manquant</subfield>
+  </datafield>
+  <datafield tag="328" ind1=" " ind2="0">
+    <subfield code="b">Thèse de doctorat</subfield>
+    <subfield code="c">Immunologie</subfield>
+    <subfield code="e">Strasbourg</subfield>
+    <subfield code="d">2019</subfield>
+  </datafield>
+  <datafield tag="456" ind1=" " ind2="|">
+    <subfield code="0">259592609</subfield>
+    <subfield code="t">Vaccins synthétiques</subfield>
+    <subfield code="o">rôle des glycopeptides dans l’induction de la réponse immunitaire</subfield>
+    <subfield code="f">Thumser-Henner-Lett</subfield>
+    <subfield code="c">Lille</subfield>
+    <subfield code="n">Atelier national de reproduction des thèses</subfield>
+    <subfield code="d">2019</subfield>
+    <subfield code="p">Microfiches</subfield>
+    <subfield code="s">Lille-Thèses</subfield>
+  </datafield>
+  <datafield tag="579" ind1=" " ind2=" ">
+    <subfield code="1">0499</subfield>
+    <subfield code="3">259624047</subfield>
+    <subfield code="t">Vaccins synthétiques, rôle des glycopeptides dans l’induction de la réponse immunitaire</subfield>
+  </datafield>
+  <datafield tag="606" ind1=" " ind2=" ">
+    <subfield code="3">03033120X</subfield>
+    <subfield code="a">Vaccins synthétiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="608" ind1=" " ind2=" ">
+    <subfield code="3">027253139</subfield>
+    <subfield code="a">Thèses et écrits académiques</subfield>
+    <subfield code="2">rameau</subfield>
+  </datafield>
+  <datafield tag="686" ind1=" " ind2=" ">
+    <subfield code="a">570</subfield>
+    <subfield code="2">TEF</subfield>
+  </datafield>
+  <datafield tag="686" ind1=" " ind2=" ">
+    <subfield code="a">610</subfield>
+    <subfield code="2">TEF</subfield>
+  </datafield>
+  <datafield tag="700" ind1=" " ind2="1">
+    <subfield code="a">Thumser-Henner-Lett</subfield>
+    <subfield code="b">Elisabeth</subfield>
+    <subfield code="4">070</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2="1">
+    <subfield code="a">Directeur de these inconnu</subfield>
+    <subfield code="4">727</subfield>
+  </datafield>
+  <datafield tag="711" ind1="0" ind2="2">
+    <subfield code="3">026404540</subfield>
+    <subfield code="a">Université Louis Pasteur</subfield>
+    <subfield code="c">Strasbourg</subfield>
+    <subfield code="f">1971-2008</subfield>
+    <subfield code="4">295</subfield>
+  </datafield>
+  <datafield tag="801" ind1=" " ind2="3">
+    <subfield code="a">FR</subfield>
+    <subfield code="b">Abes</subfield>
+    <subfield code="c">20220119</subfield>
+    <subfield code="g">AFNOR</subfield>
+  </datafield>
+  <datafield tag="930" ind1=" " ind2=" ">
+    <subfield code="5">674822138:701321318</subfield>
+    <subfield code="b">674822138</subfield>
+    <subfield code="a">Thèse indisponible</subfield>
+    <subfield code="j">g</subfield>
+  </datafield>
+  <datafield tag="940" ind1=" " ind2=" ">
+    <subfield code="5">674822138:701321318</subfield>
+    <subfield code="a">20210711</subfield>
+    <subfield code="b">x</subfield>
+  </datafield>
+  <datafield tag="941" ind1=" " ind2=" ">
+    <subfield code="5">674822138:701321318</subfield>
+    <subfield code="a">20210711</subfield>
+    <subfield code="b">12:16:53.000</subfield>
+  </datafield>
+</record>

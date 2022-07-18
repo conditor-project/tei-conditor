@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+
+<crossref xmlns="http://www.crossref.org/xschema/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd">
+            <journal>
+              <journal_metadata language="en">
+                <full_title>JAMA</full_title>
+                <abbrev_title>JAMA</abbrev_title>
+                <issn media_type="print">0098-7484</issn>
+              </journal_metadata>
+              <journal_issue>
+                <publication_date media_type="print">
+                  <month>02</month>
+                  <day>05</day>
+                  <year>2014</year>
+                </publication_date>
+                <journal_volume>
+                  <volume>311</volume>
+                </journal_volume>
+                <issue>5</issue>
+              </journal_issue>
+              <journal_article publication_type="full_text">
+                <titles>
+                  <title>Association of Atrial Tissue Fibrosis Identified by Delayed Enhancement MRI and Atrial Fibrillation Catheter Ablation</title>
+                  <subtitle>The DECAAF Study</subtitle>
+                </titles>
+                <contributors>
+                  <person_name sequence="first" contributor_role="author">
+                    <given_name>Nassir F.</given_name>
+                    <surname>Marrouche</surname>
+                    <affiliation>Comprehensive Arrhythmia and Research Management Center, University of Utah School of Medicine, Salt Lake City</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>David</given_name>
+                    <surname>Wilber</surname>
+                    <affiliation>Loyola University Medical Center, Maywood, Illinois</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Gerhard</given_name>
+                    <surname>Hindricks</surname>
+                    <affiliation>University of Leipzig, Leipzig, Germany</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Pierre</given_name>
+                    <surname>Jais</surname>
+                    <affiliation>Centre Hospitalier Universitaire de Bordeaux, Bordeaux, France</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Nazem</given_name>
+                    <surname>Akoum</surname>
+                    <affiliation>Comprehensive Arrhythmia and Research Management Center, University of Utah School of Medicine, Salt Lake City</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Francis</given_name>
+                    <surname>Marchlinski</surname>
+                    <affiliation>Hospital of the University of Pennsylvania, Philadelphia</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Eugene</given_name>
+                    <surname>Kholmovski</surname>
+                    <affiliation>Comprehensive Arrhythmia and Research Management Center, University of Utah School of Medicine, Salt Lake City</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Nathan</given_name>
+                    <surname>Burgon</surname>
+                    <affiliation>Comprehensive Arrhythmia and Research Management Center, University of Utah School of Medicine, Salt Lake City</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Nan</given_name>
+                    <surname>Hu</surname>
+                    <affiliation>Comprehensive Arrhythmia and Research Management Center, University of Utah School of Medicine, Salt Lake City</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Lluis</given_name>
+                    <surname>Mont</surname>
+                    <affiliation>University of Barcelona, Barcelona, Spain</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Thomas</given_name>
+                    <surname>Deneke</surname>
+                    <affiliation>BG-Kliniken Bergmannsheil, University of Bochum, Bochum, Germany</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Mattias</given_name>
+                    <surname>Duytschaever</surname>
+                    <affiliation>University Hospital Ghent, Ghent, Belgium</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Thomas</given_name>
+                    <surname>Neumann</surname>
+                    <affiliation>Kerckhoff Heart Center, Bad Nauheim, Germany</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Moussa</given_name>
+                    <surname>Mansour</surname>
+                    <affiliation>Massachusetts General Hospital, Boston</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Christian</given_name>
+                    <surname>Mahnkopf</surname>
+                    <affiliation>Klinikum Coburg GmbH, II, Medizinische Klinik, Coburg, Germany</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Bengt</given_name>
+                    <surname>Herweg</surname>
+                    <affiliation>Morsani College of Medicine, University of South Florida, Tampa</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Emile</given_name>
+                    <surname>Daoud</surname>
+                    <affiliation>Ohio State University, Columbus</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Erik</given_name>
+                    <surname>Wissner</surname>
+                    <affiliation>Asklepios Klinik St Georg, Hamburg, Germany</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Paul</given_name>
+                    <surname>Bansmann</surname>
+                    <affiliation>Medical Center Porz am Rhein, Cologne, Germany</affiliation>
+                  </person_name>
+                  <person_name sequence="additional" contributor_role="author">
+                    <given_name>Johannes</given_name>
+                    <surname>Brachmann</surname>
+                    <affiliation>Klinikum Coburg GmbH, II, Medizinische Klinik, Coburg, Germany</affiliation>
+                  </person_name>
+                </contributors>
+                <publication_date media_type="print">
+                  <month>02</month>
+                  <day>05</day>
+                  <year>2014</year>
+                </publication_date>
+                <pages>
+                  <first_page>498</first_page>
+                </pages>
+                <doi_data>
+                  <doi>10.1001/jama.2014.3</doi>
+                  <resource>http://jama.jamanetwork.com/article.aspx?doi=10.1001/jama.2014.3</resource>
+                  <collection property="crawler-based">
+                    <item crawler="iParadigms">
+                      <resource>http://jamanetwork.com/journals/jama/fullarticle/1820433</resource>
+                    </item>
+                  </collection>
+                </doi_data>
+              </journal_article>
+            </journal>
+          </crossref>

@@ -1,0 +1,879 @@
+<?xml version="1.0"?>
+
+<crossref xmlns="http://www.crossref.org/xschema/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd">
+            <journal>
+              <journal_metadata language="en">
+                <full_title>Journal of Geophysical Research: Solid Earth</full_title>
+                <abbrev_title>J. Geophys. Res. Solid Earth</abbrev_title>
+                <issn>21699313</issn>
+              </journal_metadata>
+              <journal_issue>
+                <publication_date media_type="print">
+                  <month>02</month>
+                  <year>2014</year>
+                </publication_date>
+                <journal_volume>
+                  <volume>119</volume>
+                </journal_volume>
+                <issue>2</issue>
+              </journal_issue>
+              <journal_article publication_type="full_text">
+                <titles>
+                  <title>Three-dimensional velocity structure of the outer fore arc of the Colombia-Ecuador subduction zone and implications for the 1958 megathrust earthquake rupture zone</title>
+                  <subtitle>COLOMBIA-ECUADOR SUBDUCTION ZONE</subtitle>
+                </titles>
+                <contributors>
+                  <person_name contributor_role="author" sequence="first">
+                    <given_name>Lina Constanza</given_name>
+                    <surname>García Cano</surname>
+                    <affiliation>Université Nice Sophia Antipolis, IRD, CNRS; Observatoire de la Côte d'Azur; Valbonne France</affiliation>
+                    <affiliation>Now at Observatorio Vulcanológico y Sismológico de Manizales-Servicio Geológico Colombiano; Manizales Colombia</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Audrey</given_name>
+                    <surname>Galve</surname>
+                    <affiliation>Université Nice Sophia Antipolis, IRD, CNRS; Observatoire de la Côte d'Azur; Valbonne France</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Philippe</given_name>
+                    <surname>Charvis</surname>
+                    <affiliation>Université Nice Sophia Antipolis, IRD, CNRS; Observatoire de la Côte d'Azur; Valbonne France</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Boris</given_name>
+                    <surname>Marcaillou</surname>
+                    <affiliation>Campus de Fouillole; Université Antilles-Guyane; Pointe-à-Pitre France</affiliation>
+                    <affiliation>Now at Université Nice Sophia Antipolis, IRD, CNRS, Observatoire de la Côte d'Azur, Géoazur; Nouméa New Caledonia</affiliation>
+                  </person_name>
+                </contributors>
+                <publication_date media_type="print">
+                  <month>02</month>
+                  <year>2014</year>
+                </publication_date>
+                <publication_date media_type="online">
+                  <month>02</month>
+                  <day>07</day>
+                  <year>2014</year>
+                </publication_date>
+                <pages>
+                  <first_page>1041</first_page>
+                  <last_page>1060</last_page>
+                </pages>
+                <archive_locations>
+                  <archive name="Portico"/>
+                </archive_locations>
+                <ai:program xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" name="AccessIndicators">
+                  <ai:license_ref applies_to="tdm" start_date="2015-09-01">http://doi.wiley.com/10.1002/tdm_license_1.1</ai:license_ref>
+                </ai:program>
+                <doi_data>
+                  <doi>10.1002/2012JB009978</doi>
+                  <resource>http://doi.wiley.com/10.1002/2012JB009978</resource>
+                  <collection property="crawler-based">
+                    <item crawler="iParadigms">
+                      <resource>http://onlinelibrary.wiley.com/wol1/doi/10.1002/2012JB009978/fullpdf</resource>
+                    </item>
+                  </collection>
+                  <collection property="text-mining">
+                    <item>
+                      <resource content_version="vor" mime_type="application/pdf">https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2F2012JB009978</resource>
+                    </item>
+                    <item>
+                      <resource content_version="vor">https://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1002%2F2012JB009978</resource>
+                    </item>
+                  </collection>
+                </doi_data>
+                <citation_list>
+                  <citation key="10.1002/2012JB009978-BIB0001|jgrb50448-cit-0001">
+                    <author>Abers</author>
+                    <cYear>2009</cYear>
+                    <article_title>Imaging the source region of Cascadia tremor and intermediate-depth earthquakes</article_title>
+                    <journal_title>Geology</journal_title>
+                    <volume>37</volume>
+                    <issue>12</issue>
+                    <first_page>1119</first_page>
+                    <doi>10.1130/G30143A.1</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0002|jgrb50448-cit-0002">
+                    <author>Agudelo</author>
+                    <cYear>2009</cYear>
+                    <article_title>Joint inversion of multichannel seismic reflection and wide-angle seismic data: Improved imaging and refined velocity model of the crustal structure of the north Ecuador-south Colombia convergent margin</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>114</volume>
+                    <doi>10.1029/2008JB005690</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0003|jgrb50448-cit-0003">
+                    <author>Barragan</author>
+                    <cYear>2001</cYear>
+                    <doi provider="crossref">10.1617/13617</doi>
+                    <article_title>Fracture and failure of thermally damaged concrete under tensile loading</article_title>
+                    <journal_title>Mat. Struct.</journal_title>
+                    <volume>34</volume>
+                    <issue>239</issue>
+                    <first_page>312</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0004|jgrb50448-cit-0004">
+                    <author>Beck</author>
+                    <cYear>1991</cYear>
+                    <doi provider="crossref">10.1029/90JB02092</doi>
+                    <article_title>Rupture process of the February 4, 1965, Rat Islands earthquake</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>96</volume>
+                    <issue>B2</issue>
+                    <first_page>2205</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0005|jgrb50448-cit-0005">
+                    <author>Beck</author>
+                    <cYear>1984</cYear>
+                    <doi provider="crossref">10.1029/JB089iB11p09281</doi>
+                    <article_title>The rupture process of the Great 1979 Colombia Earthquake: Evidence for the asperity model</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>89</volume>
+                    <issue>B11</issue>
+                    <first_page>9281</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0006|jgrb50448-cit-0006">
+                    <author>Byrne</author>
+                    <cYear>1988</cYear>
+                    <doi provider="crossref">10.1029/TC007i004p00833</doi>
+                    <article_title>Loci and maximum size of thrust earthquakes and the mechanics of the shallow region of subduction zones</article_title>
+                    <journal_title>Tectonics</journal_title>
+                    <volume>7</volume>
+                    <issue>4</issue>
+                    <first_page>833</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0007|jgrb50448-cit-0007">
+                    <author>Calkins</author>
+                    <cYear>2011</cYear>
+                    <article_title>Shallow structure of the Cascadia subduction zone beneath western Washington from spectral ambient noise correlation</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>116</volume>
+                    <doi>10.1029/2010JB007657</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0008|jgrb50448-cit-0008">
+                    <author>Calvert</author>
+                    <cYear>2011</cYear>
+                    <article_title>Sedimentary underplating at the Cascadia mantle-wedge corner revealed by seismic imaging</article_title>
+                    <journal_title>Nat. Geosci.</journal_title>
+                    <volume>4</volume>
+                    <issue>8</issue>
+                    <first_page>545</first_page>
+                    <doi>10.1038/ngeo1195</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0009|jgrb50448-cit-0009">
+                    <author>Carlson</author>
+                    <cYear>2003</cYear>
+                    <article_title>Bound water content of the lower oceanic crust estimated from modal analyses and seismic velocities of oceanic diabase and gabbro</article_title>
+                    <journal_title>Geophys. Res. Lett.</journal_title>
+                    <volume>30</volume>
+                    <issue>22</issue>
+                    <doi>10.1029/2003GL018213</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0010|jgrb50448-cit-0010">
+                    <author>Carlson</author>
+                    <cYear>2003</cYear>
+                    <article_title>Mantle wedge water contents estimated from seismic velocities in partially serpentinized peridotites</article_title>
+                    <journal_title>Geophys. Res. Lett.</journal_title>
+                    <volume>30</volume>
+                    <issue>5</issue>
+                    <doi>10.1029/2002GL016600</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0011|jgrb50448-cit-0011">
+                    <author>Cediel</author>
+                    <cYear>2003</cYear>
+                    <volume_title>The Circum-Gulf of Mexico and the Caribbean: Hydrocarbon Habitats, Basin Formation, and Plate Tectonics: AAPG Memoir 79</volume_title>
+                    <first_page>815</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0012|jgrb50448-cit-0012">
+                    <author>Christeson</author>
+                    <cYear>1999</cYear>
+                    <doi provider="crossref">10.1029/1999JB900251</doi>
+                    <article_title>Structure of the Costa Rica convergent margin, offshore Nicoya Peninsula</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>104</volume>
+                    <issue>B11</issue>
+                    <first_page>25,443</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0013|jgrb50448-cit-0013">
+                    <author>Cloos</author>
+                    <cYear>1992</cYear>
+                    <doi provider="crossref">10.1130/0091-7613(1992)020&lt;0601:TTSZEA&gt;2.3.CO;2</doi>
+                    <article_title>Thrust-type subduction-zone earthquakes and seamount asperities: A physical model for seismic rupture</article_title>
+                    <journal_title>Geology</journal_title>
+                    <volume>20</volume>
+                    <issue>7</issue>
+                    <first_page>601</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0014|jgrb50448-cit-0014">
+                    <author>Cloos</author>
+                    <cYear>1996</cYear>
+                    <doi provider="crossref">10.1130/0091-7613(1996)024&lt;0107:SZTATS&gt;2.3.CO;2</doi>
+                    <article_title>Shear-zone thickness and the seismicity of Chilean- and Marianas-type subduction zones</article_title>
+                    <journal_title>Geology</journal_title>
+                    <volume>24</volume>
+                    <issue>2</issue>
+                    <first_page>107</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0015|jgrb50448-cit-0015">
+                    <author>Collot</author>
+                    <cYear>2002</cYear>
+                    <doi provider="crossref">10.1029/2002EO000120</doi>
+                    <article_title>Exploring the Ecuador-Colombia active margin and inter-plate seismogenic zone</article_title>
+                    <journal_title>Eos Trans. AGU</journal_title>
+                    <volume>83</volume>
+                    <issue>17</issue>
+                    <first_page>185,189</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0016|jgrb50448-cit-0016">
+                    <author>Collot</author>
+                    <cYear>2004</cYear>
+                    <article_title>Are rupture zone limits of great subduction earthquakes controlled by upper plate structures? Evidences from multichannel seismic reflection data acquired across the northern Ecuador-southwest Colombia margin</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>109</volume>
+                    <doi>10.1029/2004JB003060</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0017|jgrb50448-cit-0017">
+                    <author>Collot</author>
+                    <cYear>2008</cYear>
+                    <article_title>Origin of a crustal splay fault and its relation to the seismogenic zone and underplating at the erosional north Ecuador-south Colombia oceanic margin</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>113</volume>
+                    <doi>10.1029/2008JB005691</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0018|jgrb50448-cit-0018">
+                    <author>Collot</author>
+                    <cYear>2009</cYear>
+                    <volume_title>Geologia y geofisica marina y terestre del Ecuador desde la costa continental hasta las islas Gapapagos</volume_title>
+                    <first_page>47</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0019|jgrb50448-cit-0019">
+                    <author>De Vries</author>
+                    <cYear>1988</cYear>
+                    <doi provider="crossref">10.1016/0895-9811(88)90030-2</doi>
+                    <article_title>The geology of late Cenozoic marine terraces (tablazos) in northwestern Peru</article_title>
+                    <journal_title>J. South Am. Earth Sci.</journal_title>
+                    <volume>1</volume>
+                    <first_page>121</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0020|jgrb50448-cit-0020">
+                    <author>Dumont</author>
+                    <cYear>2006</cYear>
+                    <doi provider="crossref">10.1016/j.geomorph.2005.07.011</doi>
+                    <article_title>Fan beheading and drainage diversion as evidence of a 3200-2800 BP earthquake event in the Esmeraldas-Tumaco seismic zone: A case study for the effects of great subduction earthquakes</article_title>
+                    <journal_title>Geomorphology</journal_title>
+                    <volume>74</volume>
+                    <first_page>100</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0021|jgrb50448-cit-0021">
+                    <author>Evain</author>
+                    <cYear>2013</cYear>
+                    <article_title>Structure of the Lesser Antilles subduction forearc and backstop from 3D seismic refraction tomography</article_title>
+                    <journal_title>Tectonophysics</journal_title>
+                    <volume>603</volume>
+                    <first_page>55</first_page>
+                    <doi>10.1016/j.tecto.2011.09.021</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0022|jgrb50448-cit-0022">
+                    <unstructured_citation>Flueh , E. R. J. Bialas P. Charvis 2001 FS Sonne Fahrtbericht SO 159</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0023|jgrb50448-cit-0023">
+                    <unstructured_citation>Gailler , A. 2005 Structure de la marge d'Équateur-Colombie par modélisation des données de sismique grand-angle marines: Influence sur le fonctionnement de la subduction et la sismicité</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0024|jgrb50448-cit-0024">
+                    <author>Gailler</author>
+                    <cYear>2007</cYear>
+                    <doi provider="crossref">10.1016/j.epsl.2007.05.045</doi>
+                    <article_title>Segmentation of the Nazca and South American plates along the Ecuador subduction zone from wide angle seismic profiles</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>260</volume>
+                    <issue>3-4</issue>
+                    <first_page>444</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0025|jgrb50448-cit-0025">
+                    <unstructured_citation>García Cano , L. C. 2009 Imagerie sismique 3D de la zone de subduction à la frontière Colombie-Équateur</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0026|jgrb50448-cit-0026">
+                    <author>Gerdom</author>
+                    <cYear>2000</cYear>
+                    <article_title>The continental margin off Oregon from seismic investigations</article_title>
+                    <journal_title>Tectonophysics</journal_title>
+                    <volume>329</volume>
+                    <issue>1-4</issue>
+                    <first_page>79</first_page>
+                    <doi>10.1016/S0040-1951(00)00190-6</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0027|jgrb50448-cit-0027">
+                    <author>Gutscher</author>
+                    <cYear>1999</cYear>
+                    <doi provider="crossref">10.1016/S0012-821X(99)00060-6</doi>
+                    <article_title>Tectonic segmentation of the North Andean margin: Impact of the Carnegie Ridge collision</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>168</volume>
+                    <issue>3-4</issue>
+                    <first_page>255</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0028|jgrb50448-cit-0028">
+                    <author>Hacker</author>
+                    <cYear>2004</cYear>
+                    <article_title>Subduction Factory 3: An Excel worksheet and macro for calculating the densities, seismic wave speeds, and H2O contents of minerals and rocks at pressure and temperature</article_title>
+                    <journal_title>Geochem. Geophys. Geosyst.</journal_title>
+                    <volume>5</volume>
+                    <doi>10.1029/2003GC000614</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0029|jgrb50448-cit-0029">
+                    <author>Hacker</author>
+                    <cYear>2003</cYear>
+                    <article_title>Subduction factory - 1. Theoretical mineralogy, densities, seismic wave speeds, and H2O contents</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>108</volume>
+                    <issue>B1</issue>
+                    <doi>10.1029/2001JB001127</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0030|jgrb50448-cit-0030">
+                    <unstructured_citation>Hello , Y. B. A. Yates A. Anglade A. Gailler P. Charvis 2006 Hippocampe: A new versatile ocean bottom seismometer</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0032|jgrb50448-cit-0032">
+                    <author>Hyndman</author>
+                    <cYear>1997</cYear>
+                    <doi provider="crossref">10.1111/j.1440-1738.1997.tb00175.x</doi>
+                    <article_title>The seismogenic zone of subduction thrust faults</article_title>
+                    <journal_title>Island Arc</journal_title>
+                    <volume>6</volume>
+                    <issue>3</issue>
+                    <first_page>244</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0033|jgrb50448-cit-0033">
+                    <author>Ioualalen</author>
+                    <cYear>2011</cYear>
+                    <doi provider="crossref">10.1111/j.1365-246X.2010.04878.x</doi>
+                    <article_title>The tsunami signature on a submerged promontory: The case study of the Atacames Promontory, Ecuador</article_title>
+                    <journal_title>Geophys. J. Int.</journal_title>
+                    <volume>184</volume>
+                    <issue>2</issue>
+                    <first_page>680</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0034|jgrb50448-cit-0034">
+                    <author>Jaillard</author>
+                    <cYear>1995</cYear>
+                    <volume_title>Petroleum Basins of South America</volume_title>
+                    <first_page>615</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0035|jgrb50448-cit-0035">
+                    <author>Jaillard</author>
+                    <cYear>1997</cYear>
+                    <article_title>Palaeogene deformations of the forearc zone of south Ecuador in relation to the geodynamic evolution</article_title>
+                    <journal_title>Bull. Soc. Geol. Fr.</journal_title>
+                    <volume>168</volume>
+                    <issue>4</issue>
+                    <first_page>403</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0036|jgrb50448-cit-0036">
+                    <author>Kamei</author>
+                    <cYear>2012</cYear>
+                    <article_title>Waveform tomography imaging of a megasplay fault system in the seismogenic Nankai subduction zone</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>317-318</volume>
+                    <first_page>343</first_page>
+                    <doi>10.1016/j.epsl.2011.10.042</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0037|jgrb50448-cit-0037">
+                    <author>Kanamori</author>
+                    <cYear>2004</cYear>
+                    <doi provider="crossref">10.1088/0034-4885/67/8/R03</doi>
+                    <article_title>The physics of earthquakes</article_title>
+                    <journal_title>Rep. Prog. Phys.</journal_title>
+                    <volume>67</volume>
+                    <issue>8</issue>
+                    <first_page>1429</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0038|jgrb50448-cit-0038">
+                    <author>Kanamori</author>
+                    <cYear>1982</cYear>
+                    <article_title>Variable rupture mode of the subduction zone along the Ecuador - Colombia Coast</article_title>
+                    <journal_title>Bull. Seismol. Soc. Am.</journal_title>
+                    <volume>72</volume>
+                    <issue>4</issue>
+                    <first_page>1241</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0039|jgrb50448-cit-0039">
+                    <author>Kelleher</author>
+                    <cYear>1972</cYear>
+                    <doi provider="crossref">10.1029/JB077i011p02087</doi>
+                    <article_title>Rupture zones of large South-American earthquakes and some predictions</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>77</volume>
+                    <issue>11</issue>
+                    <first_page>2087</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0040|jgrb50448-cit-0040">
+                    <author>Kerr</author>
+                    <cYear>1997</cYear>
+                    <doi provider="crossref">10.1093/petroj/38.6.677</doi>
+                    <article_title>Cretaceous basaltic terranes in western Colombia: Elemental, chronological and Sr-Nd isotopic constraints on petrogenesis</article_title>
+                    <journal_title>J. Petrol.</journal_title>
+                    <volume>38</volume>
+                    <issue>6</issue>
+                    <first_page>677</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0041|jgrb50448-cit-0041">
+                    <author>Kimura</author>
+                    <cYear>2010</cYear>
+                    <article_title>Dynamic source modeling of the 1978 and 2005 Miyagi-oki earthquakes: Interpretation of fracture energy</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>115</volume>
+                    <doi>10.1029/2009JB006758</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0042|jgrb50448-cit-0042">
+                    <author>Kopp</author>
+                    <cYear>2011</cYear>
+                    <doi provider="crossref">10.1016/j.epsl.2011.01.024</doi>
+                    <article_title>Deep structure of the central Lesser Antilles Island Arc: Relevance for the formation of continental crust</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>304</volume>
+                    <first_page>121</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0043|jgrb50448-cit-0043">
+                    <author>Krabbenhoft</author>
+                    <cYear>2004</cYear>
+                    <doi provider="crossref">10.1111/j.1365-246X.2004.02425.x</doi>
+                    <article_title>Crustal structure of the Peruvian continental margin from wide-angle seismic studies</article_title>
+                    <journal_title>Geophys. J. Int.</journal_title>
+                    <volume>159</volume>
+                    <issue>2</issue>
+                    <first_page>749</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0044|jgrb50448-cit-0044">
+                    <author>Lapierre</author>
+                    <cYear>2000</cYear>
+                    <doi provider="crossref">10.1029/1998JB900091</doi>
+                    <article_title>Multiple plume events in the genesis of the peri-Caribbean Cretaceous oceanic plateau province</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>105</volume>
+                    <issue>B4</issue>
+                    <first_page>8403</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0045|jgrb50448-cit-0045">
+                    <author>Lay</author>
+                    <cYear>1981</cYear>
+                    <volume_title>Earthquake Prediction: An International Review, Maurice Ewing Series, AGU</volume_title>
+                    <first_page>579</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0046|jgrb50448-cit-0046">
+                    <author>Lees</author>
+                    <cYear>1990</cYear>
+                    <doi provider="crossref">10.1029/JB095iB04p04763</doi>
+                    <article_title>Tomographic imaging of local earthquake delay times for three-dimensional velocity variation in Western Washington</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>95</volume>
+                    <issue>B4</issue>
+                    <first_page>4763</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0047|jgrb50448-cit-0047">
+                    <author>Liu</author>
+                    <cYear>2009</cYear>
+                    <article_title>Slow slip predictions based on granite and gabbro friction data compared to GPS measurements in northern Cascadia</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>114</volume>
+                    <doi>10.1029/2008JB006142</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0048|jgrb50448-cit-0048">
+                    <author>Lonsdale</author>
+                    <cYear>2005</cYear>
+                    <doi provider="crossref">10.1016/j.tecto.2005.05.011</doi>
+                    <article_title>Creation of the Cocos and Nazca plates by fission of the Farallon plate</article_title>
+                    <journal_title>Tectonophysics</journal_title>
+                    <volume>404</volume>
+                    <issue>3-4</issue>
+                    <first_page>237</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0049|jgrb50448-cit-0049">
+                    <author>Ma</author>
+                    <cYear>2012</cYear>
+                    <article_title>A self-consistent mechanism for slow dynamic deformation and large tsunami generation for earthquakes in the shallow subduction zone</article_title>
+                    <journal_title>Geophys. Res. Lett.</journal_title>
+                    <volume>39</volume>
+                    <doi>10.1029/2012GL051854</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0050|jgrb50448-cit-0050">
+                    <author>Mamberti</author>
+                    <cYear>2003</cYear>
+                    <doi provider="crossref">10.1016/S0024-4937(02)00218-9</doi>
+                    <article_title>Accreted fragments of the Late Cretaceous Caribbean- Colombian Plateau in Ecuador</article_title>
+                    <journal_title>Lithos</journal_title>
+                    <volume>66</volume>
+                    <issue>3-4</issue>
+                    <first_page>173</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0051|jgrb50448-cit-0051">
+                    <author>Manchuel</author>
+                    <cYear>2011</cYear>
+                    <article_title>New insights on the interseismic active deformation along the North Ecuadorian-South Colombian (NESC) margin</article_title>
+                    <journal_title>Tectonics</journal_title>
+                    <volume>30</volume>
+                    <doi>10.1029/2010TC002757</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0052|jgrb50448-cit-0052">
+                    <unstructured_citation>Marcaillou , B. 2003 Régimes tectoniques et thermiques de la marge Nord Equateur - Sud Colombie (0°-3.5°N) - Implications sur la sismogenèse</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0053|jgrb50448-cit-0053">
+                    <author>Marcaillou</author>
+                    <cYear>2006</cYear>
+                    <article_title>Thermal regime from bottom simulating reflectors along the north Ecuador-south Colombia margin: Relation to margin segmentation and great subduction earthquakes</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>111</volume>
+                    <doi>10.1029/2005JB004239</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0054|jgrb50448-cit-0054">
+                    <author>Marcaillou</author>
+                    <cYear>2008</cYear>
+                    <doi provider="crossref">10.1016/j.epsl.2008.04.049</doi>
+                    <article_title>Thermal segmentation along the N. Ecuador-S. Colombia margin (1-4 degrees N): Prominent influence of sedimentation rate in the trench</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>272</volume>
+                    <issue>1-2</issue>
+                    <first_page>296</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0055|jgrb50448-cit-0055">
+                    <unstructured_citation>Meléndez , A. V. Sallarès C. Ranero K. McIntosh I. Grevemeyer M. Prada 2010 Constraints on the seismogenesis of the Nicaragua 1992 slow tsunamigenic earthquake based on seismic travel-time tomography models</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0056|jgrb50448-cit-0056">
+                    <author>Mendoza</author>
+                    <cYear>1984</cYear>
+                    <article_title>Seismicity associated with the great Colombia-Ecuador earthquakes of 1942, 1958, and 1979 - Implications for barrier models of earthquake rupture</article_title>
+                    <journal_title>Bull. Seismol. Soc. Am.</journal_title>
+                    <volume>74</volume>
+                    <issue>2</issue>
+                    <first_page>577</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0057|jgrb50448-cit-0057">
+                    <unstructured_citation>Michaud , F. J.-Y. Collot A. Alvarado E. López Scientific and technical staff from the INOCAR 2006 República del Ecuador: Batrimetria y Relieve Continental</unstructured_citation>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0058|jgrb50448-cit-0058">
+                    <author>Michaud</author>
+                    <cYear>2009</cYear>
+                    <article_title>Influence of the subduction of the Carnegie volcanic ridge on Ecuadorian geology: Reality and fiction</article_title>
+                    <journal_title>GSA Mem.</journal_title>
+                    <volume>204</volume>
+                    <first_page>217</first_page>
+                    <doi>10.1130/2009.1204(10</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0059|jgrb50448-cit-0059">
+                    <author>Moberly</author>
+                    <cYear>1982</cYear>
+                    <volume_title>Trench-Forearc Geology: Sedimentation and Tectonics on Modern and Ancient Active Plate Margins</volume_title>
+                    <first_page>245</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0060|jgrb50448-cit-0060">
+                    <author>Moore</author>
+                    <cYear>2007</cYear>
+                    <doi provider="crossref">10.1126/science.1147195</doi>
+                    <article_title>Three-dimensional splay fault geometry and implications for tsunami generation</article_title>
+                    <journal_title>Science</journal_title>
+                    <volume>318</volume>
+                    <issue>5853</issue>
+                    <first_page>1128</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0061|jgrb50448-cit-0061">
+                    <author>Nakamura</author>
+                    <cYear>1987</cYear>
+                    <doi provider="crossref">10.1190/1.1442277</doi>
+                    <article_title>Large-offset seismic surveying ocean-bottom seismographs and air guns: Instrumentation and field technique</article_title>
+                    <journal_title>Geophysics</journal_title>
+                    <volume>52</volume>
+                    <issue>12</issue>
+                    <first_page>1601</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0062|jgrb50448-cit-0062">
+                    <author>Nocquet</author>
+                    <cYear>2009</cYear>
+                    <volume_title>Geologia y geofisica marina y terestre del Ecuador desde la costa continental hasta las islas Gapapagos</volume_title>
+                    <first_page>83</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0063|jgrb50448-cit-0063">
+                    <author>Papadimitriou</author>
+                    <cYear>1993</cYear>
+                    <doi provider="crossref">10.1007/BF00879409</doi>
+                    <article_title>Long-term earthquake prediction along the western coast of South-America and Central-America based on a time predictable model</article_title>
+                    <journal_title>Pure Appl. Geophys.</journal_title>
+                    <volume>140</volume>
+                    <issue>2</issue>
+                    <first_page>301</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0064|jgrb50448-cit-0064">
+                    <author>Parsons</author>
+                    <cYear>1998</cYear>
+                    <doi provider="crossref">10.1130/0091-7613(1998)026&lt;0199:ANVITC&gt;2.3.CO;2</doi>
+                    <article_title>A new view into the Cascadia subduction zone and volcanic arc: Implications for earthquake hazards along the Washington margin</article_title>
+                    <journal_title>Geology</journal_title>
+                    <volume>26</volume>
+                    <issue>3</issue>
+                    <first_page>199</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0065|jgrb50448-cit-0065">
+                    <author>Peacock</author>
+                    <cYear>2003</cYear>
+                    <volume_title>Inside the Subduction Factory</volume_title>
+                    <series_title>Geophys. Monogr. Ser</series_title>
+                    <volume>138</volume>
+                    <first_page>7</first_page>
+                    <doi>10.1029/138GM02</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0066|jgrb50448-cit-0066">
+                    <author>Pedoja</author>
+                    <cYear>2006</cYear>
+                    <doi provider="crossref">10.1016/j.jsames.2006.08.003</doi>
+                    <article_title>Plio-Quaternary uplift of the Manta Peninsula and La Plata Island and the subduction of the Carnegie Ridge, central coast of Ecuador</article_title>
+                    <journal_title>J. South Am. Earth Sci.</journal_title>
+                    <volume>22</volume>
+                    <issue>1-2</issue>
+                    <first_page>1</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0067|jgrb50448-cit-0067">
+                    <author>Ranero</author>
+                    <cYear>2000</cYear>
+                    <doi provider="crossref">10.1038/35008046</doi>
+                    <article_title>Subduction erosion along the Middle America convergent margin</article_title>
+                    <journal_title>Nature</journal_title>
+                    <volume>404</volume>
+                    <issue>6779</issue>
+                    <first_page>748</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0068|jgrb50448-cit-0068">
+                    <author>Ranero</author>
+                    <cYear>2008</cYear>
+                    <article_title>Hydrogeological system of erosional convergent margins and its influence on tectonics and interplate seismogenesis</article_title>
+                    <journal_title>Geochem. Geophys. Geosyst.</journal_title>
+                    <volume>9</volume>
+                    <doi>10.1029/2007GC001679</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0069|jgrb50448-cit-0069">
+                    <author>Ratzov</author>
+                    <cYear>2010</cYear>
+                    <doi provider="crossref">10.1016/j.epsl.2010.04.048</doi>
+                    <article_title>Mass-transport deposits in the northern Ecuador subduction trench: Result of frontal erosion over multiple seismic cycles</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>296</volume>
+                    <issue>1-2</issue>
+                    <first_page>89</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0070|jgrb50448-cit-0070">
+                    <author>Révillon</author>
+                    <cYear>2000</cYear>
+                    <doi provider="crossref">10.1093/petrology/41.7.1127</doi>
+                    <article_title>Geochemical study of ultramafic volcanic and plutonic rocks from Gorgona Island, Colombia: The plumbing system of an oceanic plateau</article_title>
+                    <journal_title>J. Petrol.</journal_title>
+                    <volume>41</volume>
+                    <issue>7</issue>
+                    <first_page>1127</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0071|jgrb50448-cit-0071">
+                    <author>Reynaud</author>
+                    <cYear>1999</cYear>
+                    <doi provider="crossref">10.1016/S0040-1951(99)00099-2</doi>
+                    <article_title>Oceanic plateau and island arcs of southwestern Ecuador: Their place in the geodynamic evolution of northwestern South America</article_title>
+                    <journal_title>Tectonophysics</journal_title>
+                    <volume>307</volume>
+                    <issue>3-4</issue>
+                    <first_page>235</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0072|jgrb50448-cit-0072">
+                    <author>Ruff</author>
+                    <cYear>1989</cYear>
+                    <doi provider="crossref">10.1007/BF00874629</doi>
+                    <article_title>Do trench sediments affect great earthquake occurrence in subduction zones</article_title>
+                    <journal_title>Pure Appl. Geophys.</journal_title>
+                    <volume>129</volume>
+                    <issue>1-2</issue>
+                    <first_page>263</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0073|jgrb50448-cit-0073">
+                    <author>Ryan</author>
+                    <cYear>1993</cYear>
+                    <doi provider="crossref">10.1029/93JB02451</doi>
+                    <article_title>Geologic implications of great interplate earthquakes along the Aleutian arc</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>98</volume>
+                    <issue>B12</issue>
+                    <first_page>22,135</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0074|jgrb50448-cit-0074">
+                    <author>Sage</author>
+                    <cYear>2006</cYear>
+                    <doi provider="crossref">10.1130/G22790A.1</doi>
+                    <article_title>Interplate patchiness and subduction-erosion mechanisms: Evidence from depth-migrated seismic images at the central Ecuador convergent margin</article_title>
+                    <journal_title>Geology</journal_title>
+                    <volume>34</volume>
+                    <issue>12</issue>
+                    <first_page>997</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0075|jgrb50448-cit-0075">
+                    <author>Sallarés</author>
+                    <cYear>2005</cYear>
+                    <article_title>Structure and tectonics of the erosional convergent margin off Antofagasta, north Chile (23 degrees 30' S)</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>110</volume>
+                    <doi>10.1029/2004JB003418</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0076|jgrb50448-cit-0076">
+                    <author>Sallarés</author>
+                    <cYear>2003</cYear>
+                    <doi provider="crossref">10.1016/S0012-821X(03)00373-X</doi>
+                    <article_title>Crustal thickness constraints on the geodynamic evolution of the Galapagos Volcanic Province</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>214</volume>
+                    <issue>3-4</issue>
+                    <first_page>545</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0077|jgrb50448-cit-0077">
+                    <author>Schimmel</author>
+                    <cYear>2007</cYear>
+                    <article_title>Frequency-dependent phase coherence for noise suppression in seismic array data</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>112</volume>
+                    <doi>10.1029/2006JB004680</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0078|jgrb50448-cit-0078">
+                    <author>Tang</author>
+                    <cYear>2013</cYear>
+                    <article_title>3-D active source tomography around Simeulue Island offshore Sumatra: Thick crustal zone responsible for earthquake segment boundary</article_title>
+                    <journal_title>Geophys. Res. Lett.</journal_title>
+                    <volume>40</volume>
+                    <first_page>48</first_page>
+                    <doi>10.1029/2012GL054148</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0079|jgrb50448-cit-0079">
+                    <author>Tetreault</author>
+                    <cYear>2012</cYear>
+                    <article_title>Geodynamic models of terrane accretion: Testing the fate of island arcs, oceanic plateaus, and continental fragments in subduction zones</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>117</volume>
+                    <doi>10.1029/2012JB009316</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0080|jgrb50448-cit-0080">
+                    <author>Tréhu</author>
+                    <cYear>1994</cYear>
+                    <doi provider="crossref">10.1126/science.266.5183.237</doi>
+                    <article_title>Crustal architecture of the Cascadia fore-arc</article_title>
+                    <journal_title>Science</journal_title>
+                    <volume>266</volume>
+                    <issue>5183</issue>
+                    <first_page>237</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0081|jgrb50448-cit-0081">
+                    <author>Tréhu</author>
+                    <cYear>2012</cYear>
+                    <article_title>Subducted seamounts and recent earthquakes beneath the central Cascadia forearc</article_title>
+                    <journal_title>Geology</journal_title>
+                    <volume>40</volume>
+                    <issue>2</issue>
+                    <first_page>103</first_page>
+                    <doi>10.1130/G32460.1</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0082|jgrb50448-cit-0082">
+                    <author>Trenkamp</author>
+                    <cYear>2002</cYear>
+                    <doi provider="crossref">10.1016/S0895-9811(02)00018-4</doi>
+                    <article_title>Wide plate margin deformation, southern Central America and northwestern South America, CASA GPS observations</article_title>
+                    <journal_title>J. South Am. Earth Sci.</journal_title>
+                    <volume>15</volume>
+                    <issue>2</issue>
+                    <first_page>157</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0083|jgrb50448-cit-0083">
+                    <author>Tsuji</author>
+                    <cYear>2008</cYear>
+                    <doi provider="crossref">10.1071/EG08001</doi>
+                    <article_title>Velocity-porosity relationships in oceanic basalt from eastern flank of the Juan de Fuca Ridge: The effect of crack closure on seismic velocity</article_title>
+                    <journal_title>Explor. Geophys.</journal_title>
+                    <volume>39</volume>
+                    <issue>1</issue>
+                    <first_page>41</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0084|jgrb50448-cit-0084">
+                    <author>Tsuji</author>
+                    <cYear>1995</cYear>
+                    <doi provider="crossref">10.1007/BF00874380</doi>
+                    <article_title>Damage to coastal villages due to the 1992 Flores Island earthquake tsunami</article_title>
+                    <journal_title>Pure Appl. Geophys.</journal_title>
+                    <volume>144</volume>
+                    <issue>3-4</issue>
+                    <first_page>481</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0085|jgrb50448-cit-0085">
+                    <author>Vidale</author>
+                    <cYear>1990</cYear>
+                    <doi provider="crossref">10.1190/1.1442863</doi>
+                    <article_title>Finite-difference calculation of traveltimes in three dimensions</article_title>
+                    <journal_title>Geophysics</journal_title>
+                    <volume>55</volume>
+                    <first_page>521</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0031|jgrb50448-cit-0031">
+                    <author>Huene</author>
+                    <cYear>2003</cYear>
+                    <article_title>Subduction erosion and basal friction along the sediment-starved convergent margin off Antofagasta, Chile</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>108</volume>
+                    <issue>B2</issue>
+                    <doi>10.1029/2001JB001569</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0086|jgrb50448-cit-0086">
+                    <author>Walther</author>
+                    <cYear>2000</cYear>
+                    <doi provider="crossref">10.1046/j.1365-246x.2000.00134.x</doi>
+                    <article_title>Crustal structure across the Pacific margin of Nicaragua: Evidence for ophiolitic basement and a shallow mantle sliver</article_title>
+                    <journal_title>Geophys. J. Int.</journal_title>
+                    <volume>141</volume>
+                    <issue>3</issue>
+                    <first_page>759</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0087|jgrb50448-cit-0087">
+                    <author>Wells</author>
+                    <cYear>2003</cYear>
+                    <article_title>Basin-centered asperities in great subduction zone earthquakes: A link between slip, subsidence, and subduction erosion?</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>108</volume>
+                    <issue>B10</issue>
+                    <doi>10.1029/2002JB002072</doi>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0088|jgrb50448-cit-0088">
+                    <author>Westbrook</author>
+                    <cYear>1995</cYear>
+                    <doi provider="crossref">10.1130/SPE295-p91</doi>
+                    <volume_title>Geologic and Tectonic Development of the Caribbean Plate Boundary in Southern Central America</volume_title>
+                    <series_title>GSA Special Paper</series_title>
+                    <first_page>91</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0089|jgrb50448-cit-0089">
+                    <author>White</author>
+                    <cYear>2003</cYear>
+                    <doi provider="crossref">10.1016/S0012-821X(03)00535-1</doi>
+                    <article_title>Recent crustal deformation and the earthquake cycle along the Ecuador-Colombia subduction zone</article_title>
+                    <journal_title>Earth Planet. Sci. Lett.</journal_title>
+                    <volume>216</volume>
+                    <issue>3</issue>
+                    <first_page>231</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0090|jgrb50448-cit-0090">
+                    <author>Zelt</author>
+                    <cYear>1998</cYear>
+                    <doi provider="crossref">10.1029/97JB03536</doi>
+                    <article_title>Three-dimensional seismic refraction tomography: A comparison of two methods applied to data from the Faeroe Basin</article_title>
+                    <journal_title>J. Geophys. Res.</journal_title>
+                    <volume>103</volume>
+                    <issue>B4</issue>
+                    <first_page>7187</first_page>
+                  </citation>
+                  <citation key="10.1002/2012JB009978-BIB0091|jgrb50448-cit-0091">
+                    <author>Zelt</author>
+                    <cYear>1999</cYear>
+                    <doi provider="crossref">10.1029/1999GL900545</doi>
+                    <article_title>3D simultaneous seismic refraction and reflection tomography of wide-angle data from the central Chilean margin</article_title>
+                    <journal_title>Geophys. Res. Lett.</journal_title>
+                    <volume>26</volume>
+                    <issue>16</issue>
+                    <first_page>2577</first_page>
+                  </citation>
+                </citation_list>
+              </journal_article>
+            </journal>
+          </crossref>
