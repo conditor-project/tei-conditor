@@ -34,6 +34,11 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
       - type de thèse et domaine de thèse : 
       		Ajout d'un test sur le contenu de 328$b <xsl:when test="contains(./subfield[@code='b'], 'exercice')"> et génération de la chaîne "Thèse d'exercice" pour éviter les rejets liés à l'apostrophe
       		Ajout d'un test sur la présence de "Thèse d'exercice" en position 2 du champ répétitif 328 Unimarc pour éviter les rejets co-formatter si le type "Mémoire de DES" apparaît en premier
+      
+      Modifications du 27 septembre 2022 : D. Besagni, S. Gregorio
+      - élément <idno type="nnt"> : 
+      		la condition “string.length(.)=12” devient “string.length(.)&gt;=12” pour les cas où une mention (inutile) est ajoutée, du genre “ (thèse d’exercice)”
+      		la commande “<xsl:apply-templates/>” est remplacée par “<xsl:value-of select="substring(.,1,12)"/>” qui garde les 12 premiers caractères.
 =======================================================================================  -->
 	
  <xsl:output encoding="UTF-8" indent="yes"/>
@@ -304,10 +309,11 @@ Cette feuille de style traite les notices de thèses françaises issus de la bib
 </xsl:template>
 
 	<!-- nouveau contrôle : si le NNT contient moins de 12 positions, il est ignoré  (pour éviter les nnt tronqués type 2014ROUEM ou 2014POITMO  qui risqueraient de créer des faux doublons  -->
+	<!-- utilisation de substring pour les cas où on a du texte après le NNT -->
 <xsl:template match="datafield[@tag='029']/subfield[@code='b']">
-	<xsl:if test="string-length(.)=12">
+	<xsl:if test="string-length(.)&gt;=12">
 	<idno type="nnt">
-		<xsl:apply-templates/>
+		<xsl:value-of select="substring(.,1,12)"/>
 	</idno>
 	</xsl:if>
 </xsl:template>
